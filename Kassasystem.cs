@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace DigitCashier
 {
 
     class Kassasystem
@@ -13,9 +13,11 @@ namespace ConsoleApplication1
         static int[] varorID = new int[5] { 22, 33, 44, 55, 66 };
         static int[] priser = new int[5] { 15, 70, 40, 20, 30 };
         static int[] kategori = new int[5] { 0, 0, 0, 0, 1 };
-        static void Main(string[] args)
-        {
+        static int totaltPris;
 
+       // static void Main(string[] args)
+      public static void Kassa ()
+        {
             Console.WriteLine("Varans id?");
 
             string input = Console.ReadLine();
@@ -26,7 +28,7 @@ namespace ConsoleApplication1
             {
                 Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
 
-                input = Console.ReadLine();            
+                input = Console.ReadLine();
             }
 
             VaraID(helTal);
@@ -81,10 +83,10 @@ namespace ConsoleApplication1
                 Console.ReadLine();
             }
 
-           // Console.WriteLine(antal);
-           // Console.WriteLine("Varan kostar:" + kostnad +"kr");
-           // Console.WriteLine(name);
-           // Console.ReadLine();
+            // Console.WriteLine(antal);
+            // Console.WriteLine("Varan kostar:" + kostnad +"kr");
+            // Console.WriteLine(name);
+            // Console.ReadLine();
 
         }
     }
