@@ -86,9 +86,7 @@ namespace DigitCashier
                     else if (mer == "n")
                     {
                         okInput = true;
-                        Console.WriteLine("Dina prylar kostar" + totaltPris);
-                        Console.ReadLine();
-                        //Här kör vi kvitto metoden.
+                        Kupong();
                     }
                     else
                     {
@@ -117,6 +115,105 @@ namespace DigitCashier
             }
 
             VaraID(helTal);
+        }
+
+        void Kupong()
+        {
+            bool okInput = true;
+
+            do
+            {
+                Console.WriteLine("Har kunden någon kupong?");
+
+                string option = Console.ReadLine();
+
+                if (option == "y")
+                {
+                    okInput = true;
+
+                    Console.WriteLine("Hur mycket är kupongen värd?");
+
+                    string input = Console.ReadLine();
+
+                    int worth;
+
+                    while (Int32.TryParse(input, out worth) == false || worth <= 0)
+                    {
+                        Console.WriteLine("Ange hur mycket kunden betalade");
+
+                        input = Console.ReadLine();
+                    }
+
+                    totaltPris -= worth;
+                    /* if(totaltPris < 0)
+                     {
+                         totaltPris = 0;
+                     }*/
+
+                    Betalning();
+                }
+                else if (option == "n")
+                {
+                    okInput = true;
+                    Betalning();
+                }
+
+                else
+                {
+                    okInput = false;
+                }
+            } while (okInput == false);
+        }
+
+        void Betalning()
+        {
+            Console.WriteLine("Dina prylar kostar" + totaltPris);
+
+            bool okInput = true;
+
+            do
+            {
+                Console.WriteLine("Vill kunden betala kontant eller med kort?");
+
+                string option = Console.ReadLine();
+
+                if (option == "kontant")
+                {
+                    okInput = true;
+                    CalcChange();                 
+                }
+                else if (option == "kort")
+                {
+                    okInput = true;
+                    CalcChange();
+                }
+
+                else
+                {
+                    okInput = false;
+                }
+            } while (okInput == false);
+        }
+
+        void CalcChange()
+        {
+            Console.WriteLine("Hur mycket betalade kunden?");
+
+            string payed = Console.ReadLine();
+
+            int betalt;
+
+            while (Int32.TryParse(payed, out betalt) == false || betalt <= 0)
+            {
+                Console.WriteLine("Ange hur mycket kunden betalade");
+
+                payed = Console.ReadLine();
+            }
+
+                int change = betalt - totaltPris;
+                Console.WriteLine("Kunden ska få " + change + "kr tillbaka i växel");
+
+            //Här kör vi kvitto metoden.
         }
     }
 }
