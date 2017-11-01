@@ -144,11 +144,7 @@ namespace DigitCashier
                         input = Console.ReadLine();
                     }
 
-                    totaltPris -= worth;
-                    /* if(totaltPris < 0)
-                     {
-                         totaltPris = 0;
-                     }*/
+                    totaltPris -= worth;     
 
                     Betalning();
                 }
@@ -167,8 +163,19 @@ namespace DigitCashier
 
         void Betalning()
         {
-            Console.WriteLine("Dina prylar kostar" + totaltPris);
+            if (totaltPris < 0)
+            {
+                totaltPris = 0;
+                Console.WriteLine("Kupongen täckte hela kostnaden. Kunden behöver inte betala något");
+                //Här kör vi kvitto metoden.
+                return;                          
+            }
 
+            else
+            {
+                Console.WriteLine("Dina prylar kostar" + totaltPris);
+            }
+      
             bool okInput = true;
 
             do
