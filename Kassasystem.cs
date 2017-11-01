@@ -9,32 +9,19 @@ namespace DigitCashier
 
     class Kassasystem
     {
-        static string[] namn = new string[5] { "Mjölk", "Kaffe", "Korv", "Ägg", "Tomat" };
-        static int[] varorID = new int[5] { 22, 33, 44, 55, 66 };
-        static int[] priser = new int[5] { 15, 70, 40, 20, 30 };
-        static int[] kategori = new int[5] { 0, 0, 0, 0, 1 };
-        static int totaltPris;
+        string[] namn = new string[5] { "Mjölk", "Kaffe", "Korv", "Ägg", "Tomat" };
+        int[] varorID = new int[5] { 22, 33, 44, 55, 66 };
+        int[] priser = new int[5] { 15, 70, 40, 20, 30 };
+        int[] kategori = new int[5] { 0, 0, 0, 0, 1 };
+        int totaltPris;
 
        // static void Main(string[] args)
-      public static void Kassa ()
+      public void Kassa ()
         {
-            Console.WriteLine("Varans id?");
-
-            string input = Console.ReadLine();
-
-            int helTal;
-
-            while (Int32.TryParse(input, out helTal) == false || helTal.ToString().Length != 2 || varorID.Contains(helTal) == false)
-            {
-                Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
-
-                input = Console.ReadLine();
-            }
-
-            VaraID(helTal);
+            AddVara();
         }
 
-        public static void VaraID(int id)
+        public void VaraID(int id)
         {
             int index = Array.IndexOf(varorID, id);
 
@@ -55,6 +42,8 @@ namespace DigitCashier
                 }
 
                 int kostnad = vikt * pris;
+
+                totaltPris += kostnad;
 
                 Console.WriteLine("Varan kostar:" + kostnad + "kr");
                 Console.WriteLine(name);
@@ -78,16 +67,56 @@ namespace DigitCashier
 
                 int kostnad = antal * pris;
 
+                totaltPris += kostnad;
+
                 Console.WriteLine("Varan kostar:" + kostnad + "kr");
                 Console.WriteLine(name);
-                Console.ReadLine();
+                bool okInput = true;
+                do
+                {
+                    Console.WriteLine("Fler varor? y/n");
+
+                    string mer = Console.ReadLine();
+
+                    if (mer == "y")
+                    {
+                        AddVara();
+                        okInput = true;
+                    }
+                    else if (mer == "n")
+                    {
+                        okInput = true;
+                        Console.WriteLine("Dina prylar kostar" + totaltPris);
+                        Console.ReadLine();
+                        //Här kör vi kvitto metoden.
+                    }
+                    else
+                    {
+                        
+                        okInput = false;
+                    }
+                } while (okInput == false);
+
             }
 
-            // Console.WriteLine(antal);
-            // Console.WriteLine("Varan kostar:" + kostnad +"kr");
-            // Console.WriteLine(name);
-            // Console.ReadLine();
+        }
 
+        void AddVara()
+        {
+            Console.WriteLine("Varans id?");
+
+            string input = Console.ReadLine();
+
+            int helTal;
+
+            while (Int32.TryParse(input, out helTal) == false || helTal.ToString().Length != 2 || varorID.Contains(helTal) == false)
+            {
+                Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
+
+                input = Console.ReadLine();
+            }
+
+            VaraID(helTal);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace DigitCashier
 
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             int[] koder = new int[5] { 222, 333, 444, 555, 666 };
 
@@ -39,7 +39,8 @@ namespace DigitCashier
                     if (firstNr == 2)
                     {
                         Console.WriteLine("Inloggad som kassör");
-                        Kassasystem.Kassa();
+                        Kassasystem KasstSystem = new Kassasystem();
+                        KasstSystem.Kassa();
                         Console.WriteLine("Press any key to exit.");
                         Console.ReadKey();
                     }
