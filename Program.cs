@@ -16,7 +16,7 @@ namespace DigitCashier
             Console.Write("Skriv in din tresiffriga kod: ");
             string input = Console.ReadLine();
 
-            while (Int32.TryParse(input, out kod) == false || kod.ToString().Length != 3 || koder.Contains(kod) == false)
+            while (Int32.TryParse(input, out kod) == false || koder.Contains(kod) == false)
             {
                 Console.Write("Kod ej giltig. Försök igen: ");
                 input = Console.ReadLine();
