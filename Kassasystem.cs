@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace DigitCashier
 {
-
     class Kassasystem
     {
-        string[] namn = new string[5] { "Mjölk", "Kaffe", "Korv", "Ägg", "Tomat" };
-        int[] varorID = new int[5] { 22, 33, 44, 55, 66 };
-        int[] priser = new int[5] { 15, 70, 40, 20, 30 };
-        int[] kategori = new int[5] { 0, 0, 0, 0, 1 };
-        int totaltPris;
+        private string[] namn = { "mjölk", "kaffe", "korv", "ägg", "tomater" };
+        private int[] varorID = { 22, 33, 44, 55, 66 };
+        private int[] priser = { 15, 70, 40, 20, 30 };
+        private int[] kategori = { 0, 0, 0, 0, 1 };
+        private string[] kundVagn = new string[20];
+        private int totaltPris;
+        private int totalVaror = 0;
 
-       // static void Main(string[] args)
-      public void Kassa ()
+        public void Kassa()
         {
             AddVara();
         }
@@ -28,199 +28,128 @@ namespace DigitCashier
             int pris = priser[index];
             int typ = kategori[index];
             string name = namn[index];
+            int kostnad = 0;
+            int antal = 0;
+
 
             if (typ > 0)
             {
-                Console.WriteLine("Vikt?");
+                Console.Write("Ange varans vikt i kilogram: ");
                 string input2 = Console.ReadLine();
                 int vikt;
                 while (Int32.TryParse(input2, out vikt) == false || vikt <= 0)
                 {
                     Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
-
                     input2 = Console.ReadLine();
                 }
 
-                int kostnad = vikt * pris;
-
+                kostnad = vikt * pris;
                 totaltPris += kostnad;
 
-                Console.WriteLine("Varan kostar:" + kostnad + "kr");
-                Console.WriteLine(name);
+                Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, name, pris);
                 Console.ReadLine();
             }
 
             else
             {
-                Console.WriteLine("Hur många?");
-
+                Console.Write("Ange antal av varan: ");
                 string input = Console.ReadLine();
-
-                int antal;
 
                 while (Int32.TryParse(input, out antal) == false || antal <= 0)
                 {
-                    Console.WriteLine("Ange antal");
-
+                    Console.Write("Inkorrekt svar. Ange antal: ");
                     input = Console.ReadLine();
                 }
-
-                int kostnad = antal * pris;
-
-                totaltPris += kostnad;
-
-                Console.WriteLine("Varan kostar:" + kostnad + "kr");
-                Console.WriteLine(name);
-                bool okInput = true;
-                do
-                {
-                    Console.WriteLine("Fler varor? y/n");
-
-                    string mer = Console.ReadLine();
-
-                    if (mer == "y")
-                    {
-                        AddVara();
-                        okInput = true;
-                    }
-                    else if (mer == "n")
-                    {
-                        okInput = true;
-                        Kupong();
-                    }
-                    else
-                    {
-                        
-                        okInput = false;
-                    }
-                } while (okInput == false);
-
             }
 
-        }
+            kostnad = antal * pris;
+            totaltPris += kostnad;
 
-        void AddVara()
-        {
-            Console.WriteLine("Varans id?");
+            Console.WriteLine("Fler varor? y/n");
+            string mer = Console.ReadLine();
 
-            string input = Console.ReadLine();
-
-            int helTal;
-
-            while (Int32.TryParse(input, out helTal) == false || helTal.ToString().Length != 2 || varorID.Contains(helTal) == false)
+            if (mer == "y")
             {
-                Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
-
-                input = Console.ReadLine();
+                AddVara();
             }
-
-            VaraID(helTal);
-        }
-
-        void Kupong()
-        {
-            bool okInput = true;
-
-            do
+            else if (mer == "n")
             {
-                Console.WriteLine("Har kunden någon kupong?");
-
-                string option = Console.ReadLine();
-
-                if (option == "y")
-                {
-                    okInput = true;
-
-                    Console.WriteLine("Hur mycket är kupongen värd?");
-
-                    string input = Console.ReadLine();
-
-                    int worth;
-
-                    while (Int32.TryParse(input, out worth) == false || worth <= 0)
-                    {
-                        Console.WriteLine("Ange hur mycket kunden betalade");
-
-                        input = Console.ReadLine();
-                    }
-
-                    totaltPris -= worth;     
-
-                    Betalning();
-                }
-                else if (option == "n")
-                {
-                    okInput = true;
-                    Betalning();
-                }
-
-                else
-                {
-                    okInput = false;
-                }
-            } while (okInput == false);
-        }
-
-        void Betalning()
-        {
-            if (totaltPris < 0)
-            {
-                totaltPris = 0;
-                Console.WriteLine("Kupongen täckte hela kostnaden. Kunden behöver inte betala något");
-                //Här kör vi kvitto metoden.
-                return;                          
+                skrivUtKvitto();
             }
-
             else
             {
-                Console.WriteLine("Dina prylar kostar" + totaltPris);
+                Console.WriteLine("Inkorrekt svar. skriv endast 'y' eller 'n' ");
             }
-      
-            bool okInput = true;
-
-            do
-            {
-                Console.WriteLine("Vill kunden betala kontant eller med kort?");
-
-                string option = Console.ReadLine();
-
-                if (option == "kontant")
-                {
-                    okInput = true;
-                    CalcChange();                 
-                }
-                else if (option == "kort")
-                {
-                    okInput = true;
-                    CalcChange();
-                }
-
-                else
-                {
-                    okInput = false;
-                }
-            } while (okInput == false);
         }
 
-        void CalcChange()
+        public void AddVara()
         {
-            Console.WriteLine("Hur mycket betalade kunden?");
-
-            string payed = Console.ReadLine();
-
-            int betalt;
-
-            while (Int32.TryParse(payed, out betalt) == false || betalt <= 0)
+            int idNr;
+            bool inputOK = true;
+            do
             {
-                Console.WriteLine("Ange hur mycket kunden betalade");
+                Console.Write("Ange varans ID-nummer: ");
+                idNr = int.Parse(Console.ReadLine());
+                switch (idNr)
+                {
+                    case 22:
+                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", namn[0]);
+                        kundVagn[totalVaror] = namn[0]; //Vald vara läggs i korgen (vektorn)
+                        totalVaror++;
+                        VaraID(idNr); // Metodanrop av VaraID
+                        break;
+                    case 33:
+                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", namn[1]);
+                        kundVagn[totalVaror] = namn[1];
+                        totalVaror++;
+                        VaraID(idNr);
+                        break;
+                    case 44:
+                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", namn[2]);
+                        kundVagn[totalVaror] = namn[2];
+                        totalVaror++;
+                        VaraID(idNr);
+                        break;
+                    case 55:
+                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", namn[3]);
+                        kundVagn[totalVaror] = namn[3];
+                        totalVaror++;
+                        VaraID(idNr);
+                        break;
+                    case 66:
+                        Console.WriteLine("{0} är tillagd i vagnen", namn[4]);
+                        kundVagn[totalVaror] = namn[4];
+                        totalVaror++;
+                        VaraID(idNr);
+                        break;
+                    default:
+                        Console.WriteLine("Inkorrekt ID-nummer, försök igen.");
+                        inputOK = false;
+                        break;
+                }
+            } while (inputOK == false);
+        }
 
-                payed = Console.ReadLine();
+        public void skrivUtKvitto()// Denna är absolut inte klar! utan la bara in något...
+        {
+            Console.WriteLine("SEWK's livs");
+            Console.WriteLine("Kungsgatan 37, 441 50 Alingsås");
+            Console.WriteLine("Org Nr: 556033-5696");
+            Console.WriteLine("------------------------------------------");
+            foreach (string varor in kundVagn)
+            {
+                Console.WriteLine(varor);
             }
+            Console.WriteLine("------------------------------------------");
 
-                int change = betalt - totaltPris;
-                Console.WriteLine("Kunden ska få " + change + "kr tillbaka i växel");
-
-            //Här kör vi kvitto metoden.
+            //String Företagnamn
+            //Int Verifikationsnr RandomNumber
+            //Date/Time
+            //varaNamn
+            //varaAntal
+            //vara*antal=pris
+            //totalPris
+            //Utgiftens Momsprocent
         }
     }
 }

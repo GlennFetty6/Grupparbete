@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 
 namespace DigitCashier
 {
-
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            int[] koder = new int[5] { 222, 333, 444, 555, 666 };
-
-            Console.WriteLine("Skriv in din kod.");
-
-            string input = Console.ReadLine();
-
+            int[] koder = { 222, 333, 444, 555, 666 };
             int kod;
+
+            Console.Write("Skriv in din tresiffriga kod: ");
+            string input = Console.ReadLine();
 
             while (Int32.TryParse(input, out kod) == false || kod.ToString().Length != 3 || koder.Contains(kod) == false)
             {
-                Console.WriteLine("Fel kod. Försök igen. Koden är tresiffrig");
+                Console.Write("Kod ej giltig. Försök igen: ");
                 input = Console.ReadLine();
             }
             int i = -1;
@@ -44,19 +41,18 @@ namespace DigitCashier
                         Console.WriteLine("Press any key to exit.");
                         Console.ReadKey();
                     }
-                    if (firstNr == 3)
+                    else if (firstNr == 3)
                     {
                         Console.WriteLine("Inloggad som 3");
                         Console.WriteLine("Press any key to exit.");
                         Console.ReadKey();
                     }
-                    if (firstNr == 5)
+                    else if (firstNr == 5)
                     {
                         Console.WriteLine("Inloggad som 5");
                         Console.WriteLine("Press any key to exit.");
                         Console.ReadKey();
                     }
-
                     else
                     {
                         Console.WriteLine("Du är ej behörig");
