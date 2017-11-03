@@ -32,6 +32,41 @@ namespace DigitCashier
             AddVara();
         }
 
+        void AddVara()
+        {
+            Console.WriteLine("Varans id?");
+
+            string input = Console.ReadLine();
+
+            int helTal;
+
+            while (Int32.TryParse(input, out helTal) == false || helTal.ToString().Length != 2 || CheckList(helTal) == false)
+            {
+                Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
+
+                input = Console.ReadLine();
+            }
+
+            Console.WriteLine("Ett paket {0} är tillagd i vagnen", valdVara.Namn);
+            kundVagn.Add(valdVara);
+            VaraID(helTal); // Metodanrop av VaraID
+            helTal = 0;
+
+        }
+
+        bool CheckList(int tal)
+        {
+            for (var i = 0; i < varuLista.Count; i++)
+            {
+                if (varuLista[i].Id == tal)
+                {
+                    valdVara = varuLista[i];
+                    return true;
+                }
+            }
+            return false;
+        }
+
         void VaraID(int id)
         {
 
@@ -92,44 +127,6 @@ namespace DigitCashier
             {
                 Console.WriteLine("Inkorrekt svar. skriv endast 'y' eller 'n' ");
             }
-        }
-
-        void AddVara()
-        {
-            int idNr;
-            bool inputOK = true;
-            do
-            {
-                Console.Write("Ange varans ID-nummer: ");
-                idNr = int.Parse(Console.ReadLine());
-
-                try
-                {
-                    idNr = int.Parse(Console.ReadLine());
-                    inputOK = false;
-                }
-                catch
-                {
-                    Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
-                }
-
-                foreach (Vara sak in varuLista)
-                {
-                    if (sak.Id == idNr)
-                    {
-                        valdVara = sak;
-                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", valdVara.Namn);
-                        kundVagn.Add(valdVara);
-                        VaraID(idNr); // Metodanrop av VaraID
-                        inputOK = true;
-                        break;
-                    }
-                }
-
-                //Console.WriteLine("Felaktigt ID-nummer. Försök igen.");
-                //inputOK = false;
-
-            } while (inputOK == false);
         }
 
         void Kupong()
