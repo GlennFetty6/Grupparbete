@@ -21,11 +21,10 @@ namespace DigitCashier
                 Console.Write("Kod ej giltig. Försök igen: ");
                 input = Console.ReadLine();
             }
-            int i = -1;
+            int i = 0;
 
             foreach (int nr in koder)
             {
-                i++;
 
                 if (kod == koder[i])
                 {
@@ -35,6 +34,7 @@ namespace DigitCashier
                         firstNr /= 10;
                     if (firstNr == 2)
                     {
+                       
                         Console.WriteLine("Inloggad som kassör");
                         Kassasystem KasstSystem = new Kassasystem();
                         KasstSystem.Kassa();
@@ -59,6 +59,7 @@ namespace DigitCashier
                         Console.WriteLine("Press any key to exit.");
                         Console.ReadKey();
                     }
+                    i++;
                 }
             }
         }

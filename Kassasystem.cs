@@ -8,31 +8,37 @@ namespace DigitCashier
 {
     class Kassasystem
     {
-        private string[] varuNamn = { "mjölk", "kaffe", "korv", "ägg", "tomater" };
-        private int[] varuID = { 22, 33, 44, 55, 66 };
-        private int[] stPris = { 15, 70, 40, 20, 30 };
-        private int[] kategori = { 0, 0, 0, 0, 1 };
-        private int[] antalVaror = { 1, 1, 1, 1, 1 };
-        List<int> kundVagn2 = new List<int>();
+       
+        List<Vara> kundVagn = new List<Vara>();
         private int totaltPris;
-        private int idNr2;
 
+        private Vara valdVara;
+
+        List<Vara> varuLista = new List<Vara>();
+
+        private void ExempelVaror()
+        {
+            varuLista.Add(new Vara("Mjölk", 15, 0, 22, 10, 0));
+            varuLista.Add(new Vara("Kaffe", 45, 0, 33, 10, 0));
+            varuLista.Add(new Vara("Korv", 30, 0, 44, 10, 0));
+            varuLista.Add(new Vara("Ägg", 22, 0, 55, 10, 0));
+            varuLista.Add(new Vara("Tomater", 6, 1, 66, 10, 0));
+        }
+
+    
         public void Kassa()
         {
+            ExempelVaror();
             AddVara();
         }
 
         void VaraID(int id)
         {
-            int index = Array.IndexOf(varuID, id);
 
-            int pris = stPris[index];
-            int typ = kategori[index];
-            string name = varuNamn[index];
             int kostnad = 0;
             int antal = 0;
 
-            if (typ > 0)
+            if (valdVara.Kategori > 0)
             {
                 int vikt;
                 Console.Write("Ange varans vikt i kilogram: ");
@@ -43,25 +49,31 @@ namespace DigitCashier
                     input2 = Console.ReadLine();
                 }
 
-                kostnad = vikt * pris;
+                kostnad = vikt * valdVara.Pris;
                 totaltPris += kostnad;
 
-                Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, name, kostnad);
+                Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
             }
             else
             {
                 Console.Write("Ange antal av varan: ");
                 string input = Console.ReadLine();
 
-                while (Int32.TryParse(input, out antal) == false || antal <= 0)
+                if (Int32.TryParse(input, out antal) == false)
                 {
                     Console.Write("Inkorrekt svar. Ange antal: ");
                     input = Console.ReadLine();
                 }
+                else if (antal > valdVara.LagerStatus)
+                {
+                    Console.WriteLine("Varan är slut");
+                }
+
             }
 
-            antalVaror[index] = antal;
-            kostnad = antal * pris;
+            valdVara.LagerStatus -= antal;
+            valdVara.Antal = antal;
+            kostnad = antal * valdVara.Pris;
             totaltPris += kostnad;
 
             Console.WriteLine("Fler varor? y/n");
@@ -69,6 +81,7 @@ namespace DigitCashier
 
             if (mer == "y")
             {
+                valdVara = null;
                 AddVara();
             }
             else if (mer == "n")
@@ -90,49 +103,32 @@ namespace DigitCashier
                 Console.Write("Ange varans ID-nummer: ");
                 idNr = int.Parse(Console.ReadLine());
 
-                int i = -1;
-                
-                foreach(int nr in varuID)
+                try
                 {
-                    i++;
-                    if(idNr == varuID[i])
+                    idNr = int.Parse(Console.ReadLine());
+                    inputOK = false;
+                }
+                catch
+                {
+                    Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
+                }
+
+                foreach (Vara sak in varuLista)
+                {
+                    if (sak.Id == idNr)
                     {
-                        idNr2 = i;
+                        valdVara = sak;
+                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", valdVara.Namn);
+                        kundVagn.Add(valdVara);
+                        VaraID(idNr); // Metodanrop av VaraID
+                        inputOK = true;
+                        break;
                     }
                 }
 
-                switch (idNr)
-                {
-                    case 22:
-                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", varuNamn[0]);
-                        kundVagn2.Add(idNr2);
-                        VaraID(idNr); // Metodanrop av VaraID
-                        break;
-                    case 33:
-                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", varuNamn[1]);
-                        kundVagn2.Add(idNr2);
-                        VaraID(idNr);
-                        break;
-                    case 44:
-                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", varuNamn[2]);
-                        kundVagn2.Add(idNr2);
-                        VaraID(idNr);
-                        break;
-                    case 55:
-                        Console.WriteLine("Ett paket {0} är tillagd i vagnen", varuNamn[3]);
-                        kundVagn2.Add(idNr2);
-                        VaraID(idNr);
-                        break;
-                    case 66:
-                        Console.WriteLine("{0} är tillagd i vagnen", varuNamn[4]);
-                        kundVagn2.Add(idNr2);
-                        VaraID(idNr);
-                        break;
-                    default:
-                        Console.WriteLine("Inkorrekt ID-nummer, försök igen.");
-                        inputOK = false;
-                        break;
-                }
+                //Console.WriteLine("Felaktigt ID-nummer. Försök igen.");
+                //inputOK = false;
+
             } while (inputOK == false);
         }
 
@@ -238,13 +234,14 @@ namespace DigitCashier
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Styck   Namn             Pris   Total");
             Console.WriteLine("------------------------------------------");
-            foreach (int nr in kundVagn2)
+            foreach (Vara nr in kundVagn)
             {
-                Console.WriteLine(antalVaror[nr] + "       " + varuNamn[nr] + "               " + " " + stPris[nr] + "     " + (antalVaror[nr]*stPris[nr]) );
+                Console.WriteLine(nr.Antal +"     "+ nr.Namn+ "    "+ nr.Pris+"  " + (nr.Antal * nr.Pris));
+                ;
             }
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Total                            {0}", totaltPris);
-            Console.WriteLine("Moms 12%                         {0}", (totaltPris*0.12));
+            Console.WriteLine("Moms 12%                         {0}", (totaltPris * 0.12));
             Console.WriteLine("------------------------------------------");
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
@@ -262,3 +259,4 @@ namespace DigitCashier
         }
     }
 }
+
