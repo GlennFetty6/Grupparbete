@@ -8,15 +8,15 @@ namespace DigitCashier
 {
     public class Vara
     {
-        private string namn;
-        private int pris;
-        private int kategori;
-        private int id;
-        private int lagerStatus;
-        private int antal;
+        private string namn;        //Namn på varan
+        private int pris;           //Varans styckpris   
+        private int kategori;       //0 Default. 1 Får de varor som ska vägas.
+        private int id;             //Varans ID-nummer. Det nummer kassan slår in.
+        private int lagerStatus;    //Antal varor på lager.
+        private int antal;          //Variabeln används i Kassasystem för att hålla koll på hur många av varan som ligger i kundvagnen. 
 
 
-        public Vara(string namn, int pris, int kategori, int id, int lagerStatus, int antal)
+        public Vara(string namn, int pris, int kategori, int id, int lagerStatus, int antal) //Constructor för att skapa varor. 
         {
             Namn = namn;
             Pris = pris;
