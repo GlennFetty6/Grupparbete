@@ -13,7 +13,9 @@ namespace DigitCashier
          static void Main(string[] args)
         {
             varuLista = new List<Vara>();
-            AddVaror();
+
+            AddVaror hej = new AddVaror();
+            hej.AddVaror2();
 
             int[] koder = { 222, 333, 444, 555, 000 };
             int kod;
@@ -54,15 +56,6 @@ namespace DigitCashier
                 default: // Fått för mig att man måste ha en default... Tror Sattar nämnde det med. Onödigt här dock.
                     Console.WriteLine("Du är ej behörig.");
                     break;
-            }
-
-            void AddVaror()
-            {
-                varuLista.Add(new Vara("Mjölk", 15, 0, 22, 10, 0));
-                varuLista.Add(new Vara("Kaffe", 45, 0, 33, 10, 0));
-                varuLista.Add(new Vara("Korv", 30, 0, 44, 10, 0));
-                varuLista.Add(new Vara("Ägg", 22, 0, 55, 10, 0));
-                varuLista.Add(new Vara("Tomater", 6, 1, 66, 10, 0));
             }
         }
     }
