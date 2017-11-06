@@ -29,7 +29,7 @@ namespace DigitCashier
                 Console.Write("Koden måste bestå av ett giltigt tvåsiffrigt heltal. Försök igen: ");
                 input = Console.ReadLine();
             }
-            Console.WriteLine("Vald vara är {0}",valdVara.Namn);
+            Console.WriteLine("Vald vara är {0}", valdVara.Namn);
             VaraID(helTal); // Metodanrop av VaraID
             helTal = 0;
         }
@@ -49,49 +49,63 @@ namespace DigitCashier
 
         void VaraID(int id)
         {
+            bool loopen = true;
             int kostnad = 0;
             int antal = 0;
+            int vikt = 0;
+            string input1;
 
-            if (valdVara.Kategori > 0)
+            do
             {
-                int vikt;
-                Console.Write("Ange varans vikt i kilogram: ");
-                string input1 = Console.ReadLine();
-                while (Int32.TryParse(input1, out vikt) == false || vikt <= 0)
+                if (valdVara.Kategori > 0)
                 {
-                    Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
+                    Console.Write("Ange varans vikt i kilogram: ");
                     input1 = Console.ReadLine();
+                    loopen = true;
+
+                    while (Int32.TryParse(input1, out vikt) == false || vikt <= 0)
+                    {
+                        Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
+                        input1 = Console.ReadLine();
+                        loopen = true;
+                    }
+                    valdVara.LagerStatus -= vikt;
+                    valdVara.Antal = vikt;
+                    kostnad = vikt * valdVara.Pris;
+                    totaltPris += kostnad;
+
+                    Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
+         
                 }
-
-                kostnad = vikt * valdVara.Pris;
-                totaltPris += kostnad;
-
-                Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
-            }
-            else
-            {
-                Console.Write("Ange antal av varan {0}: ", valdVara.Namn);
-                string input2 = Console.ReadLine();
-
-                if (Int32.TryParse(input2, out antal) == false)
+                else
                 {
-                    Console.Write("Inkorrekt svar. Ange antal: ");
-                    input2 = Console.ReadLine();
-                }
-                else if (antal > valdVara.LagerStatus)
-                {
-                    Console.WriteLine("Varan är slut. Det finns bara {0}st {1} kvar.", valdVara.LagerStatus, valdVara.Namn);
-                    // Här skall ett SystemWrite dokument skickas till Administratör om att köpa in fler av varan
-                }
-                Console.WriteLine("{0} paket {1} är tillagd i kundvagnen", input2, valdVara.Namn);
-                kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
-            }
+                    Console.Write("Ange antal av varan {0}: ", valdVara.Namn);
+                    input1 = Console.ReadLine();
 
-            valdVara.LagerStatus -= antal;
-            valdVara.Antal = antal;
-            kostnad = antal * valdVara.Pris;
+                    if (Int32.TryParse(input1, out antal) == false)
+                    {
+                        Console.WriteLine("Inkorrekt svar.");
+                        loopen = false;
+                    }
+                    else if (antal > valdVara.LagerStatus)
+                    {
+                        Console.WriteLine("För stort antal. Det finns bara {0}st {1} kvar.", valdVara.LagerStatus, valdVara.Namn);
+                        loopen = false;
+                        // Här skall ett SystemWrite dokument skickas till Administratör om att köpa in fler av varan
+                    }
+                    else
+                    {
+                        Console.WriteLine("{0} paket {1} är tillagd i kundvagnen", input1, valdVara.Namn);
+                        valdVara.LagerStatus -= antal;
+                        valdVara.Antal = antal;
+                        kostnad = antal * valdVara.Pris;
+                        loopen = true;
+                    }
+                }
+            } while (loopen == false);
+
+            kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
             totaltPris += kostnad;
-            bool loopen = true;
 
             do
             {
@@ -237,7 +251,7 @@ namespace DigitCashier
             Console.WriteLine("Total                            {0}", totaltPris);
             Console.WriteLine("Moms 12%                         {0}", (totaltPris * 0.12));
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine("Belningstyp: {0}", betalningsTyp); 
+            Console.WriteLine("Belningstyp: {0}", betalningsTyp);
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
             Console.WriteLine("Kvittonummer: ", nr1);
