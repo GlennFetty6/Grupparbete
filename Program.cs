@@ -14,8 +14,8 @@ namespace DigitCashier
         {
             varuLista = new List<Vara>();
 
-            AddVaror hej = new AddVaror();
-            hej.AddVaror2();
+            AddVaror hej = new AddVaror(); //Skapar en instance av klassen AddVaror och kallar den hej.
+            hej.AddVaror2();               //Kör funktionen AddVaror2 i hej som är en "kopia" av AddVaror.cs
 
             int[] koder = { 222, 333, 444, 555, 000 };
             int kod;
