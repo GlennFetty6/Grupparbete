@@ -8,25 +8,32 @@ namespace DigitCashier
 {
     class Kassasystem
     {
-       
         List<Vara> kundVagn = new List<Vara>();// Skapar en lista för kundvagn
-        List<Vara> varuLista = new List<Vara>();// Skapar en lista med alla varor
+
+        //List<Vara> varuLista = new List<Vara>();
+
+       
+ 
+       
+        //ExempelVaror pryl = new ExempelVaror();
+        
+
         private int totaltPris;
 
         private Vara valdVara;
 
-        private void ExempelVaror()
-        {
-            varuLista.Add(new Vara("Mjölk", 15, 0, 22, 10, 0));
-            varuLista.Add(new Vara("Kaffe", 45, 0, 33, 10, 0));
-            varuLista.Add(new Vara("Korv", 30, 0, 44, 10, 0));
-            varuLista.Add(new Vara("Ägg", 22, 0, 55, 10, 0));
-            varuLista.Add(new Vara("Tomater", 6, 1, 66, 10, 0));
-        }
+        //private void ExempelVaror()
+        //{
+        //    varuLista.Add(new Vara("Mjölk", 15, 0, 22, 10, 0));
+        //    varuLista.Add(new Vara("Kaffe", 45, 0, 33, 10, 0));
+        //    varuLista.Add(new Vara("Korv", 30, 0, 44, 10, 0));
+        //    varuLista.Add(new Vara("Ägg", 22, 0, 55, 10, 0));
+        //    varuLista.Add(new Vara("Tomater", 6, 1, 66, 10, 0));
+        //}
     
         public void Kassa()
         {
-            ExempelVaror();
+           // ExempelVaror();
             KöpVara();
         }
 
@@ -47,11 +54,11 @@ namespace DigitCashier
 
         bool CheckList(int tal)
         {
-            for (var i = 0; i < varuLista.Count; i++)
+            for (var i = 0; i < Program.varuLista.Count; i++)
             {
-                if (varuLista[i].Id == tal)
+                if (Program.varuLista[i].Id == tal)
                 {
-                    valdVara = varuLista[i];
+                    valdVara = Program.varuLista[i];
                     return true;
                 }
             }
