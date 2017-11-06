@@ -9,31 +9,12 @@ namespace DigitCashier
     class Kassasystem
     {
         List<Vara> kundVagn = new List<Vara>();// Skapar en lista för kundvagn
-
-        //List<Vara> varuLista = new List<Vara>();
-
-       
- 
-       
-        //ExempelVaror pryl = new ExempelVaror();
-        
-
         private int totaltPris;
-
+        private string betalningsTyp;
         private Vara valdVara;
 
-        //private void ExempelVaror()
-        //{
-        //    varuLista.Add(new Vara("Mjölk", 15, 0, 22, 10, 0));
-        //    varuLista.Add(new Vara("Kaffe", 45, 0, 33, 10, 0));
-        //    varuLista.Add(new Vara("Korv", 30, 0, 44, 10, 0));
-        //    varuLista.Add(new Vara("Ägg", 22, 0, 55, 10, 0));
-        //    varuLista.Add(new Vara("Tomater", 6, 1, 66, 10, 0));
-        //}
-    
         public void Kassa()
         {
-           // ExempelVaror();
             KöpVara();
         }
 
@@ -48,6 +29,7 @@ namespace DigitCashier
                 Console.Write("Koden måste bestå av ett giltigt tvåsiffrigt heltal. Försök igen: ");
                 input = Console.ReadLine();
             }
+            Console.WriteLine("Vald vara är {0}",valdVara.Namn);
             VaraID(helTal); // Metodanrop av VaraID
             helTal = 0;
         }
@@ -101,7 +83,7 @@ namespace DigitCashier
                     Console.WriteLine("Varan är slut. Det finns bara {0}st {1} kvar.", valdVara.LagerStatus, valdVara.Namn);
                     // Här skall ett SystemWrite dokument skickas till Administratör om att köpa in fler av varan
                 }
-                Console.WriteLine("Ett paket {0} är tillagd i kundvagnen", valdVara.Namn);
+                Console.WriteLine("{0} paket {1} är tillagd i kundvagnen", input2, valdVara.Namn);
                 kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
             }
 
@@ -109,24 +91,31 @@ namespace DigitCashier
             valdVara.Antal = antal;
             kostnad = antal * valdVara.Pris;
             totaltPris += kostnad;
+            bool loopen = true;
 
-            Console.Write("Fler varor? y/n:  ");
-            string mer = Console.ReadLine();
+            do
+            {
+                Console.Write("Fler varor? y/n:  ");
+                string mer = Console.ReadLine();
 
-            if (mer == "y")
-            {
-                valdVara = null;
-                KöpVara();
-            }
-            else if (mer == "n")
-            {
-                Console.WriteLine("Totalbeloppet är {0}kr", totaltPris);
-                Kupong();
-            }
-            else
-            {
-                Console.WriteLine("Inkorrekt svar. skriv endast 'y' eller 'n' ");
-            }
+                if (mer == "y")
+                {
+                    valdVara = null;
+                    KöpVara();
+                    loopen = true;
+                }
+                else if (mer == "n")
+                {
+                    Console.WriteLine("Totalbeloppet är {0}kr", totaltPris);
+                    Kupong();
+                    loopen = true;
+                }
+                else
+                {
+                    Console.WriteLine("Inkorrekt svar. skriv endast 'y' eller 'n' ");
+                    loopen = false;
+                }
+            } while (loopen == false);
         }
 
         void Kupong()
@@ -175,16 +164,16 @@ namespace DigitCashier
                 Console.WriteLine("Kupongen täckte hela kostnaden. Kunden behöver inte betala något mer.");
                 skrivUtKvitto();
             }
-
             else
             {
-                Console.WriteLine("{0}kr att betala", totaltPris);               
+                Console.WriteLine("{0}kr att betala", totaltPris);
             }
 
             do
             {
                 Console.Write("Vill kunden betala kontant eller med kort? ");
                 string svar1 = Console.ReadLine();
+                betalningsTyp = svar1;
 
                 if (svar1 == "kontant")
                 {
@@ -211,7 +200,7 @@ namespace DigitCashier
 
             while (Int32.TryParse(payed, out betalt) == false || betalt <= 0 || betalt < totaltPris)
             {
-               totaltPris -= betalt;
+                totaltPris -= betalt;
                 Console.WriteLine("Summan räcker inte till. {0}kr kvar att betala.", totaltPris);
                 payed = Console.ReadLine();
             }
@@ -221,27 +210,39 @@ namespace DigitCashier
             skrivUtKvitto();
         }
 
+        string KategoriTyp(int k)
+        {
+            if (k == 1)
+            {
+                return "Grönsak";
+            }
+            else
+            {
+                return "Matvara";
+            }
+        }
         void skrivUtKvitto()
         {
-            // KRAVSPEC att ha med kategori av vara och betalningssätt...
             Console.WriteLine("\nSEWK's livs");
             Console.WriteLine("Kungsgatan 37, 441 50 Alingsås");
             Console.WriteLine("Org Nr: 556033-5696\n");
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine("Styck   Namn             Pris   Total");
+            Console.WriteLine("Styck   Namn    Kategori         Pris   Total");
             Console.WriteLine("------------------------------------------");
             foreach (Vara nr in kundVagn)
             {
-                Console.WriteLine(nr.Antal +"     "+ nr.Namn+ "    "+ nr.Pris+"  " + (nr.Antal * nr.Pris));                
+                Console.WriteLine(nr.Antal + "        " + nr.Namn + "    " + KategoriTyp(nr.Kategori) + "       " + nr.Pris + "     " + (nr.Antal * nr.Pris));
             }
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Total                            {0}", totaltPris);
             Console.WriteLine("Moms 12%                         {0}", (totaltPris * 0.12));
             Console.WriteLine("------------------------------------------");
+            Console.WriteLine("Belningstyp: {0}", betalningsTyp); 
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
             Console.WriteLine("Kvittonummer: ", nr1);
             Console.WriteLine(DateTime.Now);
+            Console.ReadKey();
         }
     }
 }
