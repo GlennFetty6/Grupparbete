@@ -81,7 +81,7 @@ namespace DigitCashier
             }
             else
             {
-                Console.Write("Ange antal av varan: ");
+                Console.Write("Ange antal av varan {0}: ", valdVara.Namn);
                 string input2 = Console.ReadLine();
 
                 if (Int32.TryParse(input2, out antal) == false)

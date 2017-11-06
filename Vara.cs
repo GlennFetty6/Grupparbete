@@ -15,47 +15,41 @@ namespace DigitCashier
         private int lagerStatus;    //Antal varor på lager.
         private int antal;          //Variabeln används i Kassasystem för att hålla koll på hur många av varan som ligger i kundvagnen. 
 
-
         public Vara(string namn, int pris, int kategori, int id, int lagerStatus, int antal) //Constructor för att skapa varor. 
         {
             Namn = namn;
             Pris = pris;
+            Antal = antal;
             Kategori = kategori;
             Id = id;
             LagerStatus = lagerStatus;
-            Antal = antal;
-        }
 
-        public int Antal
-        {
-            get;
-            set;
         }
-
-        public int Pris
-        {
-            get;
-            set;
-        }
-
         public string Namn
         {
             get;
             set;
         }
-
+        public int Pris
+        {
+            get;
+            set;
+        }
+        public int Antal
+        {
+            get;
+            set;
+        }        
         public int Kategori
         {
             get;
             set;
         }
-
         public int Id
         {
             get;
             set;
         }
-
         public int LagerStatus
         {
             get;
