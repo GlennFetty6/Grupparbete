@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace DigitCashier
 {
@@ -63,28 +64,72 @@ namespace DigitCashier
 
         void AdminAnställda()
         {
-            // Lägg till ny/ta bort/uppdatera en anställd information
-            // Visa anställd information och antal arbetade timmar
+
+            int input = 0;
             do
             {
-                int input1;
-                Console.WriteLine("Du är inne i AdminAnställda");
+                Console.WriteLine("");
+                Console.WriteLine("----------   Välj ett alternativ  ---------");
+                Console.WriteLine("-       1 Läggtill/ändra anställd         -");
+                Console.WriteLine("-       2 Se info om anställd             -");
+                Console.WriteLine("-       3 Ta bort anställd                -");
+                Console.WriteLine("-       0 Logga ut                        -");
+                Console.WriteLine("-------------------------------------------\n");
 
-                // Detta är bara strunt  
-                Console.Write("Skriv ett tal eller '0' för att återgå till huvud menyn: ");
-                input1 = int.Parse(Console.ReadLine());
-                if (input1 == 0)
+                try //Kontrollerar att inmatning är av typen interger.
                 {
-                    Console.WriteLine("Tillbaka till huvud menyn");
+                    input = int.Parse(Console.ReadLine());
                     huvudMeny = false;
                 }
-                else
+                catch
                 {
-                    Console.WriteLine("Ditt nummer var {0}", input1);
-                    huvudMeny = true;
+                    Console.WriteLine("Välj ett nummer i menyn.");
+                    Console.WriteLine("\n");
                 }
 
-            } while (huvudMeny);
+                switch (input)
+                {
+                    case 1:
+                        LaggTillAnstalld();
+                        break;
+                    case 2:
+                        SeAnstalld();
+                        break;
+                    case 3:
+                        SparkaAnstalld();
+                        break;
+                    case 0:
+                        Console.WriteLine("Du loggas nu ut. Tryck på valfri tangent.");
+                        Console.ReadKey();
+                        break;
+                    default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
+                        Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
+                        break;
+                }
+            } while (huvudMeny || input != 0);
+
+            // Lägg till ny/ta bort/uppdatera en anställd information
+            //// Visa anställd information och antal arbetade timmar
+            //do
+            //{
+            //    int input1;
+            //    Console.WriteLine("Du är inne i AdminAnställda");
+
+            //    // Detta är bara strunt  
+            //    Console.Write("Skriv ett tal eller '0' för att återgå till huvud menyn: ");
+            //    input1 = int.Parse(Console.ReadLine());
+            //    if (input1 == 0)
+            //    {
+            //        Console.WriteLine("Tillbaka till huvud menyn");
+            //        huvudMeny = false;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Ditt nummer var {0}", input1);
+            //        huvudMeny = true;
+            //    }
+
+            //} while (huvudMeny);
         }
 
         void LäggTillVara()
@@ -313,6 +358,112 @@ namespace DigitCashier
 
             Console.WriteLine("Momssatsen ändrad till {0}", Program.moms);
             Console.ReadKey();
+        }
+
+        void LaggTillAnstalld()
+        {
+            Anställda ans = new Anställda();
+
+            Console.WriteLine("Ange namn på den anställde ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Ange hur många timmar {0} har arbetat denna månaden.", name);
+
+            string input = Console.ReadLine();
+
+            int workedHours;
+
+            while (Int32.TryParse(input, out workedHours) == false || workedHours < 0)
+            {
+                Console.Write("Antalet måste vara 0 eller mer");
+                input = Console.ReadLine();
+            }
+
+            Console.WriteLine("Arbetar {0} som Administratör eller Kassör?", name);
+
+            bool okInput;
+
+            string role;
+
+            do
+            {
+                Console.WriteLine("Arbetar {0} som Administratör eller Kassör?", name);
+                role = Console.ReadLine();
+
+                if (role == "Administratör")
+                {
+                    okInput = true;
+                }
+                else if (role == "Kassör")
+                {
+                    okInput = true;
+                }
+                else
+                {
+                    okInput = false;
+                    Console.WriteLine("Du måste svara antingen Administratör eller Kassör");
+                }
+            } while (okInput == false);
+
+            Console.WriteLine("Vad har {0} för timlön ", name);
+
+            string input2 = Console.ReadLine();
+
+            int wage;
+
+            while (Int32.TryParse(input2, out wage) == false || wage < 0)
+            {
+                Console.Write("Antalet måste vara 0 eller mer");
+                input2 = Console.ReadLine();
+            }
+
+            ans.SetAnstalld(name, workedHours, role, wage);
+        }
+
+        void SeAnstalld()
+        {
+            Anställda ans = new Anställda();
+
+            Console.WriteLine("Ange namn på den anställde ");
+            string name = Console.ReadLine();
+
+            while (OmNamnFinns(name) == false)
+            {
+                Console.Write("Namnet finns ej med i databasen. Försök igen: ");
+                name = Console.ReadLine();
+            }
+
+            ans.GetAnstalld(name);
+        }
+
+        void SparkaAnstalld()
+        {
+            Anställda ans = new Anställda();
+            Console.WriteLine("Ange namn på den anställde du vill göra dig av med");
+            string name = Console.ReadLine();
+
+            while (OmNamnFinns(name) == false)
+            {
+                Console.Write("Namnet finns ej med i databasen. Försök igen: ");
+                name = Console.ReadLine();
+            }
+
+            ans.TaBortAnstalld(name);
+        }
+
+        bool OmNamnFinns(string inNamn)
+        {
+            Anställda ans = new Anställda();
+
+            foreach (string file in ans.ListaAnstallda())
+            {
+                if ((inNamn + ".txt") == Path.GetFileName(file))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

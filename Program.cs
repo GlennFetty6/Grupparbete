@@ -14,6 +14,9 @@ namespace DigitCashier
 
          static void Main(string[] args)
         {
+            Anställda ans = new Anställda();
+            ans.LaggTillExempelAnstallda();
+
             varuLista = new List<Vara>();
 
             AddVaror tempAddVaror = new AddVaror(); //Skapar en instance av klassen AddVaror och kallar den hej.
