@@ -249,7 +249,7 @@ namespace DigitCashier
             }
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Total                            {0}", totaltPris);
-            Console.WriteLine("Moms 12%                         {0}", (totaltPris * 0.12));
+            Console.WriteLine("Moms 12%                         {0}", (totaltPris * Program.moms));
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Belningstyp: {0}", betalningsTyp);
             Random verfNr = new Random();
