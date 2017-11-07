@@ -132,8 +132,8 @@ namespace DigitCashier
             //} while (huvudMeny);
         }
 
-        void LäggTillVara()
-        {
+        void LäggTillVara() //Används för att lägga till varor i varuListan. 
+        {                   //Samlar först den data som behövs för att därefter köra constructorn i Vara.cs och lägga till objektet som skapas i varulistan.
             Console.WriteLine("Ange namnet på den vara du vill lägga till");
             string namn = Console.ReadLine();
 
@@ -192,9 +192,9 @@ namespace DigitCashier
             Console.ReadKey();
         }
 
-        private Vara valdVara;
+        private Vara valdVara; //Variabel som används i AdminVaror och AndraVara
 
-        void AdminVaror()
+        void AdminVaror() //Menymetod för hantering av varor när man är inloggad som admin. 
         {
             Console.Write("Skriv in varans Id-nummer: ");
             string input = Console.ReadLine();
@@ -267,7 +267,7 @@ namespace DigitCashier
             Console.ReadKey();
         }
 
-        void AndraVara(int nr)
+        void AndraVara(int nr)  //Orienterar sig mha av inkommande int och ger sen användaren möjlighet att ändra vald variabel. 
         {
             switch (nr)
             {
@@ -329,7 +329,7 @@ namespace DigitCashier
             }
         }
 
-        bool CheckList(int tal)
+        bool CheckList(int tal) //Kollar om ett ID existerar i varulistan. Returnar i so fall true annars false. 
         {
             for (var i = 0; i < Program.varuLista.Count; i++)
             {
@@ -342,7 +342,7 @@ namespace DigitCashier
             return false;
         }
 
-        void AdminMomssats()
+        void AdminMomssats() //Körs när admin väljer att ändra momsen. Ändrar momsen till ett värde mellan 0-1.
         {
             Console.WriteLine("Den gamla momssatsen är {0}. Skriv in den nya ", Program.moms);
 
@@ -360,7 +360,7 @@ namespace DigitCashier
             Console.ReadKey();
         }
 
-        void LaggTillAnstalld()
+        void LaggTillAnstalld() //Ger admin möjlighet att lägga till ny anställd. Ber först användaren om den info som krävs. Skapar sen en ny anställd mha SetAnstalld i Anställda.cs
         {
             Anställda ans = new Anställda();
 
@@ -420,14 +420,14 @@ namespace DigitCashier
             ans.SetAnstalld(name, workedHours, role, wage);
         }
 
-        void SeAnstalld()
+        void SeAnstalld() //Läser in ett namn för att sen mha metoden GetAnstalld i Anställda.cs visa information om den anställde.
         {
             Anställda ans = new Anställda();
 
             Console.WriteLine("Ange namn på den anställde ");
             string name = Console.ReadLine();
 
-            while (OmNamnFinns(name) == false)
+            while (OmNamnFinns(name) == false) //Kör metoden OmNamnFinns som returnar en bool.
             {
                 Console.Write("Namnet finns ej med i databasen. Försök igen: ");
                 name = Console.ReadLine();
@@ -435,8 +435,8 @@ namespace DigitCashier
 
             ans.GetAnstalld(name);
         }
-
-        void SparkaAnstalld()
+         
+        void SparkaAnstalld() //Läser in ett namn för att sen kalla pp metoden TaBortAnstalld i Anställda.cs
         {
             Anställda ans = new Anställda();
             Console.WriteLine("Ange namn på den anställde du vill göra dig av med");
@@ -451,13 +451,13 @@ namespace DigitCashier
             ans.TaBortAnstalld(name);
         }
 
-        bool OmNamnFinns(string inNamn)
+        bool OmNamnFinns(string inNamn) //Jämför om det namn som skickas in i metoden finns i en array med de anställda som kommer från Anställda.cs Returnar true om namnet redan existerar i arrayen.
         {
             Anställda ans = new Anställda();
 
             foreach (string file in ans.ListaAnstallda())
             {
-                if ((inNamn + ".txt") == Path.GetFileName(file))
+                if ((inNamn + ".txt") == Path.GetFileName(file)) //ans.listaAnstallda innehåller info om path till filerna. Denna metod tar bort .txt på filnamnen och jämför dom sen med inNamn.
                 {
                     return true;
                 }

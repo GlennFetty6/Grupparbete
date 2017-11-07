@@ -10,19 +10,19 @@ namespace DigitCashier
     {
         public static List<Vara> varuLista; // gör global
 
-        public static float moms = 0.12f;
+        public static float moms = 0.12f; //Momsen går nu att komma åt överallt. 
 
          static void Main(string[] args)
         {
-            Anställda ans = new Anställda();
+            Anställda ans = new Anställda();  //Startar metoden exempelanställda i Anställda.cs
             ans.LaggTillExempelAnstallda();
 
-            varuLista = new List<Vara>();
+            varuLista = new List<Vara>();      
 
             AddVaror tempAddVaror = new AddVaror(); //Skapar en instance av klassen AddVaror och kallar den hej.
             tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i hej som är en "kopia" av AddVaror.cs
 
-            int[] koder = { 222, 333, 444, 555, 000 };
+            int[] koder = { 222, 333, 444, 555, 000 };  //De koder som går att logga in med
             int kod;
 
             Console.Write("Skriv in din tresiffriga kod (0 för att Avsluta): ");
@@ -35,7 +35,7 @@ namespace DigitCashier
             }
 
             int firstNr = Math.Abs(kod);
-            while (firstNr >= 10)
+            while (firstNr >= 10)   //Delar med 10 så länge talet är större än 10. Får fram första siffran i koden. 
                 firstNr /= 10;
 
             switch (firstNr)
