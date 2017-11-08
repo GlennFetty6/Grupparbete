@@ -10,19 +10,20 @@ namespace DigitCashier
     class Anställda
     { 
         string mal = AppDomain.CurrentDomain.BaseDirectory; //Tar fram den mapp .exe körs ifrån. På det viset vi kör programmet är denna map debug.
-        public void LaggTillExempelAnstallda()     //Skapar filer åt våra anställda. Körs från Program.cs varje gång programmet startar. 
+        public void LaggTillExempelAnstallda()     //Skapar filer åt våra anställda
         {
             Directory.CreateDirectory(mal + "\\Anstallda\\"); //Skapar mappen där våra filer lägger sig. 
-            //Console.WriteLine(mal); Testa denna för att se vilken folder metoden ovan hittar.
-            using (StreamWriter writer = new StreamWriter(mal + "\\Anstallda\\Sara.txt", false)) //Skapar en fil för Sara i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
-            {                                                                                    
+            //string mal = AppDomain.CurrentDomain.BaseDirectory; //Tar fram den mapp .exe körs ifrån. På det viset vi kör programmet är denna map debug.
+            //Console.WriteLine(mal); Testa denna för att se vilken folder metoden ovan hittar. 
+            using (StreamWriter writer = new StreamWriter(mal + "\\Anstallda\\Sara.txt", false))
+            {
                 writer.WriteLine("Sara");
                 writer.WriteLine("32");
                 writer.WriteLine("Kassör");
                 writer.WriteLine("33000");
             }
 
-            using (StreamWriter writer = new StreamWriter(mal + "\\Anstallda\\Arnold.txt", false)) //Skapar en fil för Arnold i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
+            using (StreamWriter writer = new StreamWriter(mal + "\\Anstallda\\Arnold.txt", false))
             {
                 writer.WriteLine("Arnold");
                 writer.WriteLine("70");
@@ -31,24 +32,24 @@ namespace DigitCashier
             }
         }
 
-        public void GetAnstalld(string namn) //Kallas från Administrator.cs. Skriver ut info från den fil med samma namn som variabeln "namn".
+        public void GetAnstalld(string namn)
         {
-            using (StreamReader reader = new StreamReader(mal + "\\Anstallda\\" + namn + ".txt")) //Läser från .txt fil i Anstallda mappen. 
+            using (StreamReader reader = new StreamReader(mal + "\\Anstallda\\" + namn + ".txt"))
             {
                 string anstalldNamn = reader.ReadLine();
                 int arbTimmar = Int32.Parse(reader.ReadLine());
                 string befattning = reader.ReadLine();
                 int lon = Int32.Parse(reader.ReadLine());
-                Console.WriteLine("Namn: " + anstalldNamn);
-                Console.WriteLine("Arbetade timmar :" + arbTimmar);
-                Console.WriteLine("Befattning: " + befattning);
-                Console.WriteLine("Lön: " + lon);
+                Console.Write("Namn: " + anstalldNamn);
+                Console.Write("Arbetade timmar :" + arbTimmar);
+                Console.Write("Befattning: " + befattning);
+                Console.Write("Lön: " + lon);
             } 
         }
 
-        public void SetAnstalld(string namn, int arbTimmar, string befattning, int lon) //Kallas från Administrator.cs. Används för att både ändra på och lägga till anställda. 
+        public void SetAnstalld(string namn, int arbTimmar, string befattning, int lon)
         {
-            using (StreamWriter writer = new StreamWriter(mal + "\\Anstallda\\" + namn + ".txt", false)) //Sparar över/skapar .txt fil i mappen Anstallda. 
+            using (StreamWriter writer = new StreamWriter(mal + "\\Anstallda\\" + namn + ".txt", false))
             {
                 writer.WriteLine(namn);
                 writer.WriteLine(arbTimmar);
@@ -59,16 +60,17 @@ namespace DigitCashier
             }
         }
 
-        public void TaBortAnstalld (string namn) //Tar bort den fil med samma namn som "namn" i mappen Anstallda. 
+        public void TaBortAnstalld (string namn)
         {
             File.Delete(mal + "\\Anstallda\\" + namn + ".txt");
+            Console.WriteLine("{0} är sparkad." , namn);
         }
 
-        public string[] ListaAnstallda() //Returnar en array med samtliga anställda. 
+        public string[] ListaAnstallda()
         {
             string[] anstalldLista;
             //Array[string] anstalldLista = anstalldLista = new List<string>();
-            anstalldLista = Directory.GetFiles(mal + "\\Anstallda\\"); //Går in i mappen Anstallda och räknar antalet filer för att sen spara filnamn och fil path i en array. 
+            anstalldLista = Directory.GetFiles(mal + "\\Anstallda\\");
             return anstalldLista;
         }
     }

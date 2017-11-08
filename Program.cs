@@ -8,34 +8,40 @@ namespace DigitCashier
 {
     class Program
     {
-        public static List<Vara> varuLista; // gör global
+        /*
+         * Static använder man för symbolisera att det finns ett värde som tillhör klassen men INTE objekten.
+         * Static är ett sätt för en att ändra på beteendet variabler/metodrar/egenskaper. (Allt inom en klassdeklaration)
+         * Man måste INTE skapa ett objekt för att kunna jobba med dom medlemmarna inom den klassen
+         * Man måste använda klassnamnet "Program.varuLista" för att komma åt den statiska medlemmen 
+        */
 
-        public static float moms = 0.12f; //Momsen går nu att komma åt överallt. 
+        public static List<Vara> varuLista; // gör global
+        public static float moms = 0.12f;
 
          static void Main(string[] args)
         {
-            Anställda ans = new Anställda();  //Startar metoden exempelanställda i Anställda.cs
+            Anställda ans = new Anställda(); //Skapar en instans av klassen Anställda
             ans.LaggTillExempelAnstallda();
 
-            varuLista = new List<Vara>();      
+            varuLista = new List<Vara>();
 
-            AddVaror tempAddVaror = new AddVaror(); //Skapar en instance av klassen AddVaror och kallar den hej.
-            tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i hej som är en "kopia" av AddVaror.cs
+            AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
+            tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
 
-            int[] koder = { 222, 333, 444, 555, 000 };  //De koder som går att logga in med
+            int[] koder = { 222, 333, 444, 555, 000 }; // Inloggningskoder
             int kod;
 
             Console.Write("Skriv in din tresiffriga kod (0 för att Avsluta): ");
             string input = Console.ReadLine();
 
-            while (Int32.TryParse(input, out kod) == false || koder.Contains(kod) == false)
+            while (Int32.TryParse(input, out kod) == false || koder.Contains(kod) == false) //Kontrollerar så kod är en int samt om kod matchar ngn av koder.
             {
                 Console.Write("Kod ej giltig. Försök igen: ");
                 input = Console.ReadLine();
             }
 
             int firstNr = Math.Abs(kod);
-            while (firstNr >= 10)   //Delar med 10 så länge talet är större än 10. Får fram första siffran i koden. 
+            while (firstNr >= 10)
                 firstNr /= 10;
 
             switch (firstNr)
@@ -58,7 +64,7 @@ namespace DigitCashier
                     Console.WriteLine("Tryck på valfri knapp för att avsluta.");
                     Console.ReadKey();
                     break;
-                default: // Fått för mig att man måste ha en default... Tror Sattar nämnde det med. Onödigt här dock.
+                default: // Är denna menlös? Används ej.
                     Console.WriteLine("Du är ej behörig.");
                     break;
             }

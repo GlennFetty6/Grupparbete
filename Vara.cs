@@ -8,14 +8,20 @@ namespace DigitCashier
 {
     public class Vara
     {
-        private string namn;        //Namn på varan
-        private int pris;           //Varans styckpris   
-        private int kategori;       //0 Default. 1 Får de varor som ska vägas.
-        private int id;             //Varans ID-nummer. Det nummer kassan slår in.
-        private int lagerStatus;    //Antal varor på lager.
-        private int antal;          //Variabeln används i Kassasystem för att hålla koll på hur många av varan som ligger i kundvagnen. 
+        private string namn, pris, kategori, id, lagerStatus, antal;
+        /*
+           # Namn på varan
+           # Varans styckpris   
+           # Varans kategori, 0 Default. 1 Får de varor som ska vägas.
+           # Varans ID-nummer. Det nummer kassan slår in.
+           # Antal varor på lager.
+           # Variabeln används i Kassasystem för att hålla koll på hur många av varan som ligger i kundvagnen.
+       
 
-        public Vara(string namn, int pris, int kategori, int id, int lagerStatus, int antal) //Constructor för att skapa varor. 
+           # Konstruktor - En speciell typ av metod som har samma namn som klassen och har inget return värde utan har synlighet (public). 
+           # En speciell metod som utförs varje gång en skapar ett nytt objekt av klassen.
+           # Alla klasser har en konstruktor Implicity och Explicity */
+        public Vara(string namn, int pris, int kategori, int id, int lagerStatus, int antal) //Explicity-Constructor för att skapa varor. 
         {
             Namn = namn;
             Pris = pris;
@@ -39,7 +45,7 @@ namespace DigitCashier
         {
             get;
             set;
-        }        
+        }
         public int Kategori
         {
             get;
@@ -59,4 +65,4 @@ namespace DigitCashier
 }
 
 
- 
+

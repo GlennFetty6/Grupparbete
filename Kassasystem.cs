@@ -34,7 +34,7 @@ namespace DigitCashier
             helTal = 0;
         }
 
-        bool CheckList(int tal)
+        bool CheckList(int tal) // Tittar så ID-numret finns med i varuListan.
         {
             for (var i = 0; i < Program.varuLista.Count; i++)
             {
@@ -49,7 +49,7 @@ namespace DigitCashier
 
         void VaraID(int id)
         {
-            bool loopen = true;
+            bool okInput = true;
             int kostnad = 0;
             int antal = 0;
             int vikt = 0;
@@ -61,13 +61,13 @@ namespace DigitCashier
                 {
                     Console.Write("Ange varans vikt i kilogram: ");
                     input1 = Console.ReadLine();
-                    loopen = true;
+                    okInput = true;
 
                     while (Int32.TryParse(input1, out vikt) == false || vikt <= 0)
                     {
                         Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
                         input1 = Console.ReadLine();
-                        loopen = true;
+                        okInput = true;
                     }
                     valdVara.LagerStatus -= vikt;
                     valdVara.Antal = vikt;
@@ -85,13 +85,13 @@ namespace DigitCashier
                     if (Int32.TryParse(input1, out antal) == false)
                     {
                         Console.WriteLine("Inkorrekt svar.");
-                        loopen = false;
+                        okInput = false;
                     }
                     else if (antal > valdVara.LagerStatus)
                     {
                         Console.WriteLine("För stort antal. Det finns bara {0}st {1} kvar.", valdVara.LagerStatus, valdVara.Namn);
-                        loopen = false;
-                        // Här skall ett SystemWrite dokument skickas till Administratör om att köpa in fler av varan
+                        okInput = false;
+                        // Här kan ett SystemWrite dokument skickas till Administratör om att köpa in fler av varan
                     }
                     else
                     {
@@ -99,10 +99,10 @@ namespace DigitCashier
                         valdVara.LagerStatus -= antal;
                         valdVara.Antal = antal;
                         kostnad = antal * valdVara.Pris;
-                        loopen = true;
+                        okInput = true;
                     }
                 }
-            } while (loopen == false);
+            } while (okInput == false);
 
             kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
             totaltPris += kostnad;
@@ -110,26 +110,26 @@ namespace DigitCashier
             do
             {
                 Console.Write("Fler varor? y/n:  ");
-                string mer = Console.ReadLine();
+                string merVaror = Console.ReadLine();
 
-                if (mer == "y")
+                if (merVaror == "y")
                 {
                     valdVara = null;
                     KöpVara();
-                    loopen = true;
+                    okInput = true;
                 }
-                else if (mer == "n")
+                else if (merVaror == "n")
                 {
                     Console.WriteLine("Totalbeloppet är {0}kr", totaltPris);
                     Kupong();
-                    loopen = true;
+                    okInput = true;
                 }
                 else
                 {
                     Console.WriteLine("Inkorrekt svar. skriv endast 'y' eller 'n' ");
-                    loopen = false;
+                    okInput = false;
                 }
-            } while (loopen == false);
+            } while (okInput == false);
         }
 
         void Kupong()
@@ -185,7 +185,7 @@ namespace DigitCashier
 
             do
             {
-                Console.Write("Vill kunden betala kontant eller med kort? ");
+                Console.Write("Vill kunden betala kontant eller med kort? - ");
                 string svar1 = Console.ReadLine();
                 betalningsTyp = svar1;
 
