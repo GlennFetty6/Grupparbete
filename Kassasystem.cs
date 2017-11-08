@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace DigitCashier
 {
@@ -10,6 +11,7 @@ namespace DigitCashier
     {
         List<Vara> kundVagn = new List<Vara>();// Skapar en lista för kundvagn
         private int totaltPris;
+        private int totalAntalVaror;
         private string betalningsTyp;
         private Vara valdVara;
 
@@ -36,11 +38,11 @@ namespace DigitCashier
 
         bool CheckList(int tal) // Tittar så ID-numret finns med i varuListan.
         {
-            for (var i = 0; i < Program.varuLista.Count; i++)
+            for (var i = 0; i < Inloggning.varuLista.Count; i++)
             {
-                if (Program.varuLista[i].Id == tal)
+                if (Inloggning.varuLista[i].Id == tal)
                 {
-                    valdVara = Program.varuLista[i];
+                    valdVara = Inloggning.varuLista[i];
                     return true;
                 }
             }
@@ -135,7 +137,7 @@ namespace DigitCashier
         void Kupong()
         {
             bool okInput = true;
-            int worth;
+            int total;
 
             do
             {
@@ -148,13 +150,13 @@ namespace DigitCashier
                     string input = Console.ReadLine();
                     okInput = true;
 
-                    while (Int32.TryParse(input, out worth) == false || worth <= 0)
+                    while (Int32.TryParse(input, out total) == false || total <= 0)
                     {
                         Console.Write("Ange hur mycket kunden betalade. ");
                         input = Console.ReadLine();
                     }
 
-                    totaltPris -= worth;
+                    totaltPris -= total;
                     Betalning();
                 }
                 else if (svar == "n")
@@ -246,17 +248,34 @@ namespace DigitCashier
             foreach (Vara nr in kundVagn)
             {
                 Console.WriteLine(nr.Antal + "        " + nr.Namn + "    " + KategoriTyp(nr.Kategori) + "       " + nr.Pris + "     " + (nr.Antal * nr.Pris));
+                totalAntalVaror += nr.Antal;
             }
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Total                            {0}", totaltPris);
-            Console.WriteLine("Moms 12%                         {0}", (totaltPris * Program.moms));
+            Console.WriteLine("Moms 12%                         {0}", (totaltPris * Inloggning.moms));
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Belningstyp: {0}", betalningsTyp);
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
             Console.WriteLine("Kvittonummer: ", nr1);
             Console.WriteLine(DateTime.Now);
+            RapportVaror();
+            Kassa();
             Console.ReadKey();
+        }
+        void RapportVaror()
+        {
+            string rapport = AppDomain.CurrentDomain.BaseDirectory;
+            Directory.CreateDirectory(rapport + "\\Rapport\\");
+
+            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalPris.txt", true))
+            {
+                writer.WriteLine(totaltPris);
+            }
+            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalaVaror.txt", true))
+            {
+                writer.WriteLine(totalAntalVaror);
+            }
         }
     }
 }

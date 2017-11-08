@@ -47,8 +47,9 @@ namespace DigitCashier
                         ModifieraMomssats();
                         break;
                     case 0:
-                        Console.WriteLine("Du loggas nu ut. Tryck på valfri tangent.");
+                        Console.WriteLine("Du loggas nu ut som Admin. Tryck på valfri tangent.");
                         Console.ReadKey();
+                        Inloggning.Inloggning2();
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
@@ -64,9 +65,9 @@ namespace DigitCashier
             {
                 Console.WriteLine("\n----------   Välj ett alternativ  ---------");
                 Console.WriteLine("-       1 Lägg till/Ändra anställd         -");
-                Console.WriteLine("-       2 Se info om anställd             -");
-                Console.WriteLine("-       3 Ta bort anställd                -");
-                Console.WriteLine("-       0 Logga ut                        -");
+                Console.WriteLine("-       2 Se info om anställd              -");
+                Console.WriteLine("-       3 Ta bort anställd                 -");
+                Console.WriteLine("-       0 Tillbaka till huvudmenyn         -");
                 Console.WriteLine("-------------------------------------------\n");
 
                 try //Kontrollerar att inmatning är av typen interger.
@@ -92,8 +93,8 @@ namespace DigitCashier
                         SparkaAnstalld();
                         break;
                     case 0:
-                        Console.WriteLine("Du loggas nu ut. Tryck på valfri tangent.");
-                        Console.ReadKey();
+                        Console.WriteLine("Tillbaka till huvudmenyn. Tryck på valfri tangent.");
+                        Console.ReadKey();                        
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
@@ -106,7 +107,7 @@ namespace DigitCashier
         }
         void LaggTillAnstalld()
         {
-            Anställda ans = new Anställda(); //Skapar ett ett objekt av klassen Anställda
+            Anstallda ans = new Anstallda(); //Skapar ett ett objekt av klassen Anställda
 
             Console.WriteLine("Ange namn på den anställde ");
             string name = Console.ReadLine();
@@ -161,12 +162,12 @@ namespace DigitCashier
                 input2 = Console.ReadLine();
             }
 
-            ans.SetAnstalld(name, workedHours, role, wage);
+            ans.ModifieraAnstalld(name, workedHours, role, wage);
         }
 
         void SeAnstalld()
         {
-            Anställda ans = new Anställda();
+            Anstallda ans = new Anstallda();
 
             Console.WriteLine("Ange namn på den anställde ");
             string name = Console.ReadLine();
@@ -182,7 +183,7 @@ namespace DigitCashier
 
         void SparkaAnstalld()
         {
-            Anställda ans = new Anställda();
+            Anstallda ans = new Anstallda();
             Console.WriteLine("Ange namn på den anställde du vill göra dig av med");
             string name = Console.ReadLine();
 
@@ -197,7 +198,7 @@ namespace DigitCashier
 
         bool OmNamnFinns(string inNamn)
         {
-            Anställda ans = new Anställda();
+            Anstallda ans = new Anstallda();
 
             foreach (string file in ans.ListaAnstallda())
             {
@@ -218,7 +219,8 @@ namespace DigitCashier
                 Console.WriteLine("\n----------   Välj ett alternativ  ---------");
                 Console.WriteLine("-       1 Lägg till vara                    -");
                 Console.WriteLine("-       2 Ändra vara                        -");
-                Console.WriteLine("-       0 Logga ut                          -");
+                Console.WriteLine("-       3 Skriv ut prislapp                 -");
+                Console.WriteLine("-       0 Tillbaka till huvudmenyn          -");
                 Console.WriteLine("-------------------------------------------\n");
 
                 try //Kontrollerar att inmatning är av typen interger.
@@ -240,9 +242,13 @@ namespace DigitCashier
                     case 2:
                         ModifieraVara();
                         break;
+                    case 3:
+                        SkrivUtPrisLapp();
+                        break;
                     case 0:
-                        Console.WriteLine("Du loggas nu ut. Tryck på valfri tangent.");
+                        Console.WriteLine("Tillbaka till huvudmenyn. Tryck på valfri tangent.");
                         Console.ReadKey();
+
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
@@ -300,12 +306,13 @@ namespace DigitCashier
                 input4 = Console.ReadLine();
             }
 
-            Program.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara lägg till i varuLista
+            Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara lägg till i varuLista
             Console.WriteLine("Varan {0} är nu tillagd i systemet.", namn);
+            Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
             Console.ReadKey();
         }
-        private Vara valdVara;// Vad gör denna??*****************************************************************************
 
+        private Vara valdVara;
         void ModifieraVara()
         {
             Console.Write("Skriv in varans Id-nummer: ");
@@ -331,7 +338,7 @@ namespace DigitCashier
                 Console.WriteLine("-       2 Pris                            -");
                 Console.WriteLine("-       3 Kategori                        -");
                 Console.WriteLine("-       4 Id                              -");
-                Console.WriteLine("-       0 Logga ut                        -");
+                Console.WriteLine("-       0 Tillbaka till huvudmenyn        -");
                 Console.WriteLine("-------------------------------------------\n");
 
                 try //Kontrollerar att inmatning är av typen interger.
@@ -370,9 +377,6 @@ namespace DigitCashier
                 }
             } while (varuMeny || input2 != 0);
 
-            // Lägg till ny/ta bort/uppdatera en vara information
-            // Lägg till ny/ta bort/uppdatera en varugrupper
-            // Ändra pris på en vara
             // Göra utskrift av prisetiketter till varje vara
             Console.ReadKey();
         }
@@ -385,6 +389,7 @@ namespace DigitCashier
                     Console.WriteLine("Skriv in det nya namnet på {0}", valdVara.Namn);
                     valdVara.Namn = Console.ReadLine();
                     Console.WriteLine("Namnet ändrat till {0}", valdVara.Namn);
+                    Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
                     Console.ReadKey();
                     break;
                 case 2:
@@ -401,6 +406,7 @@ namespace DigitCashier
 
                     valdVara.Pris = helTal;
                     Console.WriteLine("Priset ändrat till {0}kr", valdVara.Pris);
+                    Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
                     Console.ReadKey();
                     break;
                 case 3:
@@ -416,6 +422,7 @@ namespace DigitCashier
                     }
                     valdVara.Kategori = helTal2;
                     Console.WriteLine("Kategorin ändrad till {0}", valdVara.Kategori);
+                    Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
                     Console.ReadKey();
                     break;
                 case 4:
@@ -432,6 +439,7 @@ namespace DigitCashier
 
                     valdVara.Id = helTal3;// ID på valdVara ändras till värdet av helTal3
                     Console.WriteLine("ID-nummer ändrat till {0}", valdVara.Id);
+                    Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
                     Console.ReadKey();
                     break;
                 default:
@@ -441,20 +449,36 @@ namespace DigitCashier
 
         bool CheckList(int tal) // Loopar igenom listan Progarm.varuLista för att kontrollera att ID-numret inte redan är taget.
         {
-            for (var i = 0; i < Program.varuLista.Count; i++)
+            for (var i = 0; i < Inloggning.varuLista.Count; i++)
             {
-                if (Program.varuLista[i].Id == tal)
+                if (Inloggning.varuLista[i].Id == tal)
                 {
-                    valdVara = Program.varuLista[i];
+                    valdVara = Inloggning.varuLista[i];
                     return true;
                 }
             }
             return false;
         }
 
+        void SkrivUtPrisLapp()
+        {
+            Console.Write("Skriv in varans Id-nummer: ");
+            string input = Console.ReadLine();
+            int helTal;
+
+            while (Int32.TryParse(input, out helTal) == false || helTal.ToString().Length != 2 || CheckList(helTal) == false)
+            {
+                Console.Write("Koden måste bestå av ett giltigt tvåsiffrigt heltal. Försök igen: ");
+                input = Console.ReadLine();
+            }
+            helTal = 0;
+
+            Console.WriteLine("\n {0}:{1}kr ", valdVara.Namn, valdVara.Pris);
+        }
+
         void ModifieraMomssats()
         {
-            Console.WriteLine("Den gamla momssatsen är {0}. Skriv in den nya ", Program.moms);//Hämtar momssatsen från Program.moms.
+            Console.WriteLine("Den gamla momssatsen är {0}. Skriv in den nya ", Inloggning.moms);//Hämtar momssatsen från Program.moms.
 
             string input = Console.ReadLine();
             float tal;
@@ -464,9 +488,10 @@ namespace DigitCashier
                 Console.Write("Koden måste bestå av ett tal mellan 0.0-1.0: ");
                 input = Console.ReadLine();
             }
-            Program.moms = tal;//Momsen får ett nytt värde
+            Inloggning.moms = tal;//Momsen får ett nytt värde
 
-            Console.WriteLine("Momssatsen ändrad till {0}", Program.moms);
+            Console.WriteLine("Momssatsen ändrad till {0}", Inloggning.moms);
+            Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
             Console.ReadKey();
         }
     }
