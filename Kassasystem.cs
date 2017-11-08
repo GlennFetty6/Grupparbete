@@ -67,7 +67,7 @@ namespace DigitCashier
 
                     while (Int32.TryParse(input1, out vikt) == false || vikt <= 0)
                     {
-                        Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal");
+                        Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal. Försök igen: ");
                         input1 = Console.ReadLine();
                         okInput = true;
                     }
@@ -76,9 +76,9 @@ namespace DigitCashier
                     kostnad = vikt * valdVara.Pris;
                     totaltPris += kostnad;
 
-                    Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
-         
+                    Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);         
                 }
+
                 else
                 {
                     Console.Write("Ange antal av varan {0}: ", valdVara.Namn);
@@ -111,10 +111,10 @@ namespace DigitCashier
 
             do
             {
-                Console.Write("Fler varor? y/n:  ");
+                Console.Write("Fler varor? j/n:  ");
                 string merVaror = Console.ReadLine();
 
-                if (merVaror == "y")
+                if (merVaror == "j")
                 {
                     valdVara = null;
                     KöpVara();
@@ -128,7 +128,7 @@ namespace DigitCashier
                 }
                 else
                 {
-                    Console.WriteLine("Inkorrekt svar. skriv endast 'y' eller 'n' ");
+                    Console.WriteLine("Inkorrekt svar. skriv endast 'j' eller 'n' ");
                     okInput = false;
                 }
             } while (okInput == false);
@@ -141,10 +141,10 @@ namespace DigitCashier
 
             do
             {
-                Console.Write("Har kunden någon kupong? y/n: ");
+                Console.Write("Har kunden någon kupong? j/n: ");
                 string svar = Console.ReadLine();
 
-                if (svar == "y")
+                if (svar == "j")
                 {
                     Console.Write("Hur mycket är kupongen värd? ");
                     string input = Console.ReadLine();
