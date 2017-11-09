@@ -13,7 +13,7 @@ namespace DigitCashier
         public void LaggTillExempelAnstallda() //Skapar filer åt våra anställda
         {
             Directory.CreateDirectory(malMapp + "\\Anstallda\\"); //Skapar mappen där våra filer lägger sig.             
-            using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Sara.txt", false)) // Skriver in information i Anställda
+            using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Sara.txt", false)) //Skapar en fil för Sara i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
             {
                 writer.WriteLine("Sara");
                 writer.WriteLine("37");
@@ -21,7 +21,7 @@ namespace DigitCashier
                 writer.WriteLine("119");
             }
 
-            using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Arnold.txt", false))
+            using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Arnold.txt", false)) //Skapar en fil för Arnold i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
             {
                 writer.WriteLine("Arnold");
                 writer.WriteLine("60");
@@ -30,7 +30,7 @@ namespace DigitCashier
             }
         }
 
-        public void GetAnstalld(string namn)
+        public void GetAnstalld(string namn) //Kallas från Administrator.cs. Skriver ut info från den fil med samma namn som variabeln "namn".
         {
             using (StreamReader reader = new StreamReader(malMapp + "\\Anstallda\\" + namn + ".txt")) // Läser upp informationen om den angivna anställda.
             {
@@ -45,9 +45,9 @@ namespace DigitCashier
             } 
         }
 
-        public void ModifieraAnstalld(string namn, int arbTimmar, string befattning, int lon) // Lägger till en ny anställd
+        public void ModifieraAnstalld(string namn, int arbTimmar, string befattning, int lon) //Anropas från Administrator.cs. Används för att både ändra på och lägga till anställda.
         {
-            using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\" + namn + ".txt", false))
+            using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\" + namn + ".txt", false)) //Sparar över/skapar .txt i mappen Anstallda. 
             {
                 writer.WriteLine(namn);
                 writer.WriteLine(arbTimmar);
@@ -57,16 +57,16 @@ namespace DigitCashier
             }
         }
 
-        public void TaBortAnstalld (string namn) // Tar bort den angivnes (namn) information - Sparkad.
+        public void TaBortAnstalld (string namn) //Tar bort den fil med samma namn som "namn" i mappen Anstallda. 
         {
             File.Delete(malMapp + "\\Anstallda\\" + namn + ".txt");
             Console.WriteLine("{0} är sparkad." , namn);
         }
 
-        public string[] ListaAnstallda()
+        public string[] ListaAnstallda() //Skickar tillbaka en array med sökväg till samtliga anställdas filer. 
         {
             string[] anstalldLista;
-            anstalldLista = Directory.GetFiles(malMapp + "\\Anstallda\\");
+            anstalldLista = Directory.GetFiles(malMapp + "\\Anstallda\\"); //Går in i mappen Anstallda för att sen spara samtliga filers sökväg i en array.
             return anstalldLista;
         }
     }

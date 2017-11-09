@@ -46,7 +46,7 @@ namespace DigitCashier
             }
 
             int firstNr = Math.Abs(kod);
-            while (firstNr >= 10)
+            while (firstNr >= 10) //Delar med 10 så länge talet är större än 10. För att få fram första siffran i koden. 
                 firstNr /= 10;
 
             switch (firstNr)

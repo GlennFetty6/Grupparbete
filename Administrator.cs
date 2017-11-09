@@ -11,6 +11,7 @@ namespace DigitCashier
     {
         bool huvudMeny = true;
         bool varuMeny = true;
+        private Vara valdVara; //Variabel som används i AdminVaror och AndraVara
 
         public void Administration()
         {
@@ -168,7 +169,7 @@ namespace DigitCashier
 
         }
         
-        void NyAnstalld()
+        void NyAnstalld() //Ger admin möjlighet att lägga till ny anställd. Ber först användaren om den info som krävs. Skapar sen en ny anställd mha SetAnstalld i Anställda.cs
         {
             Anstallda anst = new Anstallda(); //Skapar ett ett objekt av klassen Anställda
 
@@ -222,7 +223,7 @@ namespace DigitCashier
             anst.ModifieraAnstalld(namn, arbetadeTim, arbRoll, inkomst);
         }
 
-        void SeAnstalld()
+        void SeAnstalld() //Läser in ett namn för att sen mha metoden GetAnstalld i Anställda.cs visa information om den anställde.
         {
             Anstallda anst = new Anstallda();
 
@@ -238,7 +239,7 @@ namespace DigitCashier
             anst.GetAnstalld(namn);
         }
 
-        void SparkaAnstalld()
+        void SparkaAnstalld() //Läser in ett namn för att sen anropa metoden TaBortAnstalld i Anställda.cs
         {
             Anstallda anst = new Anstallda();
             Console.Write("Ange namn på den anställde du vill göra dig av med: ");
@@ -253,13 +254,13 @@ namespace DigitCashier
             anst.TaBortAnstalld(namn);
         }
 
-        bool OmNamnFinns(string inNamn)
+        bool OmNamnFinns(string inNamn) //Jämför om det namn som skickas in i metoden finns i en array med de anställda som kommer från Anställda.cs Returnar true om namnet existerar i arrayen.
         {
             Anstallda anst = new Anstallda();
 
             foreach (string fil in anst.ListaAnstallda())
             {
-                if ((inNamn + ".txt") == Path.GetFileName(fil))
+                if ((inNamn + ".txt") == Path.GetFileName(fil)) //ans.listaAnstallda innehåller info om path till filerna. Denna metod hittar namnet på filen så att vi kan jämföra det med inNamn.
                 {
                     return true;
                 }
@@ -268,7 +269,7 @@ namespace DigitCashier
             return false;
         }
 
-        void AdminVaror()
+        void AdminVaror() //Menymetod för hantering av varor när man är inloggad som admin. 
         {
             int input = 0;
             do
@@ -280,7 +281,7 @@ namespace DigitCashier
                 Console.WriteLine("-       0 Tillbaka till huvudmenyn          -");
                 Console.WriteLine("-------------------------------------------\n");
 
-                try //Kontrollerar att inmatning är av typen interger.
+                try //Kontrollerar att inmatning är av typen integer.
                 {
                     input = int.Parse(Console.ReadLine());
                     huvudMeny = false;
@@ -312,8 +313,8 @@ namespace DigitCashier
             } while (huvudMeny || input != 0);
         }
 
-        void LaggTillVara()
-        {
+        void LaggTillVara() //Används för att lägga till varor i varuListan. 
+        {                   //Samlar först den data som behövs för att därefter köra constructorn i Vara.cs och lägga till objektet som skapas i varulistan.
             Console.Write("Ange namnet på den vara du vill lägga till: ");
             string namn = Console.ReadLine();
 
@@ -365,8 +366,7 @@ namespace DigitCashier
             Console.WriteLine("Varan {0} är nu tillagd i systemet.", namn);
         }
 
-        private Vara valdVara;
-        void ModifieraVara()
+        void ModifieraVara() //Två metoder med samma namn?
         {
             Console.Write("Skriv in varans Id-nummer: ");
             string input = Console.ReadLine();
@@ -432,7 +432,7 @@ namespace DigitCashier
             Console.ReadKey();
         }
 
-        void ModifieraVara(int nr)
+        void ModifieraVara(int nr) //Orienterar sig mha av inkommande int och ger sen användaren möjlighet att ändra vald variabel. 
         {
             switch (nr)
             {
@@ -494,7 +494,7 @@ namespace DigitCashier
         }
 
         bool CheckList(int tal) // Loopar igenom listan i Inloggning.varuLista för att kontrollera att ID-numret inte redan är taget.
-        {
+        {                       //Kollar om ett ID existerar i varulistan. Returnar i so fall true annars false. 
             for (var i = 0; i < Inloggning.varuLista.Count; i++)
             {
                 if (Inloggning.varuLista[i].Id == tal)
@@ -522,7 +522,7 @@ namespace DigitCashier
             Console.WriteLine("\n {0}:{1}kr ", valdVara.Namn, valdVara.Pris);
         }
 
-        void ModifieraMomssats()
+        void ModifieraMomssats()  //Körs när admin väljer att ändra momsen. Ändrar momsen till ett värde mellan 0-1.
         {
             Console.Write("Den gamla momssatsen är {0}. Skriv in den nya: ", Inloggning.moms);//Hämtar momssatsen från Inloggning.moms.
 
