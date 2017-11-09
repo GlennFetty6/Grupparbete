@@ -47,9 +47,8 @@ namespace DigitCashier
                         ModifieraMomssats();
                         break;
                     case 0:
-                        Console.WriteLine("Du loggas nu ut som Admin. Tryck på valfri tangent.");
-                        Console.ReadKey();
-                        Inloggning.Inloggning2();
+                        Console.WriteLine("Du loggas nu ut som Admin och återvänder till inloggingen.\n");
+                        Inloggning.LoggaIn(); //Sänds tillbaka till LoggaIn.
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
@@ -64,9 +63,10 @@ namespace DigitCashier
             do
             {
                 Console.WriteLine("\n----------   Välj ett alternativ  ---------");
-                Console.WriteLine("-       1 Lägg till/Ändra anställd         -");
-                Console.WriteLine("-       2 Se info om anställd              -");
-                Console.WriteLine("-       3 Ta bort anställd                 -");
+                Console.WriteLine("-       1 Lägg till ny anställd            -");
+                Console.WriteLine("-       2 Ändra anställd info              -");
+                Console.WriteLine("-       3 Se info om anställd              -");
+                Console.WriteLine("-       4 Ta bort anställd                 -");
                 Console.WriteLine("-       0 Tillbaka till huvudmenyn         -");
                 Console.WriteLine("-------------------------------------------\n");
 
@@ -84,125 +84,182 @@ namespace DigitCashier
                 switch (input)
                 {
                     case 1:
-                        LaggTillAnstalld();
+                        NyAnstalld();
                         break;
                     case 2:
-                        SeAnstalld();
+                        ModifieraAnstalld();
                         break;
                     case 3:
+                        SeAnstalld();
+                        break;
+                    case 4:
                         SparkaAnstalld();
                         break;
                     case 0:
-                        Console.WriteLine("Tillbaka till huvudmenyn. Tryck på valfri tangent.");
-                        Console.ReadKey();                        
+                        Console.WriteLine("Tillbaka till huvudmenyn.");                       
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
                         break;
                 }
             } while (huvudMeny || input != 0);
-
-            // Lägg till ny/ta bort/uppdatera en anställd information
-            //// Visa anställd information och antal arbetade timmar
+            
         }
-        void LaggTillAnstalld()
+
+        void ModifieraAnstalld()
         {
-            Anstallda ans = new Anstallda(); //Skapar ett ett objekt av klassen Anställda
+            Anstallda anst = new Anstallda();
 
-            Console.WriteLine("Ange namn på den anställde ");
-            string name = Console.ReadLine();
+            Console.Write("Ange namn på den nuvarande anställde: ");
+            string namn = Console.ReadLine();
 
-            Console.WriteLine("Ange hur många timmar {0} har arbetat denna månaden.", name);
-
-            string input = Console.ReadLine();
-
-            int workedHours;
-
-            while (Int32.TryParse(input, out workedHours) == false || workedHours < 0)
+            while (OmNamnFinns(namn) == false)
             {
-                Console.Write("Antalet måste vara 0 eller mer");
-                input = Console.ReadLine();
+                Console.Write("Namnet finns ej med i databasen. Försök igen: ");
+                namn = Console.ReadLine();
             }
 
-            Console.WriteLine("Arbetar {0} som Administratör eller Kassör?", name);
+            anst.GetAnstalld(namn);
 
+            Console.Write("Ändra antalet arbetat för månaden: ");
+            string input = Console.ReadLine();
+            int arbetadeTim;
+
+            while (Int32.TryParse(input, out arbetadeTim) == false || arbetadeTim < 0)
+            {
+                Console.Write("Antalet måste vara 0 eller mer. Försök igen: ");
+                input = Console.ReadLine();
+            }
+            
             bool okInput;
-
-            string role;
+            string arbRoll;
 
             do
             {
-                Console.WriteLine("Arbetar {0} som Administratör eller Kassör?", name);
-                role = Console.ReadLine();
+                Console.Write("Ange vilken befattning {0} har, Administratör eller Kassör: ", namn);
+                arbRoll = Console.ReadLine();
 
-                if (role == "Administratör")
+                if (arbRoll == "Administratör")
                 {
                     okInput = true;
                 }
-                else if (role == "Kassör")
+                else if (arbRoll == "Kassör")
                 {
                     okInput = true;
                 }
                 else
                 {
                     okInput = false;
-                    Console.WriteLine("Du måste svara antingen Administratör eller Kassör");
+                    Console.WriteLine("Du måste svara antingen Administratör eller Kassör.");
                 }
             } while (okInput == false);
 
-            Console.WriteLine("Vad har {0} för timlön ", name);
-
+            Console.Write("Ange ny timlön: ");
             string input2 = Console.ReadLine();
+            int inkomst;
 
-            int wage;
-
-            while (Int32.TryParse(input2, out wage) == false || wage < 0)
+            while (Int32.TryParse(input2, out inkomst) == false || inkomst < 0)
             {
-                Console.Write("Antalet måste vara 0 eller mer");
+                Console.Write("Antalet måste vara 0 eller mer: ");
                 input2 = Console.ReadLine();
             }
 
-            ans.ModifieraAnstalld(name, workedHours, role, wage);
+            anst.ModifieraAnstalld(namn, arbetadeTim, arbRoll, inkomst);
+
+        }
+        
+        void NyAnstalld()
+        {
+            Anstallda anst = new Anstallda(); //Skapar ett ett objekt av klassen Anställda
+
+            Console.Write("Ange namn på den nya anställde: ");
+            string namn = Console.ReadLine();
+
+            Console.Write("Ange hur många timmar {0} har arbetat denna månaden: ", namn);
+            string input = Console.ReadLine();
+
+            int arbetadeTim;
+
+            while (Int32.TryParse(input, out arbetadeTim) == false || arbetadeTim < 0)
+            {
+                Console.Write("Antalet måste vara 0 eller mer. Försök igen: ");
+                input = Console.ReadLine();
+            }
+
+            bool okInput;
+            string arbRoll;
+
+            do
+            {
+                Console.Write("Vilken befattning har {0}, Administratör eller Kassör: ", namn);
+                arbRoll = Console.ReadLine();
+
+                if (arbRoll == "Administratör")
+                {
+                    okInput = true;
+                }
+                else if (arbRoll == "Kassör")
+                {
+                    okInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Du måste välja på antingen Administratör eller Kassör.");
+                    okInput = false;
+                }
+            } while (okInput == false);
+
+            Console.Write("Vad har {0} för timlön: ", namn);
+            string input2 = Console.ReadLine();
+
+            int inkomst;
+
+            while (Int32.TryParse(input2, out inkomst) == false || inkomst < 0)
+            {
+                Console.Write("Antalet måste vara 0 eller mer. Försök igen: ");
+                input2 = Console.ReadLine();
+            }
+            anst.ModifieraAnstalld(namn, arbetadeTim, arbRoll, inkomst);
         }
 
         void SeAnstalld()
         {
-            Anstallda ans = new Anstallda();
+            Anstallda anst = new Anstallda();
 
-            Console.WriteLine("Ange namn på den anställde ");
-            string name = Console.ReadLine();
+            Console.WriteLine("Ange namn på den anställde: ");
+            string namn = Console.ReadLine();
 
-            while (OmNamnFinns(name) == false)
+            while (OmNamnFinns(namn) == false)
             {
                 Console.Write("Namnet finns ej med i databasen. Försök igen: ");
-                name = Console.ReadLine();
+                namn = Console.ReadLine();
             }
 
-            ans.GetAnstalld(name);
+            anst.GetAnstalld(namn);
         }
 
         void SparkaAnstalld()
         {
-            Anstallda ans = new Anstallda();
-            Console.WriteLine("Ange namn på den anställde du vill göra dig av med");
-            string name = Console.ReadLine();
+            Anstallda anst = new Anstallda();
+            Console.Write("Ange namn på den anställde du vill göra dig av med: ");
+            string namn = Console.ReadLine();
 
-            while (OmNamnFinns(name) == false)
+            while (OmNamnFinns(namn) == false)
             {
                 Console.Write("Namnet finns ej med i databasen. Försök igen: ");
-                name = Console.ReadLine();
+                namn = Console.ReadLine();
             }
 
-            ans.TaBortAnstalld(name);
+            anst.TaBortAnstalld(namn);
         }
 
         bool OmNamnFinns(string inNamn)
         {
-            Anstallda ans = new Anstallda();
+            Anstallda anst = new Anstallda();
 
-            foreach (string file in ans.ListaAnstallda())
+            foreach (string fil in anst.ListaAnstallda())
             {
-                if ((inNamn + ".txt") == Path.GetFileName(file))
+                if ((inNamn + ".txt") == Path.GetFileName(fil))
                 {
                     return true;
                 }
@@ -246,9 +303,7 @@ namespace DigitCashier
                         SkrivUtPrisLapp();
                         break;
                     case 0:
-                        Console.WriteLine("Tillbaka till huvudmenyn. Tryck på valfri tangent.");
-                        Console.ReadKey();
-
+                        Console.WriteLine("Tillbaka till huvudmenyn.");
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
@@ -262,7 +317,7 @@ namespace DigitCashier
             Console.Write("Ange namnet på den vara du vill lägga till: ");
             string namn = Console.ReadLine();
 
-            Console.Write("Ange priset på {0}: ", namn);
+            Console.Write("Ange pris: ");
             string input = Console.ReadLine();
 
             int pris;
@@ -273,7 +328,7 @@ namespace DigitCashier
                 input = Console.ReadLine();
             }
 
-            Console.Write("Ange vilken kategori {0} varan är: ", namn);
+            Console.Write("Ange kategori 0 för Matvara, 1 för Grönsak):");
             string input2 = Console.ReadLine();
 
             int kategori;
@@ -284,7 +339,7 @@ namespace DigitCashier
                 input2 = Console.ReadLine();//Skriver över förra försökets input
             }
 
-            Console.Write("Ange vilket ID-nummer på varan {0}: ", namn);
+            Console.Write("Ange ID-nummer: ");
             string input3 = Console.ReadLine();
 
             int idNr;
@@ -295,7 +350,7 @@ namespace DigitCashier
                 input3 = Console.ReadLine();
             }
 
-            Console.Write("Ange hur många {0} som finns på lager: ", namn);
+            Console.Write("Ange lagerstatus på varan: ");
             string input4 = Console.ReadLine();
 
             int lagerAntal;
@@ -308,8 +363,6 @@ namespace DigitCashier
 
             Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara lägg till i varuLista
             Console.WriteLine("Varan {0} är nu tillagd i systemet.", namn);
-            Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
-            Console.ReadKey();
         }
 
         private Vara valdVara;
@@ -355,20 +408,19 @@ namespace DigitCashier
                 switch (input2)
                 {
                     case 1:
-                        AndraVara(input2);
+                        ModifieraVara(input2);
                         break;
                     case 2:
-                        AndraVara(input2);
+                        ModifieraVara(input2);
                         break;
                     case 3:
-                        AndraVara(input2);
+                        ModifieraVara(input2);
                         break;
                     case 4:
-                        AndraVara(input2);
+                        ModifieraVara(input2);
                         break;
                     case 0:
-                        Console.WriteLine("Du loggas nu ut. Tryck på valfri tangent.");
-                        Console.ReadKey();
+                        Console.WriteLine("Du loggas nu ut.");
                         Administration();
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
@@ -376,24 +428,23 @@ namespace DigitCashier
                         break;
                 }
             } while (varuMeny || input2 != 0);
-
-            // Göra utskrift av prisetiketter till varje vara
+            
             Console.ReadKey();
         }
 
-        void AndraVara(int nr)
+        void ModifieraVara(int nr)
         {
             switch (nr)
             {
                 case 1:
-                    Console.WriteLine("Skriv in det nya namnet på {0}", valdVara.Namn);
+                    Console.Write("Skriv in det nya namnet på {0}: ", valdVara.Namn);
                     valdVara.Namn = Console.ReadLine();
                     Console.WriteLine("Namnet ändrat till {0}", valdVara.Namn);
                     Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
                     Console.ReadKey();
                     break;
                 case 2:
-                    Console.WriteLine("Skriv in det nya priset för {0}", valdVara.Namn);
+                    Console.Write("Skriv in det nya priset för {0}: ", valdVara.Namn);
                     string input = Console.ReadLine();
 
                     int helTal;
@@ -410,7 +461,7 @@ namespace DigitCashier
                     Console.ReadKey();
                     break;
                 case 3:
-                    Console.WriteLine("Skriv in den nya kategorin för {0}", valdVara.Namn);
+                    Console.Write("Skriv in den nya kategorin för {0}, 0 för Matvara och 1 för Grönsak: ", valdVara.Namn);
                     string input2 = Console.ReadLine();
 
                     int helTal2;
@@ -422,11 +473,9 @@ namespace DigitCashier
                     }
                     valdVara.Kategori = helTal2;
                     Console.WriteLine("Kategorin ändrad till {0}", valdVara.Kategori);
-                    Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
-                    Console.ReadKey();
                     break;
                 case 4:
-                    Console.WriteLine("Skriv in det nya ID-numret på {0}", valdVara.Namn);
+                    Console.Write("Skriv in det nya ID-numret på {0}: ", valdVara.Namn);
                     string input3 = Console.ReadLine();
 
                     int helTal3;
@@ -436,18 +485,15 @@ namespace DigitCashier
                         Console.Write("Det nya ID-numret måste vara ett heltal mellan 9 och 100 och får inte vara i bruk. Försök igen: ");
                         input3 = Console.ReadLine();
                     }
-
                     valdVara.Id = helTal3;// ID på valdVara ändras till värdet av helTal3
                     Console.WriteLine("ID-nummer ändrat till {0}", valdVara.Id);
-                    Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
-                    Console.ReadKey();
                     break;
                 default:
                     break;
             }
         }
 
-        bool CheckList(int tal) // Loopar igenom listan Progarm.varuLista för att kontrollera att ID-numret inte redan är taget.
+        bool CheckList(int tal) // Loopar igenom listan i Inloggning.varuLista för att kontrollera att ID-numret inte redan är taget.
         {
             for (var i = 0; i < Inloggning.varuLista.Count; i++)
             {
@@ -478,7 +524,7 @@ namespace DigitCashier
 
         void ModifieraMomssats()
         {
-            Console.WriteLine("Den gamla momssatsen är {0}. Skriv in den nya ", Inloggning.moms);//Hämtar momssatsen från Program.moms.
+            Console.Write("Den gamla momssatsen är {0}. Skriv in den nya: ", Inloggning.moms);//Hämtar momssatsen från Inloggning.moms.
 
             string input = Console.ReadLine();
             float tal;
@@ -491,8 +537,6 @@ namespace DigitCashier
             Inloggning.moms = tal;//Momsen får ett nytt värde
 
             Console.WriteLine("Momssatsen ändrad till {0}", Inloggning.moms);
-            Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
-            Console.ReadKey();
         }
     }
 }

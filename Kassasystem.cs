@@ -11,7 +11,9 @@ namespace DigitCashier
     {
         List<Vara> kundVagn = new List<Vara>();// Skapar en lista för kundvagn
         private int totaltPris;
-        private int totalAntalVaror;
+        private int totalAntalVaror; // Borde kunna räkna kundVagnens antal .Contains
+
+
         private string betalningsTyp;
         private Vara valdVara;
 
@@ -76,7 +78,7 @@ namespace DigitCashier
                     kostnad = vikt * valdVara.Pris;
                     totaltPris += kostnad;
 
-                    Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);         
+                    Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
                 }
 
                 else
@@ -148,12 +150,14 @@ namespace DigitCashier
                 {
                     Console.Write("Hur mycket är kupongen värd? ");
                     string input = Console.ReadLine();
+                    CalcChange();
                     okInput = true;
 
                     while (Int32.TryParse(input, out total) == false || total <= 0)
                     {
-                        Console.Write("Ange hur mycket kunden betalade. ");
+                        Console.Write("Ange hur mycket kunden betalade: ");
                         input = Console.ReadLine();
+                        CalcChange();
                     }
 
                     totaltPris -= total;
@@ -187,7 +191,7 @@ namespace DigitCashier
 
             do
             {
-                Console.Write("Vill kunden betala kontant eller med kort? - ");
+                Console.Write("Betala med kort eller kontant: ");
                 string svar1 = Console.ReadLine();
                 betalningsTyp = svar1;
 
@@ -239,6 +243,7 @@ namespace DigitCashier
         }
         void skrivUtKvitto()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("\nSEWK's livs");
             Console.WriteLine("Kungsgatan 37, 441 50 Alingsås");
             Console.WriteLine("Org Nr: 556033-5696\n");
@@ -259,10 +264,32 @@ namespace DigitCashier
             int nr1 = verfNr.Next(100000, 999999);
             Console.WriteLine("Kvittonummer: ", nr1);
             Console.WriteLine(DateTime.Now);
+            Console.ForegroundColor = ConsoleColor.Gray;
             RapportVaror();
-            Kassa();
-            Console.ReadKey();
+            FlerKunder();
         }
+
+        void FlerKunder()
+        {
+            Console.Write("\nFler kunder? j/n:  ");
+            string merKunder = Console.ReadLine();
+
+            if (merKunder == "j")
+            {
+                Console.WriteLine("Du loggas nu ut ur kassör och återvänder till inloggningen.");
+                Kassa();
+            }
+            else if (merKunder == "n")
+            {
+                Inloggning.LoggaIn();
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Inkorrekt svar. skriv endast 'j' eller 'n' ");
+            }            
+        }
+
         void RapportVaror()
         {
             string rapport = AppDomain.CurrentDomain.BaseDirectory;

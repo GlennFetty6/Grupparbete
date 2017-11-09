@@ -15,26 +15,27 @@ namespace DigitCashier
          * Man måste använda klassnamnet "Inloggning.varuLista" för att komma åt den statiska medlemmen 
         */
 
-        public static List<Vara> varuLista; // gör global
-        public static float moms = 0.12f;
+        public static List<Vara> varuLista; // Gör  listan global
+        public static float moms = 0.12f;   // Gör momssatsen global
 
         static void Main(string[] args)
         {
-            Anstallda ans = new Anstallda(); //Skapar en instans av klassen Anställda
-            ans.LaggTillExempelAnstallda();
+            Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
+            anst.LaggTillExempelAnstallda();
 
-            varuLista = new List<Vara>();
+            varuLista = new List<Vara>(); // Skapar en varuLista(list) av Vara
 
             AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
             tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
 
-           Inloggning2();
+           LoggaIn();
         }
 
-        public static void Inloggning2()
+        public static void LoggaIn()
         {
             int[] koder = { 222, 333, 444, 555, 000 }; // Inloggningskoder
             int kod;
+            Console.WriteLine("###### Inloggning i DigitCashier ######");
             Console.Write("Skriv in din tresiffriga kod (0 för att Avsluta): ");
             string input = Console.ReadLine();
 
@@ -65,7 +66,7 @@ namespace DigitCashier
                     Rapport.Forsaljningsrapport2();
                     break;
                 case 0:
-                    Console.WriteLine("Kassan kommer nu stängas.");
+                    Console.WriteLine("Programmet kommer nu att stängas.");
                     Console.WriteLine("Tryck på valfri knapp för att avsluta.");
                     Console.ReadKey();
                     break;

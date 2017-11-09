@@ -24,18 +24,20 @@ namespace DigitCashier
 
         public void Forsaljningsrapport2()
         {
-            Console.WriteLine("######################################################################");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("\n##############################################################################");
             Console.WriteLine("Försäljningsrapport");
             Console.WriteLine(DateTime.Now);
 
             foreach (Vara a in Inloggning.varuLista)
             {
-                Console.WriteLine("Namn:{0} |Lagerstatus:{1} |Pris inkl.moms:{2}kr |Pris exkl.moms:{3}kr", a.Namn, a.LagerStatus, a.Pris, (a.Pris * (1 - Inloggning.moms)));
+                Console.WriteLine("Namn: {0} | Lagerstatus:{1} | Pris inkl.moms:{2}kr | Pris exkl.moms:{3}kr", a.Namn, a.LagerStatus, a.Pris, (a.Pris * (1 - Inloggning.moms)));
             }
-            Console.WriteLine("Total försäljningbeloppet är {0}kr", TotalPris());
-            Console.WriteLine("Totalt antal sålda varor är {0}st", TotalVaror());
+            Console.WriteLine("Totala försäljningbeloppet: {0}kr", TotalPris());
+            Console.WriteLine("Totalt antal sålda varor: {0}st", TotalVaror());
             AnstalldaInfo();
-            Console.WriteLine("######################################################################");
+            Console.WriteLine("###############################################################################");
+            Console.ForegroundColor = ConsoleColor.Gray;
 
 
             do
@@ -45,13 +47,15 @@ namespace DigitCashier
 
                 if (input == "j")
                 {
-                    File.Delete(rapport + "\\Rapport\\TotalPris.txt");
-                    File.Delete(rapport + "\\Rapport\\TotalaVaror.txt");
-                  
+                    Console.WriteLine("Rapporten är nu raderad");
+                    Console.WriteLine("Du loggas nu ut ur Rapportsystemet. Tryck på valfri tangent.");
+                    File.Delete(rapport + "\\Rapport\\TotalPris.txt");// Raderar textfilen
+                    File.Delete(rapport + "\\Rapport\\TotalaVaror.txt");                  
                     okInput = true;
                 }
                 else if (input == "n")
                 {
+                    Console.WriteLine("Du loggas nu ut ur Rapportsystemet och återvänder till inloggningen.");
                     okInput = true;
                 }
                 else
@@ -60,8 +64,7 @@ namespace DigitCashier
                     okInput = false;
                 }
             } while (okInput == false);
-            Console.ReadKey();
-            Inloggning.Inloggning2();
+            Inloggning.LoggaIn();
 
         }
 
