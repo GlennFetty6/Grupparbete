@@ -262,7 +262,7 @@ namespace DigitCashier
             Console.WriteLine("Belningstyp: {0}", betalningsTyp);
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
-            Console.WriteLine("Kvittonummer: ", nr1);
+            Console.WriteLine("Kvittonummer: {0}", nr1);
             Console.WriteLine(DateTime.Now);
             Console.ForegroundColor = ConsoleColor.Gray;
             RapportVaror();
