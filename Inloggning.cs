@@ -23,7 +23,7 @@ namespace DigitCashier
             Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
             anst.LaggTillExempelAnstallda();
 
-            varuLista = new List<Vara>(); // Skapar en varuLista(list) av Vara
+            varuLista = new List<Vara>(); // Skapar en list av Vara och kallar den varuLista
 
             AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
             tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs

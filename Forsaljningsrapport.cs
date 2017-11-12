@@ -27,14 +27,14 @@ namespace DigitCashier
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("\n##############################################################################");
             Console.WriteLine("Försäljningsrapport");
-            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.Now+"\n");
 
             foreach (Vara a in Inloggning.varuLista)
             {
                 Console.WriteLine("Namn: {0} | Lagerstatus:{1} | Pris inkl.moms:{2}kr | Pris exkl.moms:{3}kr", a.Namn, a.LagerStatus, a.Pris, (a.Pris * (1 - Inloggning.moms)));
             }
             Console.WriteLine("Totala försäljningbeloppet: {0}kr", TotalPris());
-            Console.WriteLine("Totalt antal sålda varor: {0}st", TotalVaror());
+            Console.WriteLine("Totalt antal sålda varor: {0}st\n", TotalVaror());
             AnstalldaInfo();
             Console.WriteLine("###############################################################################");
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -48,14 +48,14 @@ namespace DigitCashier
                 if (input == "j")
                 {
                     Console.WriteLine("Rapporten är nu raderad");
-                    Console.WriteLine("Du loggas nu ut ur Rapportsystemet. Tryck på valfri tangent.");
+                    Console.WriteLine("Du loggas nu ut ur Rapportsystemet och återvänder till inloggningen.\n");
                     File.Delete(rapport + "\\Rapport\\TotalPris.txt");// Raderar textfilen
                     File.Delete(rapport + "\\Rapport\\TotalaVaror.txt");                  
                     okInput = true;
                 }
                 else if (input == "n")
                 {
-                    Console.WriteLine("Du loggas nu ut ur Rapportsystemet och återvänder till inloggningen.");
+                    Console.WriteLine("Du loggas nu ut ur Rapportsystemet och återvänder till inloggningen.\n");
                     okInput = true;
                 }
                 else
@@ -115,8 +115,8 @@ namespace DigitCashier
                 {
                     string anstalldNamn = reader.ReadLine();
                     int arbTimmar = Int32.Parse(reader.ReadLine());
-                    Console.WriteLine("Anställd nr.{0} {1}", i , anstalldNamn);
-                    Console.WriteLine("Arbetade timmar: {0}", arbTimmar);
+                    Console.WriteLine("Anställd nr.{0}: {1}h", i , anstalldNamn);
+                    Console.WriteLine("Arbetade timmar: {0}h\n", arbTimmar);
                     i++;
                  
                 }

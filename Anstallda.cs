@@ -30,7 +30,7 @@ namespace DigitCashier
             }
         }
 
-        public void GetAnstalld(string namn) //Kallas från Administrator.cs. Skriver ut info från den fil med samma namn som variabeln "namn".
+        public void VisaAnstalld(string namn) //Kallas från Administrator.cs. Skriver ut info från den fil med samma namn som variabeln "namn".
         {
             using (StreamReader reader = new StreamReader(malMapp + "\\Anstallda\\" + namn + ".txt")) // Läser upp informationen om den angivna anställda.
             {

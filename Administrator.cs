@@ -11,7 +11,7 @@ namespace DigitCashier
     {
         bool huvudMeny = true;
         bool varuMeny = true;
-        private Vara valdVara; //Variabel som används i AdminVaror och AndraVara
+        private Vara valdVara; //Variabel som används i AdminVaror och ModifieraVara
 
         public void Administration()
         {
@@ -120,7 +120,7 @@ namespace DigitCashier
                 namn = Console.ReadLine();
             }
 
-            anst.GetAnstalld(namn);
+            anst.VisaAnstalld(namn);
 
             Console.Write("Ändra antalet arbetat för månaden: ");
             string input = Console.ReadLine();
@@ -171,7 +171,7 @@ namespace DigitCashier
         
         void NyAnstalld() //Ger admin möjlighet att lägga till ny anställd. Ber först användaren om den info som krävs. Skapar sen en ny anställd mha SetAnstalld i Anställda.cs
         {
-            Anstallda anst = new Anstallda(); //Skapar ett ett objekt av klassen Anställda
+            Anstallda anst = new Anstallda(); //Skapar ett objekt av klassen Anställda
 
             Console.Write("Ange namn på den nya anställde: ");
             string namn = Console.ReadLine();
@@ -223,7 +223,7 @@ namespace DigitCashier
             anst.ModifieraAnstalld(namn, arbetadeTim, arbRoll, inkomst);
         }
 
-        void SeAnstalld() //Läser in ett namn för att sen mha metoden GetAnstalld i Anställda.cs visa information om den anställde.
+        void SeAnstalld() //Läser in ett namn för att sen mha metoden SeAnstalld i Anstallda.cs visa information om den anställde.
         {
             Anstallda anst = new Anstallda();
 
@@ -236,7 +236,7 @@ namespace DigitCashier
                 namn = Console.ReadLine();
             }
 
-            anst.GetAnstalld(namn);
+            anst.VisaAnstalld(namn);
         }
 
         void SparkaAnstalld() //Läser in ett namn för att sen anropa metoden TaBortAnstalld i Anställda.cs
@@ -314,7 +314,7 @@ namespace DigitCashier
         }
 
         void LaggTillVara() //Används för att lägga till varor i varuListan. 
-        {                   //Samlar först den data som behövs för att därefter köra constructorn i Vara.cs och lägga till objektet som skapas i varulistan.
+        {                   //Samlar först den data som behövs för att därefter köra konstruktorn i Vara.cs och lägga till objektet som skapas i varulistan.
             Console.Write("Ange namnet på den vara du vill lägga till: ");
             string namn = Console.ReadLine();
 
@@ -362,11 +362,11 @@ namespace DigitCashier
                 input4 = Console.ReadLine();
             }
 
-            Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara lägg till i varuLista
+            Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara läggs till i varuLista
             Console.WriteLine("Varan {0} är nu tillagd i systemet.", namn);
         }
 
-        void ModifieraVara() //Två metoder med samma namn?
+        void ModifieraVara()
         {
             Console.Write("Skriv in varans Id-nummer: ");
             string input = Console.ReadLine();
@@ -408,16 +408,16 @@ namespace DigitCashier
                 switch (input2)
                 {
                     case 1:
-                        ModifieraVara(input2);
+                        ModifieraValdVara(input2);
                         break;
                     case 2:
-                        ModifieraVara(input2);
+                        ModifieraValdVara(input2);
                         break;
                     case 3:
-                        ModifieraVara(input2);
+                        ModifieraValdVara(input2);
                         break;
                     case 4:
-                        ModifieraVara(input2);
+                        ModifieraValdVara(input2);
                         break;
                     case 0:
                         Console.WriteLine("Du loggas nu ut.");
@@ -432,7 +432,7 @@ namespace DigitCashier
             Console.ReadKey();
         }
 
-        void ModifieraVara(int nr) //Orienterar sig mha av inkommande int och ger sen användaren möjlighet att ändra vald variabel. 
+        void ModifieraValdVara(int nr) //Orienterar sig mha av inkommande int och ger sen användaren möjlighet att ändra vald variabel. 
         {
             switch (nr)
             {
@@ -440,8 +440,6 @@ namespace DigitCashier
                     Console.Write("Skriv in det nya namnet på {0}: ", valdVara.Namn);
                     valdVara.Namn = Console.ReadLine();
                     Console.WriteLine("Namnet ändrat till {0}", valdVara.Namn);
-                    Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
-                    Console.ReadKey();
                     break;
                 case 2:
                     Console.Write("Skriv in det nya priset för {0}: ", valdVara.Namn);
@@ -457,8 +455,6 @@ namespace DigitCashier
 
                     valdVara.Pris = helTal;
                     Console.WriteLine("Priset ändrat till {0}kr", valdVara.Pris);
-                    Console.WriteLine("Tryck Enter för att åtevända till Menyn.");
-                    Console.ReadKey();
                     break;
                 case 3:
                     Console.Write("Skriv in den nya kategorin för {0}, 0 för Matvara och 1 för Grönsak: ", valdVara.Namn);
