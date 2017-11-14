@@ -515,7 +515,15 @@ namespace DigitCashier
             }
             helTal = 0;
 
-            Console.WriteLine("\n {0}:{1}kr ", valdVara.Namn, valdVara.Pris);
+            if (valdVara.Kategori == 0)
+            {
+                Console.WriteLine("\n {0}:{1}kr ", valdVara.Namn, valdVara.Pris);
+            }
+            else
+            {
+                Console.WriteLine("\n {0}:{1}kr/kg ", valdVara.Namn, valdVara.Pris);
+            }
+
         }
 
         void ModifieraMomssats()  //Körs när admin väljer att ändra momsen. Ändrar momsen till ett värde mellan 0-1.
