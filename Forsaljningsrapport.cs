@@ -24,19 +24,23 @@ namespace DigitCashier
 
         public void Forsaljningsrapport2()
         {
+            const string format = "{0,-10}| {1,-10} | {2,-15} | {3,-15}";
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n##############################################################################");
+            Console.WriteLine("\n#############################################################");
             Console.WriteLine("Försäljningsrapport");
-            Console.WriteLine(DateTime.Now+"\n");
-
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine("-------------------------------------------------------------");
+            Console.WriteLine(String.Format(format, "Varunamn", "Styckpris", "Pris exkl moms","Lagerstatus"));
+            Console.WriteLine("-------------------------------------------------------------");
             foreach (Vara a in Inloggning.varuLista)
             {
-                Console.WriteLine("Namn: {0} | Lagerstatus:{1} | Pris inkl.moms:{2}kr | Pris exkl.moms:{3}kr", a.Namn, a.LagerStatus, a.Pris, (a.Pris * (1 - Inloggning.moms)));
+                Console.WriteLine(String.Format(format, a.Namn, a.Pris, (a.Pris * (1 - Inloggning.moms)), a.LagerStatus));
             }
+            Console.WriteLine("-------------------------------------------------------------");
             Console.WriteLine("Totala försäljningbeloppet: {0}kr", TotalPris());
             Console.WriteLine("Totalt antal sålda varor: {0}st\n", TotalVaror());
             AnstalldaInfo();
-            Console.WriteLine("###############################################################################");
+            Console.WriteLine("###############################################################");
             Console.ForegroundColor = ConsoleColor.Gray;
 
 
@@ -115,8 +119,8 @@ namespace DigitCashier
                 {
                     string anstalldNamn = reader.ReadLine();
                     int arbTimmar = Int32.Parse(reader.ReadLine());
-                    Console.WriteLine("Anställd nr.{0}: {1}h", i , anstalldNamn);
-                    Console.WriteLine("Arbetade timmar: {0}h\n", arbTimmar);
+                    Console.WriteLine("Anställd nr.{0}: {1}", i , anstalldNamn);
+                    Console.WriteLine("Arbetade timmar: {0}h", arbTimmar);
                     i++;
                  
                 }

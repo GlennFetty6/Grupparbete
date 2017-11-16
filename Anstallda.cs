@@ -39,7 +39,7 @@ namespace DigitCashier
                 string befattning = reader.ReadLine();
                 int lon = Int32.Parse(reader.ReadLine());
                 Console.WriteLine("Namn: {0}" , anstalldNamn);
-                Console.WriteLine("Arbetade timmar: {0}" , arbTimmar);
+                Console.WriteLine("Arbetade timmar: {0}h" , arbTimmar);
                 Console.WriteLine("Befattning: {0}" , befattning);
                 Console.WriteLine("Lön: {0}kr" , lon);
             } 

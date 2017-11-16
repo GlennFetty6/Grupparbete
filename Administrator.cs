@@ -227,7 +227,7 @@ namespace DigitCashier
         {
             Anstallda anst = new Anstallda();
 
-            Console.WriteLine("Ange namn på den anställde: ");
+            Console.Write("Ange namn på den anställde: ");
             string namn = Console.ReadLine();
 
             while (OmNamnFinns(namn) == false)
@@ -517,18 +517,18 @@ namespace DigitCashier
 
             if (valdVara.Kategori == 0)
             {
-                Console.WriteLine("\n {0}:{1}kr ", valdVara.Namn, valdVara.Pris);
+                Console.WriteLine("\n {0}: {1}kr/paket ", valdVara.Namn, valdVara.Pris);
             }
             else
             {
-                Console.WriteLine("\n {0}:{1}kr/kg ", valdVara.Namn, valdVara.Pris);
+                Console.WriteLine("\n {0}: {1}kr/kg ", valdVara.Namn, valdVara.Pris);
             }
 
         }
 
         void ModifieraMomssats()  //Körs när admin väljer att ändra momsen. Ändrar momsen till ett värde mellan 0-1.
         {
-            Console.Write("Den gamla momssatsen är {0}. Skriv in den nya: ", Inloggning.moms);//Hämtar momssatsen från Inloggning.moms.
+            Console.Write("Momssatsen är {0}. Ange önskad momssatsen: ", Inloggning.moms);//Hämtar momssatsen från Inloggning.moms.
 
             string input = Console.ReadLine();
             float tal;

@@ -11,7 +11,7 @@ namespace DigitCashier
     {
         List<Vara> kundVagn = new List<Vara>();// Skapar en lista för kundvagn
         private int totalPris;
-        private int totaltBelopp; // totalPris på kvittot stämde ej då en splittade notan kupong/kort därav ny totaltBelopp
+        private int totaltBelopp; // totalPris på kvittot stämde ej då en splittade notan kupong/kort därav totaltBelopp
         private int totalAntalVaror; // Borde kunna räkna kundVagnens antal .Contains - Jaaaaa.... det kan en säkerligen
 
         private string betalningsTyp;
@@ -65,21 +65,27 @@ namespace DigitCashier
                 {
                     Console.Write("Ange varans vikt i kilogram: ");
                     input1 = Console.ReadLine();
-                    okInput = true;
-
-                    while (Int32.TryParse(input1, out vikt) == false || vikt <= 0)
+                    
+                    if (Int32.TryParse(input1, out vikt) == false || vikt <= 0)
                     {
-                        Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal. Försök igen: ");
-                        input1 = Console.ReadLine();
-                        okInput = true;
+                        Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal.");
+                        okInput = false;
                     }
-                    valdVara.LagerStatus -= vikt;
-                    valdVara.Antal = vikt;
-                    kostnad = vikt * valdVara.Pris;
-                    totalPris += kostnad;
-                    totaltBelopp += kostnad;
-
-                    Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
+                    else if (vikt > valdVara.LagerStatus)
+                    {
+                        Console.WriteLine("För stort antal. Det finns bara {0}kg {1} kvar.", valdVara.LagerStatus, valdVara.Namn);
+                        okInput = false;
+                    }
+                    else
+                    {
+                        valdVara.LagerStatus -= vikt;
+                        valdVara.Antal = vikt;
+                        kostnad = vikt * valdVara.Pris;
+                        totalPris += kostnad;
+                        totaltBelopp += kostnad;
+                        Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
+                        okInput = true;
+                    }        
                 }
 
                 else
@@ -103,14 +109,14 @@ namespace DigitCashier
                         valdVara.LagerStatus -= antal;
                         valdVara.Antal = antal;
                         kostnad = antal * valdVara.Pris;
+                        totalPris += kostnad;
+                        totaltBelopp += kostnad;
                         okInput = true;
                     }
                 }
             } while (okInput == false);
 
             kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
-            totalPris += kostnad;
-            totaltBelopp += kostnad;
 
             do
             {
@@ -157,9 +163,12 @@ namespace DigitCashier
                         Console.Write("Ange hur mycket kunden betalade: ");
                         input = Console.ReadLine();
                     }
+                    CalcChange();
+                    Betalning();
                 }
                 else if (svar == "n")
                 {
+                    Betalning();
                     okInput = true;
                 }
                 else
@@ -167,8 +176,6 @@ namespace DigitCashier
                     okInput = false;
                 }
             } while (okInput == false);
-            CalcChange();
-            Betalning();
         }
 
         void Betalning()
@@ -241,27 +248,30 @@ namespace DigitCashier
         }
         void SkrivUtKvitto()
         {
+            const string format = "{0,-8}| {1,-8} | {2,-10} | {3,-8}";
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("\nSEWK's livs");
+            Console.WriteLine("\n#########################################");
+            Console.WriteLine("SEWK's livs");
             Console.WriteLine("Kungsgatan 37, 441 50 Alingsås");
             Console.WriteLine("Org Nr: 556033-5696\n");
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine("Styck   Namn    Kategori         Pris   Total");
+            Console.WriteLine(String.Format(format, "Styck","Namn","Kategori","Pris","Total"));
             Console.WriteLine("------------------------------------------");
             foreach (Vara nr in kundVagn)
             {
-                Console.WriteLine(nr.Antal + "        " + nr.Namn + "    " + KategoriTyp(nr.Kategori) + "       " + nr.Pris + "     " + (nr.Antal * nr.Pris));
+                Console.WriteLine(String.Format(format, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, (nr.Antal * nr.Pris)));
                 totalAntalVaror += nr.Antal;
             }
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine("Total                            {0}", totalPris);
-            Console.WriteLine("Moms 12%                         {0}", (totalPris * Inloggning.moms));
+            Console.WriteLine("Total                             {0}", totalPris);
+            Console.WriteLine("Moms {0}%                          {1}",(Inloggning.moms*100), (totalPris * Inloggning.moms));
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Belningstyp: {0}", betalningsTyp);
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
             Console.WriteLine("Kvittonummer: {0}", nr1);
             Console.WriteLine(DateTime.Now);
+            Console.WriteLine("#########################################");
             Console.ForegroundColor = ConsoleColor.Gray;
             RapportVaror();
             FlerKunder();
