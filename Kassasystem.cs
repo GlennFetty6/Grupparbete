@@ -275,6 +275,12 @@ namespace DigitCashier
             Console.ForegroundColor = ConsoleColor.Gray;
 
             RapportVaror();
+
+            totaltBelopp = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
+            totalPris = 0;
+            totalAntalVaror = 0;
+            kundVagn.Clear();
+
             FlerKunder();
         }
 
@@ -285,10 +291,6 @@ namespace DigitCashier
 
             if (merKunder == "j")
             {
-                totaltBelopp = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
-                totalPris = 0;
-                kundVagn.Clear();
-
                // Console.WriteLine("Du loggas nu ut ur kassör och återvänder till inloggningen."); Denna ska inte vara här?
                 Kassa();
             }
