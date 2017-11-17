@@ -160,10 +160,10 @@ namespace DigitCashier
 
                    while (Int32.TryParse(input, out total) == false || total <= 0)
                     {
-                        Console.Write("Ange hur mycket kunden betalade: ");
+                        Console.Write("Hur mycket är kupongen värd? ");
                         input = Console.ReadLine();
                     }
-                    CalcChange();
+                    totaltBelopp -= total;
                     Betalning();
                 }
                 else if (svar == "n")
@@ -273,6 +273,7 @@ namespace DigitCashier
             Console.WriteLine(DateTime.Now);
             Console.WriteLine("#########################################");
             Console.ForegroundColor = ConsoleColor.Gray;
+
             RapportVaror();
             FlerKunder();
         }
@@ -284,7 +285,11 @@ namespace DigitCashier
 
             if (merKunder == "j")
             {
-                Console.WriteLine("Du loggas nu ut ur kassör och återvänder till inloggningen.");
+                totaltBelopp = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
+                totalPris = 0;
+                kundVagn.Clear();
+
+               // Console.WriteLine("Du loggas nu ut ur kassör och återvänder till inloggningen."); Denna ska inte vara här?
                 Kassa();
             }
             else if (merKunder == "n")
