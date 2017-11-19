@@ -65,11 +65,17 @@ namespace DigitCashier
                 {
                     Console.Write("Ange varans vikt i kilogram: ");
                     input1 = Console.ReadLine();
-                    
+
                     if (Int32.TryParse(input1, out vikt) == false || vikt <= 0)
                     {
                         Console.WriteLine("Koden måste bestå av ett giltigt tvåsiffrigt heltal.");
                         okInput = false;
+                    }
+                    else if (valdVara.LagerStatus == 0)
+                    {
+                        Console.WriteLine("Varan är tyvärr slut.");
+                        okInput = true;
+
                     }
                     else if (vikt > valdVara.LagerStatus)
                     {
@@ -84,8 +90,9 @@ namespace DigitCashier
                         totalPris += kostnad;
                         totaltBelopp += kostnad;
                         Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
+                        kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
                         okInput = true;
-                    }        
+                    }
                 }
 
                 else
@@ -97,6 +104,11 @@ namespace DigitCashier
                     {
                         Console.WriteLine("Inkorrekt svar.");
                         okInput = false;
+                    }
+                    else if (valdVara.LagerStatus == 0)
+                    {
+                        Console.WriteLine("Varan är tyvärr slut.");
+                        okInput = true;
                     }
                     else if (antal > valdVara.LagerStatus)
                     {
@@ -111,12 +123,12 @@ namespace DigitCashier
                         kostnad = antal * valdVara.Pris;
                         totalPris += kostnad;
                         totaltBelopp += kostnad;
+                        kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
                         okInput = true;
                     }
                 }
             } while (okInput == false);
 
-            kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
 
             do
             {
@@ -153,17 +165,17 @@ namespace DigitCashier
                 Console.Write("Har kunden någon kupong? j/n: ");
                 string svar = Console.ReadLine();
 
-                    if (svar == "j")
+                if (svar == "j")
                 {
                     Console.Write("Hur mycket är kupongen värd? ");
                     string input = Console.ReadLine();
 
-                   while (Int32.TryParse(input, out total) == false || total <= 0)
+                    while (Int32.TryParse(input, out total) == false || total <= 0)
                     {
                         Console.Write("Hur mycket är kupongen värd? ");
                         input = Console.ReadLine();
                     }
-                    totaltBelopp -= total;
+                    CalcChange();                   
                     Betalning();
                 }
                 else if (svar == "n")
@@ -172,7 +184,7 @@ namespace DigitCashier
                     okInput = true;
                 }
                 else
-                {                  
+                {
                     okInput = false;
                 }
             } while (okInput == false);
@@ -224,7 +236,7 @@ namespace DigitCashier
 
             while (Int32.TryParse(payed, out betalt) == false || betalt <= 0 || betalt < totaltBelopp)
             {
-               totaltBelopp -= betalt;
+                totaltBelopp -= betalt;
                 Console.WriteLine("Summan räcker inte till.");
                 Betalning();
                 payed = Console.ReadLine();
@@ -255,7 +267,7 @@ namespace DigitCashier
             Console.WriteLine("Kungsgatan 37, 441 50 Alingsås");
             Console.WriteLine("Org Nr: 556033-5696\n");
             Console.WriteLine("------------------------------------------");
-            Console.WriteLine(String.Format(format, "Styck","Namn","Kategori","Pris","Total"));
+            Console.WriteLine(String.Format(format, "Styck", "Namn", "Kategori", "Pris", "Total"));
             Console.WriteLine("------------------------------------------");
             foreach (Vara nr in kundVagn)
             {
@@ -264,7 +276,7 @@ namespace DigitCashier
             }
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Total                             {0}", totalPris);
-            Console.WriteLine("Moms {0}%                          {1}",(Inloggning.moms*100), (totalPris * Inloggning.moms));
+            Console.WriteLine("Moms {0}%                          {1}", (Inloggning.moms * 100), (totalPris * Inloggning.moms));
             Console.WriteLine("------------------------------------------");
             Console.WriteLine("Belningstyp: {0}", betalningsTyp);
             Random verfNr = new Random();
@@ -291,18 +303,18 @@ namespace DigitCashier
 
             if (merKunder == "j")
             {
-               // Console.WriteLine("Du loggas nu ut ur kassör och återvänder till inloggningen."); Denna ska inte vara här?
                 Kassa();
             }
             else if (merKunder == "n")
             {
+                Console.WriteLine("Du loggas nu ut som kassör och återvänder till inloggningen.\n");
                 Inloggning.LoggaIn();
                 Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("Inkorrekt svar. skriv endast 'j' eller 'n' ");
-            }            
+            }
         }
 
         void RapportVaror()
