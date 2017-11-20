@@ -286,6 +286,8 @@ namespace DigitCashier
             Console.WriteLine("#########################################");
             Console.ForegroundColor = ConsoleColor.Gray;
 
+           
+
             RapportVaror();
 
             totaltBelopp = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 

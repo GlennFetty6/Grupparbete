@@ -16,7 +16,7 @@ namespace DigitCashier
             using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Sara.txt", false)) //Skapar en fil för Sara i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
             {
                 writer.WriteLine("Sara");
-                writer.WriteLine("37");
+                writer.WriteLine("140");
                 writer.WriteLine("Kassör");
                 writer.WriteLine("119");
             }
@@ -24,7 +24,7 @@ namespace DigitCashier
             using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Arnold.txt", false)) //Skapar en fil för Arnold i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
             {
                 writer.WriteLine("Arnold");
-                writer.WriteLine("60");
+                writer.WriteLine("168");
                 writer.WriteLine("Administratör");
                 writer.WriteLine("170");
             }
@@ -53,7 +53,7 @@ namespace DigitCashier
                 writer.WriteLine(arbTimmar);
                 writer.WriteLine(befattning);
                 writer.WriteLine(lon);
-                Console.WriteLine("Följande anställd är tillagd");
+                Console.WriteLine("Uppdaterad information om den anställde:");
             }
         }
 

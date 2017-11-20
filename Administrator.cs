@@ -122,7 +122,7 @@ namespace DigitCashier
 
             anst.VisaAnstalld(namn);
 
-            Console.Write("Ändra antalet arbetat för månaden: ");
+            Console.Write("Ändra antalet arbetade timmar för månaden: ");
             string input = Console.ReadLine();
             int arbetadeTim;
 
@@ -166,6 +166,7 @@ namespace DigitCashier
             }
 
             anst.ModifieraAnstalld(namn, arbetadeTim, arbRoll, inkomst);
+            anst.VisaAnstalld(namn);// Visar anställd
 
         }
         
@@ -221,6 +222,7 @@ namespace DigitCashier
                 input2 = Console.ReadLine();
             }
             anst.ModifieraAnstalld(namn, arbetadeTim, arbRoll, inkomst);
+            anst.VisaAnstalld(namn);// Visar anställd
         }
 
         void SeAnstalld() //Läser in ett namn för att sen mha metoden SeAnstalld i Anstallda.cs visa information om den anställde.
