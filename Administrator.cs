@@ -49,7 +49,8 @@ namespace DigitCashier
                         break;
                     case 0:
                         Console.WriteLine("Du loggas nu ut som Admin och återvänder till inloggingen.\n");
-                        Inloggning.LoggaIn(); //Sänds tillbaka till LoggaIn.
+                        //Inloggning.LoggaIn(); //Sänds tillbaka till LoggaIn.
+                        Inloggning.LogInUI();
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");

@@ -310,7 +310,8 @@ namespace DigitCashier
             else if (merKunder == "n")
             {
                 Console.WriteLine("Du loggas nu ut som kassör och återvänder till inloggningen.\n");
-                Inloggning.LoggaIn();
+                //Inloggning.LoggaIn();
+                Inloggning.LogInUI();
                 Console.ReadKey();
             }
             else

@@ -26,7 +26,7 @@ namespace DigitCashier
         {
             const string format = "{0,-10}| {1,-10} | {2,-15} | {3,-15}";
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n#############################################################");
+            Console.WriteLine("\n##########################klfjkfsdkjdfsjhdfsj###################################");
             Console.WriteLine("Försäljningsrapport");
             Console.WriteLine(DateTime.Now);
             Console.WriteLine("-------------------------------------------------------------");
@@ -42,7 +42,6 @@ namespace DigitCashier
             AnstalldaInfo();
             Console.WriteLine("###############################################################");
             Console.ForegroundColor = ConsoleColor.Gray;
-
 
             do
             {
@@ -68,7 +67,8 @@ namespace DigitCashier
                     okInput = false;
                 }
             } while (okInput == false);
-            Inloggning.LoggaIn();
+            //Inloggning.LoggaIn();
+            Inloggning.LogInUI();
 
         }
 

@@ -17,9 +17,10 @@ namespace DigitCashier
 
         public static List<Vara> varuLista; // Gör  listan global
         public static float moms = 0.12f;   // Gör momssatsen global
+        public static string kodID;
 
         static void Main(string[] args)
-        {
+        {           
             Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
             anst.LaggTillExempelAnstallda();
 
@@ -28,24 +29,26 @@ namespace DigitCashier
             AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
             tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
 
-           LoggaIn();
+            LogInUI();
+
+            //LoggaIn();
         }
 
-        public static void LoggaIn()
+        public static void LoggaIn(string userID)
         {
-            int[] koder = { 222, 333, 444, 555, 000 }; // Inloggningskoder
-            int kod;
-            Console.WriteLine("###### Inloggning i DigitCashier ######");
-            Console.Write("Skriv in din tresiffriga kod (0 för att Avsluta): ");
-            string input = Console.ReadLine();
+            //    int[] koder = { 222, 333, 444, 555, 000 }; // Inloggningskoder
+            //    int kod;
+            //    Console.WriteLine("###### Inloggning i DigitCashier ######");
+            //    Console.Write("Skriv in din tresiffriga kod (0 för att Avsluta): ");
+            //    string input = Console.ReadLine();
 
-            while (Int32.TryParse(input, out kod) == false || koder.Contains(kod) == false) //Kontrollerar så kod är en int samt om kod matchar ngn av koder.
-            {
-                Console.Write("Kod ej giltig. Försök igen: ");
-                input = Console.ReadLine();
-            }
+            //    while (Int32.TryParse(input, out kod) == false || koder.Contains(kod) == false) //Kontrollerar så kod är en int samt om kod matchar ngn av koder.
+            //    {
+            //        Console.Write("Kod ej giltig. Försök igen: ");
+            //        input = Console.ReadLine();
+            //    }
 
-            int firstNr = Math.Abs(kod);
+            int firstNr = Math.Abs(Int32.Parse(kodID));
             while (firstNr >= 10) //Delar med 10 så länge talet är större än 10. För att få fram första siffran i koden. 
                 firstNr /= 10;
 
@@ -75,5 +78,11 @@ namespace DigitCashier
                     break;
             }
         }
+        public static void LogInUI()
+        {
+            LogInForm form = new LogInForm();
+            form.ShowDialog();
+        }
+
     }
 }
