@@ -28,84 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.UserID = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.UserPassword = new System.Windows.Forms.Label();
+            this.loggaIn = new System.Windows.Forms.Button();
             this.loggaUt = new System.Windows.Forms.Button();
-            this.LogIn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // UserID
+            // loggaIn
             // 
-            this.UserID.AutoSize = true;
-            this.UserID.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserID.Location = new System.Drawing.Point(12, 25);
-            this.UserID.Name = "UserID";
-            this.UserID.Size = new System.Drawing.Size(88, 22);
-            this.UserID.TabIndex = 12;
-            this.UserID.Text = "Användar ID";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(155, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 11;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(155, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 10;
-            // 
-            // UserPassword
-            // 
-            this.UserPassword.AutoSize = true;
-            this.UserPassword.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserPassword.Location = new System.Drawing.Point(12, 56);
-            this.UserPassword.Name = "UserPassword";
-            this.UserPassword.Size = new System.Drawing.Size(70, 22);
-            this.UserPassword.TabIndex = 9;
-            this.UserPassword.Text = "Lösenord";
+            this.loggaIn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loggaIn.Location = new System.Drawing.Point(113, 101);
+            this.loggaIn.Name = "loggaIn";
+            this.loggaIn.Size = new System.Drawing.Size(92, 35);
+            this.loggaIn.TabIndex = 13;
+            this.loggaIn.Text = "Logga In";
+            this.loggaIn.UseVisualStyleBackColor = true;
+            this.loggaIn.Click += new System.EventHandler(this.LogIn_Click);
             // 
             // loggaUt
             // 
-            this.loggaUt.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.loggaUt.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loggaUt.Location = new System.Drawing.Point(204, 94);
+            this.loggaUt.Location = new System.Drawing.Point(231, 101);
             this.loggaUt.Name = "loggaUt";
-            this.loggaUt.Size = new System.Drawing.Size(98, 27);
-            this.loggaUt.TabIndex = 8;
-            this.loggaUt.Text = "Logga ut";
-            this.loggaUt.UseVisualStyleBackColor = false;
+            this.loggaUt.Size = new System.Drawing.Size(100, 35);
+            this.loggaUt.TabIndex = 14;
+            this.loggaUt.Text = "Logga Ut";
+            this.loggaUt.UseVisualStyleBackColor = true;
             this.loggaUt.Click += new System.EventHandler(this.cancel_Click);
             // 
-            // LogIn
+            // label1
             // 
-            this.LogIn.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.LogIn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogIn.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.LogIn.Location = new System.Drawing.Point(99, 94);
-            this.LogIn.Name = "LogIn";
-            this.LogIn.Size = new System.Drawing.Size(99, 27);
-            this.LogIn.TabIndex = 7;
-            this.LogIn.Text = "Logga in";
-            this.LogIn.UseVisualStyleBackColor = false;
-            this.LogIn.Click += new System.EventHandler(this.LogIn_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(54, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Användar ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(54, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Lösenord";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(232, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(232, 60);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 18;
             // 
             // LogInForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(343, 149);
-            this.Controls.Add(this.UserID);
+            this.ClientSize = new System.Drawing.Size(372, 165);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.UserPassword);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.loggaUt);
-            this.Controls.Add(this.LogIn);
+            this.Controls.Add(this.loggaIn);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LogInForm";
@@ -118,12 +113,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label UserID;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label UserPassword;
+        private System.Windows.Forms.Button loggaIn;
         private System.Windows.Forms.Button loggaUt;
-        private System.Windows.Forms.Button LogIn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

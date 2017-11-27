@@ -20,8 +20,8 @@ namespace DigitCashier
 
         private void LogIn_Click(object sender, EventArgs e)
         {
-            SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ella\Documents\LogInDetails.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From Login where UserID= '" + textBox1.Text + "' and UserPassword= '" + textBox2.Text + "'", connect);
+            SqlConnection connect = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DigitLogin;Integrated Security=True");
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From EmployeeLogin where UserID= '" + textBox1.Text + "' and Password= '" + textBox2.Text + "'", connect);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows[0][0].ToString() == "1")
