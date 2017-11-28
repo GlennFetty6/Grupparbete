@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace DigitCashier
 {
@@ -26,7 +27,7 @@ namespace DigitCashier
         {
             const string format = "{0,-10}| {1,-10} | {2,-15} | {3,-15}";
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n##########################klfjkfsdkjdfsjhdfsj###################################");
+            Console.WriteLine("\n#############################################################");
             Console.WriteLine("Försäljningsrapport");
             Console.WriteLine(DateTime.Now);
             Console.WriteLine("-------------------------------------------------------------");
@@ -70,6 +71,13 @@ namespace DigitCashier
             //Inloggning.LoggaIn();
             Inloggning.LogInUI();
 
+        }
+
+        public void FormRapport()
+        {
+            Rapport rp = new Rapport();
+            rp.SkrivUtRapport(Inloggning.varuLista, TotalPris (), TotalVaror ());
+            rp.ShowDialog();
         }
 
         int TotalPris()
