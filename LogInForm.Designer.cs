@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.boxFelMedd = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // loggaIn
@@ -83,6 +83,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 17;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -91,22 +92,24 @@
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 18;
             // 
-            // checkBox1
+            // boxFelMedd
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 110);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(98, 21);
-            this.checkBox1.TabIndex = 19;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.boxFelMedd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.boxFelMedd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.boxFelMedd.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxFelMedd.ForeColor = System.Drawing.Color.Transparent;
+            this.boxFelMedd.Location = new System.Drawing.Point(57, 150);
+            this.boxFelMedd.Multiline = true;
+            this.boxFelMedd.Name = "boxFelMedd";
+            this.boxFelMedd.Size = new System.Drawing.Size(274, 42);
+            this.boxFelMedd.TabIndex = 19;
             // 
             // LogInForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(372, 165);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(372, 204);
+            this.Controls.Add(this.boxFelMedd);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -131,6 +134,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox boxFelMedd;
     }
 }
