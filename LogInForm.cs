@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace DigitCashier
 {
-    public partial class LogInForm : Form
+    public partial class LogInForm : Form // Partial tillåter att samma klass definieras i flera filer
     {
-        public LogInForm()
+        public LogInForm() // Konstruktor som anropar metoden InitializeComponent
         {
             InitializeComponent();
         }
@@ -35,10 +35,16 @@ namespace DigitCashier
                 FelMeddelande(); // Anropar felmeddelande
             }
         }
+        private void loggaIn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loggaIn.PerformClick();
+            }
+        }
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            Application.Exit(); // Stänger applikation
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -55,14 +61,17 @@ namespace DigitCashier
         {
             boxFelMedd.ReadOnly = true;
             boxFelMedd.ForeColor = Color.Red;
-            boxFelMedd.Text = "Användar ID eller lösenord är inkorrekt. Var vänlig och försök igen.";
+            boxFelMedd.Text = "Användar ID eller lösenord är inkorrekt. Var vänlig och försök igen!";
             boxFelMedd.Show();
             TimerTid();      // Anropar Timern för felmeddelandet       
         }
 
         private Timer tm; // Skapar timern
+
+        public static object Control { get; private set; }
+
         private void TimerTid()
-        {   
+        {
             tm = new Timer(); // Skapar instans av tm
             tm.Interval = 5000; // Sätter interval till 5sek och där efter anropar tm_Tick
             tm.Tick += new EventHandler(tm_Tick);
@@ -74,5 +83,11 @@ namespace DigitCashier
             tm.Stop(); // Stoppar timern
             boxFelMedd.Clear(); // Tar bort felmeddelande
         }
+
+        private void LogInForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
