@@ -22,55 +22,41 @@ namespace DigitCashier
         {
             DataSet ds = new DataSet();
             SqlConnection connect = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DigitLogin;Integrated Security=True");
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From EmployeeLogin where UserID= '" + textBox1.Text + "' and Password= '" + textBox2.Text + "'", connect);
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From EmployeeLogin where UserID= '" + userIDTxtbox.Text + "' and Password= '" + passwordTxtbox.Text + "'", connect);
             sda.Fill(ds);
             if (ds.Tables[0].Rows[0][0].ToString() == "1")
             {
                 Hide();
-                Inloggning.kodID = textBox1.Text;
-                Inloggning.LoggaIn(textBox1.Text);
+                Inloggning.kodID = userIDTxtbox.Text;
+                Inloggning.LoggaIn(userIDTxtbox.Text);
             }
             else
             {
-                FelMeddelande(); // Anropar felmeddelande
+                errorMessage(); // Anropar felmeddelande
             }
         }
-        private void loggaIn_KeyDown(object sender, KeyEventArgs e)
+        private void logInBtn_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                loggaIn.PerformClick();
+                logInBtn.PerformClick();
             }
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void errorMessage()
         {
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            int test;
-            if (Int32.TryParse(textBox1.Text, out test) == false)
-            {
-                FelMeddelande();
-                textBox1.Clear();
-            }
-        }
-
-        private void FelMeddelande()
-        {
-            boxFelMedd.ReadOnly = true;
-            boxFelMedd.ForeColor = Color.Red;
-            boxFelMedd.Text = "Användar ID eller lösenord är inkorrekt. Var vänlig och försök igen!";
-            boxFelMedd.Show();
-            TimerTid();      // Anropar Timern för felmeddelandet       
+            errorMessageTxtbox.ReadOnly = true;
+            errorMessageTxtbox.ForeColor = Color.Red;
+            errorMessageTxtbox.Text = "Invalid user ID or password. Please try again!";
+            errorMessageTxtbox.Show();
+            TimerTime();      // Anropar Timern för felmeddelandet       
         }
 
         private Timer tm; // Skapar timern
 
         public static object Control { get; private set; }
 
-        private void TimerTid()
+        private void TimerTime()
         {
             tm = new Timer(); // Skapar instans av tm
             tm.Interval = 5000; // Sätter interval till 5sek och där efter anropar tm_Tick
@@ -81,12 +67,39 @@ namespace DigitCashier
         private void tm_Tick(object sender, EventArgs e)
         {
             tm.Stop(); // Stoppar timern
-            boxFelMedd.Clear(); // Tar bort felmeddelande
+            errorMessageTxtbox.Clear(); // Tar bort felmeddelande
         }
 
         private void LogInForm_Load(object sender, EventArgs e)
         {
 
+        }
+        private void passwordTxtbox_Click(object sender, EventArgs e)
+        {
+            passwordTxtbox.Clear(); // Rensar textboxen till tom
+        }
+
+        private void passwordTxtbox_TextChanged(object sender, EventArgs e)
+        {
+            passwordTxtbox.PasswordChar = '*'; // Lösenordet visas i ****       
+        }
+
+        private void userIDTxtbox_TextChanged(object sender, EventArgs e)
+        {
+            int test;
+            if (userIDTxtbox.Text != "")
+            {
+                if (Int32.TryParse(userIDTxtbox.Text, out test) == false)
+                {
+                    errorMessage();
+                    userIDTxtbox.Clear();
+                }
+            }
+        }
+
+        private void userIDTxtbox_Click(object sender, EventArgs e)
+        {
+            userIDTxtbox.Clear();
         }
     }
 }

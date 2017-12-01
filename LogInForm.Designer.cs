@@ -28,145 +28,170 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.loggaIn = new System.Windows.Forms.Button();
-            this.loggaUt = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.boxFelMedd = new System.Windows.Forms.TextBox();
+            this.logInBtn = new System.Windows.Forms.Button();
+            this.logOutBtn = new System.Windows.Forms.Button();
+            this.userIDTxtbox = new System.Windows.Forms.TextBox();
+            this.passwordTxtbox = new System.Windows.Forms.TextBox();
+            this.errorMessageTxtbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // loggaIn
+            // logInBtn
             // 
-            this.loggaIn.BackColor = System.Drawing.Color.PaleGreen;
-            this.loggaIn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loggaIn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.loggaIn.Location = new System.Drawing.Point(52, 215);
-            this.loggaIn.Name = "loggaIn";
-            this.loggaIn.Size = new System.Drawing.Size(123, 35);
-            this.loggaIn.TabIndex = 3;
-            this.loggaIn.Text = "Logga In";
-            this.loggaIn.UseVisualStyleBackColor = false;
-            this.loggaIn.Click += new System.EventHandler(this.LogIn_Click);
+            this.logInBtn.BackColor = System.Drawing.Color.DimGray;
+            this.logInBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.logInBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logInBtn.ForeColor = System.Drawing.Color.Silver;
+            this.logInBtn.Location = new System.Drawing.Point(58, 300);
+            this.logInBtn.Name = "logInBtn";
+            this.logInBtn.Size = new System.Drawing.Size(259, 53);
+            this.logInBtn.TabIndex = 3;
+            this.logInBtn.Text = "Log in";
+            this.logInBtn.UseVisualStyleBackColor = false;
+            this.logInBtn.Click += new System.EventHandler(this.LogIn_Click);
             // 
-            // loggaUt
+            // logOutBtn
             // 
-            this.loggaUt.BackColor = System.Drawing.Color.PaleGreen;
-            this.loggaUt.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.loggaUt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loggaUt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.loggaUt.Location = new System.Drawing.Point(202, 215);
-            this.loggaUt.Name = "loggaUt";
-            this.loggaUt.Size = new System.Drawing.Size(123, 35);
-            this.loggaUt.TabIndex = 4;
-            this.loggaUt.Text = "Logga Ut";
-            this.loggaUt.UseVisualStyleBackColor = false;
+            this.logOutBtn.BackColor = System.Drawing.Color.DimGray;
+            this.logOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logOutBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.logOutBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutBtn.ForeColor = System.Drawing.Color.Silver;
+            this.logOutBtn.Location = new System.Drawing.Point(58, 379);
+            this.logOutBtn.Name = "logOutBtn";
+            this.logOutBtn.Size = new System.Drawing.Size(259, 53);
+            this.logOutBtn.TabIndex = 4;
+            this.logOutBtn.Text = "Log out";
+            this.logOutBtn.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // userIDTxtbox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(47, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Användar ID";
+            this.userIDTxtbox.AccessibleName = "";
+            this.userIDTxtbox.BackColor = System.Drawing.Color.Silver;
+            this.userIDTxtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userIDTxtbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.userIDTxtbox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userIDTxtbox.ForeColor = System.Drawing.Color.Gray;
+            this.userIDTxtbox.Location = new System.Drawing.Point(9, 15);
+            this.userIDTxtbox.Multiline = true;
+            this.userIDTxtbox.Name = "userIDTxtbox";
+            this.userIDTxtbox.Size = new System.Drawing.Size(240, 35);
+            this.userIDTxtbox.TabIndex = 1;
+            this.userIDTxtbox.Text = "User ID";
+            this.userIDTxtbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.userIDTxtbox.Click += new System.EventHandler(this.userIDTxtbox_Click);
+            this.userIDTxtbox.TextChanged += new System.EventHandler(this.userIDTxtbox_TextChanged);
             // 
-            // label2
+            // passwordTxtbox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(47, 171);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Lösenord";
+            this.passwordTxtbox.BackColor = System.Drawing.Color.Silver;
+            this.passwordTxtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordTxtbox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTxtbox.ForeColor = System.Drawing.Color.Gray;
+            this.passwordTxtbox.Location = new System.Drawing.Point(9, 14);
+            this.passwordTxtbox.Multiline = true;
+            this.passwordTxtbox.Name = "passwordTxtbox";
+            this.passwordTxtbox.Size = new System.Drawing.Size(240, 36);
+            this.passwordTxtbox.TabIndex = 2;
+            this.passwordTxtbox.Text = "Password";
+            this.passwordTxtbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.passwordTxtbox.Click += new System.EventHandler(this.passwordTxtbox_Click);
+            this.passwordTxtbox.TextChanged += new System.EventHandler(this.passwordTxtbox_TextChanged);
             // 
-            // textBox1
+            // errorMessageTxtbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(204, 141);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(204, 169);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 22);
-            this.textBox2.TabIndex = 2;
-            // 
-            // boxFelMedd
-            // 
-            this.boxFelMedd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.boxFelMedd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.boxFelMedd.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxFelMedd.ForeColor = System.Drawing.Color.Transparent;
-            this.boxFelMedd.Location = new System.Drawing.Point(51, 278);
-            this.boxFelMedd.Multiline = true;
-            this.boxFelMedd.Name = "boxFelMedd";
-            this.boxFelMedd.Size = new System.Drawing.Size(274, 65);
-            this.boxFelMedd.TabIndex = 19;
-            this.boxFelMedd.TabStop = false;
+            this.errorMessageTxtbox.BackColor = System.Drawing.Color.Gray;
+            this.errorMessageTxtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.errorMessageTxtbox.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorMessageTxtbox.ForeColor = System.Drawing.Color.Transparent;
+            this.errorMessageTxtbox.Location = new System.Drawing.Point(58, 457);
+            this.errorMessageTxtbox.Multiline = true;
+            this.errorMessageTxtbox.Name = "errorMessageTxtbox";
+            this.errorMessageTxtbox.Size = new System.Drawing.Size(259, 65);
+            this.errorMessageTxtbox.TabIndex = 19;
+            this.errorMessageTxtbox.TabStop = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(80, 27);
+            this.label3.BackColor = System.Drawing.Color.Gray;
+            this.label3.Font = new System.Drawing.Font("Verdana", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(88, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(217, 73);
+            this.label3.Size = new System.Drawing.Size(258, 97);
             this.label3.TabIndex = 20;
             this.label3.Text = "Login";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.userIDTxtbox);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.panel1.Location = new System.Drawing.Point(58, 138);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(259, 53);
+            this.panel1.TabIndex = 21;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.passwordTxtbox);
+            this.panel2.Location = new System.Drawing.Point(58, 219);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(259, 53);
+            this.panel2.TabIndex = 22;
+            // 
             // LogInForm
             // 
-            this.AcceptButton = this.loggaIn;
+            this.AcceptButton = this.logInBtn;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.Gray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.CancelButton = this.loggaUt;
-            this.ClientSize = new System.Drawing.Size(374, 377);
+            this.CancelButton = this.logOutBtn;
+            this.ClientSize = new System.Drawing.Size(374, 529);
+            this.ControlBox = false;
+            this.Controls.Add(this.logInBtn);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.boxFelMedd);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.loggaUt);
-            this.Controls.Add(this.loggaIn);
+            this.Controls.Add(this.errorMessageTxtbox);
+            this.Controls.Add(this.logOutBtn);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LogInForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Digit Cashier";
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.Load += new System.EventHandler(this.LogInForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button loggaIn;
-        private System.Windows.Forms.Button loggaUt;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox boxFelMedd;
+        private System.Windows.Forms.Button logInBtn;
+        private System.Windows.Forms.Button logOutBtn;
+        private System.Windows.Forms.TextBox userIDTxtbox;
+        private System.Windows.Forms.TextBox passwordTxtbox;
+        private System.Windows.Forms.TextBox errorMessageTxtbox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
