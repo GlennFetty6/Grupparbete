@@ -13,7 +13,7 @@ namespace DigitCashier
 {
     public partial class AdminForm : Form
     {
-        private string filNamn = null;
+        private string fileName = null;
 
         public AdminForm()
         {
@@ -22,29 +22,37 @@ namespace DigitCashier
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-
+            textBox.ReadOnly = true; // Ändring ej tillåtet
         }
 
-        private void avslutaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Hide(); // Göm AdminForm
+            Inloggning.FormLogIn(); // Starta Login
         }
 
-        private void sparaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(filNamn)) // Om filNamn eller null eller tom
+            if (string.IsNullOrEmpty(fileName)) // Om filNamn är null eller tom
                 return; // Avsluta metoden
 
-            File.WriteAllText(filNamn, textBox1.Text); // Om filen redan finns skrivs den över
+            File.WriteAllText(fileName, textBox.Text); // Om filen redan finns skrivs den över
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK) // OK står för Öppna i dialogrutan
+            if (openFileDialog.ShowDialog() == DialogResult.OK) // OK står för Öppna i dialogrutan
             {
-                textBox1.Text = File.ReadAllText(openFileDialog1.FileName); // Läser upp allt i vald fil och visar det i textboxen
-                filNamn = openFileDialog1.FileName; // FileName är filen som är vald
+                textBox.ReadOnly = false; // Ändring tillåtet
+                textBox.Text = File.ReadAllText(openFileDialog.FileName); // Läser upp allt i vald fil och visar det i textboxen
+                fileName = openFileDialog.FileName; // FileName är filen som är vald
             }
+        }
+
+        private void AdminForm_FormClosed(object sender, FormClosedEventArgs e) // Om man trycker på X sända man tillbaka till inloggning
+        {
+            Hide(); // AdminForm göms
+            Inloggning.FormLogIn(); // FormLogIn öppnas
         }
     }
 }
