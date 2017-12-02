@@ -67,5 +67,19 @@ namespace DigitCashier
                 fileName = openFileDialog.FileName; // FileName är filen som är vald
             }
         }
+
+        private void viewAllItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox.Text = "Name" + "\t" + "Price" + "\t" + "Tax" + "\t" + "Status" + Environment.NewLine;            
+
+            foreach (Vara a in Inloggning.varuLista)
+            {
+                textBox.Font = new Font(textBox.Font, FontStyle.Regular);
+                textBox.Text +=  a.Namn;
+                textBox.Text += "\t" + a.Pris.ToString();
+                textBox.Text += "\t" + (a.Pris * (1 - Inloggning.moms)).ToString();
+                textBox.Text += "\t" +a.LagerStatus.ToString() + Environment.NewLine;
+            }
+        }
     }
 }

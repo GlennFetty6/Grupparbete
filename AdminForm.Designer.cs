@@ -48,6 +48,7 @@
             this.uppdateraMomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.viewAllItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,6 +155,7 @@
             // 
             this.varorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddItemToolStripMenuItem,
+            this.viewAllItemsToolStripMenuItem,
             this.ChangeItemToolStripMenuItem,
             this.printItemTagToolStripMenuItem,
             this.removeItemToolStripMenuItem});
@@ -208,6 +210,13 @@
             // 
             this.openFileDialog.Filter = "Text Dokument|*.txt";
             // 
+            // viewAllItemsToolStripMenuItem
+            // 
+            this.viewAllItemsToolStripMenuItem.Name = "viewAllItemsToolStripMenuItem";
+            this.viewAllItemsToolStripMenuItem.Size = new System.Drawing.Size(240, 26);
+            this.viewAllItemsToolStripMenuItem.Text = "View all Items";
+            this.viewAllItemsToolStripMenuItem.Click += new System.EventHandler(this.viewAllItemsToolStripMenuItem_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
@@ -256,5 +265,6 @@
         private System.Windows.Forms.ToolStripMenuItem ChangeItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printItemTagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewAllItemsToolStripMenuItem;
     }
 }
