@@ -44,10 +44,10 @@
             this.AddItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printItemTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uppdateraMomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.removeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,26 +80,26 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.openToolStripMenuItem.Text = "Open file";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.saveToolStripMenuItem.Text = "Save file";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -128,25 +128,26 @@
             // createEmpToolStripMenuItem
             // 
             this.createEmpToolStripMenuItem.Name = "createEmpToolStripMenuItem";
-            this.createEmpToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.createEmpToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.createEmpToolStripMenuItem.Text = "Create new";
             // 
             // changeEmpToolStripMenuItem
             // 
             this.changeEmpToolStripMenuItem.Name = "changeEmpToolStripMenuItem";
-            this.changeEmpToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.changeEmpToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.changeEmpToolStripMenuItem.Text = "Change details";
             // 
             // viewEmpToolStripMenuItem
             // 
             this.viewEmpToolStripMenuItem.Name = "viewEmpToolStripMenuItem";
-            this.viewEmpToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.viewEmpToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.viewEmpToolStripMenuItem.Text = "View details";
+            this.viewEmpToolStripMenuItem.Click += new System.EventHandler(this.viewEmpToolStripMenuItem_Click);
             // 
             // removeEmpToolStripMenuItem
             // 
             this.removeEmpToolStripMenuItem.Name = "removeEmpToolStripMenuItem";
-            this.removeEmpToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.removeEmpToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.removeEmpToolStripMenuItem.Text = "Remove";
             // 
             // varorToolStripMenuItem
@@ -163,20 +164,26 @@
             // AddItemToolStripMenuItem
             // 
             this.AddItemToolStripMenuItem.Name = "AddItemToolStripMenuItem";
-            this.AddItemToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.AddItemToolStripMenuItem.Size = new System.Drawing.Size(240, 26);
             this.AddItemToolStripMenuItem.Text = "Add";
             // 
             // ChangeItemToolStripMenuItem
             // 
             this.ChangeItemToolStripMenuItem.Name = "ChangeItemToolStripMenuItem";
-            this.ChangeItemToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.ChangeItemToolStripMenuItem.Size = new System.Drawing.Size(240, 26);
             this.ChangeItemToolStripMenuItem.Text = "Change details";
             // 
             // printItemTagToolStripMenuItem
             // 
             this.printItemTagToolStripMenuItem.Name = "printItemTagToolStripMenuItem";
-            this.printItemTagToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.printItemTagToolStripMenuItem.Size = new System.Drawing.Size(240, 26);
             this.printItemTagToolStripMenuItem.Text = "Print out price tag";
+            // 
+            // removeItemToolStripMenuItem
+            // 
+            this.removeItemToolStripMenuItem.Name = "removeItemToolStripMenuItem";
+            this.removeItemToolStripMenuItem.Size = new System.Drawing.Size(240, 26);
+            this.removeItemToolStripMenuItem.Text = "Remove";
             // 
             // uppdateraMomsToolStripMenuItem
             // 
@@ -186,12 +193,12 @@
             // 
             // textBox
             // 
-            this.textBox.BackColor = System.Drawing.Color.Gray;
+            this.textBox.BackColor = System.Drawing.Color.Silver;
             this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.textBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox.Location = new System.Drawing.Point(150, 28);
-            this.textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox.Margin = new System.Windows.Forms.Padding(4);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(700, 627);
@@ -201,24 +208,18 @@
             // 
             this.openFileDialog.Filter = "Text Dokument|*.txt";
             // 
-            // removeItemToolStripMenuItem
-            // 
-            this.removeItemToolStripMenuItem.Name = "removeItemToolStripMenuItem";
-            this.removeItemToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
-            this.removeItemToolStripMenuItem.Text = "Remove";
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(850, 655);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
