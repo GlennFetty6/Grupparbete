@@ -101,6 +101,11 @@ namespace DigitCashier
         {
             userIDTxtbox.Clear();
         }
+
+        private void logOutBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 
