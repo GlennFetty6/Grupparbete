@@ -32,7 +32,6 @@ namespace DigitCashier
             tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
 
             FormLogIn(); //Anropar metoden som kör LogInForm
-
         }
 
         public static void LoggaIn(string userID)

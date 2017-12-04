@@ -17,39 +17,50 @@ namespace DigitCashier
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Rapport_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         public void SkrivUtRapport(List<Vara> varor, int tPris, int tVaror)
         {
-            textBox1.Enabled = false;
-            textBox1.Text = "Rapport" + Environment.NewLine;
+            textBox1.ReadOnly = true;
             textBox1.Text += DateTime.Now.ToString() + Environment.NewLine;
-
+            textBox1.Text += " " + Environment.NewLine;
+            textBox1.Text += "Name" + "\t" + "Price" + "\t" + "Excl. tax" + "\t"+ "  " + "Status" + Environment.NewLine;
             foreach (Vara a in varor)
             {
-                textBox1.Text += a.Namn + "   ";
-                textBox1.Text += a.Pris.ToString() + "  ";
-                textBox1.Text += (a.Pris * (1 - Inloggning.moms)).ToString () + "  ";
-                textBox1.Text += a.LagerStatus.ToString() + Environment.NewLine;
-               // Console.WriteLine(String.Format(format, a.Namn, a.Pris, (a.Pris * (1 - Inloggning.moms)), a.LagerStatus));
+                textBox1.Text += a.Namn;
+                textBox1.Text += "\t"+ a.Pris.ToString();
+                textBox1.Text += "\t" + (a.Pris * (1 - Inloggning.moms)).ToString();
+                textBox1.Text += "\t" + "  " + a.LagerStatus.ToString() + Environment.NewLine;
             }
-
-            textBox1.Text += "Totalt antal sålda varor är ";
-            textBox1.Text += tVaror.ToString() + Environment.NewLine;
-            textBox1.Text += "Totala försäljningssumman är ";
-            textBox1.Text += tPris.ToString() + Environment.NewLine;
-
-
+            textBox1.Text += " " + Environment.NewLine;
+            textBox1.Text += "Total number of items sold: ";
+            textBox1.Text += tVaror.ToString() + " st" + Environment.NewLine;
+            textBox1.Text += "Total sales in SEK: ";
+            textBox1.Text += tPris.ToString() + " SEK" + Environment.NewLine;
         }
 
-        
+        private void Rapport_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var dialogResult = MessageBox.Show(this, "Would you like to reset the report?", "Report", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            //När Show() avslutas kastar den ut ett resultat som sparas i dialogResult
+
+            if(dialogResult == DialogResult.Yes)
+            {
+                Forsaljningsrapport Rapport = new Forsaljningsrapport();
+                Rapport.ResetReport();
+                Hide();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                Hide();
+            }
+            else if (dialogResult == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void Rapport_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Inloggning.FormLogIn();
+        }
     }
 }

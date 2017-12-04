@@ -69,7 +69,8 @@ namespace DigitCashier
                 }
             } while (okInput == false);
             //Inloggning.LoggaIn();
-            Inloggning.LogInUI();
+            //Inloggning.LogInUI();*********************************************************************ÄNDRA
+            Inloggning.FormLogIn();
 
         }
 
@@ -78,6 +79,12 @@ namespace DigitCashier
             Rapport rp = new Rapport();
             rp.SkrivUtRapport(Inloggning.varuLista, TotalPris (), TotalVaror ());
             rp.ShowDialog();
+        }
+
+        public void ResetReport()
+        {
+            File.Delete(rapport + "\\Rapport\\TotalPris.txt");// Raderar textfilen
+            File.Delete(rapport + "\\Rapport\\TotalaVaror.txt");
         }
 
         int TotalPris()
