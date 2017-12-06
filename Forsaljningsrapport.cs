@@ -68,8 +68,6 @@ namespace DigitCashier
                     okInput = false;
                 }
             } while (okInput == false);
-            //Inloggning.LoggaIn();
-            //Inloggning.LogInUI();*********************************************************************ÄNDRA
             Inloggning.FormLogIn();
 
         }
