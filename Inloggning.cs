@@ -20,7 +20,7 @@ namespace DigitCashier
         public static float moms = 0.12f;   // Gör momssatsen global
         public static string kodID;
 
-        [STAThread] // Måste ha denna för att kunna öppna filer i AdminForm
+       [STAThread] // Måste ha denna för att kunna öppna filer i AdminForm
         static void Main(string[] args)
         {
             Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
@@ -45,7 +45,8 @@ namespace DigitCashier
                 case 2:
                     Console.WriteLine("Inloggad som Kassör");
                     Kassasystem KasstSystem = new Kassasystem();
-                    KasstSystem.Kassa();
+                    KasstSystem.StartaKassan();
+                   // KasstSystem.Kassa();
                     break;
                 case 3:
                     Console.WriteLine("Inloggad som Administratör");

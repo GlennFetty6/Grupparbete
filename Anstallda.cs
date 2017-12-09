@@ -8,8 +8,9 @@ using System.IO;
 namespace DigitCashier
 {
     class Anstallda
-    { 
+    {
         string malMapp = AppDomain.CurrentDomain.BaseDirectory; //Tar fram den mapp .exe körs ifrån. På det viset vi kör programmet är denna map debug.
+
         public void LaggTillExempelAnstallda() //Skapar filer åt våra anställda
         {
             Directory.CreateDirectory(malMapp + "\\Anstallda\\"); //Skapar mappen där våra filer lägger sig.             
@@ -17,7 +18,7 @@ namespace DigitCashier
             {
                 writer.Write("Sara\t");
                 writer.Write("140\t");
-                writer.Write("Kassör\t");
+                writer.Write("Cashier\t");
                 writer.Write("119\t");
             }
 
@@ -25,7 +26,7 @@ namespace DigitCashier
             {
                 writer.Write("Arnold\t");
                 writer.Write("168\t");
-                writer.Write("Administratör\t");
+                writer.Write("Admin\t");
                 writer.Write("170\t");
             }
         }
@@ -57,10 +58,10 @@ namespace DigitCashier
             }
         }
 
-        public void TaBortAnstalld (string namn) //Tar bort den fil med samma namn som "namn" i mappen Anstallda. 
+        public void TaBortAnstalld(string namn) //Tar bort den fil med samma namn som "namn" i mappen Anstallda. 
         {
             File.Delete(malMapp + "\\Anstallda\\" + namn + ".txt");
-            Console.WriteLine("{0} är sparkad." , namn);
+            Console.WriteLine("{0} är sparkad.", namn);
         }
 
         public string[] ListaAnstallda() //Skickar tillbaka en array med sökväg till samtliga anställdas filer. 

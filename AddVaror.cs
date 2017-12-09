@@ -10,11 +10,11 @@ namespace DigitCashier
     {
         public void AddVaror2() //Fick ej heta samma som klass
         {
-            Inloggning.varuLista.Add(new Vara("mjölk", 12, 0, 22, 10, 0));
-            Inloggning.varuLista.Add(new Vara("kaffe", 40, 0, 33, 10, 0));
-            Inloggning.varuLista.Add(new Vara("korv", 30, 0, 44, 10, 0));
-            Inloggning.varuLista.Add(new Vara("ägg", 22, 0, 55, 10, 0));
-            Inloggning.varuLista.Add(new Vara("tomater", 23, 1, 66, 10, 0));
+            Inloggning.varuLista.Add(new Vara("milk", 12, 0, 22, 10, 0));
+            Inloggning.varuLista.Add(new Vara("coffee", 40, 0, 33, 10, 0));
+            Inloggning.varuLista.Add(new Vara("sausages", 30, 0, 44, 10, 0));
+            Inloggning.varuLista.Add(new Vara("egg", 22, 0, 55, 10, 0));
+            Inloggning.varuLista.Add(new Vara("tomatoes", 23, 1, 66, 10, 0));
         }
     }
 }

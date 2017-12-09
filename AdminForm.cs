@@ -15,18 +15,10 @@ namespace DigitCashier
     {
         private string fileEmp = null;
         private string fileItem = null; // Komma på ett bra sätt att ändra...
-
         public AdminForm()
         {
             InitializeComponent();
-        }
-
-        private void saveChangesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(fileEmp)) // Om filNamn är null eller tom
-                return; // Avsluta metoden
-
-            File.WriteAllText(fileEmp, textBox.Text); // Om filen redan finns skrivs den över
+            SaveChangesBtn.Hide();
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e) // Om man trycker på X sända man tillbaka till inloggning
@@ -39,7 +31,7 @@ namespace DigitCashier
         {
             //// Visar bara notepad och inte i textboxen
             //System.Diagnostics.Process.Start(@"C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\bin\Debug\Anstallda");
-
+            SaveChangesBtn.Hide();
             textBox.ReadOnly = true;
             textBox.Clear();
             textBoxHeading.Clear();
@@ -53,6 +45,7 @@ namespace DigitCashier
 
         private void changeEmpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveChangesBtn.Show();
             textBox.ReadOnly = false;
             textBoxHeading.Clear();
             textBox.Clear();
@@ -66,16 +59,17 @@ namespace DigitCashier
 
         private void viewAllItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveChangesBtn.Hide();
             textBox.Clear();
             textBoxHeading.Clear();
             textBox.ReadOnly = true;
-            textBoxHeading.Text = "Name" + "\t" + "Price" + "\t" + "Tax" + "\t" + "Status";
+            textBoxHeading.Text = "Name" + "\t" + "  " + "Price" + "\t" + "Tax" + "\t" + "Status";
 
             foreach (Vara a in Inloggning.varuLista)
             {
                 textBox.Font = new Font(textBox.Font, FontStyle.Regular);
                 textBox.Text += a.Namn;
-                textBox.Text += "\t" + a.Pris.ToString();
+                textBox.Text += "\t" + "  " + a.Pris.ToString();
                 textBox.Text += "\t" + (a.Pris * (1 - Inloggning.moms)).ToString();
                 textBox.Text += "\t" + a.LagerStatus.ToString() + Environment.NewLine;
             }
@@ -83,6 +77,7 @@ namespace DigitCashier
 
         private void ChangeItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveChangesBtn.Hide();
             textBox.ReadOnly = false;
             textBoxHeading.Clear();
             textBox.Clear();
@@ -104,8 +99,19 @@ namespace DigitCashier
 
         private void createEmpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveChangesBtn.Hide();
             textBox.ReadOnly = false;
-            textBoxHeading.Text += "Name" + "\t" + "Hours" + "\t" + "Role" + "\t" + "Wage" + "\t";            
+            NewEmployee newEmployee = new NewEmployee();
+            newEmployee.Show();       
+            
+        }
+
+        private void SaveChangesBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(fileEmp)) // Om filNamn är null eller tom
+                return; // Avsluta metoden
+
+            File.WriteAllText(fileEmp, textBox.Text); // Om filen redan finns skrivs den över
         }
     }
 }

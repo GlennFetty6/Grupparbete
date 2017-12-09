@@ -41,14 +41,13 @@
             this.ChangeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printItemTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.uppdateraMomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.quitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.textBoxHeading = new System.Windows.Forms.TextBox();
-            this.quitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveChangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveChangesBtn = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,8 +68,6 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveChangesToolStripMenuItem,
-            this.toolStripSeparator1,
             this.employeeToolStripMenuItem,
             this.varorToolStripMenuItem,
             this.uppdateraMomsToolStripMenuItem,
@@ -89,7 +86,7 @@
             this.changeEmpToolStripMenuItem,
             this.removeEmpToolStripMenuItem});
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.employeeToolStripMenuItem.Text = "Employee";
             // 
             // createEmpToolStripMenuItem
@@ -128,7 +125,7 @@
             this.printItemTagToolStripMenuItem,
             this.removeItemToolStripMenuItem});
             this.varorToolStripMenuItem.Name = "varorToolStripMenuItem";
-            this.varorToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.varorToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.varorToolStripMenuItem.Text = "Item";
             // 
             // AddItemToolStripMenuItem
@@ -163,16 +160,23 @@
             this.removeItemToolStripMenuItem.Size = new System.Drawing.Size(240, 26);
             this.removeItemToolStripMenuItem.Text = "Remove";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
-            // 
             // uppdateraMomsToolStripMenuItem
             // 
             this.uppdateraMomsToolStripMenuItem.Name = "uppdateraMomsToolStripMenuItem";
-            this.uppdateraMomsToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.uppdateraMomsToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.uppdateraMomsToolStripMenuItem.Text = "Update tax";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(203, 6);
+            // 
+            // quitToolStripMenuItem1
+            // 
+            this.quitToolStripMenuItem1.Name = "quitToolStripMenuItem1";
+            this.quitToolStripMenuItem1.Size = new System.Drawing.Size(206, 26);
+            this.quitToolStripMenuItem1.Text = "Quit";
+            this.quitToolStripMenuItem1.Click += new System.EventHandler(this.quitToolStripMenuItem1_Click);
             // 
             // textBox
             // 
@@ -194,30 +198,21 @@
             // 
             this.textBoxHeading.BackColor = System.Drawing.Color.Silver;
             this.textBoxHeading.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxHeading.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHeading.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHeading.Location = new System.Drawing.Point(150, 32);
             this.textBoxHeading.Name = "textBoxHeading";
             this.textBoxHeading.Size = new System.Drawing.Size(688, 25);
             this.textBoxHeading.TabIndex = 2;
             // 
-            // quitToolStripMenuItem1
+            // SaveChangesBtn
             // 
-            this.quitToolStripMenuItem1.Name = "quitToolStripMenuItem1";
-            this.quitToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-            this.quitToolStripMenuItem1.Text = "Quit";
-            this.quitToolStripMenuItem1.Click += new System.EventHandler(this.quitToolStripMenuItem1_Click);
-            // 
-            // saveChangesToolStripMenuItem
-            // 
-            this.saveChangesToolStripMenuItem.Name = "saveChangesToolStripMenuItem";
-            this.saveChangesToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
-            this.saveChangesToolStripMenuItem.Text = "Save Changes";
-            this.saveChangesToolStripMenuItem.Click += new System.EventHandler(this.saveChangesToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(203, 6);
+            this.SaveChangesBtn.Location = new System.Drawing.Point(0, 32);
+            this.SaveChangesBtn.Name = "SaveChangesBtn";
+            this.SaveChangesBtn.Size = new System.Drawing.Size(94, 30);
+            this.SaveChangesBtn.TabIndex = 3;
+            this.SaveChangesBtn.Text = "Save";
+            this.SaveChangesBtn.UseVisualStyleBackColor = true;
+            this.SaveChangesBtn.Click += new System.EventHandler(this.SaveChangesBtn_Click);
             // 
             // AdminForm
             // 
@@ -225,6 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(850, 655);
+            this.Controls.Add(this.SaveChangesBtn);
             this.Controls.Add(this.textBoxHeading);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.menuStrip);
@@ -266,7 +262,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.TextBox textBoxHeading;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem saveChangesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Button SaveChangesBtn;
     }
 }

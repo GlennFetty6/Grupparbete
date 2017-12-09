@@ -32,7 +32,7 @@ namespace DigitCashier
             }
             textBox1.Text += " " + Environment.NewLine;
             textBox1.Text += "Total number of items sold: ";
-            textBox1.Text += tVaror.ToString() + " st" + Environment.NewLine;
+            textBox1.Text += tVaror.ToString() + " items" + Environment.NewLine;
             textBox1.Text += "Total sales in SEK: ";
             textBox1.Text += tPris.ToString() + " SEK" + Environment.NewLine;
         }
@@ -40,7 +40,6 @@ namespace DigitCashier
         private void Rapport_FormClosing(object sender, FormClosingEventArgs e)
         {
             var dialogResult = MessageBox.Show(this, "Would you like to reset the report?", "Report", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-            //När Show() avslutas kastar den ut ett resultat som sparas i dialogResult
 
             if(dialogResult == DialogResult.Yes)
             {

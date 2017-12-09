@@ -19,13 +19,22 @@ namespace DigitCashier
 
         public void Kassa()
         {
-            HandlaVara();
+            StartaKassan();
+           // HandlaVara();
         }
 
-        void HandlaVara()
+        public void StartaKassan()
         {
-            Console.Write("Skriv in varans Id-nummer: ");
-            string input = Console.ReadLine();
+            KassaForm kf = new KassaForm();
+            kf.ShowDialog();
+        }
+
+        public void HandlaVara(string input)
+        {
+
+            //Console.Write("Skriv in varans Id-nummer: ");
+
+           // string input = Console.ReadLine();
             int helTal;
 
             while (Int32.TryParse(input, out helTal) == false || helTal.ToString().Length != 2 || CheckList(helTal) == false)
@@ -138,7 +147,7 @@ namespace DigitCashier
                 if (merVaror == "j")
                 {
                     valdVara = null;
-                    HandlaVara();
+                  //  HandlaVara();
                     okInput = true;
                 }
                 else if (merVaror == "n")
