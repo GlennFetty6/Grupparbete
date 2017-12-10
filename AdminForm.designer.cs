@@ -109,6 +109,8 @@
             // 
             this.toolStripComboBox2.Name = "toolStripComboBox2";
             this.toolStripComboBox2.Size = new System.Drawing.Size(121, 23);
+            this.toolStripComboBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripComboBox2_KeyDown);
+            this.toolStripComboBox2.Click += new System.EventHandler(this.toolStripComboBox2_Click_1);
             // 
             // changeEmpToolStripMenuItem
             // 
@@ -196,6 +198,7 @@
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(700, 595);
             this.textBox.TabIndex = 1;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // openFileDialog
             // 

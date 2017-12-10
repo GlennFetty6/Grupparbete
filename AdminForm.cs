@@ -13,6 +13,9 @@ namespace DigitCashier
 {
     public partial class AdminForm : Form
     {
+        string malMapp = AppDomain.CurrentDomain.BaseDirectory; //Tar fram den mapp .exe körs ifrån. På det viset vi kör programmet är denna map debug.
+
+
         private string fileEmp = null;
         private string fileItem = null; // Komma på ett bra sätt att ändra...
         public AdminForm()
@@ -129,6 +132,54 @@ namespace DigitCashier
             foreach (string t in hej)
             {
                 toolStripComboBox2.Items.Add(Path.GetFileName(t));
+            }
+        }
+
+        private void toolStripComboBox2_Click_1(object sender, EventArgs e)
+        {
+           // var hej = toolStripComboBox2.SelectedText;
+
+           // ShowWorker(hej);
+        }
+
+        private void ShowWorker(string name)
+        {
+            string anstalldNamn;
+            int arbTimmar;
+            string befattning;
+            int lon;
+
+            if (File.Exists(malMapp + "\\Anstallda\\" + name) == true)
+            {
+
+                using (StreamReader reader = new StreamReader(malMapp + "\\Anstallda\\" + name)) // Läser upp informationen om den angivna anställda.
+                {
+                   
+
+                    anstalldNamn = reader.ReadLine();
+                    arbTimmar = Int32.Parse(reader.ReadLine());
+                    befattning = reader.ReadLine();
+                    lon = Int32.Parse(reader.ReadLine());
+                }
+
+                textBox.Text = "Name" + "\t" + "\t" + "Hours" + "\t" + "\t" + "Role" + "\t" + "\t" + "Wage" + Environment.NewLine;
+                textBox.Text += anstalldNamn + "\t" + arbTimmar + "\t" + "\t" + befattning + "\t" + lon;
+
+            }
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                var hej = toolStripComboBox2.SelectedText;
+                ShowWorker(hej);
             }
         }
     }
