@@ -13,6 +13,9 @@ namespace DigitCashier
 {
     public partial class AdminForm : Form
     {
+        string malMapp = AppDomain.CurrentDomain.BaseDirectory; //Tar fram den mapp .exe körs ifrån. På det viset vi kör programmet är denna map debug.
+
+
         private string fileEmp = null;
         private string fileItem = null; // Komma på ett bra sätt att ändra...
         public AdminForm()
@@ -25,22 +28,6 @@ namespace DigitCashier
         {
             Hide(); // AdminForm göms
             Inloggning.FormLogIn(); // FormLogIn öppnas
-        }
-
-        private void viewEmpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //// Visar bara notepad och inte i textboxen
-            //System.Diagnostics.Process.Start(@"C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\bin\Debug\Anstallda");
-            SaveChangesBtn.Hide();
-            textBox.ReadOnly = true;
-            textBox.Clear();
-            textBoxHeading.Clear();
-            if (openFileDialog.ShowDialog() == DialogResult.OK) // OK står för Öppna i dialogrutan
-            {
-                textBoxHeading.Text += "Name" + "\t" + "Hours" + "\t" + "Role" + "\t" + "Wage" + "\t";
-                textBox.Text += File.ReadAllText(openFileDialog.FileName); // Läser upp allt i vald fil och visar det i textboxen
-                fileEmp = openFileDialog.FileName; // FileName är filen som är vald
-            }
         }
 
         private void changeEmpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,8 +89,7 @@ namespace DigitCashier
             SaveChangesBtn.Hide();
             textBox.ReadOnly = false;
             NewEmployee newEmployee = new NewEmployee();
-            newEmployee.Show();       
-            
+            newEmployee.Show();  
         }
 
         private void SaveChangesBtn_Click(object sender, EventArgs e)
@@ -112,6 +98,71 @@ namespace DigitCashier
                 return; // Avsluta metoden
 
             File.WriteAllText(fileEmp, textBox.Text); // Om filen redan finns skrivs den över
+        }
+
+
+        private void toolStripComboBox2_Click(object sender, EventArgs e)
+        {
+    
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            Anstallda ans = new Anstallda();
+            var hej = ans.ListaAnstallda();
+
+            foreach (string t in hej)
+            {
+                toolStripComboBox2.Items.Add(Path.GetFileName(t));
+            }
+        }
+
+        private void toolStripComboBox2_Click_1(object sender, EventArgs e)
+        {
+           // var hej = toolStripComboBox2.SelectedText;
+
+           // ShowWorker(hej);
+        }
+
+        private void ShowWorker(string name)
+        {
+            textBox.ReadOnly = true;
+            textBox.Clear();
+            string anstalldNamn;
+            int arbTimmar;
+            string befattning;
+            int lon;
+
+            if (File.Exists(malMapp + "\\Anstallda\\" + name) == true)
+            {
+
+                using (StreamReader reader = new StreamReader(malMapp + "\\Anstallda\\" + name)) // Läser upp informationen om den angivna anställda.
+                {                 
+                    anstalldNamn = reader.ReadLine();
+                    arbTimmar = Int32.Parse(reader.ReadLine());
+                    befattning = reader.ReadLine();
+                    lon = Int32.Parse(reader.ReadLine());
+                }
+
+                textBoxHeading .Text = "Name" + "\t" + "\t" + "Hours" + "\t" + "\t" + "Role" + "\t" + "\t" + "Wage";
+                textBox.Text += anstalldNamn + "\t" + arbTimmar + "\t" + "\t" + befattning + "\t" + lon;
+
+            }
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                var hej = toolStripComboBox2.SelectedText;
+                ShowWorker(hej);
+            }
         }
     }
 }

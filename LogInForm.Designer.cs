@@ -44,9 +44,9 @@
             // 
             this.logInBtn.BackColor = System.Drawing.Color.DimGray;
             this.logInBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.logInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logInBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logInBtn.ForeColor = System.Drawing.Color.Silver;
+            this.logInBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.logInBtn.Location = new System.Drawing.Point(58, 300);
             this.logInBtn.Name = "logInBtn";
             this.logInBtn.Size = new System.Drawing.Size(259, 53);
@@ -60,9 +60,9 @@
             this.logOutBtn.BackColor = System.Drawing.Color.DimGray;
             this.logOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logOutBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logOutBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOutBtn.ForeColor = System.Drawing.Color.Silver;
+            this.logOutBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.logOutBtn.Location = new System.Drawing.Point(58, 379);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(259, 53);
