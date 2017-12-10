@@ -15,6 +15,7 @@ namespace DigitCashier
 
         public void Administration()
         {
+
             int input = 0;
             do
             {
@@ -49,13 +50,19 @@ namespace DigitCashier
                         break;
                     case 0:
                         Console.WriteLine("Du loggas nu ut som Admin och återvänder till inloggingen.\n");
-                        Inloggning.LoggaIn(); //Sänds tillbaka till LoggaIn.
+                        Inloggning.FormLogIn();
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
                         break;
                 }
             } while (huvudMeny || input != 0);
+        }
+
+        public void FormAdmin() /*******************************************************************************************************/
+        {
+            AdminForm af = new AdminForm();
+            af.ShowDialog();
         }
 
         void AdminAnstallda()
@@ -97,14 +104,14 @@ namespace DigitCashier
                         SparkaAnstalld();
                         break;
                     case 0:
-                        Console.WriteLine("Tillbaka till huvudmenyn.");                       
+                        Console.WriteLine("Tillbaka till huvudmenyn.");
                         break;
                     default: // Meddelande kommer upp om input är ett nummer utanför det tillåtna 0-4.
                         Console.WriteLine("Inkorrekt nummer. Välj ett nummer i menyn.");
                         break;
                 }
             } while (huvudMeny || input != 0);
-            
+
         }
 
         void ModifieraAnstalld()
@@ -131,7 +138,7 @@ namespace DigitCashier
                 Console.Write("Antalet måste vara 0 eller mer. Försök igen: ");
                 input = Console.ReadLine();
             }
-            
+
             bool okInput;
             string arbRoll;
 
@@ -169,7 +176,7 @@ namespace DigitCashier
             anst.VisaAnstalld(namn);// Visar anställd
 
         }
-        
+
         void NyAnstalld() //Ger admin möjlighet att lägga till ny anställd. Ber först användaren om den info som krävs. Skapar sen en ny anställd mha SetAnstalld i Anställda.cs
         {
             Anstallda anst = new Anstallda(); //Skapar ett objekt av klassen Anställda
@@ -430,7 +437,7 @@ namespace DigitCashier
                         break;
                 }
             } while (varuMeny || input2 != 0);
-            
+
             Console.ReadKey();
         }
 

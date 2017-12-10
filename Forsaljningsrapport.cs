@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace DigitCashier
 {
@@ -43,7 +44,6 @@ namespace DigitCashier
             Console.WriteLine("###############################################################");
             Console.ForegroundColor = ConsoleColor.Gray;
 
-
             do
             {
                 Console.Write("\nVill du nollställa Försäljningsrapporten? j/n: ");
@@ -68,8 +68,21 @@ namespace DigitCashier
                     okInput = false;
                 }
             } while (okInput == false);
-            Inloggning.LoggaIn();
+            Inloggning.FormLogIn();
 
+        }
+
+        public void FormRapport()
+        {
+            Rapport rp = new Rapport();
+            rp.SkrivUtRapport(Inloggning.varuLista, TotalPris (), TotalVaror ());
+            rp.ShowDialog();
+        }
+
+        public void ResetReport()
+        {
+            File.Delete(rapport + "\\Rapport\\TotalPris.txt");// Raderar textfilen
+            File.Delete(rapport + "\\Rapport\\TotalaVaror.txt");
         }
 
         int TotalPris()
