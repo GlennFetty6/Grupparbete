@@ -571,5 +571,11 @@ namespace DigitCashier
             }
             textBox3.Text += "Total price" + "\t" + nr + "\t" + totalPris;
         }
+
+        private void KassaForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide(); // AdminForm göms
+            Inloggning.FormLogIn(); // FormLogIn öppnas
+        }
     }
 }

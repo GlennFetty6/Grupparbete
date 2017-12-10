@@ -23,6 +23,8 @@ namespace DigitCashier
        [STAThread] // Måste ha denna för att kunna öppna filer i AdminForm
         static void Main(string[] args)
         {
+            Application.EnableVisualStyles(); // Ska tydligen få skiten att se snyggare ut. Kanske fungerar på din VS 2017
+            Application.SetCompatibleTextRenderingDefault(false);
             Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
             anst.LaggTillExempelAnstallda();
 
@@ -31,7 +33,7 @@ namespace DigitCashier
             AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
             tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
 
-            FormLogIn(); //Anropar metoden som kör LogInForm
+            Application.Run(new LogInForm());
         }
 
         public static void LoggaIn(string userID)

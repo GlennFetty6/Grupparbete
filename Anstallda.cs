@@ -46,7 +46,7 @@ namespace DigitCashier
             }
         }
 
-        public void ModifieraAnstalld(string namn, int arbTimmar, string befattning, int lon) //Anropas från Administrator.cs. Används för att både ändra på och lägga till anställda.
+        public void ModifieraAnstalld(string namn, float arbTimmar, string befattning, float lon) //Anropas från Administrator.cs. Används för att både ändra på och lägga till anställda.
         {
             using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\" + namn + ".txt", false)) //Sparar över/skapar .txt i mappen Anstallda. 
             {
