@@ -36,16 +36,15 @@ namespace DigitCashier
         {
             if (state == 1)
             {
-                //if (name == "" || hours == 0 || role == "" || wage == 0)
-                //{
-                //    errorMessage();
-                //}
-               // else
+                do
                 {
+                        errorMessage();
+                    
+                } while (name != "" || hours != 0 || wage != 0);
+
                     CreateNewEmployee();
                     newEmp.ModifieraAnstalld(name, hours, role, wage);
-                    NewEmployee.ActiveForm.Close(); // NewEmployeeForm stängs ner
-                }
+                    NewEmployee.ActiveForm.Close(); // NewEmployeeForm stängs ner  
             }
 
             if(state == 2)
@@ -114,11 +113,6 @@ namespace DigitCashier
         private void NewEmployee_FormClosed(object sender, FormClosedEventArgs e)
         {
             Hide();
-        }
-
-        private void textboxName_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         public void ChangeEmp(string name, int h, string role, int pay)

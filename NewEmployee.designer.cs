@@ -48,7 +48,7 @@
             this.labelName.Location = new System.Drawing.Point(23, 44);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(47, 17);
+            this.labelName.Size = new System.Drawing.Size(59, 20);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Name";
             // 
@@ -58,7 +58,7 @@
             this.labelHours.Location = new System.Drawing.Point(23, 88);
             this.labelHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHours.Name = "labelHours";
-            this.labelHours.Size = new System.Drawing.Size(106, 17);
+            this.labelHours.Size = new System.Drawing.Size(127, 20);
             this.labelHours.TabIndex = 1;
             this.labelHours.Text = "Hours worked";
             // 
@@ -68,7 +68,7 @@
             this.labelRole.Location = new System.Drawing.Point(23, 136);
             this.labelRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRole.Name = "labelRole";
-            this.labelRole.Size = new System.Drawing.Size(38, 17);
+            this.labelRole.Size = new System.Drawing.Size(46, 20);
             this.labelRole.TabIndex = 2;
             this.labelRole.Text = "Role";
             // 
@@ -78,7 +78,7 @@
             this.labelWage.Location = new System.Drawing.Point(23, 202);
             this.labelWage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWage.Name = "labelWage";
-            this.labelWage.Size = new System.Drawing.Size(47, 17);
+            this.labelWage.Size = new System.Drawing.Size(56, 20);
             this.labelWage.TabIndex = 3;
             this.labelWage.Text = "Wage";
             // 
@@ -87,16 +87,15 @@
             this.textboxName.Location = new System.Drawing.Point(171, 41);
             this.textboxName.Margin = new System.Windows.Forms.Padding(4);
             this.textboxName.Name = "textboxName";
-            this.textboxName.Size = new System.Drawing.Size(136, 24);
+            this.textboxName.Size = new System.Drawing.Size(136, 28);
             this.textboxName.TabIndex = 1;
-            this.textboxName.TextChanged += new System.EventHandler(this.textboxName_TextChanged);
             // 
             // textboxHours
             // 
             this.textboxHours.Location = new System.Drawing.Point(171, 85);
             this.textboxHours.Margin = new System.Windows.Forms.Padding(4);
             this.textboxHours.Name = "textboxHours";
-            this.textboxHours.Size = new System.Drawing.Size(136, 24);
+            this.textboxHours.Size = new System.Drawing.Size(136, 28);
             this.textboxHours.TabIndex = 2;
             this.textboxHours.Validating += new System.ComponentModel.CancelEventHandler(this.textboxHours_Validating);
             // 
@@ -105,7 +104,7 @@
             this.textboxWage.Location = new System.Drawing.Point(171, 199);
             this.textboxWage.Margin = new System.Windows.Forms.Padding(4);
             this.textboxWage.Name = "textboxWage";
-            this.textboxWage.Size = new System.Drawing.Size(136, 24);
+            this.textboxWage.Size = new System.Drawing.Size(136, 28);
             this.textboxWage.TabIndex = 5;
             this.textboxWage.Validating += new System.ComponentModel.CancelEventHandler(this.textboxWage_Validating);
             // 
@@ -140,9 +139,10 @@
             // adminRadioBtn
             // 
             this.adminRadioBtn.AutoSize = true;
+            this.adminRadioBtn.Checked = true;
             this.adminRadioBtn.Location = new System.Drawing.Point(171, 132);
             this.adminRadioBtn.Name = "adminRadioBtn";
-            this.adminRadioBtn.Size = new System.Drawing.Size(70, 21);
+            this.adminRadioBtn.Size = new System.Drawing.Size(86, 24);
             this.adminRadioBtn.TabIndex = 3;
             this.adminRadioBtn.TabStop = true;
             this.adminRadioBtn.Text = "Admin";
@@ -154,9 +154,8 @@
             this.cashierRadioBtn.AutoSize = true;
             this.cashierRadioBtn.Location = new System.Drawing.Point(171, 163);
             this.cashierRadioBtn.Name = "cashierRadioBtn";
-            this.cashierRadioBtn.Size = new System.Drawing.Size(78, 21);
+            this.cashierRadioBtn.Size = new System.Drawing.Size(94, 24);
             this.cashierRadioBtn.TabIndex = 4;
-            this.cashierRadioBtn.TabStop = true;
             this.cashierRadioBtn.Text = "Cashier";
             this.cashierRadioBtn.UseVisualStyleBackColor = true;
             this.cashierRadioBtn.CheckedChanged += new System.EventHandler(this.cashierRadioBtn_CheckedChanged);
@@ -178,7 +177,7 @@
             // 
             // NewEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(342, 384);

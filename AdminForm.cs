@@ -18,11 +18,9 @@ namespace DigitCashier
         int state;
 
         private string fileEmp = null;
-        private string fileItem = null; // Komma på ett bra sätt att ändra...
         public AdminForm()
         {
             InitializeComponent();
-            SaveChangesBtn.Hide();
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e) // Om man trycker på X sända man tillbaka till inloggning
@@ -31,23 +29,8 @@ namespace DigitCashier
             Inloggning.FormLogIn(); // FormLogIn öppnas
         }
 
-        private void changeEmpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveChangesBtn.Show();
-            textBox.ReadOnly = false;
-            textBoxHeading.Clear();
-            textBox.Clear();
-            if (openFileDialog.ShowDialog() == DialogResult.OK) // OK står för Öppna i dialogrutan
-            {
-                textBoxHeading.Text += "Name" + "\t" + "Hours" + "\t" + "Role" + "\t" + "Wage" + "\t";
-                textBox.Text += File.ReadAllText(openFileDialog.FileName); // Läser upp allt i vald fil och visar det i textboxen
-                fileEmp = openFileDialog.FileName; // FileEmp är filen som är vald                
-            }
-        }
-
         private void viewAllItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveChangesBtn.Hide();
             textBox.Clear();
             textBoxHeading.Clear();
             textBox.ReadOnly = true;
@@ -65,7 +48,6 @@ namespace DigitCashier
 
         private void ChangeItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveChangesBtn.Hide();
             textBox.ReadOnly = false;
             textBoxHeading.Clear();
             textBox.Clear();
@@ -87,37 +69,10 @@ namespace DigitCashier
 
         private void createEmpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveChangesBtn.Hide();
             textBox.ReadOnly = false;
             NewEmployee newEmployee = new NewEmployee();
             newEmployee.state = 1;
             newEmployee.Show();  
-        }
-
-        private void SaveChangesBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(fileEmp)) // Om filNamn är null eller tom
-                return; // Avsluta metoden
-
-            File.WriteAllText(fileEmp, textBox.Text); // Om filen redan finns skrivs den över
-        }
-
-
-        private void toolStripComboBox2_Click(object sender, EventArgs e)
-        {
-    
-        }
-
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripComboBox2_Click_1(object sender, EventArgs e)
-        {
-           // var hej = toolStripComboBox2.SelectedText;
-
-           // ShowWorker(hej);
         }
 
         private void ShowWorker(string name)
@@ -131,7 +86,6 @@ namespace DigitCashier
 
             if (File.Exists(malMapp + "\\Anstallda\\" + name) == true)
             {
-
                 using (StreamReader reader = new StreamReader(malMapp + "\\Anstallda\\" + name)) // Läser upp informationen om den angivna anställda.
                 {                 
                     anstalldNamn = reader.ReadLine();
@@ -142,18 +96,11 @@ namespace DigitCashier
 
                 textBoxHeading .Text = "Name" + "\t" + "\t" + "Hours" + "\t" + "\t" + "Role" + "\t" + "\t" + "Wage";
                 textBox.Text += anstalldNamn + "\t" + arbTimmar + "\t" + "\t" + befattning + "\t" + lon;
-
             }
-        }
-
-        private void textBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void toolStripComboBox2_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Enter)
             {
                 var hej = toolStripComboBox2.SelectedText;
@@ -181,16 +128,6 @@ namespace DigitCashier
         private void employeeToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
             FillMenus();
-        }
-
-        private void toolStripComboBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void toolStripComboBox1_KeyDown(object sender, KeyEventArgs e)
@@ -257,17 +194,7 @@ namespace DigitCashier
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelRole_Click(object sender, EventArgs e)
         {
 
         }
@@ -285,6 +212,11 @@ namespace DigitCashier
                 Inloggning.varuLista.Add(new Vara(textboxName.Text,int.Parse(textboxPrice.Text), int.Parse(Category.Text), int.Parse(ID.Text), int.Parse(Status.Text), int.Parse(Amount.Text)));
                // Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara läggs till i varuLista
             }
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

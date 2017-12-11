@@ -202,7 +202,7 @@
             this.button0.BackColor = System.Drawing.Color.Gray;
             this.button0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button0.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button0.Location = new System.Drawing.Point(619, 592);
+            this.button0.Location = new System.Drawing.Point(728, 592);
             this.button0.Margin = new System.Windows.Forms.Padding(4);
             this.button0.Name = "button0";
             this.button0.Size = new System.Drawing.Size(100, 39);
@@ -217,7 +217,7 @@
             this.buttonCard.BackColor = System.Drawing.Color.Gray;
             this.buttonCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCard.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCard.Location = new System.Drawing.Point(727, 592);
+            this.buttonCard.Location = new System.Drawing.Point(728, 696);
             this.buttonCard.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCard.Name = "buttonCard";
             this.buttonCard.Size = new System.Drawing.Size(100, 39);
@@ -232,7 +232,7 @@
             this.buttonCash.BackColor = System.Drawing.Color.Gray;
             this.buttonCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCash.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCash.Location = new System.Drawing.Point(835, 592);
+            this.buttonCash.Location = new System.Drawing.Point(836, 696);
             this.buttonCash.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCash.Name = "buttonCash";
             this.buttonCash.Size = new System.Drawing.Size(100, 39);
@@ -247,7 +247,7 @@
             this.buttonYes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonYes.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonYes.Location = new System.Drawing.Point(619, 639);
+            this.buttonYes.Location = new System.Drawing.Point(727, 639);
             this.buttonYes.Margin = new System.Windows.Forms.Padding(4);
             this.buttonYes.Name = "buttonYes";
             this.buttonYes.Size = new System.Drawing.Size(100, 39);
@@ -262,7 +262,7 @@
             this.buttonNo.BackColor = System.Drawing.Color.Red;
             this.buttonNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNo.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNo.Location = new System.Drawing.Point(727, 639);
+            this.buttonNo.Location = new System.Drawing.Point(836, 639);
             this.buttonNo.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNo.Name = "buttonNo";
             this.buttonNo.Size = new System.Drawing.Size(100, 39);
@@ -313,7 +313,7 @@
             this.buttonClear.BackColor = System.Drawing.Color.Blue;
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.Location = new System.Drawing.Point(835, 638);
+            this.buttonClear.Location = new System.Drawing.Point(620, 639);
             this.buttonClear.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(100, 39);
@@ -326,10 +326,10 @@
             // recieptRichTextBox
             // 
             this.recieptRichTextBox.BackColor = System.Drawing.Color.DarkGray;
-            this.recieptRichTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recieptRichTextBox.Location = new System.Drawing.Point(222, 12);
+            this.recieptRichTextBox.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recieptRichTextBox.Location = new System.Drawing.Point(244, 28);
             this.recieptRichTextBox.Name = "recieptRichTextBox";
-            this.recieptRichTextBox.Size = new System.Drawing.Size(463, 638);
+            this.recieptRichTextBox.Size = new System.Drawing.Size(508, 638);
             this.recieptRichTextBox.TabIndex = 20;
             this.recieptRichTextBox.TabStop = false;
             this.recieptRichTextBox.Text = "";
