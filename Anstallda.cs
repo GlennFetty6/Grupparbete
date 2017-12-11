@@ -16,18 +16,18 @@ namespace DigitCashier
             Directory.CreateDirectory(malMapp + "\\Anstallda\\"); //Skapar mappen där våra filer lägger sig.             
             using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Sara.txt", false)) //Skapar en fil för Sara i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
             {
-                writer.WriteLine("Sara\t");
-                writer.WriteLine("140\t");
-                writer.WriteLine("Cashier\t");
-                writer.WriteLine("119\t");
+                writer.WriteLine("Sara");
+                writer.WriteLine("140");
+                writer.WriteLine("Cashier");
+                writer.WriteLine("119");
             }
 
             using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Arnold.txt", false)) //Skapar en fil för Arnold i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
             {
-                writer.WriteLine("Arnold\t");
-                writer.WriteLine("168\t");
-                writer.WriteLine("Admin\t");
-                writer.WriteLine("170\t");
+                writer.WriteLine("Arnold");
+                writer.WriteLine("168");
+                writer.WriteLine("Admin");
+                writer.WriteLine("170");
             }
         }
 

@@ -15,6 +15,7 @@ namespace DigitCashier
     {
         string malMapp = AppDomain.CurrentDomain.BaseDirectory; //Tar fram den mapp .exe körs ifrån. På det viset vi kör programmet är denna map debug.
 
+        int state;
 
         private string fileEmp = null;
         private string fileItem = null; // Komma på ett bra sätt att ändra...
@@ -89,6 +90,7 @@ namespace DigitCashier
             SaveChangesBtn.Hide();
             textBox.ReadOnly = false;
             NewEmployee newEmployee = new NewEmployee();
+            newEmployee.state = 1;
             newEmployee.Show();  
         }
 
@@ -108,13 +110,7 @@ namespace DigitCashier
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            Anstallda ans = new Anstallda();
-            var hej = ans.ListaAnstallda();
 
-            foreach (string t in hej)
-            {
-                toolStripComboBox2.Items.Add(Path.GetFileName(t));
-            }
         }
 
         private void toolStripComboBox2_Click_1(object sender, EventArgs e)
@@ -162,6 +158,132 @@ namespace DigitCashier
             {
                 var hej = toolStripComboBox2.SelectedText;
                 ShowWorker(hej);
+            }
+        }
+
+        private void FillMenus()
+        {
+            toolStripComboBox2.Items.Clear();
+            toolStripComboBox3.Items.Clear();
+            toolStripComboBox1.Items.Clear();
+            Anstallda ans = new Anstallda();
+            var hej = ans.ListaAnstallda();
+
+            foreach (string t in hej)
+            {
+                toolStripComboBox2.Items.Add(Path.GetFileName(t));
+                toolStripComboBox3.Items.Add(Path.GetFileName(t));
+                toolStripComboBox1.Items.Add(Path.GetFileName(t));
+
+            }
+        }
+
+        private void employeeToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            FillMenus();
+        }
+
+        private void toolStripComboBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var hej3 = toolStripComboBox1.SelectedText;
+                ChangeWorker(hej3);
+            }
+        }
+
+        private void toolStripComboBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var hej2 = toolStripComboBox3.SelectedText;
+                RemoveWorker(hej2);
+            }
+        }
+
+        private void RemoveWorker(string name)
+        {
+            File.Delete(malMapp + "\\Anstallda\\" + name + ".txt");
+            Console.WriteLine("{0} är sparkad.", name);
+        }
+
+        private void ChangeWorker(string name)
+        {
+            string anstalldNamn;
+            int arbTimmar;
+            string befattning;
+            int lon;
+
+            using (StreamReader reader = new StreamReader(malMapp + "\\Anstallda\\" + name)) // Läser upp informationen om den angivna anställda.
+            {
+                anstalldNamn = reader.ReadLine();
+                arbTimmar = Int32.Parse(reader.ReadLine());
+                befattning = reader.ReadLine();
+                lon = Int32.Parse(reader.ReadLine());
+            }
+                NewEmployee ne = new NewEmployee();
+                ne.ChangeEmp(anstalldNamn, arbTimmar, befattning, lon);
+                ne.ShowDialog();
+        }
+
+        private void uppdateraMomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Show();
+            textBox1.Text = Inloggning.moms.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Inloggning.moms = float.Parse(textBox1.Text);
+            panel1.Hide();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            float nr;
+            if(float.TryParse(textBox1.Text, out nr) == false)
+            {
+                textBox1.Text = null;
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            state = 1;
+            panel2.Show();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(state == 1)
+            {
+                Inloggning.varuLista.Add(new Vara(textboxName.Text,int.Parse(textboxPrice.Text), int.Parse(Category.Text), int.Parse(ID.Text), int.Parse(Status.Text), int.Parse(Amount.Text)));
+               // Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara läggs till i varuLista
             }
         }
     }

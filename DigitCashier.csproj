@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FF0079A9-3C10-4C2A-BFC6-9730D92D3E61}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>DigitCashier</RootNamespace>
     <AssemblyName>DigitCashier</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

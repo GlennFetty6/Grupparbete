@@ -12,6 +12,7 @@ namespace DigitCashier
 {
     public partial class NewEmployee : Form
     {
+        public int state = 0;
         public NewEmployee()
         {
             InitializeComponent();
@@ -24,6 +25,8 @@ namespace DigitCashier
         string role = "";
         float wage = 0;
 
+        string role2;
+
         public void CreateNewEmployee()
         {
             name = textboxName.Text;
@@ -31,9 +34,24 @@ namespace DigitCashier
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            CreateNewEmployee();
-            newEmp.ModifieraAnstalld(name, hours, role, wage);
-            NewEmployee.ActiveForm.Close(); // NewEmployeeForm stängs ner
+            if (state == 1)
+            {
+                //if (name == "" || hours == 0 || role == "" || wage == 0)
+                //{
+                //    errorMessage();
+                //}
+               // else
+                {
+                    CreateNewEmployee();
+                    newEmp.ModifieraAnstalld(name, hours, role, wage);
+                    NewEmployee.ActiveForm.Close(); // NewEmployeeForm stängs ner
+                }
+            }
+
+            if(state == 2)
+            {
+                newEmp.ModifieraAnstalld(textboxName.Text,float.Parse(textboxHours.Text), role2,float.Parse(textboxWage.Text));
+            }
         }
         private void errorMessage()
         {
@@ -62,18 +80,20 @@ namespace DigitCashier
 
         private void textboxHours_Validating(object sender, CancelEventArgs e)
         {
-                if (float.TryParse(textboxHours.Text, out hours) == false || hours < 0)
-                {
-                    errorMessage();
-                }
+            if (float.TryParse(textboxHours.Text, out hours) == false || hours < 0)
+            {
+                errorMessage();
+                textboxHours.Clear();
+            }
         }
 
         private void textboxWage_Validating(object sender, CancelEventArgs e)
         {
-                if (float.TryParse(textboxWage.Text, out wage) == false || wage < 0)
-                {
-                    errorMessage();
-                }
+            if (float.TryParse(textboxWage.Text, out wage) == false || wage < 0)
+            {
+                errorMessage();
+                textboxWage.Clear();
+            }
         }
 
         private void adminRadioBtn_CheckedChanged(object sender, EventArgs e)
@@ -94,6 +114,30 @@ namespace DigitCashier
         private void NewEmployee_FormClosed(object sender, FormClosedEventArgs e)
         {
             Hide();
+        }
+
+        private void textboxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ChangeEmp(string name, int h, string role, int pay)
+        {
+            state = 2;
+            textboxName.Text = name;
+            textboxHours.Text = h.ToString();
+            Console.WriteLine(role);
+            if (role == "Admin")
+            {
+                adminRadioBtn.Checked = true;
+                role2 = "Admin";
+            }
+            else if(role == "Cashier")
+            {
+                cashierRadioBtn.Checked = true;
+                role2 = "Cashier";
+            }
+            textboxWage.Text = pay.ToString();
         }
     }
 }
