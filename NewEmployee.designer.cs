@@ -85,7 +85,7 @@
             // textboxName
             // 
             this.textboxName.Location = new System.Drawing.Point(171, 41);
-            this.textboxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textboxName.Margin = new System.Windows.Forms.Padding(4);
             this.textboxName.Name = "textboxName";
             this.textboxName.Size = new System.Drawing.Size(136, 28);
             this.textboxName.TabIndex = 1;
@@ -93,7 +93,7 @@
             // textboxHours
             // 
             this.textboxHours.Location = new System.Drawing.Point(171, 85);
-            this.textboxHours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textboxHours.Margin = new System.Windows.Forms.Padding(4);
             this.textboxHours.Name = "textboxHours";
             this.textboxHours.Size = new System.Drawing.Size(136, 28);
             this.textboxHours.TabIndex = 2;
@@ -102,7 +102,7 @@
             // textboxWage
             // 
             this.textboxWage.Location = new System.Drawing.Point(171, 199);
-            this.textboxWage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textboxWage.Margin = new System.Windows.Forms.Padding(4);
             this.textboxWage.Name = "textboxWage";
             this.textboxWage.Size = new System.Drawing.Size(136, 28);
             this.textboxWage.TabIndex = 5;
@@ -114,7 +114,7 @@
             this.btnSave.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Gray;
             this.btnSave.Location = new System.Drawing.Point(171, 245);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(138, 29);
             this.btnSave.TabIndex = 6;
@@ -129,7 +129,7 @@
             this.errorMessageTxtbox.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorMessageTxtbox.ForeColor = System.Drawing.Color.Transparent;
             this.errorMessageTxtbox.Location = new System.Drawing.Point(27, 319);
-            this.errorMessageTxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.errorMessageTxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.errorMessageTxtbox.Multiline = true;
             this.errorMessageTxtbox.Name = "errorMessageTxtbox";
             this.errorMessageTxtbox.Size = new System.Drawing.Size(280, 45);
@@ -194,7 +194,7 @@
             this.Controls.Add(this.labelHours);
             this.Controls.Add(this.labelName);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewEmployee";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

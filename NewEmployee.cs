@@ -31,9 +31,16 @@ namespace DigitCashier
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            CreateNewEmployee();
-            newEmp.ModifieraAnstalld(name, hours, role, wage);
-            NewEmployee.ActiveForm.Close(); // NewEmployeeForm stängs ner
+            if (name == "" || hours == 0 || role == "" || wage == 0)
+            {
+                errorMessage();
+            }
+            else
+            {
+                CreateNewEmployee();
+                newEmp.ModifieraAnstalld(name, hours, role, wage);
+                NewEmployee.ActiveForm.Close(); // NewEmployeeForm stängs ner
+            }
         }
         private void errorMessage()
         {
@@ -62,18 +69,20 @@ namespace DigitCashier
 
         private void textboxHours_Validating(object sender, CancelEventArgs e)
         {
-                if (float.TryParse(textboxHours.Text, out hours) == false || hours < 0)
-                {
-                    errorMessage();
-                }
+            if (float.TryParse(textboxHours.Text, out hours) == false || hours < 0)
+            {
+                errorMessage();
+                textboxHours.Clear();
+            }
         }
 
         private void textboxWage_Validating(object sender, CancelEventArgs e)
         {
-                if (float.TryParse(textboxWage.Text, out wage) == false || wage < 0)
-                {
-                    errorMessage();
-                }
+            if (float.TryParse(textboxWage.Text, out wage) == false || wage < 0)
+            {
+                errorMessage();
+                textboxWage.Clear();
+            }
         }
 
         private void adminRadioBtn_CheckedChanged(object sender, EventArgs e)
