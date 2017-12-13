@@ -462,11 +462,26 @@ namespace DigitCashier
         private void button1_Click(object sender, EventArgs e)
         {
             textBox2.Text += "1";
+
+        }
+        private void button1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonEnter.PerformClick();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             textBox2.Text += "2";
+        }
+        private void button2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonEnter.PerformClick();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -580,6 +595,14 @@ namespace DigitCashier
         {
             textBox1.Clear();
             NewVara();
+        }
+
+        private void buttonEnter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonEnter.PerformClick();
+            }
         }
     }
 }

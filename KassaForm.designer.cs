@@ -285,10 +285,11 @@
             this.buttonEnter.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEnter.Name = "buttonEnter";
             this.buttonEnter.Size = new System.Drawing.Size(100, 39);
-            this.buttonEnter.TabIndex = 1;
+            this.buttonEnter.TabIndex = 0;
             this.buttonEnter.Text = "Enter";
             this.buttonEnter.UseVisualStyleBackColor = false;
             this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
+            this.buttonEnter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.buttonEnter_KeyDown);
             // 
             // textBox2
             // 
@@ -331,7 +332,7 @@
             // 
             this.recieptRichTextBox.BackColor = System.Drawing.Color.DarkGray;
             this.recieptRichTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recieptRichTextBox.Location = new System.Drawing.Point(109, 50);
+            this.recieptRichTextBox.Location = new System.Drawing.Point(-43, -9);
             this.recieptRichTextBox.Name = "recieptRichTextBox";
             this.recieptRichTextBox.Size = new System.Drawing.Size(654, 638);
             this.recieptRichTextBox.TabIndex = 20;
@@ -399,6 +400,7 @@
             // 
             // KassaForm
             // 
+            this.AcceptButton = this.buttonEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
