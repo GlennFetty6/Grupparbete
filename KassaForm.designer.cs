@@ -48,11 +48,15 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.recieptRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.button00 = new System.Windows.Forms.Button();
+            this.btnNewCustomer = new System.Windows.Forms.Button();
+            this.txtboxCommand = new System.Windows.Forms.TextBox();
+            this.btnPay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(8, 6);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
@@ -67,7 +71,7 @@
             this.button1.BackColor = System.Drawing.Color.Gray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(619, 450);
+            this.button1.Location = new System.Drawing.Point(619, 448);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 39);
@@ -82,7 +86,7 @@
             this.button2.BackColor = System.Drawing.Color.Gray;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(727, 450);
+            this.button2.Location = new System.Drawing.Point(727, 448);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 39);
@@ -97,7 +101,7 @@
             this.button3.BackColor = System.Drawing.Color.Gray;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(835, 450);
+            this.button3.Location = new System.Drawing.Point(835, 448);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 39);
@@ -112,7 +116,7 @@
             this.button4.BackColor = System.Drawing.Color.Gray;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(619, 497);
+            this.button4.Location = new System.Drawing.Point(619, 495);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 39);
@@ -127,7 +131,7 @@
             this.button5.BackColor = System.Drawing.Color.Gray;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(727, 497);
+            this.button5.Location = new System.Drawing.Point(727, 495);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 39);
@@ -142,7 +146,7 @@
             this.button6.BackColor = System.Drawing.Color.Gray;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(835, 497);
+            this.button6.Location = new System.Drawing.Point(835, 495);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 39);
@@ -157,7 +161,7 @@
             this.button7.BackColor = System.Drawing.Color.Gray;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(619, 545);
+            this.button7.Location = new System.Drawing.Point(619, 543);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 39);
@@ -172,7 +176,7 @@
             this.button8.BackColor = System.Drawing.Color.Gray;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(727, 545);
+            this.button8.Location = new System.Drawing.Point(727, 543);
             this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 39);
@@ -187,7 +191,7 @@
             this.button9.BackColor = System.Drawing.Color.Gray;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(835, 545);
+            this.button9.Location = new System.Drawing.Point(835, 543);
             this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 39);
@@ -202,7 +206,7 @@
             this.button0.BackColor = System.Drawing.Color.Gray;
             this.button0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button0.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button0.Location = new System.Drawing.Point(728, 592);
+            this.button0.Location = new System.Drawing.Point(619, 590);
             this.button0.Margin = new System.Windows.Forms.Padding(4);
             this.button0.Name = "button0";
             this.button0.Size = new System.Drawing.Size(100, 39);
@@ -217,7 +221,7 @@
             this.buttonCard.BackColor = System.Drawing.Color.Gray;
             this.buttonCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCard.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCard.Location = new System.Drawing.Point(728, 696);
+            this.buttonCard.Location = new System.Drawing.Point(836, 639);
             this.buttonCard.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCard.Name = "buttonCard";
             this.buttonCard.Size = new System.Drawing.Size(100, 39);
@@ -232,7 +236,7 @@
             this.buttonCash.BackColor = System.Drawing.Color.Gray;
             this.buttonCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCash.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCash.Location = new System.Drawing.Point(836, 696);
+            this.buttonCash.Location = new System.Drawing.Point(727, 639);
             this.buttonCash.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCash.Name = "buttonCash";
             this.buttonCash.Size = new System.Drawing.Size(100, 39);
@@ -247,7 +251,7 @@
             this.buttonYes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonYes.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonYes.Location = new System.Drawing.Point(727, 639);
+            this.buttonYes.Location = new System.Drawing.Point(728, 696);
             this.buttonYes.Margin = new System.Windows.Forms.Padding(4);
             this.buttonYes.Name = "buttonYes";
             this.buttonYes.Size = new System.Drawing.Size(100, 39);
@@ -262,7 +266,7 @@
             this.buttonNo.BackColor = System.Drawing.Color.Red;
             this.buttonNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNo.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNo.Location = new System.Drawing.Point(836, 639);
+            this.buttonNo.Location = new System.Drawing.Point(835, 695);
             this.buttonNo.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNo.Name = "buttonNo";
             this.buttonNo.Size = new System.Drawing.Size(100, 39);
@@ -277,23 +281,24 @@
             this.buttonEnter.BackColor = System.Drawing.Color.Gray;
             this.buttonEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEnter.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEnter.Location = new System.Drawing.Point(620, 696);
+            this.buttonEnter.Location = new System.Drawing.Point(511, 696);
             this.buttonEnter.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEnter.Name = "buttonEnter";
             this.buttonEnter.Size = new System.Drawing.Size(100, 39);
-            this.buttonEnter.TabIndex = 1;
+            this.buttonEnter.TabIndex = 0;
             this.buttonEnter.Text = "Enter";
             this.buttonEnter.UseVisualStyleBackColor = false;
             this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
+            this.buttonEnter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.buttonEnter_KeyDown);
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(8, 696);
+            this.textBox2.Font = new System.Drawing.Font("Verdana", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(288, 696);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(603, 39);
+            this.textBox2.Size = new System.Drawing.Size(210, 39);
             this.textBox2.TabIndex = 16;
             this.textBox2.TabStop = false;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -304,7 +309,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(315, 436);
+            this.textBox3.Size = new System.Drawing.Size(315, 434);
             this.textBox3.TabIndex = 17;
             this.textBox3.TabStop = false;
             // 
@@ -313,7 +318,7 @@
             this.buttonClear.BackColor = System.Drawing.Color.Blue;
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.Location = new System.Drawing.Point(620, 639);
+            this.buttonClear.Location = new System.Drawing.Point(620, 695);
             this.buttonClear.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(100, 39);
@@ -326,22 +331,84 @@
             // recieptRichTextBox
             // 
             this.recieptRichTextBox.BackColor = System.Drawing.Color.DarkGray;
-            this.recieptRichTextBox.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recieptRichTextBox.Location = new System.Drawing.Point(244, 28);
+            this.recieptRichTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recieptRichTextBox.Location = new System.Drawing.Point(-43, -9);
             this.recieptRichTextBox.Name = "recieptRichTextBox";
-            this.recieptRichTextBox.Size = new System.Drawing.Size(508, 638);
+            this.recieptRichTextBox.Size = new System.Drawing.Size(654, 638);
             this.recieptRichTextBox.TabIndex = 20;
             this.recieptRichTextBox.TabStop = false;
             this.recieptRichTextBox.Text = "";
             this.recieptRichTextBox.Visible = false;
             this.recieptRichTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.recieptRichTextBox_MouseClick);
             // 
+            // button00
+            // 
+            this.button00.BackColor = System.Drawing.Color.Gray;
+            this.button00.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button00.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button00.Location = new System.Drawing.Point(726, 590);
+            this.button00.Margin = new System.Windows.Forms.Padding(4);
+            this.button00.Name = "button00";
+            this.button00.Size = new System.Drawing.Size(100, 39);
+            this.button00.TabIndex = 21;
+            this.button00.TabStop = false;
+            this.button00.Text = "00";
+            this.button00.UseVisualStyleBackColor = false;
+            this.button00.Click += new System.EventHandler(this.button00_Click);
+            // 
+            // btnNewCustomer
+            // 
+            this.btnNewCustomer.BackColor = System.Drawing.Color.Gray;
+            this.btnNewCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewCustomer.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewCustomer.Location = new System.Drawing.Point(834, 590);
+            this.btnNewCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNewCustomer.Name = "btnNewCustomer";
+            this.btnNewCustomer.Size = new System.Drawing.Size(100, 39);
+            this.btnNewCustomer.TabIndex = 22;
+            this.btnNewCustomer.TabStop = false;
+            this.btnNewCustomer.Text = "New Customer";
+            this.btnNewCustomer.UseVisualStyleBackColor = false;
+            this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
+            // 
+            // txtboxCommand
+            // 
+            this.txtboxCommand.Font = new System.Drawing.Font("Verdana", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxCommand.Location = new System.Drawing.Point(8, 696);
+            this.txtboxCommand.Multiline = true;
+            this.txtboxCommand.Name = "txtboxCommand";
+            this.txtboxCommand.Size = new System.Drawing.Size(273, 39);
+            this.txtboxCommand.TabIndex = 23;
+            this.txtboxCommand.TabStop = false;
+            this.txtboxCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtboxCommand.TextChanged += new System.EventHandler(this.txtboxCommand_TextChanged);
+            // 
+            // btnPay
+            // 
+            this.btnPay.BackColor = System.Drawing.Color.Gray;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.Location = new System.Drawing.Point(620, 639);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(100, 39);
+            this.btnPay.TabIndex = 24;
+            this.btnPay.TabStop = false;
+            this.btnPay.Text = "Pay";
+            this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
             // KassaForm
             // 
+            this.AcceptButton = this.buttonEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(960, 748);
+            this.Controls.Add(this.btnPay);
+            this.Controls.Add(this.txtboxCommand);
+            this.Controls.Add(this.btnNewCustomer);
+            this.Controls.Add(this.button00);
             this.Controls.Add(this.recieptRichTextBox);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.textBox3);
@@ -396,5 +463,9 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.RichTextBox recieptRichTextBox;
+        private System.Windows.Forms.Button button00;
+        private System.Windows.Forms.Button btnNewCustomer;
+        private System.Windows.Forms.TextBox txtboxCommand;
+        private System.Windows.Forms.Button btnPay;
     }
 }

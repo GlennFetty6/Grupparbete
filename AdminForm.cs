@@ -15,9 +15,6 @@ namespace DigitCashier
     {
         string malMapp = AppDomain.CurrentDomain.BaseDirectory; //Tar fram den mapp .exe körs ifrån. På det viset vi kör programmet är denna map debug.
 
-        int state;
-
-        private string fileEmp = null;
         public AdminForm()
         {
             InitializeComponent();
@@ -41,21 +38,6 @@ namespace DigitCashier
                 textBox.Font = new Font(textBox.Font, FontStyle.Regular);
                 textBox.Text += a.Namn;
                 textBox.Text += "\t" + "  " + a.Pris.ToString();
-                textBox.Text += "\t" + (a.Pris * (1 - Inloggning.moms)).ToString();
-                textBox.Text += "\t" + a.LagerStatus.ToString() + Environment.NewLine;
-            }
-        }
-
-        private void ChangeItemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            textBox.ReadOnly = false;
-            textBoxHeading.Clear();
-            textBox.Clear();
-            textBoxHeading.Text = "Name" + "\t" + "Price" + "\t" + "Tax" + "\t" + "Status";
-            foreach (Vara a in Inloggning.varuLista)
-            {
-                textBox.Text += a.Namn;
-                textBox.Text += "\t" + a.Pris.ToString();
                 textBox.Text += "\t" + (a.Pris * (1 - Inloggning.moms)).ToString();
                 textBox.Text += "\t" + a.LagerStatus.ToString() + Environment.NewLine;
             }
@@ -103,13 +85,16 @@ namespace DigitCashier
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var hej = toolStripComboBox2.SelectedText;
-                ShowWorker(hej);
+                var anstalld = toolStripComboBox2.SelectedText;
+                ShowWorker(anstalld);
             }
         }
 
         private void FillMenus()
         {
+            MenuChangeItemComboBox4.Items.Clear();
+            MenuRemoveItemComboBox.Items.Clear();
+
             toolStripComboBox2.Items.Clear();
             toolStripComboBox3.Items.Clear();
             toolStripComboBox1.Items.Clear();
@@ -121,13 +106,20 @@ namespace DigitCashier
                 toolStripComboBox2.Items.Add(Path.GetFileName(t));
                 toolStripComboBox3.Items.Add(Path.GetFileName(t));
                 toolStripComboBox1.Items.Add(Path.GetFileName(t));
-
             }
+
+            foreach( Vara a in Inloggning.varuLista)
+            {
+                MenuChangeItemComboBox4.Items.Add(a.Namn);
+                MenuRemoveItemComboBox.Items.Add(a.Namn);
+            }
+
+
         }
 
         private void employeeToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
         {
-            FillMenus();
+            //FillMenus();
         }
 
         private void toolStripComboBox1_KeyDown(object sender, KeyEventArgs e)
@@ -201,22 +193,80 @@ namespace DigitCashier
 
         private void AddItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            state = 1;
+            TextBoxAmount.Text = "0";
             panel2.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(state == 1)
+            Inloggning.varuLista.Add(new Vara(textboxName.Text,int.Parse(textboxPrice.Text), int.Parse(TextBoxCategory.Text), int.Parse(TextBoxID.Text), int.Parse(TextBoxStatus.Text), int.Parse(TextBoxAmount.Text)));
+            // Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara läggs till i varuLista
+            panel2.Hide();
+        }
+
+
+        private void menuToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            FillMenus();
+        }
+
+        private void MenuChangeItemComboBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                Inloggning.varuLista.Add(new Vara(textboxName.Text,int.Parse(textboxPrice.Text), int.Parse(Category.Text), int.Parse(ID.Text), int.Parse(Status.Text), int.Parse(Amount.Text)));
-               // Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));// Ny vara läggs till i varuLista
+                var item = MenuChangeItemComboBox4.SelectedText;
+                ChangeItemDetails(item);
             }
         }
 
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        private void ChangeItemDetails(string itemName)
         {
 
+            panel2.Show();
+            
+            foreach(Vara a in Inloggning.varuLista)
+            {
+                if(a.Namn == itemName)
+                {
+                    textboxName.Text = a.Namn;
+                    textboxPrice.Text = a.Pris.ToString();
+                    TextBoxAmount.Text = "0";
+                    TextBoxCategory.Text = a.Kategori.ToString();
+                    TextBoxID.Text = a.Id.ToString();
+                    TextBoxStatus.Text = a.LagerStatus.ToString();
+                }
+            }
+        }
+
+        Vara remove;
+
+        private void RemoveItem(string itemName)
+        {
+
+            foreach(Vara a in Inloggning.varuLista)
+            {
+                if(a.Namn == itemName)
+                {
+                    remove = a;
+                }
+            }
+
+            if (Inloggning.varuLista.Contains(remove))
+            {
+                Inloggning.varuLista.Remove(remove);
+            }
+
+            menuToolStripMenuItem.HideDropDown();
+            MenuRemoveItemComboBox.SelectedItem = null;
+        }
+
+        private void MenuRemoveItemComboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var item = MenuRemoveItemComboBox.Text;
+                RemoveItem(item);
+            }
         }
     }
 }
