@@ -279,7 +279,7 @@ namespace DigitCashier
             if (inp == "y")
             {
                 textBox1.Text += "Amount to pay: " + totaltBelopp + Environment.NewLine;
-                textBox1.Text += "How much is the coupon worth? " + Environment.NewLine;
+                txtboxCommand.Text = "Coupon amount:" + Environment.NewLine;
                 state = 6;
             }
 
@@ -330,12 +330,12 @@ namespace DigitCashier
 
             if (inp == "cash")
             {
-                textBox1.Text += "How much did the customer pay: " + Environment.NewLine;
+                txtboxCommand.Text = "Cash amount: " + Environment.NewLine;
                 state = 8;
             }
             else if (inp == "card")
             {
-                textBox1.Text += "How much did the customer pay: " + Environment.NewLine;
+                txtboxCommand.Text = "Card amount: " + Environment.NewLine;
                 state = 8;
             }
             else
