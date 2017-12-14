@@ -14,7 +14,7 @@ namespace DigitCashier
 
         private bool active; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
         int state; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
-
+       
         private int totalPris; //Kostnaden för alla varor. Används på kvittot. 
         private int totaltBelopp; // Det pris kunden kommer betala. 
         private int totalAntalVaror;
@@ -33,14 +33,18 @@ namespace DigitCashier
         private void KassaForm_Load(object sender, EventArgs e)
         {
             NewVara();
-        }
+            textBox1.ReadOnly = true;
+            textBox2.ReadOnly = true;
+            textBox3.ReadOnly = true;
+            textBoxCashier.ReadOnly = true;
 
-        private void EnterBtn_KeyDown(object sender, KeyEventArgs e) // Fungerar ej
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                buttonEnter_Click(input, e);
-            }
+            textBoxSEWKS.Text += "C" + Environment.NewLine;
+            textBoxSEWKS.Text += "A" + Environment.NewLine;
+            textBoxSEWKS.Text += "S" + Environment.NewLine;
+            textBoxSEWKS.Text += "H" + Environment.NewLine;
+            textBoxSEWKS.Text += "I" + Environment.NewLine;
+            textBoxSEWKS.Text += "E" + Environment.NewLine;
+            textBoxSEWKS.Text += "R" + Environment.NewLine;
         }
 
         private void buttonEnter_Click(object sender, EventArgs e)//knappen gör olika beroende på var i programmet man befinner sig. Programmet återkommer hit varje gång input krävs. 
@@ -73,11 +77,8 @@ namespace DigitCashier
                     textBox2.Text = null;
                 }
 
-                else if (state == 4)
+                else if (state == 4) // Gör ingenting just nu....
                 {
-                    //FlerVaror(input);
-                    //input = null;
-                    //textBox2.Text = null;
                 }
 
                 else if (state == 5) // Fråga om kupong
@@ -110,16 +111,9 @@ namespace DigitCashier
 
                 else if (state == 9) // Köpet avslutat - Väntar på knapptryck
                 {
-                    //FlerKunder(input);
                     input = null;
                     textBox2.Text = null;
-                }
-
-                else if (state == 10)
-                {
-                    Hide(); // AdminForm göms
-                    Inloggning.FormLogIn(); // FormLogIn öppnas
-                }
+                }               
             }
         }
 
@@ -313,6 +307,7 @@ namespace DigitCashier
             {
                 totaltBelopp = 0;
                 textBox1.Text += "The coupon covered the costs." + Environment.NewLine;
+                betalningsTyp = "coupon";
                 PrintReciept();
             }
             else
@@ -358,7 +353,7 @@ namespace DigitCashier
                 return;
             }
 
-            int växel = betalt - totaltBelopp;
+            float växel = betalt - totaltBelopp;
 
             textBox1.Text += växel + " SEK in change." + Environment.NewLine;
 
@@ -459,7 +454,38 @@ namespace DigitCashier
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ShowCartContent()
+        {
+            int nr = 0;
+            textBox3.Text = null;
+            textBox3.Text += "Name" + "\t" + "\t" + "Quantity" + "\t" + "Price" + Environment.NewLine;
+            foreach (Vara v in kundVagn)
+            {
+                textBox3.Text += v.Namn + "\t" + "\t" + v.Antal + "\t" + v.Pris + Environment.NewLine;
+                nr += v.Antal;
+            }
+            textBox3.Text += "Total amount" + "\t" + nr + "\t" + totalPris;
+        }
+
+        private void recieptRichTextBox_MouseClick(object sender, MouseEventArgs e) // Nollställer och gömmer kvittot
+        {
+            recieptRichTextBox.Clear();
+            textBox3.Text = null;
+            recieptRichTextBox.Hide();
+        }
+
+        private void txtboxCommand_TextChanged(object sender, EventArgs e) // Kommando textboxen
+        {
+            txtboxCommand.ReadOnly = true;
+        }
+        private void KassaForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide(); // AdminForm göms
+            Inloggning.FormLogIn(); // FormLogIn öppnas
+        }
+
+        //###################################################### KNAPP KOD #######################################################
+        private void button1_Click(object sender, EventArgs e) 
         {
             textBox2.Text += "1";
 
@@ -528,6 +554,7 @@ namespace DigitCashier
             textBox2.Text += "00";
         }
 
+
         private void buttonCard_Click(object sender, EventArgs e)
         {
             textBox2.Text = "card";
@@ -549,60 +576,43 @@ namespace DigitCashier
             textBox2.Text = "n";
             buttonEnter_Click(sender, e);
         }
-
-        private void ShowCartContent()
-        {
-            int nr = 0;
-            textBox3.Text = null;
-            textBox3.Text += "Name" + "\t" + "\t" + "Amount" + "\t" + "Price" + Environment.NewLine;
-            foreach (Vara v in kundVagn)
-            {
-                textBox3.Text += v.Namn + "\t" + "\t" + v.Antal + "\t" + v.Pris + Environment.NewLine;
-                nr += v.Antal;
-            }
-            textBox3.Text += "Total amount" + "\t" + nr + "\t" + totalPris;
-        }
-
-        private void KassaForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Hide(); // AdminForm göms
-            Inloggning.FormLogIn(); // FormLogIn öppnas
-        }
-
-        private void buttonClear_Click(object sender, EventArgs e)
+        private void buttonClear_Click(object sender, EventArgs e) // Rensar input textboxen
         {
             textBox2.Clear();
         }
-        
-        private void recieptRichTextBox_MouseClick(object sender, MouseEventArgs e)
+        private void btnPay_Click(object sender, EventArgs e) // Betalningsknapp
         {
-            recieptRichTextBox.Clear();
-            recieptRichTextBox.Hide();
-        }
-
-        private void txtboxCommand_TextChanged(object sender, EventArgs e)
-        {
-            txtboxCommand.ReadOnly = true;
-        }
-
-        private void btnPay_Click(object sender, EventArgs e)
-        {
-            txtboxCommand.Text = "Coupon - Yes or No:" + Environment.NewLine;
+            txtboxCommand.Text = "Coupon - Yes/No:" + Environment.NewLine;
             state = 5;
         }
 
-        private void btnNewCustomer_Click(object sender, EventArgs e)
+        private void btnNewCustomer_Click(object sender, EventArgs e) // Ny kund-knapp
         {
-            textBox1.Clear();
-            NewVara();
-        }
-
-        private void buttonEnter_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            if (totalPris == 0)
             {
-                buttonEnter.PerformClick();
+                textBox1.Clear();
+                NewVara();
+            }
+            else
+            {
+                MessageBox.Show("Please complete the ongoing purchase...");
             }
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (totalPris == 0)
+            {
+                textBox1.Text += "You will now return to login.";
+                Hide();
+                Inloggning.FormLogIn();
+            }
+            else
+            {
+                MessageBox.Show("Please complete the purchase before signing out.");
+            }
+        }
+
+        //###################################################### KNAPP KOD SLUT #######################################################
     }
 }

@@ -52,29 +52,37 @@
             this.btnNewCustomer = new System.Windows.Forms.Button();
             this.txtboxCommand = new System.Windows.Forms.TextBox();
             this.btnPay = new System.Windows.Forms.Button();
+            this.btnSignout = new System.Windows.Forms.Button();
+            this.textBoxCashier = new System.Windows.Forms.TextBox();
+            this.textBoxSEWKS = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(8, 6);
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(113, 10);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(603, 672);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(456, 698);
             this.textBox1.TabIndex = 0;
             this.textBox1.TabStop = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Gray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.BackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(619, 448);
+            this.button1.Location = new System.Drawing.Point(577, 395);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 39);
+            this.button1.Size = new System.Drawing.Size(88, 56);
             this.button1.TabIndex = 1;
             this.button1.TabStop = false;
             this.button1.Text = "1";
@@ -83,13 +91,16 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Gray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.BackColor = System.Drawing.Color.Gainsboro;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(727, 448);
+            this.button2.Location = new System.Drawing.Point(673, 395);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 39);
+            this.button2.Size = new System.Drawing.Size(88, 56);
             this.button2.TabIndex = 2;
             this.button2.TabStop = false;
             this.button2.Text = "2";
@@ -98,13 +109,16 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Gray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.BackColor = System.Drawing.Color.Gainsboro;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(835, 448);
+            this.button3.Location = new System.Drawing.Point(769, 395);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 39);
+            this.button3.Size = new System.Drawing.Size(88, 56);
             this.button3.TabIndex = 3;
             this.button3.TabStop = false;
             this.button3.Text = "3";
@@ -113,13 +127,16 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.Gray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.BackColor = System.Drawing.Color.Gainsboro;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(619, 495);
+            this.button4.Location = new System.Drawing.Point(577, 459);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 39);
+            this.button4.Size = new System.Drawing.Size(88, 56);
             this.button4.TabIndex = 4;
             this.button4.TabStop = false;
             this.button4.Text = "4";
@@ -128,13 +145,16 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.Gray;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.BackColor = System.Drawing.Color.Gainsboro;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(727, 495);
+            this.button5.Location = new System.Drawing.Point(673, 459);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 39);
+            this.button5.Size = new System.Drawing.Size(88, 56);
             this.button5.TabIndex = 5;
             this.button5.TabStop = false;
             this.button5.Text = "5";
@@ -143,13 +163,16 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.Gray;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.BackColor = System.Drawing.Color.Gainsboro;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button6.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(835, 495);
+            this.button6.Location = new System.Drawing.Point(769, 459);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 39);
+            this.button6.Size = new System.Drawing.Size(88, 56);
             this.button6.TabIndex = 6;
             this.button6.TabStop = false;
             this.button6.Text = "6";
@@ -158,13 +181,16 @@
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.Color.Gray;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.BackColor = System.Drawing.Color.Gainsboro;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button7.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(619, 543);
+            this.button7.Location = new System.Drawing.Point(577, 523);
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 39);
+            this.button7.Size = new System.Drawing.Size(88, 56);
             this.button7.TabIndex = 7;
             this.button7.TabStop = false;
             this.button7.Text = "7";
@@ -173,13 +199,16 @@
             // 
             // button8
             // 
-            this.button8.BackColor = System.Drawing.Color.Gray;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.BackColor = System.Drawing.Color.Gainsboro;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button8.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(727, 543);
+            this.button8.Location = new System.Drawing.Point(673, 523);
             this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 39);
+            this.button8.Size = new System.Drawing.Size(88, 56);
             this.button8.TabIndex = 8;
             this.button8.TabStop = false;
             this.button8.Text = "8";
@@ -188,13 +217,16 @@
             // 
             // button9
             // 
-            this.button9.BackColor = System.Drawing.Color.Gray;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.BackColor = System.Drawing.Color.Gainsboro;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button9.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(835, 543);
+            this.button9.Location = new System.Drawing.Point(769, 523);
             this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(100, 39);
+            this.button9.Size = new System.Drawing.Size(88, 56);
             this.button9.TabIndex = 9;
             this.button9.TabStop = false;
             this.button9.Text = "9";
@@ -203,13 +235,16 @@
             // 
             // button0
             // 
-            this.button0.BackColor = System.Drawing.Color.Gray;
-            this.button0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button0.BackColor = System.Drawing.Color.Gainsboro;
+            this.button0.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button0.FlatAppearance.BorderSize = 0;
+            this.button0.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button0.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button0.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button0.Location = new System.Drawing.Point(619, 590);
+            this.button0.Location = new System.Drawing.Point(769, 588);
             this.button0.Margin = new System.Windows.Forms.Padding(4);
             this.button0.Name = "button0";
-            this.button0.Size = new System.Drawing.Size(100, 39);
+            this.button0.Size = new System.Drawing.Size(88, 56);
             this.button0.TabIndex = 10;
             this.button0.TabStop = false;
             this.button0.Text = "0";
@@ -218,13 +253,16 @@
             // 
             // buttonCard
             // 
-            this.buttonCard.BackColor = System.Drawing.Color.Gray;
-            this.buttonCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCard.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonCard.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCard.FlatAppearance.BorderSize = 0;
+            this.buttonCard.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonCard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonCard.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCard.Location = new System.Drawing.Point(836, 639);
+            this.buttonCard.Location = new System.Drawing.Point(769, 716);
             this.buttonCard.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCard.Name = "buttonCard";
-            this.buttonCard.Size = new System.Drawing.Size(100, 39);
+            this.buttonCard.Size = new System.Drawing.Size(88, 56);
             this.buttonCard.TabIndex = 11;
             this.buttonCard.TabStop = false;
             this.buttonCard.Text = "Card";
@@ -233,13 +271,16 @@
             // 
             // buttonCash
             // 
-            this.buttonCash.BackColor = System.Drawing.Color.Gray;
-            this.buttonCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCash.BackColor = System.Drawing.Color.Khaki;
+            this.buttonCash.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buttonCash.FlatAppearance.BorderSize = 0;
+            this.buttonCash.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonCash.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonCash.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCash.Location = new System.Drawing.Point(727, 639);
+            this.buttonCash.Location = new System.Drawing.Point(769, 652);
             this.buttonCash.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCash.Name = "buttonCash";
-            this.buttonCash.Size = new System.Drawing.Size(100, 39);
+            this.buttonCash.Size = new System.Drawing.Size(88, 56);
             this.buttonCash.TabIndex = 12;
             this.buttonCash.TabStop = false;
             this.buttonCash.Text = "Cash";
@@ -248,13 +289,16 @@
             // 
             // buttonYes
             // 
-            this.buttonYes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.buttonYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonYes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonYes.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buttonYes.FlatAppearance.BorderSize = 0;
+            this.buttonYes.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonYes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonYes.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonYes.Location = new System.Drawing.Point(728, 696);
+            this.buttonYes.Location = new System.Drawing.Point(673, 652);
             this.buttonYes.Margin = new System.Windows.Forms.Padding(4);
             this.buttonYes.Name = "buttonYes";
-            this.buttonYes.Size = new System.Drawing.Size(100, 39);
+            this.buttonYes.Size = new System.Drawing.Size(88, 56);
             this.buttonYes.TabIndex = 13;
             this.buttonYes.TabStop = false;
             this.buttonYes.Text = "Yes";
@@ -263,13 +307,16 @@
             // 
             // buttonNo
             // 
-            this.buttonNo.BackColor = System.Drawing.Color.Red;
-            this.buttonNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNo.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonNo.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buttonNo.FlatAppearance.BorderSize = 0;
+            this.buttonNo.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonNo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonNo.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNo.Location = new System.Drawing.Point(835, 695);
+            this.buttonNo.Location = new System.Drawing.Point(673, 716);
             this.buttonNo.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNo.Name = "buttonNo";
-            this.buttonNo.Size = new System.Drawing.Size(100, 39);
+            this.buttonNo.Size = new System.Drawing.Size(88, 56);
             this.buttonNo.TabIndex = 14;
             this.buttonNo.TabStop = false;
             this.buttonNo.Text = "No";
@@ -278,50 +325,60 @@
             // 
             // buttonEnter
             // 
-            this.buttonEnter.BackColor = System.Drawing.Color.Gray;
-            this.buttonEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEnter.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonEnter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buttonEnter.FlatAppearance.BorderSize = 0;
+            this.buttonEnter.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonEnter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonEnter.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEnter.Location = new System.Drawing.Point(511, 696);
+            this.buttonEnter.Location = new System.Drawing.Point(463, 716);
             this.buttonEnter.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEnter.Name = "buttonEnter";
-            this.buttonEnter.Size = new System.Drawing.Size(100, 39);
+            this.buttonEnter.Size = new System.Drawing.Size(106, 56);
             this.buttonEnter.TabIndex = 0;
             this.buttonEnter.Text = "Enter";
             this.buttonEnter.UseVisualStyleBackColor = false;
             this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
-            this.buttonEnter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.buttonEnter_KeyDown);
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(288, 696);
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(312, 733);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 39);
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(143, 39);
             this.textBox2.TabIndex = 16;
             this.textBox2.TabStop = false;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(620, 6);
+            this.textBox3.Enabled = false;
+            this.textBox3.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(577, 10);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(315, 434);
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(281, 370);
             this.textBox3.TabIndex = 17;
             this.textBox3.TabStop = false;
             // 
             // buttonClear
             // 
-            this.buttonClear.BackColor = System.Drawing.Color.Blue;
-            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonClear.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buttonClear.FlatAppearance.BorderSize = 0;
+            this.buttonClear.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonClear.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.Location = new System.Drawing.Point(620, 695);
+            this.buttonClear.Location = new System.Drawing.Point(577, 587);
             this.buttonClear.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(100, 39);
+            this.buttonClear.Size = new System.Drawing.Size(88, 56);
             this.buttonClear.TabIndex = 18;
             this.buttonClear.TabStop = false;
             this.buttonClear.Text = "Clear";
@@ -330,11 +387,13 @@
             // 
             // recieptRichTextBox
             // 
-            this.recieptRichTextBox.BackColor = System.Drawing.Color.DarkGray;
+            this.recieptRichTextBox.BackColor = System.Drawing.Color.Gainsboro;
+            this.recieptRichTextBox.Enabled = false;
             this.recieptRichTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recieptRichTextBox.Location = new System.Drawing.Point(-43, -9);
+            this.recieptRichTextBox.Location = new System.Drawing.Point(186, 57);
             this.recieptRichTextBox.Name = "recieptRichTextBox";
-            this.recieptRichTextBox.Size = new System.Drawing.Size(654, 638);
+            this.recieptRichTextBox.ReadOnly = true;
+            this.recieptRichTextBox.Size = new System.Drawing.Size(591, 687);
             this.recieptRichTextBox.TabIndex = 20;
             this.recieptRichTextBox.TabStop = false;
             this.recieptRichTextBox.Text = "";
@@ -343,13 +402,16 @@
             // 
             // button00
             // 
-            this.button00.BackColor = System.Drawing.Color.Gray;
-            this.button00.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button00.BackColor = System.Drawing.Color.Gainsboro;
+            this.button00.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button00.FlatAppearance.BorderSize = 0;
+            this.button00.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button00.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button00.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button00.Location = new System.Drawing.Point(726, 590);
+            this.button00.Location = new System.Drawing.Point(673, 588);
             this.button00.Margin = new System.Windows.Forms.Padding(4);
             this.button00.Name = "button00";
-            this.button00.Size = new System.Drawing.Size(100, 39);
+            this.button00.Size = new System.Drawing.Size(88, 56);
             this.button00.TabIndex = 21;
             this.button00.TabStop = false;
             this.button00.Text = "00";
@@ -358,13 +420,16 @@
             // 
             // btnNewCustomer
             // 
-            this.btnNewCustomer.BackColor = System.Drawing.Color.Gray;
-            this.btnNewCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewCustomer.BackColor = System.Drawing.Color.Coral;
+            this.btnNewCustomer.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnNewCustomer.FlatAppearance.BorderSize = 0;
+            this.btnNewCustomer.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnNewCustomer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnNewCustomer.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewCustomer.Location = new System.Drawing.Point(834, 590);
+            this.btnNewCustomer.Location = new System.Drawing.Point(866, 590);
             this.btnNewCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(100, 39);
+            this.btnNewCustomer.Size = new System.Drawing.Size(88, 56);
             this.btnNewCustomer.TabIndex = 22;
             this.btnNewCustomer.TabStop = false;
             this.btnNewCustomer.Text = "New Customer";
@@ -373,11 +438,13 @@
             // 
             // txtboxCommand
             // 
-            this.txtboxCommand.Font = new System.Drawing.Font("Verdana", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxCommand.Location = new System.Drawing.Point(8, 696);
+            this.txtboxCommand.Enabled = false;
+            this.txtboxCommand.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxCommand.Location = new System.Drawing.Point(113, 733);
             this.txtboxCommand.Multiline = true;
             this.txtboxCommand.Name = "txtboxCommand";
-            this.txtboxCommand.Size = new System.Drawing.Size(273, 39);
+            this.txtboxCommand.ReadOnly = true;
+            this.txtboxCommand.Size = new System.Drawing.Size(192, 39);
             this.txtboxCommand.TabIndex = 23;
             this.txtboxCommand.TabStop = false;
             this.txtboxCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -385,18 +452,71 @@
             // 
             // btnPay
             // 
-            this.btnPay.BackColor = System.Drawing.Color.Gray;
-            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnPay.FlatAppearance.BorderSize = 0;
+            this.btnPay.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnPay.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.Location = new System.Drawing.Point(620, 639);
+            this.btnPay.Location = new System.Drawing.Point(577, 652);
             this.btnPay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(100, 39);
+            this.btnPay.Size = new System.Drawing.Size(88, 120);
             this.btnPay.TabIndex = 24;
             this.btnPay.TabStop = false;
             this.btnPay.Text = "Pay";
             this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // btnSignout
+            // 
+            this.btnSignout.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnSignout.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnSignout.FlatAppearance.BorderSize = 0;
+            this.btnSignout.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSignout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSignout.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignout.Location = new System.Drawing.Point(866, 652);
+            this.btnSignout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSignout.Name = "btnSignout";
+            this.btnSignout.Size = new System.Drawing.Size(88, 118);
+            this.btnSignout.TabIndex = 25;
+            this.btnSignout.TabStop = false;
+            this.btnSignout.Text = "Sign out";
+            this.btnSignout.UseVisualStyleBackColor = false;
+            this.btnSignout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // textBoxCashier
+            // 
+            this.textBoxCashier.BackColor = System.Drawing.Color.Gray;
+            this.textBoxCashier.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBoxCashier.Enabled = false;
+            this.textBoxCashier.Font = new System.Drawing.Font("Mistral", 43.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCashier.ForeColor = System.Drawing.Color.Silver;
+            this.textBoxCashier.Location = new System.Drawing.Point(866, 9);
+            this.textBoxCashier.Multiline = true;
+            this.textBoxCashier.Name = "textBoxCashier";
+            this.textBoxCashier.ReadOnly = true;
+            this.textBoxCashier.Size = new System.Drawing.Size(88, 570);
+            this.textBoxCashier.TabIndex = 26;
+            this.textBoxCashier.TabStop = false;
+            this.textBoxCashier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxSEWKS
+            // 
+            this.textBoxSEWKS.BackColor = System.Drawing.Color.Gray;
+            this.textBoxSEWKS.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBoxSEWKS.Enabled = false;
+            this.textBoxSEWKS.Font = new System.Drawing.Font("Mistral", 52.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSEWKS.ForeColor = System.Drawing.Color.Silver;
+            this.textBoxSEWKS.Location = new System.Drawing.Point(6, 10);
+            this.textBoxSEWKS.Multiline = true;
+            this.textBoxSEWKS.Name = "textBoxSEWKS";
+            this.textBoxSEWKS.ReadOnly = true;
+            this.textBoxSEWKS.Size = new System.Drawing.Size(100, 762);
+            this.textBoxSEWKS.TabIndex = 27;
+            this.textBoxSEWKS.TabStop = false;
+            this.textBoxSEWKS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // KassaForm
             // 
@@ -404,12 +524,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(960, 748);
+            this.ClientSize = new System.Drawing.Size(966, 791);
+            this.Controls.Add(this.recieptRichTextBox);
+            this.Controls.Add(this.textBoxSEWKS);
+            this.Controls.Add(this.textBoxCashier);
+            this.Controls.Add(this.btnSignout);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.txtboxCommand);
             this.Controls.Add(this.btnNewCustomer);
             this.Controls.Add(this.button00);
-            this.Controls.Add(this.recieptRichTextBox);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -433,7 +556,7 @@
             this.Name = "KassaForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kassa";
+            this.Text = "Cashier Machine";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KassaForm_FormClosed);
             this.Load += new System.EventHandler(this.KassaForm_Load);
             this.ResumeLayout(false);
@@ -467,5 +590,8 @@
         private System.Windows.Forms.Button btnNewCustomer;
         private System.Windows.Forms.TextBox txtboxCommand;
         private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Button btnSignout;
+        private System.Windows.Forms.TextBox textBoxCashier;
+        private System.Windows.Forms.TextBox textBoxSEWKS;
     }
 }
