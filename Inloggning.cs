@@ -46,9 +46,10 @@ namespace DigitCashier
             {
                 case 2:
                     Console.WriteLine("Inloggad som Kassör");
-                    Kassasystem KasstSystem = new Kassasystem();
-                    KasstSystem.StartaKassan();
-                   // KasstSystem.Kassa();
+                    //Kassasystem KasstSystem = new Kassasystem(); // Har kommenterat bort detta och kassan
+                    //KasstSystem.StartaKassan();
+                    //KasstSystem.Kassa();
+                    FormCashier(); // Ligger längst ner i denna kod
                     break;
                 case 3:
                     Console.WriteLine("Inloggad som Administratör");
@@ -75,5 +76,10 @@ namespace DigitCashier
             lm.ShowDialog();
         }
 
+        public static void FormCashier()
+        {
+            KassaForm kf = new KassaForm();
+            kf.ShowDialog();
+        }
     }
 }

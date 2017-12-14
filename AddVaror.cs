@@ -15,6 +15,8 @@ namespace DigitCashier
             Inloggning.varuLista.Add(new Vara("butter", 28, 0, 44, 10, 0));
             Inloggning.varuLista.Add(new Vara("eggs", 22, 0, 55, 10, 0));
             Inloggning.varuLista.Add(new Vara("onions", 9, 1, 66, 10, 0));
+            Inloggning.varuLista.Add(new Vara("tomatoes", 19, 1, 77, 10, 0));
+            Inloggning.varuLista.Add(new Vara("potatoes", 8, 1, 88, 10, 0));
         }
     }
 }

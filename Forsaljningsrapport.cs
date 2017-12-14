@@ -31,7 +31,7 @@ namespace DigitCashier
             Console.WriteLine("Försäljningsrapport");
             Console.WriteLine(DateTime.Now);
             Console.WriteLine("-------------------------------------------------------------");
-            Console.WriteLine(String.Format(format, "Varunamn", "Styckpris", "Pris exkl moms","Lagerstatus"));
+            Console.WriteLine(String.Format(format, "Varunamn", "Styckpris", "Pris exkl moms", "Lagerstatus"));
             Console.WriteLine("-------------------------------------------------------------");
             foreach (Vara a in Inloggning.varuLista)
             {
@@ -54,7 +54,7 @@ namespace DigitCashier
                     Console.WriteLine("Rapporten är nu raderad");
                     Console.WriteLine("Du loggas nu ut ur Rapportsystemet och återvänder till inloggningen.\n");
                     File.Delete(rapport + "\\Rapport\\TotalPris.txt");// Raderar textfilen
-                    File.Delete(rapport + "\\Rapport\\TotalaVaror.txt");                  
+                    File.Delete(rapport + "\\Rapport\\TotalaVaror.txt");
                     okInput = true;
                 }
                 else if (input == "n")
@@ -75,7 +75,7 @@ namespace DigitCashier
         public void FormRapport()
         {
             Rapport rp = new Rapport();
-            rp.SkrivUtRapport(Inloggning.varuLista, TotalPris (), TotalVaror ());
+            rp.SkrivUtRapport(Inloggning.varuLista, TotalPris(), TotalVaror());
             rp.ShowDialog();
         }
 
@@ -132,10 +132,10 @@ namespace DigitCashier
                 {
                     string anstalldNamn = reader.ReadLine();
                     int arbTimmar = Int32.Parse(reader.ReadLine());
-                    Console.WriteLine("Anställd nr.{0}: {1}", i , anstalldNamn);
+                    Console.WriteLine("Anställd nr.{0}: {1}", i, anstalldNamn);
                     Console.WriteLine("Arbetade timmar: {0}h", arbTimmar);
                     i++;
-                 
+
                 }
             }
         }

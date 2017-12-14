@@ -54,19 +54,19 @@
             this.btnPay = new System.Windows.Forms.Button();
             this.btnSignout = new System.Windows.Forms.Button();
             this.textBoxCashier = new System.Windows.Forms.TextBox();
-            this.textBoxSEWKS = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(113, 10);
+            this.textBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(13, 10);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(456, 698);
+            this.textBox1.Size = new System.Drawing.Size(556, 698);
             this.textBox1.TabIndex = 0;
             this.textBox1.TabStop = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -331,10 +331,10 @@
             this.buttonEnter.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonEnter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonEnter.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEnter.Location = new System.Drawing.Point(463, 716);
+            this.buttonEnter.Location = new System.Drawing.Point(394, 716);
             this.buttonEnter.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEnter.Name = "buttonEnter";
-            this.buttonEnter.Size = new System.Drawing.Size(106, 56);
+            this.buttonEnter.Size = new System.Drawing.Size(175, 56);
             this.buttonEnter.TabIndex = 0;
             this.buttonEnter.Text = "Enter";
             this.buttonEnter.UseVisualStyleBackColor = false;
@@ -343,13 +343,13 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(312, 733);
+            this.textBox2.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(258, 742);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(143, 39);
+            this.textBox2.Size = new System.Drawing.Size(128, 29);
             this.textBox2.TabIndex = 16;
             this.textBox2.TabStop = false;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -357,7 +357,7 @@
             // textBox3
             // 
             this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(577, 10);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Multiline = true;
@@ -388,15 +388,18 @@
             // recieptRichTextBox
             // 
             this.recieptRichTextBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.recieptRichTextBox.Enabled = false;
+            this.recieptRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.recieptRichTextBox.BulletIndent = 10;
             this.recieptRichTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recieptRichTextBox.Location = new System.Drawing.Point(186, 57);
+            this.recieptRichTextBox.Location = new System.Drawing.Point(147, 39);
             this.recieptRichTextBox.Name = "recieptRichTextBox";
             this.recieptRichTextBox.ReadOnly = true;
-            this.recieptRichTextBox.Size = new System.Drawing.Size(591, 687);
+            this.recieptRichTextBox.Size = new System.Drawing.Size(578, 697);
             this.recieptRichTextBox.TabIndex = 20;
             this.recieptRichTextBox.TabStop = false;
-            this.recieptRichTextBox.Text = "";
+            this.recieptRichTextBox.Text = "                     \n                        Reciept \n                  SEWK\'s S" +
+    "upermarket\n            Kungsgatan 37, 441 50 Alingsås\n                  Org Nr: " +
+    "556033-5696\n\n";
             this.recieptRichTextBox.Visible = false;
             this.recieptRichTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.recieptRichTextBox_MouseClick);
             // 
@@ -439,12 +442,12 @@
             // txtboxCommand
             // 
             this.txtboxCommand.Enabled = false;
-            this.txtboxCommand.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxCommand.Location = new System.Drawing.Point(113, 733);
+            this.txtboxCommand.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxCommand.Location = new System.Drawing.Point(13, 742);
             this.txtboxCommand.Multiline = true;
             this.txtboxCommand.Name = "txtboxCommand";
             this.txtboxCommand.ReadOnly = true;
-            this.txtboxCommand.Size = new System.Drawing.Size(192, 39);
+            this.txtboxCommand.Size = new System.Drawing.Size(238, 29);
             this.txtboxCommand.TabIndex = 23;
             this.txtboxCommand.TabStop = false;
             this.txtboxCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -476,7 +479,7 @@
             this.btnSignout.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSignout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnSignout.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignout.Location = new System.Drawing.Point(866, 652);
+            this.btnSignout.Location = new System.Drawing.Point(866, 654);
             this.btnSignout.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignout.Name = "btnSignout";
             this.btnSignout.Size = new System.Drawing.Size(88, 118);
@@ -491,7 +494,7 @@
             this.textBoxCashier.BackColor = System.Drawing.Color.Gray;
             this.textBoxCashier.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxCashier.Enabled = false;
-            this.textBoxCashier.Font = new System.Drawing.Font("Mistral", 43.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCashier.Font = new System.Drawing.Font("Mistral", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCashier.ForeColor = System.Drawing.Color.Silver;
             this.textBoxCashier.Location = new System.Drawing.Point(866, 9);
             this.textBoxCashier.Multiline = true;
@@ -502,21 +505,20 @@
             this.textBoxCashier.TabStop = false;
             this.textBoxCashier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBoxSEWKS
+            // textBox4
             // 
-            this.textBoxSEWKS.BackColor = System.Drawing.Color.Gray;
-            this.textBoxSEWKS.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBoxSEWKS.Enabled = false;
-            this.textBoxSEWKS.Font = new System.Drawing.Font("Mistral", 52.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSEWKS.ForeColor = System.Drawing.Color.Silver;
-            this.textBoxSEWKS.Location = new System.Drawing.Point(6, 10);
-            this.textBoxSEWKS.Multiline = true;
-            this.textBoxSEWKS.Name = "textBoxSEWKS";
-            this.textBoxSEWKS.ReadOnly = true;
-            this.textBoxSEWKS.Size = new System.Drawing.Size(100, 762);
-            this.textBoxSEWKS.TabIndex = 27;
-            this.textBoxSEWKS.TabStop = false;
-            this.textBoxSEWKS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox4.BackColor = System.Drawing.Color.Silver;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Enabled = false;
+            this.textBox4.Font = new System.Drawing.Font("Courier New", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(235, 737);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(29, 53);
+            this.textBox4.TabIndex = 27;
+            this.textBox4.TabStop = false;
+            this.textBox4.Text = ":";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // KassaForm
             // 
@@ -525,17 +527,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(966, 791);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtboxCommand);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.recieptRichTextBox);
-            this.Controls.Add(this.textBoxSEWKS);
             this.Controls.Add(this.textBoxCashier);
             this.Controls.Add(this.btnSignout);
             this.Controls.Add(this.btnPay);
-            this.Controls.Add(this.txtboxCommand);
             this.Controls.Add(this.btnNewCustomer);
             this.Controls.Add(this.button00);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.buttonEnter);
             this.Controls.Add(this.buttonNo);
             this.Controls.Add(this.buttonYes);
@@ -552,6 +554,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
+            this.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "KassaForm";
             this.ShowIcon = false;
@@ -592,6 +596,6 @@
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Button btnSignout;
         private System.Windows.Forms.TextBox textBoxCashier;
-        private System.Windows.Forms.TextBox textBoxSEWKS;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

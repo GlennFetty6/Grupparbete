@@ -28,32 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textboxReport = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textboxReport
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Silver;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(825, 862);
-            this.textBox1.TabIndex = 0;
+            this.textboxReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textboxReport.BackColor = System.Drawing.Color.Silver;
+            this.textboxReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReport.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textboxReport.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReport.Location = new System.Drawing.Point(189, 0);
+            this.textboxReport.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.textboxReport.Multiline = true;
+            this.textboxReport.Name = "textboxReport";
+            this.textboxReport.ReadOnly = true;
+            this.textboxReport.Size = new System.Drawing.Size(605, 948);
+            this.textboxReport.TabIndex = 0;
+            this.textboxReport.TabStop = false;
+            this.textboxReport.Text = "\r\n\r\n\r\n";
             // 
             // Rapport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 862);
-            this.Controls.Add(this.textBox1);
-            this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(790, 948);
+            this.Controls.Add(this.textboxReport);
+            this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "Rapport";
             this.ShowIcon = false;
-            this.Text = "Rapport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Report";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Rapport_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Rapport_FormClosed);
             this.ResumeLayout(false);
@@ -63,6 +73,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textboxReport;
     }
 }
