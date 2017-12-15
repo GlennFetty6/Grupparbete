@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace DigitCashier
 {
@@ -27,13 +28,6 @@ namespace DigitCashier
             foreach (Vara a in varor)
             {
                 textboxReport.Text += (String.Format(format, a.Namn, a.Pris.ToString(), (a.Pris * (1 - Inloggning.moms)).ToString(), a.LagerStatus.ToString()))+ Environment.NewLine;
-                //textBox1.Text += (String.Format(format, a.Pris.ToString()));
-                //textBox1.Text += (String.Format(format, (a.Pris * (1 - Inloggning.moms)).ToString()));
-                //textBox1.Text += (String.Format(format, a.LagerStatus.ToString())) + Environment.NewLine;
-                //textBox1.Text += a.Namn;
-                //textBox1.Text += "\t"+ a.Pris.ToString();
-                //textBox1.Text += "\t" + (a.Pris * (1 - Inloggning.moms)).ToString();
-                //textBox1.Text += "\t" + "  " + a.LagerStatus.ToString() + Environment.NewLine;
             }
             textboxReport.Text += Environment.NewLine;
             textboxReport.Text += "Total number of items sold: ";
@@ -44,24 +38,24 @@ namespace DigitCashier
 
         private void Rapport_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Hide(); // Kommentera bort koden nedan då den inte skall finnas...
+            //Hide(); // Kommentera bort koden nedan då den inte skall finnas...
 
-            //var dialogResult = MessageBox.Show(this, "Would you like to reset the report?", "Report", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            var dialogResult = MessageBox.Show(this, "Would you like to reset the report?", "Report", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
-            //if(dialogResult == DialogResult.Yes)
-            //{
-            //    Forsaljningsrapport Rapport = new Forsaljningsrapport();
-            //    Rapport.ResetReport();
-            //    Hide();
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    Hide();
-            //}
-            //else if (dialogResult == DialogResult.Cancel)
-            //{
-            //    e.Cancel = true;
-            //}
+            if (dialogResult == DialogResult.Yes)
+            {
+                Forsaljningsrapport Rapport = new Forsaljningsrapport();
+                Rapport.ResetReport();
+                Hide();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                Hide();
+            }
+            else if (dialogResult == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
         }
 
         private void Rapport_FormClosed(object sender, FormClosedEventArgs e)

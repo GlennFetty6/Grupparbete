@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.textboxReport = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // textboxReport
@@ -48,7 +49,15 @@
             this.textboxReport.Size = new System.Drawing.Size(605, 948);
             this.textboxReport.TabIndex = 0;
             this.textboxReport.TabStop = false;
-            this.textboxReport.Text = "\r\n\r\n\r\n";
+            this.textboxReport.Text = "\r\n\r\nSales Report\r\n";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(1, 13);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(178, 27);
+            this.dateTimePicker1.TabIndex = 1;
             // 
             // Rapport
             // 
@@ -56,6 +65,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(790, 948);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textboxReport);
             this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -74,5 +84,8 @@
         #endregion
 
         private System.Windows.Forms.TextBox textboxReport;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.Button btnPrint;
     }
 }
