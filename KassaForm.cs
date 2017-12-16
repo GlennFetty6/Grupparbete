@@ -15,13 +15,13 @@ namespace DigitCashier
         private bool active; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
         int state; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
        
-        private int totalPris; //Kostnaden för alla varor. Används på kvittot. 
-        private int totaltBelopp; // Det pris kunden kommer betala. 
-        private int totalAntalVaror;
+        private int totalPrice; //Kostnaden för alla varor. Används på kvittot. 
+        private int totalAmount; // Det pris kunden kommer betala. 
+        private int totalItems;
 
-        List<Vara> kundVagn = new List<Vara>();// Skapar en lista för kundvagn
+        List<Vara> customerCart = new List<Vara>();// Skapar en lista för kundvagn
 
-        string betalningsTyp;
+        string paymentMethod;
 
         string input;
 
@@ -32,20 +32,7 @@ namespace DigitCashier
 
         private void KassaForm_Load(object sender, EventArgs e)
         {
-            NewVara();
-            richTextBox2.ReadOnly = true;
-            textBox2.ReadOnly = true;
-            textBox3.ReadOnly = true;
-            textBoxCashier.ReadOnly = true;
-
-            textBoxCashier.Text += "C" + Environment.NewLine;
-            textBoxCashier.Text += "A" + Environment.NewLine;
-            textBoxCashier.Text += "S" + Environment.NewLine;
-            textBoxCashier.Text += "H" + Environment.NewLine;
-            textBoxCashier.Text += "I" + Environment.NewLine;
-            textBoxCashier.Text += "E" + Environment.NewLine;
-            textBoxCashier.Text += "R" + Environment.NewLine;
-
+            NewItem();
         }
 
         private void buttonEnter_Click(object sender, EventArgs e)//knappen gör olika beroende på var i programmet man befinner sig. Programmet återkommer hit varje gång input krävs. 
@@ -76,10 +63,6 @@ namespace DigitCashier
                     VaraAntal(input);
                     input = null;
                     textBox2.Text = null;
-                }
-
-                else if (state == 4) // Gör ingenting just nu....
-                {
                 }
 
                 else if (state == 5) // Fråga om kupong
@@ -118,7 +101,7 @@ namespace DigitCashier
             }
         }
 
-        private void NewVara() //Körs vid ny vara. 
+        private void NewItem() //Körs vid ny vara. 
         {
             state = 1;
             txtboxCommand.Text = "Id-number " + Environment.NewLine;
@@ -174,7 +157,6 @@ namespace DigitCashier
                     txtboxCommand.Text = "Quantity " + Environment.NewLine;
                     textBox2.Text = null;
                     richTextBox2.Text += "Number is not valid. Please try again!" + Environment.NewLine;
-                    //textBox1.Text += "Number is not valid. Please try again!" + Environment.NewLine;
                     active = false;
                 }
 
@@ -182,7 +164,6 @@ namespace DigitCashier
                 {
                     textBox2.Text = null;
                     richTextBox2.Text += "The item is sold out." + Environment.NewLine;
-                    //textBox1.Text += "The item is sold out." + Environment.NewLine;
                     active = false;
                     state = 1;
                 }
@@ -191,23 +172,21 @@ namespace DigitCashier
                     txtboxCommand.Text = "Quantity " + Environment.NewLine;
                     textBox2.Text = null;
                     richTextBox2.Text += "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
-                    //textBox1.Text += "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
                     active = false;
                 }
                 else
                 {
                     richTextBox2.Text += inp + " " + valdVara.Namn + " are added to the cart." + Environment.NewLine;
-                    //textBox1.Text += inp + " " + valdVara.Namn + " are added to the cart." + Environment.NewLine;
                     valdVara.LagerStatus -= antal;
                     valdVara.Antal = antal;
                     kostnad = antal * valdVara.Pris;
-                    totalPris += kostnad;
-                    totaltBelopp += kostnad;
-                    kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
+                    totalPrice += kostnad;
+                    totalAmount += kostnad;
+                    customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
                                             //  okInput = true;
                     active = false;
                     state = 1;
-                    NewVara();
+                    NewItem();
 
                     ShowCartContent();
                 }
@@ -225,7 +204,6 @@ namespace DigitCashier
                 txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
                 textBox2.Text = null;
                 richTextBox2.Text += "Number is not valid. Please try again." + Environment.NewLine;
-                //textBox1.Text += "Number is not valid. Please try again." + Environment.NewLine;
                 active = false;
             }
 
@@ -233,10 +211,9 @@ namespace DigitCashier
             {
                 textBox2.Text = null;
                 richTextBox2.Text += "The item is sold out." + Environment.NewLine;
-               // textBox1.Text += "The item is sold out." + Environment.NewLine;
                 active = false;
                 state = 1;
-                NewVara();
+                NewItem();
             }
 
             else if (vikt > valdVara.LagerStatus)
@@ -244,23 +221,21 @@ namespace DigitCashier
                 txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
                 textBox2.Text = null;
                 richTextBox2.Text += "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
-               // textBox1.Text += "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
                 active = false;
             }
-
 
             else
             {
                 valdVara.LagerStatus -= vikt;
                 valdVara.Antal = vikt;
                 kostnad = vikt * valdVara.Pris;
-                totalPris += kostnad;
-                totaltBelopp += kostnad;
+                totalPrice += kostnad;
+                totalAmount += kostnad;
                 richTextBox2.Text += vikt + "kg " + valdVara.Namn + " costs " + kostnad + "SEK" + Environment.NewLine;
-                kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
+                customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
                 active = false;
                 state = 1;
-                NewVara();
+                NewItem();
             }
         }
 
@@ -281,14 +256,14 @@ namespace DigitCashier
         {
             if (inp == "y")
             {
-                richTextBox2.Text += "Amount to pay: " + totaltBelopp + Environment.NewLine;
+                richTextBox2.Text += "Amount to pay: " + totalAmount + Environment.NewLine;
                 txtboxCommand.Text = "Coupon amount " + Environment.NewLine;
                 state = 6;
             }
 
             else if (inp == "n")
             {
-                richTextBox2.Text += "Amount to pay: " + totaltBelopp + Environment.NewLine;
+                richTextBox2.Text += "Amount to pay: " + totalAmount + Environment.NewLine;
                 txtboxCommand.Text = "Cash or card";
                 state = 7;
             }
@@ -311,18 +286,18 @@ namespace DigitCashier
                 active = false;
             }
 
-            totaltBelopp -= total;
+            totalAmount -= total;
 
-            if (totaltBelopp <= 0)
+            if (totalAmount <= 0)
             {
-                totaltBelopp = 0;
+                totalAmount = 0;
                 richTextBox2.Text += "The coupon covered the costs." + Environment.NewLine;
-                betalningsTyp = "coupon";
+                paymentMethod = "coupon";
                 PrintReciept();
             }
             else
             {
-                richTextBox2.Text += "Amount left to pay: " + totaltBelopp + Environment.NewLine;
+                richTextBox2.Text += "Amount left to pay: " + totalAmount + Environment.NewLine;
 
                 txtboxCommand.Text = "Cash or card ";
                 state = 7;
@@ -331,7 +306,7 @@ namespace DigitCashier
 
         void Betalning(string inp)
         {
-            betalningsTyp = inp;
+            paymentMethod = inp;
 
             if (inp == "cash")
             {
@@ -353,17 +328,17 @@ namespace DigitCashier
         {
             int betalt;
 
-            if (Int32.TryParse(inp, out betalt) == false || betalt <= 0 || betalt < totaltBelopp)
+            if (Int32.TryParse(inp, out betalt) == false || betalt <= 0 || betalt < totalAmount)
             {
-                totaltBelopp -= betalt;
+                totalAmount -= betalt;
                 richTextBox2.Text += "The amount was not enough. " + Environment.NewLine;
-                richTextBox2.Text += "Amount left to pay: " + totaltBelopp + Environment.NewLine;
+                richTextBox2.Text += "Amount left to pay: " + totalAmount + Environment.NewLine;
                 txtboxCommand.Text = "Cash or card ";
                 state = 7;
                 return;
             }
 
-            float växel = betalt - totaltBelopp;
+            float växel = betalt - totalAmount;
 
             richTextBox2.Text += växel + " SEK in change." + Environment.NewLine;
 
@@ -389,11 +364,11 @@ namespace DigitCashier
 
             using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalPris.txt", true))
             {
-                writer.WriteLine(totalPris);
+                writer.WriteLine(totalPrice);
             }
             using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalaVaror.txt", true))
             {
-                writer.WriteLine(totalAntalVaror);
+                writer.WriteLine(totalItems);
             }
         }
 
@@ -412,13 +387,13 @@ namespace DigitCashier
             const string format = "{0,-10} {1,-12} {2,0}";
             textBox3.Text += (String.Format(format, "Name" , "Quantity", "Price")) + Environment.NewLine;
             textBox3.Text += "----------------------------------" + Environment.NewLine;
-            foreach (Vara v in kundVagn)
+            foreach (Vara v in customerCart)
             {
                 textBox3.Text += (String.Format(format, v.Namn, v.Antal , v.Pris)) + Environment.NewLine;
                 nr += v.Antal;
             }
             textBox3.Text += "----------------------------------" + Environment.NewLine;
-            textBox3.Text += (String.Format(format, "Total:", nr, totalPris));
+            textBox3.Text += (String.Format(format, "Total:", nr, totalPrice));
         }
 
         private void recieptRichTextBox_MouseClick(object sender, MouseEventArgs e) // Nollställer och gömmer kvittot
@@ -445,17 +420,17 @@ namespace DigitCashier
             recieptRichTextBox.Text += Environment.NewLine;
             recieptRichTextBox.Text += "\t" + (String.Format(format, "Quantity", "Name", "Category", "Price", "Total")) + Environment.NewLine;
             recieptRichTextBox.ForeColor = Color.MidnightBlue;
-            foreach (Vara nr in kundVagn)
+            foreach (Vara nr in customerCart)
             {
                 int priceTotal = nr.Antal * nr.Pris;
                 recieptRichTextBox.Text += "\t" + (String.Format(format, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, priceTotal)) + Environment.NewLine;
-                totalAntalVaror += nr.Antal;
+                totalItems += nr.Antal;
             }
             recieptRichTextBox.Text += Environment.NewLine;
-            float woutTax = totalPris * Inloggning.moms;
+            float woutTax = totalPrice * Inloggning.moms;
             float tax = Inloggning.moms * 100;
             recieptRichTextBox.Text += "\t" + "Tax " + tax + "%: " + woutTax + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "Pay method: " + betalningsTyp + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" + "Pay method: " + paymentMethod + Environment.NewLine;
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
             recieptRichTextBox.Text += "\t" + "Receiptnumber: " + nr1 + Environment.NewLine;
@@ -463,11 +438,11 @@ namespace DigitCashier
 
             RapportVaror();
 
-            totaltBelopp = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
-            totalPris = 0;
-            totalAntalVaror = 0;
+            totalAmount = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
+            totalPrice = 0;
+            totalItems = 0;
 
-            kundVagn.Clear();
+            customerCart.Clear();
 
             state = 9;
         }
@@ -475,70 +450,66 @@ namespace DigitCashier
         //###################################################### KNAPP KOD #######################################################
         private void button1_Click(object sender, EventArgs e) 
         {
+            buttonEnter.Focus(); // Tabbar till Enter
             textBox2.Text += "1";
-
-        }
-        private void button1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                buttonEnter.PerformClick();
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "2";
-        }
-        private void button2_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                buttonEnter.PerformClick();
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "3";
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "4";
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "5";
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "6";
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "7";
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "8";
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "9";
         }
 
         private void button0_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "0";
         }
         private void button00_Click(object sender, EventArgs e)
         {
+            buttonEnter.Focus();
             textBox2.Text += "00";
         }
 
@@ -576,10 +547,10 @@ namespace DigitCashier
 
         private void btnNewCustomer_Click(object sender, EventArgs e) // Ny kund-knapp
         {
-            if (totalPris == 0)
+            if (totalPrice == 0)
             {
                 richTextBox2.Clear();
-                NewVara();
+                NewItem();
             }
             else
             {
@@ -589,7 +560,7 @@ namespace DigitCashier
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (totalPris == 0)
+            if (totalPrice == 0)
             {
                 richTextBox2.Text += "You will now return to login.";
                 Hide();
@@ -600,7 +571,6 @@ namespace DigitCashier
                 MessageBox.Show("Please complete the purchase before signing out.");
             }
         }
-
         //###################################################### KNAPP KOD SLUT #######################################################
     }
 }

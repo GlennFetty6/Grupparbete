@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DigitCashier.AddVaror">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AddVaror.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.AdminForm">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IICBAAgA0CQAAREmDgDgWACWQIGIEBBEMEhAERJYMJA=</HashCode>
+      <FileName>AdminForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.Administrator">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AmAACAAAAAAAAAIgEAAgAEAAIAQAEAIAAAAAQUACAAE=</HashCode>
+      <FileName>Administrator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.Anstallda">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAEACAAAAAAAAAAAAAQAAAAAAAAAAEBAAAA=</HashCode>
+      <FileName>Anstallda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.Forsaljningsrapport">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAAAAEAAAQAAAAAAAAgAQAAAAIABAAAAAQIAAAAAAE=</HashCode>
+      <FileName>Forsaljningsrapport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.Inloggning">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAiAAAAAiAAAAABAAAAAABAAAAAA=</HashCode>
+      <FileName>Inloggning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.KassaForm">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AGCABgAgACCAgIwmNADiAgRaIcy/ANQc4PAfIABMOEg=</HashCode>
+      <FileName>KassaForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.LogInForm">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAACAEMACCAABAFAACCAACCABAAAggEIABAAQAEABA=</HashCode>
+      <FileName>LogInForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.NewEmployee">
+    <Position X="6.75" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgABABEEkGCAAAEkAADAAFECQJEEgBgFMAgAAAIEAAQ=</HashCode>
+      <FileName>NewEmployee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.Rapport">
+    <Position X="10.25" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAgACQACAAAACAgAAEBAAAAAAAAAAAAA=</HashCode>
+      <FileName>Rapport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.Vara">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAAAAAgAgIAAAICAAACAAAAAwAAAgE=</HashCode>
+      <FileName>Vara.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DigitCashier.Properties.Resources">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

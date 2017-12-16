@@ -480,7 +480,7 @@
             this.textBoxCashier.BackColor = System.Drawing.Color.Gray;
             this.textBoxCashier.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxCashier.Enabled = false;
-            this.textBoxCashier.Font = new System.Drawing.Font("Mistral", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCashier.Font = new System.Drawing.Font("Mistral", 49F);
             this.textBoxCashier.ForeColor = System.Drawing.Color.Silver;
             this.textBoxCashier.Location = new System.Drawing.Point(866, 9);
             this.textBoxCashier.Multiline = true;
@@ -489,6 +489,7 @@
             this.textBoxCashier.Size = new System.Drawing.Size(88, 570);
             this.textBoxCashier.TabIndex = 26;
             this.textBoxCashier.TabStop = false;
+            this.textBoxCashier.Text = "C\r\nA\r\nS\r\nH\r\nI\r\nE\r\nR";
             this.textBoxCashier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox4
@@ -521,16 +522,15 @@
             // 
             // KassaForm
             // 
-            this.AcceptButton = this.buttonEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(966, 791);
+            this.Controls.Add(this.recieptRichTextBox);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtboxCommand);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.recieptRichTextBox);
             this.Controls.Add(this.textBoxCashier);
             this.Controls.Add(this.btnSignout);
             this.Controls.Add(this.btnPay);

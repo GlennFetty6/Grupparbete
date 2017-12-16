@@ -9,12 +9,12 @@
 //{
 //    class Kassasystem
 //    {
-//        List<Vara> kundVagn = new List<Vara>();// Skapar en lista för kundvagn
-//        private int totalPris;
-//        private int totaltBelopp; // totalPris på kvittot stämde ej då en splittade notan kupong/kort därav totaltBelopp
-//        private int totalAntalVaror; // Borde kunna räkna kundVagnens antal .Contains - Jaaaaa.... det kan en säkerligen
+//        List<Vara> customerCart = new List<Vara>();// Skapar en lista för kundvagn
+//        private int totalPrice;
+//        private int totalAmount; // totalPrice på kvittot stämde ej då en splittade notan kupong/kort därav totalAmount
+//        private int totalItems; // Borde kunna räkna kundVagnens antal .Contains - Jaaaaa.... det kan en säkerligen
 
-//        private string betalningsTyp;
+//        private string paymentMethod;
 //        private Vara valdVara;
 
 //        public void Kassa()
@@ -96,10 +96,10 @@
 //                        valdVara.LagerStatus -= vikt;
 //                        valdVara.Antal = vikt;
 //                        kostnad = vikt * valdVara.Pris;
-//                        totalPris += kostnad;
-//                        totaltBelopp += kostnad;
+//                        totalPrice += kostnad;
+//                        totalAmount += kostnad;
 //                        Console.WriteLine("{0}kg {1} kostar totalt {2}kr", vikt, valdVara.Namn, kostnad);
-//                        kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
+//                        customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
 //                        okInput = true;
 //                    }
 //                }
@@ -130,9 +130,9 @@
 //                        valdVara.LagerStatus -= antal;
 //                        valdVara.Antal = antal;
 //                        kostnad = antal * valdVara.Pris;
-//                        totalPris += kostnad;
-//                        totaltBelopp += kostnad;
-//                        kundVagn.Add(valdVara); // Lägger i vald vara i kundvagnen
+//                        totalPrice += kostnad;
+//                        totalAmount += kostnad;
+//                        customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
 //                        okInput = true;
 //                    }
 //                }
@@ -152,7 +152,7 @@
 //                }
 //                else if (merVaror == "n")
 //                {
-//                    Console.WriteLine("Totalbeloppet är {0}kr", totaltBelopp);
+//                    Console.WriteLine("Totalbeloppet är {0}kr", totalAmount);
 //                    Kupong();
 //                    okInput = true;
 //                }
@@ -202,22 +202,22 @@
 //        void Betalning()
 //        {
 //            bool okInput = true;
-//            if (totaltBelopp < 0)
+//            if (totalAmount < 0)
 //            {
-//                totaltBelopp = 0;
+//                totalAmount = 0;
 //                Console.WriteLine("Kupongen täckte hela kostnaden. Kunden behöver inte betala något mer.");
 //                SkrivUtKvitto();
 //            }
 //            else
 //            {
-//                Console.WriteLine("Belopp att betala: {0}kr", totaltBelopp);
+//                Console.WriteLine("Belopp att betala: {0}kr", totalAmount);
 //            }
 
 //            do
 //            {
 //                Console.Write("Betala med kort eller kontant: ");
 //                string svar1 = Console.ReadLine();
-//                betalningsTyp = svar1;
+//                paymentMethod = svar1;
 
 //                if (svar1 == "kontant")
 //                {
@@ -243,15 +243,15 @@
 //            string payed = Console.ReadLine();
 //            int betalt;
 
-//            while (Int32.TryParse(payed, out betalt) == false || betalt <= 0 || betalt < totaltBelopp)
+//            while (Int32.TryParse(payed, out betalt) == false || betalt <= 0 || betalt < totalAmount)
 //            {
-//                totaltBelopp -= betalt;
+//                totalAmount -= betalt;
 //                Console.WriteLine("Summan räcker inte till.");
 //                Betalning();
 //                payed = Console.ReadLine();
 //            }
 
-//            int växel = betalt - totaltBelopp;
+//            int växel = betalt - totalAmount;
 //            Console.WriteLine("{0}kr i växel.", växel);
 //            SkrivUtKvitto();
 //        }
@@ -278,16 +278,16 @@
 //            Console.WriteLine("------------------------------------------");
 //            Console.WriteLine(String.Format(format, "Styck", "Namn", "Kategori", "Pris", "Total"));
 //            Console.WriteLine("------------------------------------------");
-//            foreach (Vara nr in kundVagn)
+//            foreach (Vara nr in customerCart)
 //            {
 //                Console.WriteLine(String.Format(format, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, (nr.Antal * nr.Pris)));
-//                totalAntalVaror += nr.Antal;
+//                totalItems += nr.Antal;
 //            }
 //            Console.WriteLine("------------------------------------------");
-//            Console.WriteLine("Total                             {0}", totalPris);
-//            Console.WriteLine("Moms {0}%                          {1}", (Inloggning.moms * 100), (totalPris * Inloggning.moms));
+//            Console.WriteLine("Total                             {0}", totalPrice);
+//            Console.WriteLine("Moms {0}%                          {1}", (Inloggning.moms * 100), (totalPrice * Inloggning.moms));
 //            Console.WriteLine("------------------------------------------");
-//            Console.WriteLine("Belningstyp: {0}", betalningsTyp);
+//            Console.WriteLine("Belningstyp: {0}", paymentMethod);
 //            Random verfNr = new Random();
 //            int nr1 = verfNr.Next(100000, 999999);
 //            Console.WriteLine("Kvittonummer: {0}", nr1);
@@ -299,10 +299,10 @@
 
 //            RapportVaror();
 
-//            totaltBelopp = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
-//            totalPris = 0;
-//            totalAntalVaror = 0;
-//            kundVagn.Clear();
+//            totalAmount = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
+//            totalPrice = 0;
+//            totalItems = 0;
+//            customerCart.Clear();
 
 //            FlerKunder();
 //        }
@@ -335,11 +335,11 @@
 
 //            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalPris.txt", true))
 //            {
-//                writer.WriteLine(totalPris);
+//                writer.WriteLine(totalPrice);
 //            }
 //            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalaVaror.txt", true))
 //            {
-//                writer.WriteLine(totalAntalVaror);
+//                writer.WriteLine(totalItems);
 //            }
 //        }
 //    }
