@@ -7,14 +7,14 @@ using System.Drawing;
 
 namespace DigitCashier
 {
-  
+
     public partial class KassaForm : Form
     {
         private Vara valdVara;
 
         private bool active; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
         int state; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
-       
+
         private int totalPrice; //Kostnaden för alla varor. Används på kvittot. 
         private int totalAmount; // Det pris kunden kommer betala. 
         private int totalItems;
@@ -97,7 +97,7 @@ namespace DigitCashier
                 {
                     input = null;
                     textBox2.Text = null;
-                }               
+                }
             }
         }
 
@@ -183,7 +183,7 @@ namespace DigitCashier
                     totalPrice += kostnad;
                     totalAmount += kostnad;
                     customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
-                                            //  okInput = true;
+                                                //  okInput = true;
                     active = false;
                     state = 1;
                     NewItem();
@@ -385,11 +385,11 @@ namespace DigitCashier
             int nr = 0;
             textBox3.Text = null;
             const string format = "{0,-10} {1,-12} {2,0}";
-            textBox3.Text += (String.Format(format, "Name" , "Quantity", "Price")) + Environment.NewLine;
+            textBox3.Text += (String.Format(format, "Name", "Quantity", "Price")) + Environment.NewLine;
             textBox3.Text += "----------------------------------" + Environment.NewLine;
             foreach (Vara v in customerCart)
             {
-                textBox3.Text += (String.Format(format, v.Namn, v.Antal , v.Pris)) + Environment.NewLine;
+                textBox3.Text += (String.Format(format, v.Namn, v.Antal, v.Pris)) + Environment.NewLine;
                 nr += v.Antal;
             }
             textBox3.Text += "----------------------------------" + Environment.NewLine;
@@ -448,7 +448,7 @@ namespace DigitCashier
         }
 
         //###################################################### KNAPP KOD #######################################################
-        private void button1_Click(object sender, EventArgs e) 
+        private void button1_Click(object sender, EventArgs e)
         {
             buttonEnter.Focus(); // Tabbar till Enter
             textBox2.Text += "1";
@@ -541,8 +541,8 @@ namespace DigitCashier
         }
         private void btnPay_Click(object sender, EventArgs e) // Betalningsknapp
         {
-                txtboxCommand.Text = "Coupon-Yes/No" + Environment.NewLine;
-                state = 5;
+            txtboxCommand.Text = "Coupon-Yes/No" + Environment.NewLine;
+            state = 5;
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e) // Ny kund-knapp
