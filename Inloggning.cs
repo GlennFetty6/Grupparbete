@@ -53,8 +53,11 @@ namespace DigitCashier
                     break;
                 case 3:
                     Console.WriteLine("Inloggad som Administratör");
-                    Administrator Admin = new Administrator();
-                    Admin.FormAdmin();
+                    //Administrator Admin = new Administrator();
+                    //Admin.FormAdmin();
+                    AdministratorForm Admin = new AdministratorForm();
+                    Admin.Show();
+                   
                     break;
                 case 5:
                     Forsaljningsrapport Rapport = new Forsaljningsrapport();
