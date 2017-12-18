@@ -145,7 +145,7 @@
             this.labelError.BackColor = System.Drawing.Color.Transparent;
             this.labelError.Enabled = false;
             this.labelError.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelError.ForeColor = System.Drawing.Color.Black;
+            this.labelError.ForeColor = System.Drawing.Color.Transparent;
             this.labelError.Location = new System.Drawing.Point(54, 446);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(318, 44);
@@ -159,7 +159,7 @@
             this.AcceptButton = this.logInBtn;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.BackColor = System.Drawing.Color.Red;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::DigitCashier.Properties.Resources.Abstract_Background_with_Blue_Curves_Vector_Illustration;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.logOutBtn;
