@@ -45,7 +45,7 @@
             this.logInBtn.BackColor = System.Drawing.Color.DimGray;
             this.logInBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logInBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logInBtn.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logInBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.logInBtn.Location = new System.Drawing.Point(58, 300);
             this.logInBtn.Name = "logInBtn";
@@ -61,7 +61,7 @@
             this.logOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logOutBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logOutBtn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOutBtn.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logOutBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.logOutBtn.Location = new System.Drawing.Point(58, 379);
             this.logOutBtn.Name = "logOutBtn";
@@ -77,12 +77,12 @@
             this.userIDTxtbox.BackColor = System.Drawing.Color.Silver;
             this.userIDTxtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userIDTxtbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.userIDTxtbox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userIDTxtbox.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userIDTxtbox.ForeColor = System.Drawing.Color.Gray;
-            this.userIDTxtbox.Location = new System.Drawing.Point(9, 15);
+            this.userIDTxtbox.Location = new System.Drawing.Point(0, 6);
             this.userIDTxtbox.Multiline = true;
             this.userIDTxtbox.Name = "userIDTxtbox";
-            this.userIDTxtbox.Size = new System.Drawing.Size(240, 35);
+            this.userIDTxtbox.Size = new System.Drawing.Size(259, 47);
             this.userIDTxtbox.TabIndex = 1;
             this.userIDTxtbox.Text = "User ID";
             this.userIDTxtbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -93,12 +93,12 @@
             // 
             this.passwordTxtbox.BackColor = System.Drawing.Color.Silver;
             this.passwordTxtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordTxtbox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTxtbox.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTxtbox.ForeColor = System.Drawing.Color.Gray;
-            this.passwordTxtbox.Location = new System.Drawing.Point(9, 14);
+            this.passwordTxtbox.Location = new System.Drawing.Point(0, 6);
             this.passwordTxtbox.Multiline = true;
             this.passwordTxtbox.Name = "passwordTxtbox";
-            this.passwordTxtbox.Size = new System.Drawing.Size(240, 36);
+            this.passwordTxtbox.Size = new System.Drawing.Size(259, 47);
             this.passwordTxtbox.TabIndex = 2;
             this.passwordTxtbox.Text = "Password";
             this.passwordTxtbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
