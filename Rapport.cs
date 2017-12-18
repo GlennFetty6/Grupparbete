@@ -24,10 +24,10 @@ namespace DigitCashier
             textboxReport.ReadOnly = true;
             textboxReport.Text += DateTime.Now.ToString() + Environment.NewLine;
             textboxReport.Text += Environment.NewLine;
-            textboxReport.Text += (String.Format(format, "Name", "Price","Excl. tax", "Status")) + Environment.NewLine;
+            textboxReport.Text += (String.Format(format, "Name", "Price", "Excl. tax", "Status")) + Environment.NewLine;
             foreach (Vara a in varor)
             {
-                textboxReport.Text += (String.Format(format, a.Namn, a.Pris.ToString(), (a.Pris * (1 - Inloggning.moms)).ToString(), a.LagerStatus.ToString()))+ Environment.NewLine;
+                textboxReport.Text += (String.Format(format, a.Namn, a.Pris.ToString(), (a.Pris * (1 - Inloggning.moms)).ToString(), a.LagerStatus.ToString())) + Environment.NewLine;
             }
             textboxReport.Text += Environment.NewLine;
             textboxReport.Text += "Total number of items sold: ";

@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textboxReport = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textboxReport
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Silver;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(825, 862);
-            this.textBox1.TabIndex = 0;
+            this.textboxReport.BackColor = System.Drawing.Color.Silver;
+            this.textboxReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textboxReport.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReport.Location = new System.Drawing.Point(0, 0);
+            this.textboxReport.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.textboxReport.Multiline = true;
+            this.textboxReport.Name = "textboxReport";
+            this.textboxReport.Size = new System.Drawing.Size(825, 862);
+            this.textboxReport.TabIndex = 0;
             // 
             // Rapport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 862);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textboxReport);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "Rapport";
@@ -63,6 +63,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textboxReport;
     }
 }

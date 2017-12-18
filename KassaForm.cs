@@ -450,7 +450,7 @@ namespace DigitCashier
         //###################################################### KNAPP KOD #######################################################
         private void button1_Click(object sender, EventArgs e)
         {
-            buttonEnter.Focus(); // Tabbar till Enter
+            buttonEnter.Focus(); // Sätter fokus till Enter
             textBox2.Text += "1";
         }
 
