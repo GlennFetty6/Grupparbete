@@ -20,21 +20,20 @@ namespace DigitCashier
 
         private void LogIn_Click(object sender, EventArgs e)
         {
-                DataSet ds = new DataSet();
-                SqlConnection connect = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DigitLogin;Integrated Security=True");
-                SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From EmployeeLogin where UserID= '" + userIDTxtbox.Text + "' and Password= '" + passwordTxtbox.Text + "'", connect);
-                sda.Fill(ds);
+            DataSet ds = new DataSet();
+            SqlConnection connect = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DigitLogin;Integrated Security=True");
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From EmployeeLogin where UserID= '" + userIDTxtbox.Text + "' and Password= '" + passwordTxtbox.Text + "'", connect);
+            sda.Fill(ds);
 
-                if (ds.Tables[0].Rows[0][0].ToString() == "1")
-                {
-                    Hide();
-                    Inloggning.kodID = userIDTxtbox.Text;
-                    Inloggning.LoggaIn(userIDTxtbox.Text);
-                }            
+            if (ds.Tables[0].Rows[0][0].ToString() == "1")
+            {
+                Hide();
+                Inloggning.kodID = userIDTxtbox.Text;
+                Inloggning.LoggaIn(userIDTxtbox.Text);
+            }
 
-        
-                    errorMessage(); // Anropar felmeddelande
-    }
+            errorMessage(); // Anropar felmeddelande
+        }
 
         private void logInBtn_KeyDown(object sender, KeyEventArgs e)
         {
@@ -46,10 +45,8 @@ namespace DigitCashier
 
         private void errorMessage()
         {
-            errorMessageTxtbox.ReadOnly = true;
-            errorMessageTxtbox.ForeColor = Color.Red;
-            errorMessageTxtbox.Text = "Invalid user ID or password. Please try again!";
-            errorMessageTxtbox.Show();
+            labelError.ForeColor = Color.Red; // Går icke picke på label
+            labelError.Show();
             TimerTime();      // Anropar Timern för felmeddelandet       
         }
 
@@ -67,7 +64,7 @@ namespace DigitCashier
         private void tm_Tick(object sender, EventArgs e)
         {
             tm.Stop(); // Stoppar timern
-            errorMessageTxtbox.Clear(); // Tar bort felmeddelande
+            labelError.Hide();
         }
 
         private void passwordTxtbox_Click(object sender, EventArgs e)
