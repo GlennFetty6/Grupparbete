@@ -363,14 +363,33 @@ namespace DigitCashier
         {
             string rapport = AppDomain.CurrentDomain.BaseDirectory;
             Directory.CreateDirectory(rapport + "\\Rapport\\");
+
+            int month = DateTime.Now.Month;
+            int year = DateTime.Now.Year;
+
+            if (Directory.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month +"\\" ) == false)
+            {
+                Directory.CreateDirectory(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\");              
+            }
             
-            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalPris.txt", true))
+            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt", true))
             {
                 writer.WriteLine(totalPrice);
             }
-            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalaVaror.txt", true))
+            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt", true))
             {
                 writer.WriteLine(totalItems);
+            }
+
+            foreach (Vara a in customerCart)
+            {
+                if (a.Antal > 0)
+                {
+                    using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\" + a.Namn + ".txt", true))
+                    {
+                        writer.WriteLine(a.Antal);
+                    }
+                }
             }
         }
 

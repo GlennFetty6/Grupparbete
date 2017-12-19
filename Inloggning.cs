@@ -29,9 +29,7 @@ namespace DigitCashier
             anst.LaggTillExempelAnstallda();
 
             varuLista = new List<Vara>(); // Skapar en list av Vara och kallar den varuLista
-
-            AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
-            tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
+            anst.Items();
 
             Application.Run(new LogInForm());
         }
@@ -46,22 +44,19 @@ namespace DigitCashier
             {
                 case 2:
                     Console.WriteLine("Inloggad som Kassör");
-                    //Kassasystem KasstSystem = new Kassasystem(); // Har kommenterat bort detta och kassan
-                    //KasstSystem.StartaKassan();
-                    //KasstSystem.Kassa();
-                    FormCashier(); // Ligger längst ner i denna kod
+                    CashierForm kf = new CashierForm();
+                    kf.ShowDialog();
                     break;
                 case 3:
                     Console.WriteLine("Inloggad som Administratör");
-                    //Administrator Admin = new Administrator();
-                    //Admin.FormAdmin();
                     AdministratorForm Admin = new AdministratorForm();
-                    Admin.Show();
-                   
+                    Admin.Show();                   
                     break;
                 case 5:
-                    Forsaljningsrapport Rapport = new Forsaljningsrapport();
-                    Rapport.FormRapport();
+                    Rapport Report = new Rapport();
+                    Report.Show();
+                    //Forsaljningsrapport Rapport = new Forsaljningsrapport();
+                    //Rapport.FormRapport();
                     break;
                 case 0:
                     Console.WriteLine("Programmet kommer nu att stängas.");
@@ -77,12 +72,6 @@ namespace DigitCashier
         {
             LogInForm lm = new LogInForm();
             lm.ShowDialog();
-        }
-
-        public static void FormCashier()
-        {
-            CashierForm kf = new CashierForm();
-            kf.ShowDialog();
         }
     }
 }

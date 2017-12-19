@@ -8,11 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using System.IO;
 
 namespace DigitCashier
 {
     public partial class Rapport : Form
     {
+        int priset;
+        int varor;
+        string rapport = AppDomain.CurrentDomain.BaseDirectory;
+        int antal;
+        int cost;
+
         public Rapport()
         {
             InitializeComponent();
@@ -20,43 +27,53 @@ namespace DigitCashier
 
         public void SkrivUtRapport(List<Vara> varor, int tPris, int tVaror)
         {
-            const string format = "{0,-8} {1,-11} {2,0}";
+            const string format = "{0,-10} {1,-15} {2,0}";
             textboxReport.ReadOnly = true;
-            textboxReport.Text += DateTime.Now.ToString() + Environment.NewLine;
             textboxReport.Text += Environment.NewLine;
-            textboxReport.Text += (String.Format(format, "Name", "Price","Excl. tax", "Status")) + Environment.NewLine;
-            foreach (Vara a in varor)
+            foreach(string s in SoldItems())
             {
-                textboxReport.Text += (String.Format(format, a.Namn, a.Pris.ToString(), (a.Pris * (1 - Inloggning.moms)).ToString(), a.LagerStatus.ToString()))+ Environment.NewLine;
+                string fileName = Path.GetFileNameWithoutExtension(s);
+                if (fileName == "TotalaVaror" || fileName == "TotalPris")
+                {
+                    continue;
+                }             
+        
+                    //textboxReport.Text += fileName + Environment.NewLine;
+                    
+                    using (StreamReader reader = new StreamReader(s))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            int y = Convert.ToInt32(line);
+                            antal += y;
+                        }
+                    }
+                    //textboxReport.Text += antal + Environment.NewLine;
+
+                    foreach (Vara b in Inloggning.varuLista)
+                    {
+                        if (b.Namn == fileName)
+                        {
+                            cost = antal * b.Pris;
+                        }
+                    }
+
+                textboxReport.Text += (String.Format(format, "Name", "Quantity sold", "Total revenue")) + Environment.NewLine;
+                textboxReport.Text += (String.Format(format, fileName , antal , cost)) + Environment.NewLine;
             }
+
             textboxReport.Text += Environment.NewLine;
             textboxReport.Text += "Total number of items sold: ";
             textboxReport.Text += tVaror.ToString() + " items" + Environment.NewLine;
             textboxReport.Text += "Total sales in SEK: ";
             textboxReport.Text += tPris.ToString() + " SEK" + Environment.NewLine;
-            
         }
+
 
         private void Rapport_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Hide(); // Kommentera bort koden nedan då den inte skall finnas...
-
-            var dialogResult = MessageBox.Show(this, "Would you like to reset the report?", "Report", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                Forsaljningsrapport Rapport = new Forsaljningsrapport();
-                Rapport.ResetReport();
-                Hide();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                Hide();
-            }
-            else if (dialogResult == DialogResult.Cancel)
-            {
-                e.Cancel = true;
-            }
+            Hide(); // Kommentera bort koden nedan då den inte skall finnas...
         }
 
         private void Rapport_FormClosed(object sender, FormClosedEventArgs e)
@@ -64,88 +81,156 @@ namespace DigitCashier
             Inloggning.FormLogIn();
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         int year = DateTime.Now.Year;
-        string month;
+        int month;
         private void button1_Click(object sender, EventArgs e)
-        {
-            year++;
-            textBox1.Text = year.ToString();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
         {
             year--;
             textBox1.Text = year.ToString();
         }
 
-        private void January_CheckedChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            month = "January";
+            year++;
+            textBox1.Text = year.ToString();
+        }
+
+        private void January_CheckedChanged(object sender, EventArgs e)
+        {           
+            month = 1;
+            PrintReport();
         }
 
         private void February_CheckedChanged(object sender, EventArgs e)
         {
-            month = "February";
+            month = 2;
+            PrintReport();
         }
 
         private void Mars_CheckedChanged(object sender, EventArgs e)
         {
-            month = "Mars";
+            month = 3;
+            PrintReport();
         }
 
         private void April_CheckedChanged(object sender, EventArgs e)
         {
-            month = "April";
+            month = 4;
+            PrintReport();
         }
 
         private void May_CheckedChanged(object sender, EventArgs e)
         {
-            month = "May";
+            month = 5;
+            PrintReport();
         }
 
         private void June_CheckedChanged(object sender, EventArgs e)
         {
-            month = "June";
+            month = 6;
+            PrintReport();
         }
 
         private void July_CheckedChanged(object sender, EventArgs e)
         {
-            month = "July";
+            month = 7;
+            PrintReport();
         }
 
         private void August_CheckedChanged(object sender, EventArgs e)
         {
-            month = "August";
+            month = 8;
+            PrintReport();
         }
 
         private void September_CheckedChanged(object sender, EventArgs e)
         {
-            month = "September";
+            month = 9;
+            PrintReport();
         }
 
         private void October_CheckedChanged(object sender, EventArgs e)
         {
-            month = "October";
+            month = 10;
+            PrintReport();
         }
 
         private void November_CheckedChanged(object sender, EventArgs e)
         {
-            month = "November";
+            month = 11;
+            PrintReport();
         }
 
         private void December_CheckedChanged(object sender, EventArgs e)
         {
-            month = "December";
+            month = 12;
+            PrintReport();
+        }
+
+        int TotalPris()
+        {
+            priset = 0;
+            if ((File.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt")) == true)
+            {
+                using (StreamReader reader = new StreamReader(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt"))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        int y = Convert.ToInt32(line);
+                        priset += y;
+                    }
+                }
+            }
+            return priset;
+        }
+
+        int TotalVaror()
+        {
+            varor = 0;
+            if ((File.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt")) == true)
+            {
+                using (StreamReader reader = new StreamReader(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt"))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        int y = Convert.ToInt32(line);
+                        varor += y;
+                    }
+                }
+            }
+            return varor;
+        }
+        void AnstalldaInfo()
+        {
+            Anstallda ans = new Anstallda();
+            int i = 1;
+
+            foreach (string file in ans.ListaAnstallda())
+            {
+                using (StreamReader reader = new StreamReader(file))
+                {
+                    string anstalldNamn = reader.ReadLine();
+                    int arbTimmar = Int32.Parse(reader.ReadLine());
+                    Console.WriteLine("Anställd nr.{0}: {1}", i, anstalldNamn);
+                    Console.WriteLine("Arbetade timmar: {0}h", arbTimmar);
+                    i++;
+                }
+            }
+        }
+
+        void PrintReport()
+        {
+            textboxReport.Clear();
+            SkrivUtRapport(Inloggning.varuLista, TotalPris(), TotalVaror());
+        }
+
+        private string[] SoldItems()
+        {
+            string[] sold;
+            sold = Directory.GetFiles(rapport + "\\Rapport\\" + year + "\\\\" + month);
+            return sold;
         }
     }
 }
