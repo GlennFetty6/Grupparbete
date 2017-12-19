@@ -34,19 +34,20 @@
             // textboxReport
             // 
             this.textboxReport.BackColor = System.Drawing.Color.Silver;
-            this.textboxReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textboxReport.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReport.Location = new System.Drawing.Point(0, 0);
+            this.textboxReport.Location = new System.Drawing.Point(354, 57);
             this.textboxReport.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textboxReport.Multiline = true;
             this.textboxReport.Name = "textboxReport";
-            this.textboxReport.Size = new System.Drawing.Size(825, 862);
+            this.textboxReport.Size = new System.Drawing.Size(825, 633);
             this.textboxReport.TabIndex = 0;
             // 
             // Rapport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DigitCashier.Properties.Resources.Abstract_Background_with_Blue_Curves_Vector_Illustration;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(825, 862);
             this.Controls.Add(this.textboxReport);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -56,6 +57,7 @@
             this.Text = "Rapport";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Rapport_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Rapport_FormClosed);
+            this.Load += new System.EventHandler(this.Rapport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

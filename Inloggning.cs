@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigitCashier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,8 +31,16 @@ namespace DigitCashier
 
             varuLista = new List<Vara>(); // Skapar en list av Vara och kallar den varuLista
 
-            AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
-            tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
+            varuLista.Add(new Vara("milk", 12, 0, 22, 10, 0));
+            varuLista.Add(new Vara("coffee", 40, 0, 33, 10, 0));
+            varuLista.Add(new Vara("butter", 28, 0, 44, 10, 0));
+            varuLista.Add(new Vara("eggs", 22, 0, 55, 10, 0));
+            varuLista.Add(new Vara("onions", 9, 1, 66, 10, 0));
+            varuLista.Add(new Vara("tomatoes", 19, 1, 77, 10, 0));
+            varuLista.Add(new Vara("potatoes", 8, 1, 88, 10, 0));
+
+            //AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
+            //tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
 
             Application.Run(new LogInForm());
         }
@@ -46,18 +55,11 @@ namespace DigitCashier
             {
                 case 2:
                     Console.WriteLine("Inloggad som Kassör");
-                    //Kassasystem KasstSystem = new Kassasystem(); // Har kommenterat bort detta och kassan
-                    //KasstSystem.StartaKassan();
-                    //KasstSystem.Kassa();
                     FormCashier(); // Ligger längst ner i denna kod
                     break;
                 case 3:
-                    Console.WriteLine("Inloggad som Administratör");
-                    //Administrator Admin = new Administrator();
-                    //Admin.FormAdmin();
-                    AdministratorForm Admin = new AdministratorForm();
-                    Admin.Show();
-                   
+                   AdministratorForm Admin = new AdministratorForm();
+                   Admin.Show();
                     break;
                 case 5:
                     Forsaljningsrapport Rapport = new Forsaljningsrapport();
@@ -81,7 +83,7 @@ namespace DigitCashier
 
         public static void FormCashier()
         {
-            KassaForm kf = new KassaForm();
+            CashierForm kf = new CashierForm();
             kf.ShowDialog();
         }
     }

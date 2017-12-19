@@ -21,19 +21,19 @@ namespace DigitCashier
         public void SkrivUtRapport(List<Vara> varor, int tPris, int tVaror)
         {
             const string format = "{0,-8} {1,-11} {2,0}";
-            textBox1.ReadOnly = true;
-            textBox1.Text += DateTime.Now.ToString() + Environment.NewLine;
-            textBox1.Text += Environment.NewLine;
-            textBox1.Text += (String.Format(format, "Name", "Price","Excl. tax", "Status")) + Environment.NewLine;
+            textboxReport.ReadOnly = true;
+            textboxReport.Text += DateTime.Now.ToString() + Environment.NewLine;
+            textboxReport.Text += Environment.NewLine;
+            textboxReport.Text += (String.Format(format, "Name", "Price","Excl. tax", "Status")) + Environment.NewLine;
             foreach (Vara a in varor)
             {
-                textBox1.Text += (String.Format(format, a.Namn, a.Pris.ToString(), (a.Pris * (1 - Inloggning.moms)).ToString(), a.LagerStatus.ToString()))+ Environment.NewLine;
+                textboxReport.Text += (String.Format(format, a.Namn, a.Pris.ToString(), (a.Pris * (1 - Inloggning.moms)).ToString(), a.LagerStatus.ToString()))+ Environment.NewLine;
             }
-            textBox1.Text += Environment.NewLine;
-            textBox1.Text += "Total number of items sold: ";
-            textBox1.Text += tVaror.ToString() + " items" + Environment.NewLine;
-            textBox1.Text += "Total sales in SEK: ";
-            textBox1.Text += tPris.ToString() + " SEK" + Environment.NewLine;
+            textboxReport.Text += Environment.NewLine;
+            textboxReport.Text += "Total number of items sold: ";
+            textboxReport.Text += tVaror.ToString() + " items" + Environment.NewLine;
+            textboxReport.Text += "Total sales in SEK: ";
+            textboxReport.Text += tPris.ToString() + " SEK" + Environment.NewLine;
             
         }
 
@@ -62,6 +62,11 @@ namespace DigitCashier
         private void Rapport_FormClosed(object sender, FormClosedEventArgs e)
         {
             Inloggning.FormLogIn();
+        }
+
+        private void Rapport_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }
