@@ -59,14 +59,14 @@
     <Compile Include="AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forsaljningsrapport.cs" />
-    <Compile Include="Inloggning.cs" />
-    <Compile Include="KassaForm.cs">
+    <Compile Include="CashierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KassaForm.designer.cs">
-      <DependentUpon>KassaForm.cs</DependentUpon>
+    <Compile Include="CashierForm.designer.cs">
+      <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forsaljningsrapport.cs" />
+    <Compile Include="Inloggning.cs" />
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,8 +95,8 @@
     <EmbeddedResource Include="AdministratorForm.resx">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KassaForm.resx">
-      <DependentUpon>KassaForm.cs</DependentUpon>
+    <EmbeddedResource Include="CashierForm.resx">
+      <DependentUpon>CashierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
