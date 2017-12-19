@@ -35,7 +35,7 @@
             // 
             this.textboxReport.BackColor = System.Drawing.Color.Silver;
             this.textboxReport.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReport.Location = new System.Drawing.Point(354, 57);
+            this.textboxReport.Location = new System.Drawing.Point(199, 30);
             this.textboxReport.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textboxReport.Multiline = true;
             this.textboxReport.Name = "textboxReport";
@@ -57,7 +57,6 @@
             this.Text = "Rapport";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Rapport_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Rapport_FormClosed);
-            this.Load += new System.EventHandler(this.Rapport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

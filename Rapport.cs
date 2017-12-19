@@ -39,7 +39,6 @@ namespace DigitCashier
 
         private void Rapport_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Hide(); // Kommentera bort koden nedan då den inte skall finnas...
 
             var dialogResult = MessageBox.Show(this, "Would you like to reset the report?", "Report", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
@@ -62,11 +61,6 @@ namespace DigitCashier
         private void Rapport_FormClosed(object sender, FormClosedEventArgs e)
         {
             Inloggning.FormLogIn();
-        }
-
-        private void Rapport_Load(object sender, EventArgs e)
-        {
-          
         }
     }
 }

@@ -30,17 +30,7 @@ namespace DigitCashier
             anst.LaggTillExempelAnstallda();
 
             varuLista = new List<Vara>(); // Skapar en list av Vara och kallar den varuLista
-
-            varuLista.Add(new Vara("milk", 12, 0, 22, 10, 0));
-            varuLista.Add(new Vara("coffee", 40, 0, 33, 10, 0));
-            varuLista.Add(new Vara("butter", 28, 0, 44, 10, 0));
-            varuLista.Add(new Vara("eggs", 22, 0, 55, 10, 0));
-            varuLista.Add(new Vara("onions", 9, 1, 66, 10, 0));
-            varuLista.Add(new Vara("tomatoes", 19, 1, 77, 10, 0));
-            varuLista.Add(new Vara("potatoes", 8, 1, 88, 10, 0));
-
-            //AddVaror tempAddVaror = new AddVaror(); //Skapar en instans av klassen AddVaror och kallar den tempAddVaror.
-            //tempAddVaror.AddVaror2();               //Kör funktionen AddVaror2 i tempAddVaror som är en "kopia" av AddVaror.cs
+            anst.Items();
 
             Application.Run(new LogInForm());
         }
@@ -86,5 +76,16 @@ namespace DigitCashier
             CashierForm kf = new CashierForm();
             kf.ShowDialog();
         }
+
+        //private void Items()
+        //{
+        //    varuLista.Add(new Vara("milk", 12, 0, 22, 10, 0));
+        //    varuLista.Add(new Vara("coffee", 40, 0, 33, 10, 0));
+        //    varuLista.Add(new Vara("butter", 28, 0, 44, 10, 0));
+        //    varuLista.Add(new Vara("eggs", 22, 0, 55, 10, 0));
+        //    varuLista.Add(new Vara("onions", 9, 1, 66, 10, 0));
+        //    varuLista.Add(new Vara("tomatoes", 19, 1, 77, 10, 0));
+        //    varuLista.Add(new Vara("potatoes", 8, 1, 88, 10, 0));
+        //}
     }
 }

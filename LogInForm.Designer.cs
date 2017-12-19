@@ -145,7 +145,7 @@
             this.labelError.BackColor = System.Drawing.Color.Transparent;
             this.labelError.Enabled = false;
             this.labelError.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelError.ForeColor = System.Drawing.Color.Transparent;
+            this.labelError.ForeColor = System.Drawing.Color.Gray;
             this.labelError.Location = new System.Drawing.Point(54, 446);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(318, 44);
