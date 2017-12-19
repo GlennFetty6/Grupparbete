@@ -39,6 +39,7 @@ namespace DigitCashier
 
         private void Rapport_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //Hide(); // Kommentera bort koden nedan då den inte skall finnas...
 
             var dialogResult = MessageBox.Show(this, "Would you like to reset the report?", "Report", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
@@ -61,6 +62,90 @@ namespace DigitCashier
         private void Rapport_FormClosed(object sender, FormClosedEventArgs e)
         {
             Inloggning.FormLogIn();
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        int year = DateTime.Now.Year;
+        string month;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            year++;
+            textBox1.Text = year.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            year--;
+            textBox1.Text = year.ToString();
+        }
+
+        private void January_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "January";
+        }
+
+        private void February_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "February";
+        }
+
+        private void Mars_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "Mars";
+        }
+
+        private void April_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "April";
+        }
+
+        private void May_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "May";
+        }
+
+        private void June_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "June";
+        }
+
+        private void July_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "July";
+        }
+
+        private void August_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "August";
+        }
+
+        private void September_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "September";
+        }
+
+        private void October_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "October";
+        }
+
+        private void November_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "November";
+        }
+
+        private void December_CheckedChanged(object sender, EventArgs e)
+        {
+            month = "December";
         }
     }
 }

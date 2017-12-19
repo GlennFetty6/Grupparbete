@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using DigitCashier;
 
 namespace DigitCashier
 {
@@ -221,6 +220,10 @@ namespace DigitCashier
 
         private void EmployeeButton_Click(object sender, EventArgs e)
         {
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
             if (EmployeePanel.Visible == false)
             {  
                 EmployeePanel.Show();
@@ -233,10 +236,18 @@ namespace DigitCashier
 
             TaxPanel.Hide();
             ItemsPanel.Hide();
+
+            EmployeePanel.ResumeLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
         }
 
         private void ItemsButton_Click_1(object sender, EventArgs e)
         {
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
             if (ItemsPanel.Visible == false)
             {
                 ItemsPanel.Show();
@@ -249,10 +260,18 @@ namespace DigitCashier
 
             EmployeePanel.Hide();
             TaxPanel.Hide();
+
+            EmployeePanel.ResumeLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
         }
 
         private void UpdateTaxButton_Click_1(object sender, EventArgs e)
         {
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
             if (TaxPanel.Visible == false)
             {
                 TaxPanel.Show();
@@ -265,6 +284,10 @@ namespace DigitCashier
 
             EmployeePanel.Hide();
             ItemsPanel.Hide();
+
+            EmployeePanel.ResumeLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
         }
 
         private void LogoutButton_Click_1(object sender, EventArgs e)

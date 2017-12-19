@@ -137,7 +137,7 @@
             this.TaxPanel.Controls.Add(this.TaxCancelButton);
             this.TaxPanel.Controls.Add(this.TaxShowTax);
             this.TaxPanel.Controls.Add(this.TaxSaveButton);
-            this.TaxPanel.Location = new System.Drawing.Point(1014, 273);
+            this.TaxPanel.Location = new System.Drawing.Point(988, 279);
             this.TaxPanel.Margin = new System.Windows.Forms.Padding(0);
             this.TaxPanel.Name = "TaxPanel";
             this.TaxPanel.Size = new System.Drawing.Size(910, 464);
@@ -159,7 +159,7 @@
             // 
             this.TaxShowTax.Location = new System.Drawing.Point(274, 97);
             this.TaxShowTax.Name = "TaxShowTax";
-            this.TaxShowTax.Size = new System.Drawing.Size(194, 33);
+            this.TaxShowTax.Size = new System.Drawing.Size(194, 37);
             this.TaxShowTax.TabIndex = 20;
             this.TaxShowTax.Text = "";
             this.TaxShowTax.TextChanged += new System.EventHandler(this.TaxShowTax_TextChanged);
@@ -193,7 +193,7 @@
             this.EmployeePanel.Controls.Add(this.EmpShowHours);
             this.EmployeePanel.Controls.Add(this.EmpListBox);
             this.EmployeePanel.Controls.Add(this.EmpSaveButton);
-            this.EmployeePanel.Location = new System.Drawing.Point(855, 318);
+            this.EmployeePanel.Location = new System.Drawing.Point(908, 432);
             this.EmployeePanel.Margin = new System.Windows.Forms.Padding(0);
             this.EmployeePanel.Name = "EmployeePanel";
             this.EmployeePanel.Size = new System.Drawing.Size(645, 419);
@@ -472,6 +472,7 @@
             // ItemsErrorRichTextBox
             // 
             this.ItemsErrorRichTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.ItemsErrorRichTextBox.Enabled = false;
             this.ItemsErrorRichTextBox.Location = new System.Drawing.Point(131, 297);
             this.ItemsErrorRichTextBox.Name = "ItemsErrorRichTextBox";
             this.ItemsErrorRichTextBox.Size = new System.Drawing.Size(190, 45);
@@ -509,6 +510,7 @@
             // 
             // ItemsListBox
             // 
+            this.ItemsListBox.BackColor = System.Drawing.SystemColors.Window;
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.Location = new System.Drawing.Point(341, 65);
             this.ItemsListBox.Name = "ItemsListBox";

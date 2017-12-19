@@ -363,7 +363,7 @@ namespace DigitCashier
         {
             string rapport = AppDomain.CurrentDomain.BaseDirectory;
             Directory.CreateDirectory(rapport + "\\Rapport\\");
-
+            
             using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\TotalPris.txt", true))
             {
                 writer.WriteLine(totalPrice);
