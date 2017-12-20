@@ -14,8 +14,6 @@ namespace DigitCashier
     public partial class AdministratorForm : Form
     {
 
-        Anstallda ans = new Anstallda();
-
         string malMapp = AppDomain.CurrentDomain.BaseDirectory; //Tar fram den mapp .exe körs ifrån. På det viset vi kör programmet är denna map debug.
 
         public AdministratorForm()
@@ -27,7 +25,7 @@ namespace DigitCashier
         {
             this.Size = new Size(1080, 715);
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.None;
+            //this.FormBorderStyle = FormBorderStyle.None;
 
             ItemsPanel.Size = new Size(910, 464);
             EmployeePanel.Size = new Size(910, 464);
@@ -40,15 +38,15 @@ namespace DigitCashier
             ItemUpdateList();
         }
 
-        //protected override System.Windows.Forms.CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        System.Windows.Forms.CreateParams cp = base.CreateParams;
-        //        cp.ExStyle |= 0x02000000;
-        //        return cp;
-        //    }
-        //}
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
 
         #region Employee
 
@@ -56,7 +54,7 @@ namespace DigitCashier
         {
             EmpListBox.Items.Clear();
 
-            var empList = ans.ListaAnstallda();
+            var empList = ListaAnstallda();
 
             foreach (string t in empList)
             {
@@ -106,7 +104,7 @@ namespace DigitCashier
         bool EmpOmNamnFinns(string inNamn) //Jämför om det namn som skickas in i metoden finns i en array med de anställda som kommer från Anställda.cs Returnar true om namnet existerar i arrayen.
         {
 
-            foreach (string fil in ans.ListaAnstallda())
+            foreach (string fil in ListaAnstallda())
             {
                 if ((inNamn + ".txt") == Path.GetFileName(fil)) //ans.listaAnstallda innehåller info om path till filerna. Denna metod hittar namnet på filen så att vi kan jämföra det med inNamn.
                 {
@@ -214,6 +212,32 @@ namespace DigitCashier
             EmployeePanel.Hide();
         }
 
+        public string[] ListaAnstallda() //Skickar tillbaka en array med sökväg till samtliga anställdas filer. 
+        {
+            string[] anstalldLista;
+            anstalldLista = Directory.GetFiles(malMapp + "\\Anstallda\\"); //Går in i mappen Anstallda för att sen spara samtliga filers sökväg i en array.
+            return anstalldLista;
+        }
+
+        public void LaggTillExempelAnstallda() //Skapar filer åt våra anställda
+        {
+            Directory.CreateDirectory(malMapp + "\\Anstallda\\"); //Skapar mappen där våra filer lägger sig.             
+            using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Sara.txt", false)) //Skapar en fil för Sara i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
+            {
+                writer.WriteLine("Sara");
+                writer.WriteLine("140");
+                writer.WriteLine("Cashier");
+                writer.WriteLine("119");
+            }
+
+            using (StreamWriter writer = new StreamWriter(malMapp + "\\Anstallda\\Arnold.txt", false)) //Skapar en fil för Arnold i Anstalla mappen. Innehåller info om namn, arbetade timmar, befattning och timlön. 
+            {
+                writer.WriteLine("Arnold");
+                writer.WriteLine("168");
+                writer.WriteLine("Admin");
+                writer.WriteLine("170");
+            }
+        }
         #endregion
 
         #region MainMenu
@@ -296,25 +320,6 @@ namespace DigitCashier
             Inloggning.FormLogIn();
         }
 
-      //  private Timer tm1; // Skapar timern
-      //  public static object Control1 { get; private set; }
-
-      //  private void TimerTime1()
-      //  {
-      //      tm1 = new Timer(); // Skapar instans av tm
-      //      tm1.Interval = 5; 
-      //      tm1.Tick += new EventHandler(tm_Tick1);
-      //      tm1.Start(); // Startar timern
-      //  }
-
-      //  private void tm_Tick1(object sender, EventArgs e)
-      //  {
-      //      tm1.Stop(); // Stoppar timern
-      //      ItemsPanel.Hide();
-
-      ////  EmployeePanel.Hide();
-      //      TaxPanel.Hide();
-      //  }
         #endregion
 
         #region Items
@@ -393,7 +398,7 @@ namespace DigitCashier
                 }
             }
         }
-        //  Inloggning.varuLista.Add(new Vara(namn, pris, kategori, idNr, lagerAntal, 0));
+
         Vara removal;
 
         private void ItemsSaveButton_Click(object sender, EventArgs e)
@@ -465,6 +470,15 @@ namespace DigitCashier
         private void ItemsCancelButton_Click(object sender, EventArgs e)
         {
             ItemsPanel.Hide();
+        }
+
+        public void Items() //Fick ej heta samma som klass
+        {
+            Inloggning.varuLista.Add(new Vara("milk", 12, 0, 22, 10, 0));
+            Inloggning.varuLista.Add(new Vara("coffee", 40, 0, 33, 10, 0));
+            Inloggning.varuLista.Add(new Vara("butter", 28, 0, 44, 10, 0));
+            Inloggning.varuLista.Add(new Vara("eggs", 22, 0, 55, 10, 0));
+            Inloggning.varuLista.Add(new Vara("tomatoes", 23, 1, 66, 10, 0));
         }
 
         #endregion

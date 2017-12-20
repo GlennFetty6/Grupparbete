@@ -204,17 +204,16 @@ namespace DigitCashier
         }
         void AnstalldaInfo()
         {
-            Anstallda ans = new Anstallda();
+            AdministratorForm af = new AdministratorForm();
+            //Anstallda ans = new Anstallda();
             int i = 1;
 
-            foreach (string file in ans.ListaAnstallda())
+            foreach (string file in af.ListaAnstallda())
             {
                 using (StreamReader reader = new StreamReader(file))
                 {
                     string anstalldNamn = reader.ReadLine();
                     int arbTimmar = Int32.Parse(reader.ReadLine());
-                    Console.WriteLine("Anställd nr.{0}: {1}", i, anstalldNamn);
-                    Console.WriteLine("Arbetade timmar: {0}h", arbTimmar);
                     i++;
                 }
             }

@@ -25,17 +25,22 @@ namespace DigitCashier
         {
             Application.EnableVisualStyles(); // Ska tydligen få skiten att se snyggare ut. Kanske fungerar på din VS 2017
             Application.SetCompatibleTextRenderingDefault(false);
-            Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
-            anst.LaggTillExempelAnstallda();
+            //Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
+            //anst.LaggTillExempelAnstallda();
 
             varuLista = new List<Vara>(); // Skapar en list av Vara och kallar den varuLista
-            anst.Items();
+                                          //anst.Items();
+
+            AdministratorForm Ad = new AdministratorForm();
+            Ad.Items();
+            Ad.LaggTillExempelAnstallda();
 
             Application.Run(new LogInForm());
         }
 
         public static void LoggaIn(string userID)
         {
+
             int firstNr = Math.Abs(Int32.Parse(kodID));
             while (firstNr >= 10) //Delar med 10 så länge talet är större än 10. För att få fram första siffran i koden. 
                 firstNr /= 10;
@@ -43,12 +48,10 @@ namespace DigitCashier
             switch (firstNr)
             {
                 case 2:
-                    Console.WriteLine("Inloggad som Kassör");
                     CashierForm kf = new CashierForm();
                     kf.ShowDialog();
                     break;
                 case 3:
-                    Console.WriteLine("Inloggad som Administratör");
                     AdministratorForm Admin = new AdministratorForm();
                     Admin.Show();                   
                     break;
@@ -59,12 +62,8 @@ namespace DigitCashier
                     //Rapport.FormRapport();
                     break;
                 case 0:
-                    Console.WriteLine("Programmet kommer nu att stängas.");
-                    Console.WriteLine("Tryck på valfri knapp för att avsluta.");
-                    Console.ReadKey();
                     break;
                 default: // Är denna menlös? Används ej.
-                    Console.WriteLine("Du är ej behörig.");
                     break;
             }
         }
