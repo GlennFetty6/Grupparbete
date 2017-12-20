@@ -53,7 +53,6 @@
             this.btnPay = new System.Windows.Forms.Button();
             this.btnSignout = new System.Windows.Forms.Button();
             this.textBoxCashier = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.textBoxError = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -374,18 +373,18 @@
             // 
             // recieptRichTextBox
             // 
-            this.recieptRichTextBox.BackColor = System.Drawing.Color.Gainsboro;
+            this.recieptRichTextBox.BackColor = System.Drawing.Color.LightYellow;
             this.recieptRichTextBox.BulletIndent = 10;
+            this.recieptRichTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.recieptRichTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recieptRichTextBox.Location = new System.Drawing.Point(199, -54);
+            this.recieptRichTextBox.ForeColor = System.Drawing.Color.DimGray;
+            this.recieptRichTextBox.Location = new System.Drawing.Point(127, 38);
             this.recieptRichTextBox.Name = "recieptRichTextBox";
             this.recieptRichTextBox.ReadOnly = true;
             this.recieptRichTextBox.Size = new System.Drawing.Size(578, 697);
             this.recieptRichTextBox.TabIndex = 20;
             this.recieptRichTextBox.TabStop = false;
-            this.recieptRichTextBox.Text = "                     \n                        Reciept \n                  SEWK\'s S" +
-    "upermarket\n            Kungsgatan 37, 441 50 Alingsås\n                  Org Nr: " +
-    "556033-5696\n\n";
+            this.recieptRichTextBox.Text = "\n\n";
             this.recieptRichTextBox.Visible = false;
             this.recieptRichTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.recieptRichTextBox_MouseClick);
             // 
@@ -428,7 +427,7 @@
             // txtboxCommand
             // 
             this.txtboxCommand.Enabled = false;
-            this.txtboxCommand.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxCommand.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtboxCommand.Location = new System.Drawing.Point(13, 742);
             this.txtboxCommand.Multiline = true;
             this.txtboxCommand.Name = "txtboxCommand";
@@ -442,6 +441,7 @@
             // btnPay
             // 
             this.btnPay.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnPay.Enabled = false;
             this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnPay.FlatAppearance.BorderSize = 0;
             this.btnPay.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -492,21 +492,6 @@
             this.textBoxCashier.Text = "C\r\nA\r\nS\r\nH\r\nI\r\nE\r\nR";
             this.textBoxCashier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Courier New", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(235, 737);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(29, 53);
-            this.textBox4.TabIndex = 27;
-            this.textBox4.TabStop = false;
-            this.textBox4.Text = ":";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // richTextBox2
             // 
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -540,13 +525,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImage = global::DigitCashier.Properties.Resources.Abstract_Background_with_Blue_Curves_Vector_Illustration;
             this.ClientSize = new System.Drawing.Size(966, 791);
             this.Controls.Add(this.textBoxError);
             this.Controls.Add(this.recieptRichTextBox);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtboxCommand);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBoxCashier);
             this.Controls.Add(this.btnSignout);
             this.Controls.Add(this.btnPay);
@@ -609,7 +594,6 @@
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Button btnSignout;
         private System.Windows.Forms.TextBox textBoxCashier;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.TextBox textBoxError;
     }
