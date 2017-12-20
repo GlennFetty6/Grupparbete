@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B695027C-4336-45CD-9850-51BA2E4C2BBB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DigitCashier</RootNamespace>
+    <AssemblyName>DigitCashier</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NetworkCommsDotNetComplete">
+      <HintPath>..\NetworkCommsDotNetComplete.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministratorForm.designer.cs">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierForm.designer.cs">
+      <DependentUpon>CashierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inloggning.cs" />
+    <Compile Include="LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport.Designer.cs">
+      <DependentUpon>Rapport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vara.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AdministratorForm.resx">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierForm.resx">
+      <DependentUpon>CashierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport.resx">
+      <DependentUpon>Rapport.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\the-button-859350_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\the-button-859346_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Namnlös.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Abstract-Background-with-Blue-Curves-Vector-Illustration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dzsWwqV.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HILLBLU_button_background.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttons_PNG76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\workers-team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button Emp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button Emp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button It.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button Tax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button Log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BIZjH2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button It H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button Tax N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button Emp H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark_blue_button Log H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImageButton\ImageButton.csproj">
+      <Project>{8fb2ebbb-6d12-40a3-aebc-bdedaaa18a4b}</Project>
+      <Name>ImageButton</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
