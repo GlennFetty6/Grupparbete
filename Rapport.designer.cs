@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rapport));
             this.textboxReport = new System.Windows.Forms.TextBox();
             this.SubtractYear = new System.Windows.Forms.Button();
             this.AddYear = new System.Windows.Forms.Button();
@@ -81,7 +82,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(357, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 28);
+            this.textBox1.Size = new System.Drawing.Size(111, 24);
             this.textBox1.TabIndex = 5;
             // 
             // January
@@ -231,7 +232,7 @@
             // 
             // Rapport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 864);
             this.Controls.Add(this.December);
@@ -251,6 +252,7 @@
             this.Controls.Add(this.SubtractYear);
             this.Controls.Add(this.textboxReport);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "Rapport";
             this.ShowIcon = false;

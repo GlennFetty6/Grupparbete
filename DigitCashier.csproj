@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B695027C-4336-45CD-9850-51BA2E4C2BBB}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>DigitCashier</RootNamespace>
     <AssemblyName>DigitCashier</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -54,7 +54,7 @@
     <Compile Include="AdministratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministratorForm.Designer.cs">
+    <Compile Include="AdministratorForm.designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CashierForm.cs">
@@ -62,6 +62,12 @@
     </Compile>
     <Compile Include="CashierForm.designer.cs">
       <DependentUpon>CashierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inloggning.cs" />
     <Compile Include="LogInForm.cs">
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CashierForm.resx">
       <DependentUpon>CashierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
@@ -168,6 +177,9 @@
       <Project>{8fb2ebbb-6d12-40a3-aebc-bdedaaa18a4b}</Project>
       <Name>ImageButton</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Splash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

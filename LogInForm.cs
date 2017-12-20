@@ -18,6 +18,12 @@ namespace DigitCashier
             InitializeComponent();
         }
 
+        private void SplashScreen()
+        {
+            SplashForm sp = new SplashForm();
+            sp.Show();
+        }
+
         private void LogIn_Click(object sender, EventArgs e)
         {
             //DataSet ds = new DataSet();

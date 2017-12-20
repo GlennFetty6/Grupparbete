@@ -523,8 +523,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(178)))), ((int)(((byte)(255)))));
             this.BackgroundImage = global::DigitCashier.Properties.Resources.Abstract_Background_with_Blue_Curves_Vector_Illustration;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1062, 675);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1058, 671);
             this.Controls.Add(this.ItemsButton);
             this.Controls.Add(this.UpdateTaxButton);
             this.Controls.Add(this.LogoutButton);
@@ -533,8 +532,8 @@
             this.Controls.Add(this.EmployeePanel);
             this.Controls.Add(this.ItemsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdministratorForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator";
             this.Load += new System.EventHandler(this.AdministratorForm_Load);
