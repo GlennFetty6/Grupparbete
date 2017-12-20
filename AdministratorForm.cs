@@ -33,6 +33,7 @@ namespace DigitCashier
             ItemsPanel.Location = new Point(78, 161);
             EmployeePanel.Location = new Point(78, 161);
             TaxPanel.Location = new Point(78, 161);
+            ShowIcon = true;
         
             EmpUpdateList();
             ItemUpdateList();

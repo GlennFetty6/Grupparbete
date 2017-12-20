@@ -35,7 +35,8 @@ namespace DigitCashier
             Ad.Items();
             Ad.LaggTillExempelAnstallda();
 
-            Application.Run(new LogInForm());
+            // Application.Run(new LogInForm());
+            Application.Run(new SplashForm());
         }
 
         public static void LoggaIn(string userID)
