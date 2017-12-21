@@ -27,18 +27,17 @@ namespace DigitCashier
 
         public void SkrivUtRapport(List<Vara> varor, int tPris, int tVaror)
         {
-            const string format = "{0,-10} {1,-15} {2,0}";
+            const string format = "{0,-13} {1,-15} {2,0}";
             textboxReport.ReadOnly = true;
             textboxReport.Text += Environment.NewLine;
-            foreach(string s in SoldItems())
+            textboxReportHead.Text = (String.Format(format, "Item Name", "Quantity", "Amount"));
+            foreach (string s in SoldItems())
             {
-                string fileName = Path.GetFileNameWithoutExtension(s);
+                string fileName = Path.GetFileNameWithoutExtension(s); // Tar in filnamn utan endelsen .txt
                 if (fileName == "TotalaVaror" || fileName == "TotalPris")
                 {
                     continue;
                 }             
-        
-                    //textboxReport.Text += fileName + Environment.NewLine;
                     
                     using (StreamReader reader = new StreamReader(s))
                     {
@@ -49,7 +48,6 @@ namespace DigitCashier
                             antal += y;
                         }
                     }
-                    //textboxReport.Text += antal + Environment.NewLine;
 
                     foreach (Vara b in Inloggning.varuLista)
                     {
@@ -58,31 +56,23 @@ namespace DigitCashier
                             cost = antal * b.Pris;
                         }
                     }
-
-                textboxReport.Text += (String.Format(format, "Name", "Quantity sold", "Total revenue")) + Environment.NewLine;
                 textboxReport.Text += (String.Format(format, fileName , antal , cost)) + Environment.NewLine;
             }
 
             textboxReport.Text += Environment.NewLine;
-            textboxReport.Text += "Total number of items sold: ";
-            textboxReport.Text += tVaror.ToString() + " items" + Environment.NewLine;
-            textboxReport.Text += "Total sales in SEK: ";
-            textboxReport.Text += tPris.ToString() + " SEK" + Environment.NewLine;
+            textboxReport.Text += (String.Format(format, "Total", tVaror.ToString(), tPris.ToString()));
         }
 
-
-        private void Rapport_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Hide(); // Kommentera bort koden nedan då den inte skall finnas...
-        }
 
         private void Rapport_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Hide();
             Inloggning.FormLogIn();
         }
 
         int year = DateTime.Now.Year;
         int month;
+
         private void button1_Click(object sender, EventArgs e)
         {
             year--;
@@ -205,7 +195,7 @@ namespace DigitCashier
         void AnstalldaInfo()
         {
             AdministratorForm af = new AdministratorForm();
-            //Anstallda ans = new Anstallda();
+            Anstallda ans = new Anstallda();
             int i = 1;
 
             foreach (string file in af.ListaAnstallda())
@@ -222,14 +212,20 @@ namespace DigitCashier
         void PrintReport()
         {
             textboxReport.Clear();
+            textboxReportHead.Clear();
             SkrivUtRapport(Inloggning.varuLista, TotalPris(), TotalVaror());
         }
 
         private string[] SoldItems()
         {
             string[] sold;
-            sold = Directory.GetFiles(rapport + "\\Rapport\\" + year + "\\\\" + month);
+            sold = Directory.GetFiles(rapport + "\\Rapport\\" + year + "\\\\"+ month);
             return sold;
+        }
+
+        private void Rapport_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = year.ToString();
         }
     }
 }

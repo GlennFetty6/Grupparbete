@@ -18,7 +18,9 @@ namespace DigitCashier
         private int totalPrice; //Kostnaden för alla varor. Används på kvittot. 
         private int totalAmount; // Det pris kunden kommer betala. 
         private int totalItems;
-        
+        float change;
+
+
 
         List<Vara> customerCart = new List<Vara>();// Skapar en lista för kundvagn
 
@@ -93,7 +95,7 @@ namespace DigitCashier
                     textBox2.Text = null;
                 }
 
-                else if (state == 8) // Kalkylerar växel
+                else if (state == 8) // Kalkylerar change
                 {
                     CalcChange(input);
                     input = null;
@@ -373,9 +375,7 @@ namespace DigitCashier
                 return;
             }
 
-            float växel = betalt - totalAmount;
-
-            richTextBox2.Text += växel + " SEK in change." + Environment.NewLine;
+             change = betalt - totalAmount;
 
             PrintReciept();
         }
@@ -471,10 +471,12 @@ namespace DigitCashier
         {
             recieptRichTextBox.Show();
 
-            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "\t" + "\t" +"  Reciept" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "\t" +"SEWK's Supermarket" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "\t" + "\t" +"Kungsgatan 37, 441 50 Alingsås" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "\t" +"Org Nr: 556033 - 5696" + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "\t"  +" Shop Reciept" + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" + "\t" + "\t"+"SEWK's Supermarket" + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" + "\t" +"Address: Kungsgatan 37, 441 50 Alingsås" + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "\t" +"Org No: 556033 - 5696" + Environment.NewLine;
+            recieptRichTextBox.Text += "----------------------------------------------------" + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" + DateTime.Now + Environment.NewLine;
             const string format = "{0,-10} {1,-10} {2,-10} {3, 5} {4, 7}";
             recieptRichTextBox.Text += Environment.NewLine;
             recieptRichTextBox.Text += "\t" + (String.Format(format, "Quantity", "Name", "Category", "Price", "Total")) + Environment.NewLine;
@@ -486,6 +488,9 @@ namespace DigitCashier
                 totalItems += nr.Antal;
             }
             recieptRichTextBox.Text += Environment.NewLine;
+            recieptRichTextBox.Text += "----------------------------------------------------" + Environment.NewLine;
+            const string format1 = "{0,-10} {1,-10} {2,-10} {3, 5} {4, 7}";
+            recieptRichTextBox.Text += "\t" + "Change: "+ change + " SEK" + Environment.NewLine;
             float woutTax = totalPrice * Inloggning.moms;
             float tax = Inloggning.moms * 100;
             recieptRichTextBox.Text += "\t" + "Tax " + tax + "%: " + woutTax + Environment.NewLine;
@@ -493,7 +498,6 @@ namespace DigitCashier
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
             recieptRichTextBox.Text += "\t" + "Receiptnumber: " + nr1 + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + DateTime.Now + Environment.NewLine;
 
             RapportVaror();
 

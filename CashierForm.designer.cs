@@ -381,7 +381,7 @@
             this.recieptRichTextBox.Location = new System.Drawing.Point(127, 38);
             this.recieptRichTextBox.Name = "recieptRichTextBox";
             this.recieptRichTextBox.ReadOnly = true;
-            this.recieptRichTextBox.Size = new System.Drawing.Size(578, 697);
+            this.recieptRichTextBox.Size = new System.Drawing.Size(529, 697);
             this.recieptRichTextBox.TabIndex = 20;
             this.recieptRichTextBox.TabStop = false;
             this.recieptRichTextBox.Text = "\n\n";
