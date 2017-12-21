@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rapport));
             this.SubtractYear = new System.Windows.Forms.Button();
             this.AddYear = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,9 +46,9 @@
             this.December = new System.Windows.Forms.RadioButton();
             this.textboxReport = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textboxReportHead = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textboxReportHead = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -62,8 +63,9 @@
             this.SubtractYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubtractYear.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubtractYear.Location = new System.Drawing.Point(218, 12);
+            this.SubtractYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SubtractYear.Name = "SubtractYear";
-            this.SubtractYear.Size = new System.Drawing.Size(101, 27);
+            this.SubtractYear.Size = new System.Drawing.Size(101, 28);
             this.SubtractYear.TabIndex = 1;
             this.SubtractYear.Text = "<";
             this.SubtractYear.UseVisualStyleBackColor = false;
@@ -79,8 +81,9 @@
             this.AddYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddYear.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddYear.Location = new System.Drawing.Point(429, 12);
+            this.AddYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddYear.Name = "AddYear";
-            this.AddYear.Size = new System.Drawing.Size(101, 27);
+            this.AddYear.Size = new System.Drawing.Size(101, 28);
             this.AddYear.TabIndex = 2;
             this.AddYear.Text = ">";
             this.AddYear.UseVisualStyleBackColor = false;
@@ -90,10 +93,12 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
             this.textBox1.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(322, 13);
+            this.textBox1.Location = new System.Drawing.Point(322, 12);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(104, 27);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(104, 26);
             this.textBox1.TabIndex = 100;
             this.textBox1.TabStop = false;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -109,8 +114,9 @@
             this.January.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.January.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.January.Location = new System.Drawing.Point(218, 45);
+            this.January.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.January.Name = "January";
-            this.January.Size = new System.Drawing.Size(101, 27);
+            this.January.Size = new System.Drawing.Size(101, 28);
             this.January.TabIndex = 3;
             this.January.TabStop = true;
             this.January.Text = "January";
@@ -129,8 +135,9 @@
             this.February.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.February.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.February.Location = new System.Drawing.Point(322, 45);
+            this.February.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.February.Name = "February";
-            this.February.Size = new System.Drawing.Size(104, 27);
+            this.February.Size = new System.Drawing.Size(104, 28);
             this.February.TabIndex = 4;
             this.February.TabStop = true;
             this.February.Text = "February";
@@ -149,8 +156,9 @@
             this.Mars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Mars.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Mars.Location = new System.Drawing.Point(429, 45);
+            this.Mars.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Mars.Name = "Mars";
-            this.Mars.Size = new System.Drawing.Size(101, 27);
+            this.Mars.Size = new System.Drawing.Size(101, 28);
             this.Mars.TabIndex = 5;
             this.Mars.TabStop = true;
             this.Mars.Text = "Mars";
@@ -169,8 +177,9 @@
             this.April.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.April.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.April.Location = new System.Drawing.Point(218, 78);
+            this.April.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.April.Name = "April";
-            this.April.Size = new System.Drawing.Size(101, 27);
+            this.April.Size = new System.Drawing.Size(101, 28);
             this.April.TabIndex = 6;
             this.April.TabStop = true;
             this.April.Text = "April";
@@ -189,8 +198,9 @@
             this.May.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.May.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.May.Location = new System.Drawing.Point(322, 78);
+            this.May.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.May.Name = "May";
-            this.May.Size = new System.Drawing.Size(104, 27);
+            this.May.Size = new System.Drawing.Size(104, 28);
             this.May.TabIndex = 7;
             this.May.TabStop = true;
             this.May.Text = "May";
@@ -209,8 +219,9 @@
             this.June.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.June.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.June.Location = new System.Drawing.Point(429, 78);
+            this.June.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.June.Name = "June";
-            this.June.Size = new System.Drawing.Size(101, 27);
+            this.June.Size = new System.Drawing.Size(101, 28);
             this.June.TabIndex = 8;
             this.June.TabStop = true;
             this.June.Text = "June";
@@ -229,8 +240,9 @@
             this.July.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.July.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.July.Location = new System.Drawing.Point(218, 111);
+            this.July.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.July.Name = "July";
-            this.July.Size = new System.Drawing.Size(101, 27);
+            this.July.Size = new System.Drawing.Size(101, 28);
             this.July.TabIndex = 9;
             this.July.TabStop = true;
             this.July.Text = "July";
@@ -249,8 +261,9 @@
             this.August.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.August.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.August.Location = new System.Drawing.Point(322, 111);
+            this.August.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.August.Name = "August";
-            this.August.Size = new System.Drawing.Size(104, 27);
+            this.August.Size = new System.Drawing.Size(104, 28);
             this.August.TabIndex = 10;
             this.August.TabStop = true;
             this.August.Text = "August";
@@ -269,8 +282,9 @@
             this.September.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.September.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.September.Location = new System.Drawing.Point(429, 111);
+            this.September.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.September.Name = "September";
-            this.September.Size = new System.Drawing.Size(101, 27);
+            this.September.Size = new System.Drawing.Size(101, 28);
             this.September.TabIndex = 11;
             this.September.TabStop = true;
             this.September.Text = "September";
@@ -289,8 +303,9 @@
             this.October.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.October.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.October.Location = new System.Drawing.Point(218, 144);
+            this.October.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.October.Name = "October";
-            this.October.Size = new System.Drawing.Size(101, 27);
+            this.October.Size = new System.Drawing.Size(101, 28);
             this.October.TabIndex = 12;
             this.October.TabStop = true;
             this.October.Text = "October ";
@@ -310,8 +325,9 @@
             this.November.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.November.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.November.Location = new System.Drawing.Point(322, 144);
+            this.November.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.November.Name = "November";
-            this.November.Size = new System.Drawing.Size(104, 27);
+            this.November.Size = new System.Drawing.Size(104, 28);
             this.November.TabIndex = 13;
             this.November.TabStop = true;
             this.November.Text = "November";
@@ -330,8 +346,9 @@
             this.December.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.December.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.December.Location = new System.Drawing.Point(429, 144);
+            this.December.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.December.Name = "December";
-            this.December.Size = new System.Drawing.Size(101, 27);
+            this.December.Size = new System.Drawing.Size(101, 28);
             this.December.TabIndex = 14;
             this.December.TabStop = true;
             this.December.Text = "December";
@@ -346,11 +363,11 @@
             this.textboxReport.Cursor = System.Windows.Forms.Cursors.Default;
             this.textboxReport.Enabled = false;
             this.textboxReport.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReport.Location = new System.Drawing.Point(36, 0);
-            this.textboxReport.Margin = new System.Windows.Forms.Padding(5);
+            this.textboxReport.Location = new System.Drawing.Point(36, -19);
+            this.textboxReport.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textboxReport.Multiline = true;
             this.textboxReport.Name = "textboxReport";
-            this.textboxReport.Size = new System.Drawing.Size(454, 537);
+            this.textboxReport.Size = new System.Drawing.Size(454, 556);
             this.textboxReport.TabIndex = 99;
             this.textboxReport.TabStop = false;
             // 
@@ -360,25 +377,10 @@
             this.panel1.Controls.Add(this.textboxReportHead);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(101, 184);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 61);
+            this.panel1.Size = new System.Drawing.Size(530, 34);
             this.panel1.TabIndex = 101;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(3, 67);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(530, 498);
-            this.panel2.TabIndex = 102;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.LightBlue;
-            this.panel3.Controls.Add(this.textboxReport);
-            this.panel3.Location = new System.Drawing.Point(101, 241);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(530, 556);
-            this.panel3.TabIndex = 103;
             // 
             // textboxReportHead
             // 
@@ -387,12 +389,30 @@
             this.textboxReportHead.Cursor = System.Windows.Forms.Cursors.Default;
             this.textboxReportHead.Enabled = false;
             this.textboxReportHead.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReportHead.Location = new System.Drawing.Point(36, 33);
-            this.textboxReportHead.Margin = new System.Windows.Forms.Padding(5);
+            this.textboxReportHead.Location = new System.Drawing.Point(36, 11);
+            this.textboxReportHead.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textboxReportHead.Name = "textboxReportHead";
             this.textboxReportHead.Size = new System.Drawing.Size(454, 23);
             this.textboxReportHead.TabIndex = 100;
             this.textboxReportHead.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(2, 68);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(530, 498);
+            this.panel2.TabIndex = 102;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.LightBlue;
+            this.panel3.Controls.Add(this.textboxReport);
+            this.panel3.Location = new System.Drawing.Point(101, 220);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(530, 578);
+            this.panel3.TabIndex = 103;
             // 
             // Rapport
             // 
@@ -419,10 +439,10 @@
             this.Controls.Add(this.AddYear);
             this.Controls.Add(this.SubtractYear);
             this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Rapport";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Report";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Rapport_FormClosed);

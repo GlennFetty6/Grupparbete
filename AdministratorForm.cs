@@ -320,6 +320,11 @@ namespace DigitCashier
             Hide();
             Inloggning.FormLogIn();
         }
+        private void AdministratorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide();
+            Inloggning.FormLogIn();
+        }
 
         #endregion
 
@@ -473,7 +478,7 @@ namespace DigitCashier
             ItemsPanel.Hide();
         }
 
-        public void Items() //Fick ej heta samma som klass
+        public void Items() 
         {
             Inloggning.varuLista.Add(new Vara("milk", 12, 0, 22, 10, 0));
             Inloggning.varuLista.Add(new Vara("coffee", 40, 0, 33, 10, 0));

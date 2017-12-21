@@ -195,7 +195,7 @@ namespace DigitCashier
         void AnstalldaInfo()
         {
             AdministratorForm af = new AdministratorForm();
-            Anstallda ans = new Anstallda();
+            //Anstallda ans = new Anstallda();
             int i = 1;
 
             foreach (string file in af.ListaAnstallda())

@@ -11,21 +11,16 @@ namespace DigitCashier
     public partial class CashierForm : Form
     {
         private Vara valdVara;
+        List<Vara> customerCart = new List<Vara>();// Skapar en lista för kundvagn
 
         private bool active; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
         int state; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
 
         private int totalPrice; //Kostnaden för alla varor. Används på kvittot. 
-        private int totalAmount; // Det pris kunden kommer betala. 
-        private int totalItems;
+        private int totalAmount; // Det pris kunden skall betala. 
+        private int totalItems; // Totala köpta varor
         float change;
-
-
-
-        List<Vara> customerCart = new List<Vara>();// Skapar en lista för kundvagn
-
         string paymentMethod;
-
         string input;
 
         public CashierForm()
@@ -38,6 +33,430 @@ namespace DigitCashier
             NewItem();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e) //Tar bort äldsta raden text så att nyaste raden text får plats i textboxen. 
+        {
+            if (richTextBox2.Lines.Length > 20)
+            {
+                richTextBox2.Lines = richTextBox2.Lines.Skip(1).ToArray();
+            }
+        }
+
+        private void KassaForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide(); // AdminForm göms
+            Inloggning.FormLogIn(); // FormLogIn öppnas
+        }
+
+        private void ShowCartContent()
+        {
+            int nr = 0;
+            textBox3.Text = null;
+            const string format = "{0,-10} {1,-12} {2,0}";
+            textBox3.Text += (String.Format(format, "Name", "Quantity", "Price")) + Environment.NewLine;
+            textBox3.Text += "----------------------------------" + Environment.NewLine;
+            foreach (Vara v in customerCart)
+            {
+                textBox3.Text += (String.Format(format, v.Namn, v.Antal, v.Pris)) + Environment.NewLine;
+                nr += v.Antal;
+            }
+            textBox3.Text += "----------------------------------" + Environment.NewLine;
+            textBox3.Text += (String.Format(format, "Total:", nr, totalPrice));
+        }
+
+        #region Purchase Process
+
+        private void NewItem() //Körs vid ny vara. 
+        {
+            state = 1;
+            txtboxCommand.Text = "Id-number " + Environment.NewLine;
+        }
+
+        private void CheckVaraId(string inp) //Kollar så att id finns. 
+        {
+            btnPay.Enabled = false;
+            active = true;
+
+            int helTal;
+
+            if (Int32.TryParse(inp, out helTal) == false || helTal.ToString().Length != 2 || CheckList(helTal) == false)
+            {
+                textBox2.Text = null;
+                textBoxError.Text = "Id-number is incorrect. Please try again!" + Environment.NewLine;
+                txtboxCommand.Text = "Id-number " + Environment.NewLine;
+                active = false;
+            }
+
+            else
+            {
+                richTextBox2.Text += "Selected item: " + valdVara.Namn + Environment.NewLine;
+                VaraID(); // Metodanrop av VaraID
+                helTal = 0;
+            }
+        }
+
+        private void VaraID() //Kontrollerar kategori för att sen fråga om vikt eller itemQuantity. 
+        {
+            if (valdVara.Kategori == 1)
+            {
+                txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
+                state = 2;
+                active = false;
+            }
+
+            if (valdVara.Kategori == 0)
+            {
+                state = 3;
+                txtboxCommand.Text = "Quantity " + Environment.NewLine;
+                active = false;
+            }
+        }
+
+        private void VaraAntal(string inp) //Kollar så att antalet varor finns i lager etc. 
+        {
+            int itemQuantity = 0;
+            int itemPrice = 0;
+
+            {
+                if (Int32.TryParse(inp, out itemQuantity) == false || itemQuantity <= 1)
+                {
+                    txtboxCommand.Text = "Quantity " + Environment.NewLine;
+                    textBox2.Text = null;
+                    textBoxError.Text = "Number is not valid. Please try again!" + Environment.NewLine;
+                    active = false;
+                }
+
+                else if (valdVara.LagerStatus == 0)
+                {
+                    btnPay.Enabled = true;
+                    textBox2.Text = null;
+                    textBoxError.Text = "The item is sold out." + Environment.NewLine;
+                    active = false;
+                    state = 1;
+                }
+                else if (itemQuantity > valdVara.LagerStatus)
+                {
+                    btnPay.Enabled = true;
+                    txtboxCommand.Text = "Quantity " + Environment.NewLine;
+                    textBox2.Text = null;
+                    textBoxError.Text = "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
+                    active = false;
+                }
+                else
+                {
+                    btnPay.Enabled = true;
+                    richTextBox2.Text += inp + " " + valdVara.Namn + " are added to the cart." + Environment.NewLine;
+
+                    if (customerCart.Contains(valdVara)) // Om vald vara finns höjs värderna på den valda varan
+                    {
+                        valdVara.LagerStatus -= itemQuantity;
+                        valdVara.Antal += itemQuantity;
+                        itemPrice = itemQuantity * valdVara.Pris;
+                        totalPrice += itemPrice;
+                        totalAmount += itemPrice;
+                    }
+                    else // Ny vara läggs till i korgen
+                    {
+                        btnPay.Enabled = true;
+                        valdVara.LagerStatus -= itemQuantity;
+                        valdVara.Antal = itemQuantity;
+                        itemPrice = itemQuantity * valdVara.Pris;
+                        totalPrice += itemPrice;
+                        totalAmount += itemPrice;
+                        customerCart.Add(valdVara);
+                    }
+
+                    active = false;
+                    state = 1;
+                    NewItem();
+
+                    ShowCartContent();
+                }
+            }
+        }
+
+        private void VaraVikt(string inp) //Kollar så att antalet varor finns i lager etc. 
+        {
+            int vikt = 0;
+            int kostnad = 0;
+
+
+            if (Int32.TryParse(inp, out vikt) == false || vikt <= 1)
+            {
+                txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
+                textBox2.Text = null;
+                textBoxError.Text = "Number is not valid. Please try again." + Environment.NewLine;
+                active = false;
+            }
+
+            else if (valdVara.LagerStatus == 0)
+            {
+                btnPay.Enabled = true;
+                textBox2.Text = null;
+                textBoxError.Text = "The "+ valdVara.Namn +" is/are sold out." + Environment.NewLine;
+                active = false;
+                state = 1;
+                NewItem();
+            }
+
+            else if (vikt > valdVara.LagerStatus)
+            {
+                btnPay.Enabled = true;
+                txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
+                textBox2.Text = null;
+                textBoxError.Text = "Sorry, there are only " + valdVara.LagerStatus + " kg " + valdVara.Namn + " left." + Environment.NewLine;
+                active = false;
+            }
+
+            else
+            {
+                if (customerCart.Contains(valdVara)) // Om vald vara finns höjs värderna på den valda varan
+                {
+                    valdVara.LagerStatus -= vikt;
+                    valdVara.Antal += vikt;
+                    kostnad = vikt * valdVara.Pris;
+                    totalPrice += kostnad;
+                    totalAmount += kostnad;
+                }
+                else // Ny vara läggs till i korgen
+                {
+                    btnPay.Enabled = true;
+                    valdVara.LagerStatus -= vikt;
+                    valdVara.Antal = vikt;
+                    kostnad = vikt * valdVara.Pris;
+                    totalPrice += kostnad;
+                    totalAmount += kostnad;
+                    richTextBox2.Text += vikt + "kg " + valdVara.Namn + " costs " + kostnad + "SEK" + Environment.NewLine;
+                    customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
+                    active = false;
+                    state = 1;
+                    NewItem();
+                }
+            }
+        }
+
+        bool CheckList(int tal) // Tittar så ID-numret finns med i varuListan.
+        {
+            for (var i = 0; i < Inloggning.varuLista.Count; i++)
+            {
+                if (Inloggning.varuLista[i].Id == tal)
+                {
+                    valdVara = Inloggning.varuLista[i];
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void Kupong(string inp)
+        {
+            if (inp == "y")
+            {
+                richTextBox2.Text += "Amount to pay: " + totalAmount + Environment.NewLine;
+                txtboxCommand.Text = "Coupon amount " + Environment.NewLine;
+                state = 6;
+            }
+
+            else if (inp == "n")
+            {
+                buttonCash.Enabled = true;
+                buttonCard.Enabled = true;
+                richTextBox2.Text += "Amount to pay: " + totalAmount + Environment.NewLine;
+                txtboxCommand.Text = "Cash or card ";
+                state = 7;
+            }
+
+            else
+            {
+                txtboxCommand.Text = "Coupon-Yes/No " + Environment.NewLine;
+                textBoxError.Text = "Invalid input. Press yes or no." + Environment.NewLine;
+            }
+        }
+
+        private void KupongMatte(string inp)
+        {
+            int total;
+
+            if (Int32.TryParse(inp, out total) == false || total <= 0)
+            {
+                textBox2.Text = null;
+                txtboxCommand.Text = "Coupon amount ";
+                active = false;
+            }
+            richTextBox2.Text += "Coupon amount payed: " + total + Environment.NewLine;
+
+            totalAmount -= total;
+
+            if (totalAmount <= 0)
+            {
+                totalAmount = 0;
+                richTextBox2.Text += "The coupon covered the costs." + Environment.NewLine;
+                paymentMethod = "coupon";
+
+            }
+            else
+            {
+                buttonCard.Enabled = true;
+                buttonCash.Enabled = true;
+                richTextBox2.Text += "Amount left to pay: " + totalAmount + Environment.NewLine;
+                txtboxCommand.Text = "Cash or card ";
+                state = 7;
+            }
+        }
+
+        void Betalning(string inp)
+        {
+            paymentMethod = inp;
+
+            if (inp == "cash")
+            {
+                richTextBox2.Text += "Selected payment method: Cash " + Environment.NewLine;
+                txtboxCommand.Text = "Cash amount " + Environment.NewLine;
+                state = 8;
+
+            }
+            else if (inp == "card") // Kund skickas direkt till kvitto då en betalar exakta summan med kort.
+            {
+                richTextBox2.Text += "Selected payment method: Cash " + Environment.NewLine;
+                totalAmount = 0;
+                PrintReciept();
+            }
+            else
+            {
+                buttonCash.Enabled = true;
+                buttonCard.Enabled = true;
+                txtboxCommand.Text = "Cash or card ";
+            }
+        }
+
+        void CalcChange(string inp)
+        {
+            int betalt;
+
+            if (Int32.TryParse(inp, out betalt) == false || betalt <= 0 || betalt < totalAmount)
+            {
+                buttonCash.Enabled = true;
+                buttonCard.Enabled = true;
+                totalAmount -= betalt;
+                textBoxError.Text = "The amount was not enough. " + Environment.NewLine;
+                richTextBox2.Text += "Amount left to pay: " + totalAmount + Environment.NewLine;
+                txtboxCommand.Text = "Cash or card ";
+                state = 7;
+                return;
+            }
+
+            change = betalt - totalAmount;
+
+            PrintReciept();
+        }
+
+        string KategoriTyp(int k)
+        {
+            if (k == 1)
+            {
+                return "vegetable";
+            }
+            else
+            {
+                return "general";
+            }
+        } 
+        #endregion // Från Start till Slut  // Från Start till Slut
+
+        #region Report Items
+
+        void ReportItems()
+        {
+            string rapport = AppDomain.CurrentDomain.BaseDirectory;
+            Directory.CreateDirectory(rapport + "\\Rapport\\");
+
+            int month = DateTime.Now.Month;
+            int year = DateTime.Now.Year;
+
+            if (Directory.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\") == false)
+            {
+                Directory.CreateDirectory(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\");
+            }
+
+            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt", true))
+            {
+                writer.WriteLine(totalPrice);
+            }
+            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt", true))
+            {
+                writer.WriteLine(totalItems);
+            }
+
+            foreach (Vara a in customerCart)
+            {
+                if (a.Antal > 0)
+                {
+                    using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\" + a.Namn + ".txt", true))
+                    {
+                        writer.WriteLine(a.Antal);
+                    }
+                }
+            }
+        } 
+        #endregion
+
+        #region Reciept
+
+        void PrintReciept()
+        {
+            recieptRichTextBox.Show();
+
+            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "  Shop Reciept" + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" + "\t"   + "     SEWK's Supermarket" + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" +  "Address: Rasberrylane 46, 6025 Hillary " + Environment.NewLine;
+            recieptRichTextBox.Text += "\t" + "\t" + "   Org No: 556033 - 5696" + Environment.NewLine;
+            recieptRichTextBox.Text += "--------------------------------------------------" + Environment.NewLine;
+            const string format1 = "{0, 0}";
+            const string format2 = "{0,-10} {1,-10} {2,-10} {3, 6} {4, 8}";
+            recieptRichTextBox.Text += Environment.NewLine;
+            recieptRichTextBox.Text += (String.Format(format2, "Quantity", "Name", "Category", "Price", "Total")) + Environment.NewLine;
+            foreach (Vara nr in customerCart)
+            {
+                int priceTotal = nr.Antal * nr.Pris;
+                recieptRichTextBox.Text += (String.Format(format2, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, priceTotal)) + Environment.NewLine;
+                totalItems += nr.Antal;
+            }
+            recieptRichTextBox.Text += Environment.NewLine;
+            recieptRichTextBox.Text += "--------------------------------------------------" + Environment.NewLine;
+            recieptRichTextBox.Text += "TOTAL:" + "\t" + "\t" + "\t" + totalPrice +"SEK"+Environment.NewLine;
+            recieptRichTextBox.Text += "Pay method:" + "\t" + "\t" + "\t" + paymentMethod + Environment.NewLine;
+            recieptRichTextBox.Text += "Change:" + "\t" + "\t" + "\t" + change+"SEK" + Environment.NewLine;
+            float woutTax = totalPrice * Inloggning.moms;
+            float tax = Inloggning.moms * 100;
+            recieptRichTextBox.Text += "Tax " + tax + "%:" + "\t" + "\t" + "\t" + woutTax +"%" + Environment.NewLine;
+            Random verfNr = new Random();
+            int nr1 = verfNr.Next(100000, 999999);
+            recieptRichTextBox.Text += "Receiptnumber:" + "\t" + "\t" + (String.Format(format1, nr1)) + Environment.NewLine;
+            recieptRichTextBox.Text += "Date:" + "\t" + "\t" + "\t" + "\t" + DateTime.Now + Environment.NewLine;
+
+            ReportItems();
+
+            totalAmount = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
+            totalPrice = 0;
+            totalItems = 0;
+
+            customerCart.Clear();
+
+            state = 9;
+        }
+
+        private void recieptRichTextBox_MouseClick(object sender, MouseEventArgs e) // Nollställer och gömmer kvittot
+        {
+            richTextBox2.Clear();
+            recieptRichTextBox.Clear();
+            textBox3.Text = null;
+            recieptRichTextBox.Hide();
+        }
+        #endregion
+
+        //###################################################### KNAPP KOD #######################################################
+        #region Buttons
+
+        #region EnterButton
         private void buttonEnter_Click(object sender, EventArgs e)//knappen gör olika beroende på var i programmet man befinner sig. Programmet återkommer hit varje gång input krävs. 
         {
             txtboxCommand.Clear();
@@ -108,409 +527,8 @@ namespace DigitCashier
                     textBox2.Text = null;
                 }
             }
-        }
-
-        private void NewItem() //Körs vid ny vara. 
-        {
-            state = 1;
-            txtboxCommand.Text = "Id-number " + Environment.NewLine;
-        }
-
-        private void CheckVaraId(string inp) //Kollar så att id finns. 
-        {
-            btnPay.Enabled = false;
-            active = true;
-
-            int helTal;
-
-            if (Int32.TryParse(inp, out helTal) == false || helTal.ToString().Length != 2 || CheckList(helTal) == false)
-            {
-                textBox2.Text = null;
-                textBoxError.Text = "Id-number is incorrect. Please try again!" + Environment.NewLine;
-                txtboxCommand.Text = "Id-number " + Environment.NewLine;
-                active = false;
-            }
-
-            else
-            {
-                richTextBox2.Text += "Selected item: " + valdVara.Namn + Environment.NewLine;
-                VaraID(); // Metodanrop av VaraID
-                helTal = 0;
-            }
-        }
-
-        private void VaraID() //Kontrollerar kategori för att sen fråga om vikt eller itemQuantity. 
-        {
-            if (valdVara.Kategori == 1)
-            {
-                txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
-                state = 2;
-                active = false;
-            }
-
-            if (valdVara.Kategori == 0)
-            {
-                state = 3;
-                txtboxCommand.Text = "Quantity " + Environment.NewLine;
-                active = false;
-            }
-        }
-
-        private void VaraAntal(string inp) //Kollar så att antalet varor finns i lager etc. 
-        {
-            int itemQuantity = 0;
-            int itemPrice = 0;
-
-            {
-                if (Int32.TryParse(inp, out itemQuantity) == false)
-                {
-                    txtboxCommand.Text = "Quantity " + Environment.NewLine;
-                    textBox2.Text = null;
-                    textBoxError.Text = "Number is not valid. Please try again!" + Environment.NewLine;
-                    active = false;
-                }
-
-                else if (valdVara.LagerStatus == 0)
-                {
-                    textBox2.Text = null;
-                    textBoxError.Text = "The item is sold out." + Environment.NewLine;
-                    active = false;
-                    state = 1;
-                }
-                else if (itemQuantity > valdVara.LagerStatus)
-                {
-                    txtboxCommand.Text = "Quantity " + Environment.NewLine;
-                    textBox2.Text = null;
-                    textBoxError.Text = "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
-                    active = false;
-                }
-                else
-                {
-                    btnPay.Enabled = true;
-                    richTextBox2.Text += inp + " " + valdVara.Namn + " are added to the cart." + Environment.NewLine;
-                   
-                    if(customerCart.Contains(valdVara)) // Om vald vara finns höjs värderna på den valda varan
-                        {
-                        valdVara.LagerStatus -= itemQuantity;
-                        valdVara.Antal += itemQuantity;
-                        itemPrice = itemQuantity * valdVara.Pris;
-                        totalPrice += itemPrice;
-                        totalAmount += itemPrice;
-                    }
-                    else // Ny vara läggs till i korgen
-                    {
-                        btnPay.Enabled = true;
-                        valdVara.LagerStatus -= itemQuantity;
-                        valdVara.Antal = itemQuantity;
-                        itemPrice = itemQuantity * valdVara.Pris;
-                        totalPrice += itemPrice;
-                        totalAmount += itemPrice;
-                        customerCart.Add(valdVara);
-                    }                
-                    
-                    active = false;
-                    state = 1;
-                    NewItem();
-
-                    ShowCartContent();
-                }
-            }
-        }
-
-        private void VaraVikt(string inp) //Kollar så att antalet varor finns i lager etc. 
-        {
-
-            int vikt = 0;
-            int kostnad = 0;
-
-
-            if (Int32.TryParse(inp, out vikt) == false || vikt <= 0)
-            {
-                txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
-                textBox2.Text = null;
-                textBoxError.Text = "Number is not valid. Please try again." + Environment.NewLine;
-                active = false;
-            }
-
-            else if (valdVara.LagerStatus == 0)
-            {
-                textBox2.Text = null;
-                textBoxError.Text = "The item is sold out." + Environment.NewLine;
-                active = false;
-                state = 1;
-                NewItem();
-            }
-
-            else if (vikt > valdVara.LagerStatus)
-            {
-                txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
-                textBox2.Text = null;
-                textBoxError.Text = "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
-                active = false;
-            }
-
-            else
-            {
-                btnPay.Enabled = true;
-                valdVara.LagerStatus -= vikt;
-                valdVara.Antal = vikt;
-                kostnad = vikt * valdVara.Pris;
-                totalPrice += kostnad;
-                totalAmount += kostnad;
-                richTextBox2.Text += vikt + "kg " + valdVara.Namn + " costs " + kostnad + "SEK" + Environment.NewLine;
-                customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
-                active = false;
-                state = 1;
-                NewItem();
-            }
-        }
-
-        bool CheckList(int tal) // Tittar så ID-numret finns med i varuListan.
-        {
-            for (var i = 0; i < Inloggning.varuLista.Count; i++)
-            {
-                if (Inloggning.varuLista[i].Id == tal)
-                {
-                    valdVara = Inloggning.varuLista[i];
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private void Kupong(string inp)
-        {
-            if (inp == "y")
-            {
-                richTextBox2.Text += "Amount to pay: " + totalAmount + Environment.NewLine;
-                txtboxCommand.Text = "Coupon amount " + Environment.NewLine;
-                state = 6;
-            }
-
-            else if (inp == "n")
-            {
-                buttonCash.Enabled = true;
-                buttonCard.Enabled = true;
-                richTextBox2.Text += "Amount to pay: " + totalAmount + Environment.NewLine;
-                txtboxCommand.Text = "Cash or card ";
-                state = 7;
-            }
-
-            else
-            {
-                txtboxCommand.Text = "Coupon-Yes/No " + Environment.NewLine;
-                textBoxError.Text = "Invalid input. Press yes or no." + Environment.NewLine;
-            }
-        }
-
-        private void KupongMatte(string inp)
-        {
-            int total;
-
-            if (Int32.TryParse(inp, out total) == false || total <= 0)
-            {
-                textBox2.Text = null;
-                txtboxCommand.Text = "Coupon amount ";
-                active = false;
-            }
-            richTextBox2.Text += "Coupon amount payed: " + total + Environment.NewLine;
-
-            totalAmount -= total;
-
-            if (totalAmount <= 0)
-            {
-                totalAmount = 0;
-                richTextBox2.Text += "The coupon covered the costs." + Environment.NewLine;
-                paymentMethod = "coupon";
-                PrintReciept();
-            }
-            else
-            {
-                buttonCard.Enabled = true;
-                buttonCash.Enabled = true;
-                richTextBox2.Text += "Amount left to pay: " + totalAmount + Environment.NewLine;
-                txtboxCommand.Text = "Cash or card ";
-                state = 7;
-            }
-        }
-
-        void Betalning(string inp)
-        {
-                paymentMethod = inp;
-
-            if (inp == "cash")
-            {
-                richTextBox2.Text += "Selected payment method: Cash "+ Environment.NewLine;
-                txtboxCommand.Text = "Cash amount " + Environment.NewLine;
-                 state = 8;               
-               
-            }
-            else if (inp == "card")
-            {
-                richTextBox2.Text += "Selected payment method: Card " + Environment.NewLine;
-                txtboxCommand.Text = "Card amount " + Environment.NewLine;
-                state = 8;
-            }
-            else
-            {
-                buttonCash.Enabled = true;
-                buttonCard.Enabled = true;
-                txtboxCommand.Text = "Cash or card ";
-            }
-        }
-
-        void CalcChange(string inp)
-        {
-            int betalt;
-
-            if (Int32.TryParse(inp, out betalt) == false || betalt <= 0 || betalt < totalAmount)
-            {
-                buttonCash.Enabled = true;
-                buttonCard.Enabled = true;
-                totalAmount -= betalt;
-                textBoxError.Text = "The amount was not enough. " + Environment.NewLine;
-                richTextBox2.Text += "Amount left to pay: " + totalAmount + Environment.NewLine;
-                txtboxCommand.Text = "Cash or card ";
-                state = 7;
-                return;
-            }
-
-             change = betalt - totalAmount;
-
-            PrintReciept();
-        }
-
-        string KategoriTyp(int k)
-        {
-            if (k == 1)
-            {
-                return "vegetable";
-            }
-            else
-            {
-                return "general";
-            }
-        }
-
-        void RapportVaror()
-        {
-            string rapport = AppDomain.CurrentDomain.BaseDirectory;
-            Directory.CreateDirectory(rapport + "\\Rapport\\");
-
-            int month = DateTime.Now.Month;
-            int year = DateTime.Now.Year;
-
-            if (Directory.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month +"\\" ) == false)
-            {
-                Directory.CreateDirectory(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\");              
-            }
-            
-            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt", true))
-            {
-                writer.WriteLine(totalPrice);
-            }
-            using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt", true))
-            {
-                writer.WriteLine(totalItems);
-            }
-
-            foreach (Vara a in customerCart)
-            {
-                if (a.Antal > 0)
-                {
-                    using (StreamWriter writer = new StreamWriter(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\" + a.Namn + ".txt", true))
-                    {
-                        writer.WriteLine(a.Antal);
-                    }
-                }
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e) //Tar bort äldsta raden text så att nyaste raden text får plats i textboxen. 
-        {
-            if (richTextBox2.Lines.Length > 20)
-            {
-                richTextBox2.Lines = richTextBox2.Lines.Skip(1).ToArray();
-            }
-        }
-
-        private void ShowCartContent()
-        {
-            int nr = 0;
-            textBox3.Text = null;
-            const string format = "{0,-10} {1,-12} {2,0}";
-            textBox3.Text += (String.Format(format, "Name", "Quantity", "Price")) + Environment.NewLine;
-            textBox3.Text += "----------------------------------" + Environment.NewLine;
-            foreach (Vara v in customerCart)
-            {
-                textBox3.Text += (String.Format(format, v.Namn, v.Antal, v.Pris)) + Environment.NewLine;
-                nr += v.Antal;
-            }
-            textBox3.Text += "----------------------------------" + Environment.NewLine;
-            textBox3.Text += (String.Format(format, "Total:", nr, totalPrice));
-        }
-
-        private void recieptRichTextBox_MouseClick(object sender, MouseEventArgs e) // Nollställer och gömmer kvittot
-        {
-            richTextBox2.Clear();
-            recieptRichTextBox.Clear();
-            textBox3.Text = null;
-            recieptRichTextBox.Hide();
-        }
-
-        private void txtboxCommand_TextChanged(object sender, EventArgs e) // Kommando textboxen
-        {
-            txtboxCommand.ReadOnly = true;
-        }
-        private void KassaForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Hide(); // AdminForm göms
-            Inloggning.FormLogIn(); // FormLogIn öppnas
-        }
-        void PrintReciept()
-        {
-            recieptRichTextBox.Show();
-
-            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "\t"  +" Shop Reciept" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "\t" + "\t"+"SEWK's Supermarket" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "\t" +"Address: Kungsgatan 37, 441 50 Alingsås" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "\t" +"Org No: 556033 - 5696" + Environment.NewLine;
-            recieptRichTextBox.Text += "----------------------------------------------------" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + DateTime.Now + Environment.NewLine;
-            const string format = "{0,-10} {1,-10} {2,-10} {3, 5} {4, 7}";
-            recieptRichTextBox.Text += Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + (String.Format(format, "Quantity", "Name", "Category", "Price", "Total")) + Environment.NewLine;
-            recieptRichTextBox.ForeColor = Color.MidnightBlue;
-            foreach (Vara nr in customerCart)
-            {
-                int priceTotal = nr.Antal * nr.Pris;
-                recieptRichTextBox.Text += "\t" + (String.Format(format, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, priceTotal)) + Environment.NewLine;
-                totalItems += nr.Antal;
-            }
-            recieptRichTextBox.Text += Environment.NewLine;
-            recieptRichTextBox.Text += "----------------------------------------------------" + Environment.NewLine;
-            const string format1 = "{0,-10} {1,-10} {2,-10} {3, 5} {4, 7}";
-            recieptRichTextBox.Text += "\t" + "Change: "+ change + " SEK" + Environment.NewLine;
-            float woutTax = totalPrice * Inloggning.moms;
-            float tax = Inloggning.moms * 100;
-            recieptRichTextBox.Text += "\t" + "Tax " + tax + "%: " + woutTax + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "Pay method: " + paymentMethod + Environment.NewLine;
-            Random verfNr = new Random();
-            int nr1 = verfNr.Next(100000, 999999);
-            recieptRichTextBox.Text += "\t" + "Receiptnumber: " + nr1 + Environment.NewLine;
-
-            RapportVaror();
-
-            totalAmount = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
-            totalPrice = 0;
-            totalItems = 0;
-
-            customerCart.Clear();
-
-            state = 9;
-        }
-
-        //###################################################### KNAPP KOD #######################################################
+        } 
+        #endregion
         private void button1_Click(object sender, EventArgs e)
         {
             buttonEnter.Focus(); // Tabbar till Enter
@@ -634,6 +652,7 @@ namespace DigitCashier
                 MessageBox.Show("Please complete the purchase before signing out.");
             }
         }
-        //###################################################### KNAPP KOD SLUT #######################################################
+        #endregion
+
     }
 }
