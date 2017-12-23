@@ -117,7 +117,7 @@ namespace DigitCashier
             int itemPrice = 0;
 
             {
-                if (Int32.TryParse(inp, out itemQuantity) == false || itemQuantity <= 1)
+                if (Int32.TryParse(inp, out itemQuantity) == false || itemQuantity <= 0)
                 {
                     txtboxCommand.Text = "Quantity " + Environment.NewLine;
                     textBox2.Text = null;
@@ -144,7 +144,7 @@ namespace DigitCashier
                 else
                 {
                     btnPay.Enabled = true;
-                    richTextBox2.Text += inp + " " + valdVara.Namn + " are added to the cart." + Environment.NewLine;
+                    richTextBox2.Text += inp + " " + valdVara.Namn + " added to the cart." + Environment.NewLine;
 
                     if (customerCart.Contains(valdVara)) // Om vald vara finns höjs värderna på den valda varan
                     {
@@ -180,7 +180,7 @@ namespace DigitCashier
             int kostnad = 0;
 
 
-            if (Int32.TryParse(inp, out vikt) == false || vikt <= 1)
+            if (Int32.TryParse(inp, out vikt) == false || vikt <= 0)
             {
                 txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
                 textBox2.Text = null;
@@ -225,7 +225,7 @@ namespace DigitCashier
                     kostnad = vikt * valdVara.Pris;
                     totalPrice += kostnad;
                     totalAmount += kostnad;
-                    richTextBox2.Text += vikt + "kg " + valdVara.Namn + " costs " + kostnad + "SEK" + Environment.NewLine;
+                    richTextBox2.Text += vikt + "kg " + valdVara.Namn + " (" + kostnad + "SEK)"+" added to the cart." + Environment.NewLine;
                     customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
                     active = false;
                     state = 1;
@@ -423,6 +423,7 @@ namespace DigitCashier
             recieptRichTextBox.Text += Environment.NewLine;
             recieptRichTextBox.Text += "--------------------------------------------------" + Environment.NewLine;
             recieptRichTextBox.Text += "TOTAL:" + "\t" + "\t" + "\t" + totalPrice +"SEK"+Environment.NewLine;
+            recieptRichTextBox.Text += Environment.NewLine;
             recieptRichTextBox.Text += "Pay method:" + "\t" + "\t" + "\t" + paymentMethod + Environment.NewLine;
             recieptRichTextBox.Text += "Change:" + "\t" + "\t" + "\t" + change+"SEK" + Environment.NewLine;
             float woutTax = totalPrice * Inloggning.moms;
