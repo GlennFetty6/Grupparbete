@@ -14,13 +14,15 @@ namespace DigitCashier
 {
     public partial class Rapport : Form
     {
-        int priset;
-        int varor;
+        int totalPrice;
+        int totalItems;
         string rapport = AppDomain.CurrentDomain.BaseDirectory;
-        int antal;
+        int quantityItems;
         int cost;
+        int status;
         string employeeName;
         int hoursWorked;
+        int totalHoursWorked;
 
         public Rapport()
         {
@@ -35,9 +37,9 @@ namespace DigitCashier
         void PrintReport()
         {
             textboxReportEmp.Clear();
-            textboxReportHeadEmp.Clear();
+            textboxReportTotal.Clear();
             textboxReport.Clear();
-            textboxReportHead.Clear();
+            textboxReportEmpTotal.Clear();
             SkrivUtRapport(Inloggning.varuLista, TotalPris(), TotalVaror());
         }
 
@@ -49,53 +51,58 @@ namespace DigitCashier
 
         public void SkrivUtRapport(List<Vara> varor, int tPris, int tVaror)
         {
-            const string format = "{0,-13} {1,-15} {2,0}";
-            textboxReport.Text += Environment.NewLine;
-            textboxReportHead.Text = (String.Format(format, "Item Name", "Quantity", "Amount"));
-            foreach (string s in SoldItems())
+            while (Directory.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\") == false)
             {
-                    string fileName = Path.GetFileNameWithoutExtension(s); // Tar in filnamn utan endelsen .txt
-                    if (fileName == "TotalaVaror" || fileName == "TotalPris")
-                    {
-                        continue;
-                    }
-
-                    using (StreamReader reader = new StreamReader(s))
-                    {
-                        string line;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            int y = 0;
-                            y = Convert.ToInt32(line);
-                            antal = y;
-                        }
-                    }
-
-                    foreach (Vara b in Inloggning.varuLista)
-                    {
-                        if (b.Namn == fileName)
-                        {
-                            cost = antal * b.Pris;
-                        }
-                    }
-                    textboxReport.Text += (String.Format(format, fileName, antal, cost)) + Environment.NewLine;                
+                MessageBox.Show("There is no data saved for this month.");
+                return;
             }
 
-            textboxReportTotal.Text = (String.Format(format, "Total", tVaror.ToString(), tPris.ToString()));
+            const string format = "{0,-10} {1,-11} {2,-13} {3,5}";
+            textboxReport.Text += Environment.NewLine;
+            textboxReportHead.Text = (String.Format(format, "Item Name", "Purchased", "Sales Amount", "Status"));
+
+            foreach (string s in SoldItems())
+            {
+                string fileName = Path.GetFileNameWithoutExtension(s); // Tar in filnamn utan endelsen .txt
+                if (fileName == "TotalaVaror" || fileName == "TotalPris")
+                {
+                    continue;
+                }
+                
+                using (StreamReader reader = new StreamReader(s))
+                {
+                    string line;
+                    int y = 0;
+                    if ((line = reader.ReadLine()) != null)
+                    {
+                        y = Convert.ToInt32(line);
+                        quantityItems = y;
+                    }
+                    
+                }
+
+                foreach (Vara b in Inloggning.varuLista)
+                {
+                    if (b.Namn == fileName)
+                    {
+                        cost = quantityItems * b.Pris;
+                    }
+                }
+                foreach (Vara a in Inloggning.varuLista)
+                {
+                    status = a.LagerStatus;
+                }
+                textboxReport.Text += (String.Format(format, fileName, quantityItems, cost, status)) + Environment.NewLine;
+            }
+
+            textboxReportTotal.Text = (String.Format(format, "Total", tVaror.ToString(), tPris.ToString(), " "));
             EmployeeDetails();
+
         }
 
 
         private string[] SoldItems()
         {
-            while (Directory.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\") == false)
-            {
-                MessageBox.Show("There is no data saved for this month");
-                Directory.CreateDirectory(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\");
-                string[] empty;
-                empty = Directory.GetFiles(rapport + "\\Rapport\\" + year + "\\\\" + month);
-                return empty;
-            }
             string[] sold;
             sold = Directory.GetFiles(rapport + "\\Rapport\\" + year + "\\\\" + month);
             return sold;
@@ -195,7 +202,7 @@ namespace DigitCashier
 
         int TotalPris()
         {
-            priset = 0;
+            totalPrice = 0;
             if ((File.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt")) == true)
             {
                 using (StreamReader reader = new StreamReader(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt"))
@@ -204,16 +211,16 @@ namespace DigitCashier
                     while ((line = reader.ReadLine()) != null)
                     {
                         int y = Convert.ToInt32(line);
-                        priset += y;
+                        totalPrice += y;
                     }
                 }
             }
-            return priset;
+            return totalPrice;
         }
 
         int TotalVaror()
         {
-            varor = 0;
+            totalItems = 0;
             if ((File.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt")) == true)
             {
                 using (StreamReader reader = new StreamReader(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt"))
@@ -222,17 +229,17 @@ namespace DigitCashier
                     while ((line = reader.ReadLine()) != null)
                     {
                         int y = Convert.ToInt32(line);
-                        varor += y;
+                        totalItems += y;
                     }
                 }
             }
-            return varor;
+            return totalItems;
         }
 
         void EmployeeDetails()
         {
             const string format = "{0,-18} {1,-12}";
-            textboxReportHeadEmp.Text += (String.Format(format, "Employee Name", "Hours")) + Environment.NewLine;
+            textboxReportHeadEmp.Text = (String.Format(format, "Employee Name", "Hours")) + Environment.NewLine;
             AdministratorForm af = new AdministratorForm();
 
             foreach (string file in af.ListaAnstallda())
@@ -242,8 +249,10 @@ namespace DigitCashier
                     employeeName = reader.ReadLine();
                     hoursWorked = Int32.Parse(reader.ReadLine());
                 }
-                textboxReportEmp.Text += (String.Format(format, employeeName, hoursWorked)) + Environment.NewLine;
+                totalHoursWorked += hoursWorked;
+                textboxReportEmp.Text += (String.Format(format, employeeName, hoursWorked)) + Environment.NewLine;               
             }
+            textboxReportEmpTotal.Text += (String.Format(format, "Total", totalHoursWorked));
         }
     }
 }

@@ -16,9 +16,9 @@ namespace DigitCashier
         private bool active; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
         int state; //Används för att buttonEnter inte ska göra fel saker vid fel tillfälle. 
 
-        private int totalPrice; //Kostnaden för alla varor. Används på kvittot. 
+        private int totalPrice; //Kostnaden för alla totalItems. Används på kvittot. 
         private int totalAmount; // Det pris kunden skall betala. 
-        private int totalItems; // Totala köpta varor
+        private int totalItems; // Totala köpta totalItems
         float change;
         string paymentMethod;
         string input;
@@ -111,7 +111,7 @@ namespace DigitCashier
             }
         }
 
-        private void VaraAntal(string inp) //Kollar så att antalet varor finns i lager etc. 
+        private void VaraAntal(string inp) //Kollar så att antalet totalItems finns i lager etc. 
         {
             int itemQuantity = 0;
             int itemPrice = 0;
@@ -174,7 +174,7 @@ namespace DigitCashier
             }
         }
 
-        private void VaraVikt(string inp) //Kollar så att antalet varor finns i lager etc. 
+        private void VaraVikt(string inp) //Kollar så att antalet totalItems finns i lager etc. 
         {
             int vikt = 0;
             int kostnad = 0;
@@ -436,7 +436,7 @@ namespace DigitCashier
 
             ReportItems();
 
-            totalAmount = 0; //Måste nollställa värden för att inte få med föregående kunds varor på nästa kunds kvitto. 
+            totalAmount = 0; //Måste nollställa värden för att inte få med föregående kunds totalItems på nästa kunds kvitto. 
             totalPrice = 0;
             totalItems = 0;
 
@@ -499,7 +499,7 @@ namespace DigitCashier
                     textBox2.Text = null;
                 }
 
-                else if (state == 6) // Drar av värde av kupong från priset
+                else if (state == 6) // Drar av värde av kupong från totalPrice
                 {
                     KupongMatte(input);
                     input = null;

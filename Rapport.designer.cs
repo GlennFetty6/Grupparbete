@@ -50,15 +50,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textboxReportEmp = new System.Windows.Forms.TextBox();
             this.textboxReportHeadEmp = new System.Windows.Forms.TextBox();
+            this.textboxReportEmp = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.textboxReportTotal = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.textboxReportEmpTotal = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // SubtractYear
@@ -370,13 +373,13 @@
             this.textboxReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textboxReport.Cursor = System.Windows.Forms.Cursors.Default;
             this.textboxReport.Enabled = false;
-            this.textboxReport.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReport.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textboxReport.Location = new System.Drawing.Point(36, -11);
             this.textboxReport.Margin = new System.Windows.Forms.Padding(5);
             this.textboxReport.Multiline = true;
             this.textboxReport.Name = "textboxReport";
             this.textboxReport.ReadOnly = true;
-            this.textboxReport.Size = new System.Drawing.Size(454, 322);
+            this.textboxReport.Size = new System.Drawing.Size(454, 272);
             this.textboxReport.TabIndex = 99;
             this.textboxReport.TabStop = false;
             // 
@@ -397,12 +400,12 @@
             this.textboxReportHead.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textboxReportHead.Cursor = System.Windows.Forms.Cursors.Default;
             this.textboxReportHead.Enabled = false;
-            this.textboxReportHead.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportHead.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textboxReportHead.Location = new System.Drawing.Point(36, 11);
             this.textboxReportHead.Margin = new System.Windows.Forms.Padding(5);
             this.textboxReportHead.Name = "textboxReportHead";
             this.textboxReportHead.ReadOnly = true;
-            this.textboxReportHead.Size = new System.Drawing.Size(454, 27);
+            this.textboxReportHead.Size = new System.Drawing.Size(454, 23);
             this.textboxReportHead.TabIndex = 100;
             this.textboxReportHead.TabStop = false;
             // 
@@ -421,7 +424,7 @@
             this.panel3.Location = new System.Drawing.Point(101, 222);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(530, 314);
+            this.panel3.Size = new System.Drawing.Size(530, 269);
             this.panel3.TabIndex = 103;
             // 
             // panel4
@@ -429,25 +432,10 @@
             this.panel4.BackColor = System.Drawing.Color.Lavender;
             this.panel4.Controls.Add(this.textboxReportHeadEmp);
             this.panel4.Controls.Add(this.textboxReportEmp);
-            this.panel4.Location = new System.Drawing.Point(101, 579);
+            this.panel4.Location = new System.Drawing.Point(101, 534);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(529, 241);
+            this.panel4.Size = new System.Drawing.Size(529, 185);
             this.panel4.TabIndex = 104;
-            // 
-            // textboxReportEmp
-            // 
-            this.textboxReportEmp.BackColor = System.Drawing.Color.Lavender;
-            this.textboxReportEmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textboxReportEmp.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textboxReportEmp.Enabled = false;
-            this.textboxReportEmp.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReportEmp.Location = new System.Drawing.Point(36, 55);
-            this.textboxReportEmp.Multiline = true;
-            this.textboxReportEmp.Name = "textboxReportEmp";
-            this.textboxReportEmp.ReadOnly = true;
-            this.textboxReportEmp.Size = new System.Drawing.Size(454, 171);
-            this.textboxReportEmp.TabIndex = 0;
-            this.textboxReportEmp.TabStop = false;
             // 
             // textboxReportHeadEmp
             // 
@@ -455,32 +443,39 @@
             this.textboxReportHeadEmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textboxReportHeadEmp.Cursor = System.Windows.Forms.Cursors.Default;
             this.textboxReportHeadEmp.Enabled = false;
-            this.textboxReportHeadEmp.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportHeadEmp.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textboxReportHeadEmp.Location = new System.Drawing.Point(36, 22);
             this.textboxReportHeadEmp.Name = "textboxReportHeadEmp";
             this.textboxReportHeadEmp.ReadOnly = true;
-            this.textboxReportHeadEmp.Size = new System.Drawing.Size(454, 27);
+            this.textboxReportHeadEmp.Size = new System.Drawing.Size(454, 23);
             this.textboxReportHeadEmp.TabIndex = 1;
             this.textboxReportHeadEmp.TabStop = false;
+            // 
+            // textboxReportEmp
+            // 
+            this.textboxReportEmp.BackColor = System.Drawing.Color.Lavender;
+            this.textboxReportEmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReportEmp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReportEmp.Enabled = false;
+            this.textboxReportEmp.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportEmp.Location = new System.Drawing.Point(36, 55);
+            this.textboxReportEmp.Multiline = true;
+            this.textboxReportEmp.Name = "textboxReportEmp";
+            this.textboxReportEmp.ReadOnly = true;
+            this.textboxReportEmp.Size = new System.Drawing.Size(454, 123);
+            this.textboxReportEmp.TabIndex = 0;
+            this.textboxReportEmp.TabStop = false;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Lavender;
             this.panel5.Controls.Add(this.textboxReportTotal);
             this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(101, 540);
+            this.panel5.Location = new System.Drawing.Point(101, 495);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(530, 34);
             this.panel5.TabIndex = 103;
-            // 
-            // panel6
-            // 
-            this.panel6.Location = new System.Drawing.Point(2, 68);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(530, 498);
-            this.panel6.TabIndex = 102;
             // 
             // textboxReportTotal
             // 
@@ -496,6 +491,37 @@
             this.textboxReportTotal.TabIndex = 103;
             this.textboxReportTotal.TabStop = false;
             // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(2, 68);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(530, 498);
+            this.panel6.TabIndex = 102;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.textboxReportEmpTotal);
+            this.panel7.Location = new System.Drawing.Point(100, 725);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(530, 34);
+            this.panel7.TabIndex = 105;
+            // 
+            // textboxReportEmpTotal
+            // 
+            this.textboxReportEmpTotal.BackColor = System.Drawing.Color.Lavender;
+            this.textboxReportEmpTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReportEmpTotal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReportEmpTotal.Enabled = false;
+            this.textboxReportEmpTotal.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportEmpTotal.Location = new System.Drawing.Point(36, 4);
+            this.textboxReportEmpTotal.Name = "textboxReportEmpTotal";
+            this.textboxReportEmpTotal.ReadOnly = true;
+            this.textboxReportEmpTotal.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textboxReportEmpTotal.Size = new System.Drawing.Size(454, 27);
+            this.textboxReportEmpTotal.TabIndex = 0;
+            this.textboxReportEmpTotal.TabStop = false;
+            // 
             // Rapport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -503,6 +529,7 @@
             this.BackgroundImage = global::DigitCashier.Properties.Resources.Abstract_Background_with_Blue_Curves_Vector_Illustration;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(750, 864);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -539,6 +566,8 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -571,5 +600,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox textboxReportTotal;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox textboxReportEmpTotal;
     }
 }
