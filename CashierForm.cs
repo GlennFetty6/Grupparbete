@@ -32,7 +32,7 @@ namespace DigitCashier
         private void KassaForm_Load(object sender, EventArgs e)
         {          
             panelCoupon.Location = new Point(394, 249);
-            panelReciept.Location = new Point(237, 28);
+            panelReceipt.Location = new Point(237, 28);
             NewItem();
         }
 
@@ -289,7 +289,7 @@ namespace DigitCashier
             {
                 richTextBox2.Text += "Selected payment method: Cash " + Environment.NewLine;
                 totalAmount = 0;
-                PrintReciept();
+                PrintReceipt();
             }
             else
             {
@@ -313,7 +313,7 @@ namespace DigitCashier
 
             change = betalt - totalAmount;
 
-            PrintReciept();
+            PrintReceipt();
         }
 
         string KategoriTyp(int k)
@@ -368,40 +368,40 @@ namespace DigitCashier
 
         #region Reciept
 
-        void PrintReciept()
+        void PrintReceipt()
         {
             //recieptRichTextBox.Show();
-            panelReciept.Show();
+            panelReceipt.Show();
 
-            richTextBoxReciept.Text += "\t" + "\t" + "\t" + "  Shop Reciept" + Environment.NewLine;
-            richTextBoxReciept.Text += "\t" + "\t"   + "     SEWK's Supermarket" + Environment.NewLine;
-            richTextBoxReciept.Text += "\t" +  "Address: Rasberrylane 46, 6025 Hillary " + Environment.NewLine;
-            richTextBoxReciept.Text += "\t" + "\t" + "   Org No: 556033 - 5696" + Environment.NewLine;
-            richTextBoxReciept.Text += "--------------------------------------------------" + Environment.NewLine;
+            richTextBoxReceipt.Text += "\t" + "\t" + "\t" + "  Shop Receipt" + Environment.NewLine;
+            richTextBoxReceipt.Text += "\t" + "\t"   + "     SEWK's Supermarket" + Environment.NewLine;
+            richTextBoxReceipt.Text += "\t" +  "Address: Rasberrylane 46, 6025 Hillary " + Environment.NewLine;
+            richTextBoxReceipt.Text += "\t" + "\t" + "   Org No: 556033 - 5696" + Environment.NewLine;
+            richTextBoxReceipt.Text += "--------------------------------------------------" + Environment.NewLine;
             const string format1 = "{0, 0}";
             const string format2 = "{0,-10} {1,-10} {2,-10} {3, 6} {4, 8}";
-            richTextBoxReciept.Text += Environment.NewLine;
-            richTextBoxReciept.Text += (String.Format(format2, "Quantity", "Name", "Category", "Price", "Total")) + Environment.NewLine;
+            richTextBoxReceipt.Text += Environment.NewLine;
+            richTextBoxReceipt.Text += (String.Format(format2, "Quantity", "Name", "Category", "Price", "Total")) + Environment.NewLine;
             foreach (Vara nr in customerCart)
             {
                 int priceTotal = nr.Antal * nr.Pris;
-                richTextBoxReciept.Text += (String.Format(format2, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, priceTotal)) + Environment.NewLine;
+                richTextBoxReceipt.Text += (String.Format(format2, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, priceTotal)) + Environment.NewLine;
                 totalItems += nr.Antal;
             }
-            richTextBoxReciept.Text += Environment.NewLine;
-            richTextBoxReciept.Text += "--------------------------------------------------" + Environment.NewLine;
-            richTextBoxReciept.Text += "TOTAL:" + "\t" + "\t" + "\t" + totalPrice +" SEK"+Environment.NewLine;
-            richTextBoxReciept.Text += Environment.NewLine;
-            richTextBoxReciept.Text += "Pay method:" + "\t" + "\t" + "\t" + paymentMethod + Environment.NewLine;
-            richTextBoxReciept.Text += "Change:" + "\t" + "\t" + "\t" + change+" SEK" + Environment.NewLine;
-            richTextBoxReciept.Text += "Coupon:" + "\t" + "\t" + "\t" + couponAmount + " SEK" + Environment.NewLine;
+            richTextBoxReceipt.Text += Environment.NewLine;
+            richTextBoxReceipt.Text += "--------------------------------------------------" + Environment.NewLine;
+            richTextBoxReceipt.Text += "TOTAL:" + "\t" + "\t" + "\t" + totalPrice +" SEK"+Environment.NewLine;
+            richTextBoxReceipt.Text += Environment.NewLine;
+            richTextBoxReceipt.Text += "Pay method:" + "\t" + "\t" + "\t" + paymentMethod + Environment.NewLine;
+            richTextBoxReceipt.Text += "Change:" + "\t" + "\t" + "\t" + change+" SEK" + Environment.NewLine;
+            richTextBoxReceipt.Text += "Coupon:" + "\t" + "\t" + "\t" + couponAmount + " SEK" + Environment.NewLine;
             float woutTax = totalPrice * Inloggning.moms;
             float tax = Inloggning.moms * 100;
-            richTextBoxReciept.Text += "Tax " + tax + "%:" + "\t" + "\t" + "\t" + woutTax +"%" + Environment.NewLine;
+            richTextBoxReceipt.Text += "Tax " + tax + "%:" + "\t" + "\t" + "\t" + woutTax +"%" + Environment.NewLine;
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
-            richTextBoxReciept.Text += "Receiptnumber:" + "\t" + "\t" + (String.Format(format1, nr1)) + Environment.NewLine;
-            richTextBoxReciept.Text += "Date:" + "\t" + "\t" + "\t" + "\t" + DateTime.Now + Environment.NewLine;
+            richTextBoxReceipt.Text += "Receiptnumber:" + "\t" + "\t" + (String.Format(format1, nr1)) + Environment.NewLine;
+            richTextBoxReceipt.Text += "Date:" + "\t" + "\t" + "\t" + "\t" + DateTime.Now + Environment.NewLine;
 
             ReportItems();
 
@@ -414,12 +414,12 @@ namespace DigitCashier
             state = 9;
         }
 
-        private void richTextBoxReciept_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void richTextBoxReceipt_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             richTextBox2.Clear();
-            richTextBoxReciept.Clear();
+            richTextBoxReceipt.Clear();
             textBox3.Text = null;
-            panelReciept.Hide();
+            panelReceipt.Hide();
         }
         #endregion
 

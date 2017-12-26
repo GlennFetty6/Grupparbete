@@ -58,10 +58,10 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelReciept = new System.Windows.Forms.Panel();
-            this.richTextBoxReciept = new System.Windows.Forms.RichTextBox();
+            this.panelReceipt = new System.Windows.Forms.Panel();
+            this.richTextBoxReceipt = new System.Windows.Forms.RichTextBox();
             this.panelCoupon.SuspendLayout();
-            this.panelReciept.SuspendLayout();
+            this.panelReceipt.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -534,33 +534,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Coupon";
             // 
-            // panelReciept
+            // panelReceipt
             // 
-            this.panelReciept.BackColor = System.Drawing.Color.Gainsboro;
-            this.panelReciept.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelReciept.Controls.Add(this.richTextBoxReciept);
-            this.panelReciept.Location = new System.Drawing.Point(12, 31);
-            this.panelReciept.Name = "panelReciept";
-            this.panelReciept.Size = new System.Drawing.Size(426, 602);
-            this.panelReciept.TabIndex = 31;
-            this.panelReciept.Visible = false;
+            this.panelReceipt.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelReceipt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelReceipt.Controls.Add(this.richTextBoxReceipt);
+            this.panelReceipt.Location = new System.Drawing.Point(12, 31);
+            this.panelReceipt.Name = "panelReceipt";
+            this.panelReceipt.Size = new System.Drawing.Size(426, 602);
+            this.panelReceipt.TabIndex = 31;
+            this.panelReceipt.Visible = false;
             // 
-            // richTextBoxReciept
+            // richTextBoxReceipt
             // 
-            this.richTextBoxReciept.BackColor = System.Drawing.Color.Gainsboro;
-            this.richTextBoxReciept.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxReciept.BulletIndent = 10;
-            this.richTextBoxReciept.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.richTextBoxReciept.Font = new System.Drawing.Font("Courier New", 10.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxReciept.ForeColor = System.Drawing.Color.DimGray;
-            this.richTextBoxReciept.Location = new System.Drawing.Point(7, 7);
-            this.richTextBoxReciept.Name = "richTextBoxReciept";
-            this.richTextBoxReciept.ReadOnly = true;
-            this.richTextBoxReciept.Size = new System.Drawing.Size(418, 584);
-            this.richTextBoxReciept.TabIndex = 21;
-            this.richTextBoxReciept.TabStop = false;
-            this.richTextBoxReciept.Text = "\n\n";
-            this.richTextBoxReciept.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.richTextBoxReciept_MouseDoubleClick);
+            this.richTextBoxReceipt.BackColor = System.Drawing.Color.Gainsboro;
+            this.richTextBoxReceipt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxReceipt.BulletIndent = 10;
+            this.richTextBoxReceipt.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBoxReceipt.Font = new System.Drawing.Font("Courier New", 10.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxReceipt.ForeColor = System.Drawing.Color.DimGray;
+            this.richTextBoxReceipt.Location = new System.Drawing.Point(7, 7);
+            this.richTextBoxReceipt.Name = "richTextBoxReceipt";
+            this.richTextBoxReceipt.ReadOnly = true;
+            this.richTextBoxReceipt.Size = new System.Drawing.Size(418, 584);
+            this.richTextBoxReceipt.TabIndex = 21;
+            this.richTextBoxReceipt.TabStop = false;
+            this.richTextBoxReceipt.Text = "\n\n";
+            this.richTextBoxReceipt.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.richTextBoxReceipt_MouseDoubleClick);
             // 
             // CashierForm
             // 
@@ -570,7 +570,7 @@
             this.BackgroundImage = global::DigitCashier.Properties.Resources.Abstract_Background_with_Blue_Curves_Vector_Illustration;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(966, 791);
-            this.Controls.Add(this.panelReciept);
+            this.Controls.Add(this.panelReceipt);
             this.Controls.Add(this.panelCoupon);
             this.Controls.Add(this.textBoxError);
             this.Controls.Add(this.richTextBox2);
@@ -608,7 +608,7 @@
             this.Load += new System.EventHandler(this.KassaForm_Load);
             this.panelCoupon.ResumeLayout(false);
             this.panelCoupon.PerformLayout();
-            this.panelReciept.ResumeLayout(false);
+            this.panelReceipt.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -644,7 +644,7 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelReciept;
-        private System.Windows.Forms.RichTextBox richTextBoxReciept;
+        private System.Windows.Forms.Panel panelReceipt;
+        private System.Windows.Forms.RichTextBox richTextBoxReceipt;
     }
 }
