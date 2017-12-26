@@ -51,11 +51,17 @@ namespace DigitCashier
 
         public void SkrivUtRapport(List<Vara> varor, int tPris, int tVaror)
         {
-            while (Directory.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\") == false)
+            if (Directory.Exists(rapport + "\\Rapport\\" + year + "\\" + month + "\\") == false)
             {
                 MessageBox.Show("There is no data saved for this month.");
                 return;
             }
+
+            //while (Directory.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\") == false)
+            //{
+            //    MessageBox.Show("There is no data saved for this month.");
+            //    return;
+            //}
 
             const string format = "{0,-10} {1,-11} {2,-13} {3,5}";
             textboxReport.Text += Environment.NewLine;
@@ -73,12 +79,12 @@ namespace DigitCashier
                 {
                     string line;
                     int y = 0;
-                    if ((line = reader.ReadLine()) != null)
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        y = Convert.ToInt32(line);
-                        quantityItems = y;
+                        y += Convert.ToInt32(line);
+                        
                     }
-                    
+                    quantityItems = y;
                 }
 
                 foreach (Vara b in Inloggning.varuLista)
@@ -126,77 +132,78 @@ namespace DigitCashier
             textBox1.Text = year.ToString();
         }
 
-        private void January_CheckedChanged(object sender, EventArgs e)
+        private void January_Click(object sender, EventArgs e)
         {
             month = 1;
             PrintReport();
         }
 
-        private void February_CheckedChanged(object sender, EventArgs e)
+        private void February_Click(object sender, EventArgs e)
         {
             month = 2;
             PrintReport();
         }
 
-        private void Mars_CheckedChanged(object sender, EventArgs e)
+        private void Mars_Click(object sender, EventArgs e)
         {
             month = 3;
             PrintReport();
         }
 
-        private void April_CheckedChanged(object sender, EventArgs e)
+        private void April_Click(object sender, EventArgs e)
         {
             month = 4;
             PrintReport();
         }
 
-        private void May_CheckedChanged(object sender, EventArgs e)
+        private void May_Click(object sender, EventArgs e)
         {
             month = 5;
             PrintReport();
         }
 
-        private void June_CheckedChanged(object sender, EventArgs e)
+        private void June_Click(object sender, EventArgs e)
         {
             month = 6;
             PrintReport();
         }
 
-        private void July_CheckedChanged(object sender, EventArgs e)
+        private void July_Click(object sender, EventArgs e)
         {
             month = 7;
             PrintReport();
         }
 
-        private void August_CheckedChanged(object sender, EventArgs e)
+        private void August_Click(object sender, EventArgs e)
         {
             month = 8;
             PrintReport();
         }
 
-        private void September_CheckedChanged(object sender, EventArgs e)
+        private void September_Click(object sender, EventArgs e)
         {
             month = 9;
             PrintReport();
         }
 
-        private void October_CheckedChanged(object sender, EventArgs e)
+        private void October_Click(object sender, EventArgs e)
         {
             month = 10;
             PrintReport();
         }
 
-        private void November_CheckedChanged(object sender, EventArgs e)
+        private void November_Click(object sender, EventArgs e)
         {
             month = 11;
             PrintReport();
         }
 
-        private void December_CheckedChanged(object sender, EventArgs e)
+        private void December_Click(object sender, EventArgs e)
         {
             month = 12;
             PrintReport();
         }
+
         #endregion
 
 
@@ -254,5 +261,6 @@ namespace DigitCashier
             }
             textboxReportEmpTotal.Text += (String.Format(format, "Total", totalHoursWorked));
         }
+
     }
 }

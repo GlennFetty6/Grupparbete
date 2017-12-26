@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textboxReport = new System.Windows.Forms.TextBox();
-            this.splitter1 = new System.Windows.Forms.Splitter();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rapport));
             this.SubtractYear = new System.Windows.Forms.Button();
             this.AddYear = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,205 +44,496 @@
             this.October = new System.Windows.Forms.RadioButton();
             this.November = new System.Windows.Forms.RadioButton();
             this.December = new System.Windows.Forms.RadioButton();
+            this.textboxReport = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textboxReportHead = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textboxReportHeadEmp = new System.Windows.Forms.TextBox();
+            this.textboxReportEmp = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.textboxReportTotal = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.textboxReportEmpTotal = new System.Windows.Forms.TextBox();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textboxReport
-            // 
-            this.textboxReport.BackColor = System.Drawing.Color.Silver;
-            this.textboxReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textboxReport.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReport.Location = new System.Drawing.Point(0, 0);
-            this.textboxReport.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textboxReport.Multiline = true;
-            this.textboxReport.Name = "textboxReport";
-            this.textboxReport.Size = new System.Drawing.Size(825, 862);
-            this.textboxReport.TabIndex = 0;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 862);
-            this.splitter1.TabIndex = 2;
-            this.splitter1.TabStop = false;
             // 
             // SubtractYear
             // 
-            this.SubtractYear.Location = new System.Drawing.Point(64, 275);
+            this.SubtractYear.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.SubtractYear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.SubtractYear.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.SubtractYear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.SubtractYear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.SubtractYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubtractYear.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubtractYear.Location = new System.Drawing.Point(218, 12);
+            this.SubtractYear.Margin = new System.Windows.Forms.Padding(2);
             this.SubtractYear.Name = "SubtractYear";
-            this.SubtractYear.Size = new System.Drawing.Size(111, 27);
-            this.SubtractYear.TabIndex = 3;
+            this.SubtractYear.Size = new System.Drawing.Size(101, 28);
+            this.SubtractYear.TabIndex = 1;
             this.SubtractYear.Text = "<";
-            this.SubtractYear.UseVisualStyleBackColor = true;
+            this.SubtractYear.UseVisualStyleBackColor = false;
             this.SubtractYear.Click += new System.EventHandler(this.button1_Click);
             // 
             // AddYear
             // 
-            this.AddYear.Location = new System.Drawing.Point(295, 275);
+            this.AddYear.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.AddYear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.AddYear.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.AddYear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.AddYear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.AddYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddYear.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddYear.Location = new System.Drawing.Point(429, 12);
+            this.AddYear.Margin = new System.Windows.Forms.Padding(2);
             this.AddYear.Name = "AddYear";
-            this.AddYear.Size = new System.Drawing.Size(111, 27);
-            this.AddYear.TabIndex = 4;
+            this.AddYear.Size = new System.Drawing.Size(101, 28);
+            this.AddYear.TabIndex = 2;
             this.AddYear.Text = ">";
-            this.AddYear.UseVisualStyleBackColor = true;
+            this.AddYear.UseVisualStyleBackColor = false;
             this.AddYear.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(178, 278);
+            this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
+            this.textBox1.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(322, 12);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 24);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(104, 26);
+            this.textBox1.TabIndex = 100;
+            this.textBox1.TabStop = false;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // January
             // 
             this.January.Appearance = System.Windows.Forms.Appearance.Button;
-            this.January.Location = new System.Drawing.Point(64, 308);
+            this.January.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.January.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.January.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.January.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.January.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.January.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.January.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.January.Location = new System.Drawing.Point(218, 45);
+            this.January.Margin = new System.Windows.Forms.Padding(2);
             this.January.Name = "January";
-            this.January.Size = new System.Drawing.Size(111, 27);
-            this.January.TabIndex = 6;
+            this.January.Size = new System.Drawing.Size(101, 28);
+            this.January.TabIndex = 3;
             this.January.TabStop = true;
             this.January.Text = "January";
-            this.January.UseVisualStyleBackColor = true;
-            this.January.CheckedChanged += new System.EventHandler(this.January_CheckedChanged);
+            this.January.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.January.UseVisualStyleBackColor = false;
+            this.January.Click += new System.EventHandler(this.January_Click);
             // 
             // February
             // 
             this.February.Appearance = System.Windows.Forms.Appearance.Button;
-            this.February.Location = new System.Drawing.Point(178, 308);
+            this.February.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.February.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.February.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.February.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.February.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.February.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.February.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.February.Location = new System.Drawing.Point(322, 45);
+            this.February.Margin = new System.Windows.Forms.Padding(2);
             this.February.Name = "February";
-            this.February.Size = new System.Drawing.Size(111, 27);
-            this.February.TabIndex = 7;
+            this.February.Size = new System.Drawing.Size(104, 28);
+            this.February.TabIndex = 4;
             this.February.TabStop = true;
             this.February.Text = "February";
-            this.February.UseVisualStyleBackColor = true;
-            this.February.CheckedChanged += new System.EventHandler(this.February_CheckedChanged);
+            this.February.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.February.UseVisualStyleBackColor = false;
+            this.February.Click += new System.EventHandler(this.February_Click);
             // 
             // Mars
             // 
             this.Mars.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Mars.Location = new System.Drawing.Point(295, 308);
+            this.Mars.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.Mars.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Mars.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.Mars.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.Mars.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.Mars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Mars.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mars.Location = new System.Drawing.Point(429, 45);
+            this.Mars.Margin = new System.Windows.Forms.Padding(2);
             this.Mars.Name = "Mars";
-            this.Mars.Size = new System.Drawing.Size(111, 27);
-            this.Mars.TabIndex = 8;
+            this.Mars.Size = new System.Drawing.Size(101, 28);
+            this.Mars.TabIndex = 5;
             this.Mars.TabStop = true;
             this.Mars.Text = "Mars";
-            this.Mars.UseVisualStyleBackColor = true;
-            this.Mars.CheckedChanged += new System.EventHandler(this.Mars_CheckedChanged);
+            this.Mars.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Mars.UseVisualStyleBackColor = false;
+            this.Mars.Click += new System.EventHandler(this.Mars_Click);
             // 
             // April
             // 
             this.April.Appearance = System.Windows.Forms.Appearance.Button;
-            this.April.Location = new System.Drawing.Point(64, 341);
+            this.April.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.April.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.April.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.April.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.April.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.April.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.April.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.April.Location = new System.Drawing.Point(218, 78);
+            this.April.Margin = new System.Windows.Forms.Padding(2);
             this.April.Name = "April";
-            this.April.Size = new System.Drawing.Size(111, 27);
-            this.April.TabIndex = 9;
+            this.April.Size = new System.Drawing.Size(101, 28);
+            this.April.TabIndex = 6;
             this.April.TabStop = true;
             this.April.Text = "April";
-            this.April.UseVisualStyleBackColor = true;
-            this.April.CheckedChanged += new System.EventHandler(this.April_CheckedChanged);
+            this.April.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.April.UseVisualStyleBackColor = false;
+            this.April.Click += new System.EventHandler(this.April_Click);
             // 
             // May
             // 
             this.May.Appearance = System.Windows.Forms.Appearance.Button;
-            this.May.Location = new System.Drawing.Point(181, 341);
+            this.May.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.May.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.May.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.May.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.May.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.May.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.May.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.May.Location = new System.Drawing.Point(322, 78);
+            this.May.Margin = new System.Windows.Forms.Padding(2);
             this.May.Name = "May";
-            this.May.Size = new System.Drawing.Size(111, 27);
-            this.May.TabIndex = 10;
+            this.May.Size = new System.Drawing.Size(104, 28);
+            this.May.TabIndex = 7;
             this.May.TabStop = true;
             this.May.Text = "May";
-            this.May.UseVisualStyleBackColor = true;
-            this.May.CheckedChanged += new System.EventHandler(this.May_CheckedChanged);
+            this.May.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.May.UseVisualStyleBackColor = false;
+            this.May.Click += new System.EventHandler(this.May_Click);
             // 
             // June
             // 
             this.June.Appearance = System.Windows.Forms.Appearance.Button;
-            this.June.Location = new System.Drawing.Point(295, 341);
+            this.June.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.June.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.June.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.June.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.June.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.June.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.June.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.June.Location = new System.Drawing.Point(429, 78);
+            this.June.Margin = new System.Windows.Forms.Padding(2);
             this.June.Name = "June";
-            this.June.Size = new System.Drawing.Size(111, 27);
-            this.June.TabIndex = 11;
+            this.June.Size = new System.Drawing.Size(101, 28);
+            this.June.TabIndex = 8;
             this.June.TabStop = true;
             this.June.Text = "June";
-            this.June.UseVisualStyleBackColor = true;
-            this.June.CheckedChanged += new System.EventHandler(this.June_CheckedChanged);
+            this.June.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.June.UseVisualStyleBackColor = false;
+            this.June.Click += new System.EventHandler(this.June_Click);
             // 
             // July
             // 
             this.July.Appearance = System.Windows.Forms.Appearance.Button;
-            this.July.Location = new System.Drawing.Point(64, 374);
+            this.July.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.July.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.July.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.July.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.July.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.July.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.July.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.July.Location = new System.Drawing.Point(218, 111);
+            this.July.Margin = new System.Windows.Forms.Padding(2);
             this.July.Name = "July";
-            this.July.Size = new System.Drawing.Size(111, 27);
-            this.July.TabIndex = 12;
+            this.July.Size = new System.Drawing.Size(101, 28);
+            this.July.TabIndex = 9;
             this.July.TabStop = true;
             this.July.Text = "July";
-            this.July.UseVisualStyleBackColor = true;
-            this.July.CheckedChanged += new System.EventHandler(this.July_CheckedChanged);
+            this.July.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.July.UseVisualStyleBackColor = false;
+            this.July.Click += new System.EventHandler(this.July_Click);
             // 
             // August
             // 
             this.August.Appearance = System.Windows.Forms.Appearance.Button;
-            this.August.Location = new System.Drawing.Point(178, 374);
+            this.August.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.August.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.August.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.August.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.August.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.August.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.August.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.August.Location = new System.Drawing.Point(322, 111);
+            this.August.Margin = new System.Windows.Forms.Padding(2);
             this.August.Name = "August";
-            this.August.Size = new System.Drawing.Size(111, 27);
-            this.August.TabIndex = 13;
+            this.August.Size = new System.Drawing.Size(104, 28);
+            this.August.TabIndex = 10;
             this.August.TabStop = true;
             this.August.Text = "August";
-            this.August.UseVisualStyleBackColor = true;
-            this.August.CheckedChanged += new System.EventHandler(this.August_CheckedChanged);
+            this.August.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.August.UseVisualStyleBackColor = false;
+            this.August.Click += new System.EventHandler(this.August_Click);
             // 
             // September
             // 
             this.September.Appearance = System.Windows.Forms.Appearance.Button;
-            this.September.Location = new System.Drawing.Point(295, 374);
+            this.September.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.September.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.September.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.September.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.September.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.September.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.September.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.September.Location = new System.Drawing.Point(429, 111);
+            this.September.Margin = new System.Windows.Forms.Padding(2);
             this.September.Name = "September";
-            this.September.Size = new System.Drawing.Size(111, 27);
-            this.September.TabIndex = 14;
+            this.September.Size = new System.Drawing.Size(101, 28);
+            this.September.TabIndex = 11;
             this.September.TabStop = true;
             this.September.Text = "September";
-            this.September.UseVisualStyleBackColor = true;
-            this.September.CheckedChanged += new System.EventHandler(this.September_CheckedChanged);
+            this.September.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.September.UseVisualStyleBackColor = false;
+            this.September.Click += new System.EventHandler(this.September_Click);
             // 
             // October
             // 
             this.October.Appearance = System.Windows.Forms.Appearance.Button;
-            this.October.Location = new System.Drawing.Point(64, 407);
+            this.October.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.October.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.October.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.October.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.October.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.October.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.October.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.October.Location = new System.Drawing.Point(218, 144);
+            this.October.Margin = new System.Windows.Forms.Padding(2);
             this.October.Name = "October";
-            this.October.Size = new System.Drawing.Size(111, 27);
-            this.October.TabIndex = 15;
+            this.October.Size = new System.Drawing.Size(101, 28);
+            this.October.TabIndex = 12;
             this.October.TabStop = true;
             this.October.Text = "October ";
+            this.October.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.October.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.October.UseVisualStyleBackColor = true;
-            this.October.CheckedChanged += new System.EventHandler(this.October_CheckedChanged);
+            this.October.UseVisualStyleBackColor = false;
+            this.October.Click += new System.EventHandler(this.October_Click);
             // 
             // November
             // 
             this.November.Appearance = System.Windows.Forms.Appearance.Button;
-            this.November.Location = new System.Drawing.Point(178, 407);
+            this.November.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.November.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.November.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.November.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.November.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.November.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.November.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.November.Location = new System.Drawing.Point(322, 144);
+            this.November.Margin = new System.Windows.Forms.Padding(2);
             this.November.Name = "November";
-            this.November.Size = new System.Drawing.Size(111, 27);
-            this.November.TabIndex = 16;
+            this.November.Size = new System.Drawing.Size(104, 28);
+            this.November.TabIndex = 13;
             this.November.TabStop = true;
             this.November.Text = "November";
-            this.November.UseVisualStyleBackColor = true;
-            this.November.CheckedChanged += new System.EventHandler(this.November_CheckedChanged);
+            this.November.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.November.UseVisualStyleBackColor = false;
+            this.November.Click += new System.EventHandler(this.November_Click);
             // 
             // December
             // 
             this.December.Appearance = System.Windows.Forms.Appearance.Button;
-            this.December.Location = new System.Drawing.Point(295, 407);
+            this.December.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.December.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.December.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.December.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.December.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.December.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.December.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.December.Location = new System.Drawing.Point(429, 144);
+            this.December.Margin = new System.Windows.Forms.Padding(2);
             this.December.Name = "December";
-            this.December.Size = new System.Drawing.Size(111, 27);
-            this.December.TabIndex = 17;
+            this.December.Size = new System.Drawing.Size(101, 28);
+            this.December.TabIndex = 14;
             this.December.TabStop = true;
             this.December.Text = "December";
-            this.December.UseVisualStyleBackColor = true;
-            this.December.CheckedChanged += new System.EventHandler(this.December_CheckedChanged);
+            this.December.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.December.UseVisualStyleBackColor = false;
+            this.December.Click += new System.EventHandler(this.December_Click);
+            // 
+            // textboxReport
+            // 
+            this.textboxReport.BackColor = System.Drawing.Color.Lavender;
+            this.textboxReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReport.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReport.Enabled = false;
+            this.textboxReport.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReport.Location = new System.Drawing.Point(36, -11);
+            this.textboxReport.Margin = new System.Windows.Forms.Padding(5);
+            this.textboxReport.Multiline = true;
+            this.textboxReport.Name = "textboxReport";
+            this.textboxReport.ReadOnly = true;
+            this.textboxReport.Size = new System.Drawing.Size(454, 272);
+            this.textboxReport.TabIndex = 99;
+            this.textboxReport.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.textboxReportHead);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(101, 184);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(530, 34);
+            this.panel1.TabIndex = 101;
+            // 
+            // textboxReportHead
+            // 
+            this.textboxReportHead.BackColor = System.Drawing.Color.Lavender;
+            this.textboxReportHead.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReportHead.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReportHead.Enabled = false;
+            this.textboxReportHead.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportHead.Location = new System.Drawing.Point(36, 11);
+            this.textboxReportHead.Margin = new System.Windows.Forms.Padding(5);
+            this.textboxReportHead.Name = "textboxReportHead";
+            this.textboxReportHead.ReadOnly = true;
+            this.textboxReportHead.Size = new System.Drawing.Size(454, 19);
+            this.textboxReportHead.TabIndex = 100;
+            this.textboxReportHead.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(2, 68);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(530, 498);
+            this.panel2.TabIndex = 102;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Lavender;
+            this.panel3.Controls.Add(this.textboxReport);
+            this.panel3.Location = new System.Drawing.Point(101, 222);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(530, 269);
+            this.panel3.TabIndex = 103;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Lavender;
+            this.panel4.Controls.Add(this.textboxReportHeadEmp);
+            this.panel4.Controls.Add(this.textboxReportEmp);
+            this.panel4.Location = new System.Drawing.Point(101, 534);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(529, 185);
+            this.panel4.TabIndex = 104;
+            // 
+            // textboxReportHeadEmp
+            // 
+            this.textboxReportHeadEmp.BackColor = System.Drawing.Color.Lavender;
+            this.textboxReportHeadEmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReportHeadEmp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReportHeadEmp.Enabled = false;
+            this.textboxReportHeadEmp.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportHeadEmp.Location = new System.Drawing.Point(36, 22);
+            this.textboxReportHeadEmp.Name = "textboxReportHeadEmp";
+            this.textboxReportHeadEmp.ReadOnly = true;
+            this.textboxReportHeadEmp.Size = new System.Drawing.Size(454, 19);
+            this.textboxReportHeadEmp.TabIndex = 1;
+            this.textboxReportHeadEmp.TabStop = false;
+            // 
+            // textboxReportEmp
+            // 
+            this.textboxReportEmp.BackColor = System.Drawing.Color.Lavender;
+            this.textboxReportEmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReportEmp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReportEmp.Enabled = false;
+            this.textboxReportEmp.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportEmp.Location = new System.Drawing.Point(36, 55);
+            this.textboxReportEmp.Multiline = true;
+            this.textboxReportEmp.Name = "textboxReportEmp";
+            this.textboxReportEmp.ReadOnly = true;
+            this.textboxReportEmp.Size = new System.Drawing.Size(454, 123);
+            this.textboxReportEmp.TabIndex = 0;
+            this.textboxReportEmp.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Lavender;
+            this.panel5.Controls.Add(this.textboxReportTotal);
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Location = new System.Drawing.Point(101, 495);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(530, 34);
+            this.panel5.TabIndex = 103;
+            // 
+            // textboxReportTotal
+            // 
+            this.textboxReportTotal.BackColor = System.Drawing.Color.Lavender;
+            this.textboxReportTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReportTotal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReportTotal.Enabled = false;
+            this.textboxReportTotal.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportTotal.Location = new System.Drawing.Point(36, 4);
+            this.textboxReportTotal.Name = "textboxReportTotal";
+            this.textboxReportTotal.ReadOnly = true;
+            this.textboxReportTotal.Size = new System.Drawing.Size(454, 21);
+            this.textboxReportTotal.TabIndex = 103;
+            this.textboxReportTotal.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(2, 68);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(530, 498);
+            this.panel6.TabIndex = 102;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.textboxReportEmpTotal);
+            this.panel7.Location = new System.Drawing.Point(100, 725);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(530, 34);
+            this.panel7.TabIndex = 105;
+            // 
+            // textboxReportEmpTotal
+            // 
+            this.textboxReportEmpTotal.BackColor = System.Drawing.Color.Lavender;
+            this.textboxReportEmpTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReportEmpTotal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReportEmpTotal.Enabled = false;
+            this.textboxReportEmpTotal.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReportEmpTotal.Location = new System.Drawing.Point(36, 4);
+            this.textboxReportEmpTotal.Name = "textboxReportEmpTotal";
+            this.textboxReportEmpTotal.ReadOnly = true;
+            this.textboxReportEmpTotal.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textboxReportEmpTotal.Size = new System.Drawing.Size(454, 21);
+            this.textboxReportEmpTotal.TabIndex = 0;
+            this.textboxReportEmpTotal.TabStop = false;
             // 
             // Rapport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 862);
+            this.BackgroundImage = global::DigitCashier.Properties.Resources.Abstract_Background_with_Blue_Curves_Vector_Illustration;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(750, 864);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.December);
             this.Controls.Add(this.November);
             this.Controls.Add(this.October);
@@ -259,24 +549,31 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.AddYear);
             this.Controls.Add(this.SubtractYear);
-            this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.textboxReport);
-            this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Rapport";
-            this.ShowIcon = false;
-            this.Text = "Rapport";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Rapport_FormClosing);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sales Report";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Rapport_FormClosed);
+            this.Load += new System.EventHandler(this.Rapport_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textboxReport;
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button SubtractYear;
         private System.Windows.Forms.Button AddYear;
         private System.Windows.Forms.TextBox textBox1;
@@ -292,5 +589,18 @@
         private System.Windows.Forms.RadioButton October;
         private System.Windows.Forms.RadioButton November;
         private System.Windows.Forms.RadioButton December;
+        private System.Windows.Forms.TextBox textboxReport;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textboxReportHead;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox textboxReportEmp;
+        private System.Windows.Forms.TextBox textboxReportHeadEmp;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox textboxReportTotal;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox textboxReportEmpTotal;
     }
 }

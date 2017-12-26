@@ -26,12 +26,12 @@ namespace DigitCashier
 
         private void LogIn_Click(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet();
-            SqlConnection connect = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DigitLogin;Integrated Security=True");
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From EmployeeLogin where UserID= '" + userIDTxtbox.Text + "' and Password= '" + passwordTxtbox.Text + "'", connect);
-            sda.Fill(ds);
+            //DataSet ds = new DataSet();
+            //SqlConnection connect = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DigitLogin;Integrated Security=True");
+            //SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From EmployeeLogin where UserID= '" + userIDTxtbox.Text + "' and Password= '" + passwordTxtbox.Text + "'", connect);
+            //sda.Fill(ds);
 
-            if (ds.Tables[0].Rows[0][0].ToString() == "1")
+            //if (ds.Tables[0].Rows[0][0].ToString() == "1")
                 if (10 < 100)
             {
                 Hide();
