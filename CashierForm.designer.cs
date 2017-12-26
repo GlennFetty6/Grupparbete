@@ -59,9 +59,12 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelReceipt = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.richTextBoxReceipt = new System.Windows.Forms.RichTextBox();
+            this.textboxReceiptNo = new System.Windows.Forms.TextBox();
             this.panelCoupon.SuspendLayout();
             this.panelReceipt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -536,31 +539,58 @@
             // 
             // panelReceipt
             // 
-            this.panelReceipt.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelReceipt.BackColor = System.Drawing.Color.White;
             this.panelReceipt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelReceipt.Controls.Add(this.textboxReceiptNo);
+            this.panelReceipt.Controls.Add(this.pictureBox1);
             this.panelReceipt.Controls.Add(this.richTextBoxReceipt);
-            this.panelReceipt.Location = new System.Drawing.Point(12, 31);
+            this.panelReceipt.Location = new System.Drawing.Point(86, 41);
             this.panelReceipt.Name = "panelReceipt";
             this.panelReceipt.Size = new System.Drawing.Size(426, 602);
             this.panelReceipt.TabIndex = 31;
             this.panelReceipt.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::DigitCashier.Properties.Resources.BarCode;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(19, 505);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(387, 79);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
             // richTextBoxReceipt
             // 
-            this.richTextBoxReceipt.BackColor = System.Drawing.Color.Gainsboro;
+            this.richTextBoxReceipt.BackColor = System.Drawing.Color.White;
             this.richTextBoxReceipt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxReceipt.BulletIndent = 10;
             this.richTextBoxReceipt.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBoxReceipt.Font = new System.Drawing.Font("Courier New", 10.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxReceipt.ForeColor = System.Drawing.Color.DimGray;
+            this.richTextBoxReceipt.ForeColor = System.Drawing.Color.Black;
             this.richTextBoxReceipt.Location = new System.Drawing.Point(7, 7);
             this.richTextBoxReceipt.Name = "richTextBoxReceipt";
             this.richTextBoxReceipt.ReadOnly = true;
-            this.richTextBoxReceipt.Size = new System.Drawing.Size(418, 584);
+            this.richTextBoxReceipt.Size = new System.Drawing.Size(418, 503);
             this.richTextBoxReceipt.TabIndex = 21;
             this.richTextBoxReceipt.TabStop = false;
             this.richTextBoxReceipt.Text = "\n\n";
             this.richTextBoxReceipt.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.richTextBoxReceipt_MouseDoubleClick);
+            // 
+            // textboxReceiptNo
+            // 
+            this.textboxReceiptNo.BackColor = System.Drawing.Color.White;
+            this.textboxReceiptNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReceiptNo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReceiptNo.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReceiptNo.Location = new System.Drawing.Point(57, 566);
+            this.textboxReceiptNo.Multiline = true;
+            this.textboxReceiptNo.Name = "textboxReceiptNo";
+            this.textboxReceiptNo.ReadOnly = true;
+            this.textboxReceiptNo.Size = new System.Drawing.Size(310, 31);
+            this.textboxReceiptNo.TabIndex = 23;
+            this.textboxReceiptNo.TabStop = false;
+            this.textboxReceiptNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CashierForm
             // 
@@ -609,6 +639,8 @@
             this.panelCoupon.ResumeLayout(false);
             this.panelCoupon.PerformLayout();
             this.panelReceipt.ResumeLayout(false);
+            this.panelReceipt.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -646,5 +678,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelReceipt;
         private System.Windows.Forms.RichTextBox richTextBoxReceipt;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textboxReceiptNo;
     }
 }

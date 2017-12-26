@@ -377,6 +377,7 @@ namespace DigitCashier
             richTextBoxReceipt.Text += "\t" + "\t"   + "     SEWK's Supermarket" + Environment.NewLine;
             richTextBoxReceipt.Text += "\t" +  "Address: Rasberrylane 46, 6025 Hillary " + Environment.NewLine;
             richTextBoxReceipt.Text += "\t" + "\t" + "   Org No: 556033 - 5696" + Environment.NewLine;
+            richTextBoxReceipt.Text += "\t" + "\t" +"    " + DateTime.Now + Environment.NewLine;
             richTextBoxReceipt.Text += "--------------------------------------------------" + Environment.NewLine;
             const string format1 = "{0, 0}";
             const string format2 = "{0,-10} {1,-10} {2,-10} {3, 6} {4, 8}";
@@ -390,18 +391,23 @@ namespace DigitCashier
             }
             richTextBoxReceipt.Text += Environment.NewLine;
             richTextBoxReceipt.Text += "--------------------------------------------------" + Environment.NewLine;
-            richTextBoxReceipt.Text += "TOTAL:" + "\t" + "\t" + "\t" + totalPrice +" SEK"+Environment.NewLine;
+            richTextBoxReceipt.Text += "TOTAL" + "\t" + "\t" + "\t" + "\t" + totalPrice +" SEK"+Environment.NewLine;
             richTextBoxReceipt.Text += Environment.NewLine;
-            richTextBoxReceipt.Text += "Pay method:" + "\t" + "\t" + "\t" + paymentMethod + Environment.NewLine;
-            richTextBoxReceipt.Text += "Change:" + "\t" + "\t" + "\t" + change+" SEK" + Environment.NewLine;
-            richTextBoxReceipt.Text += "Coupon:" + "\t" + "\t" + "\t" + couponAmount + " SEK" + Environment.NewLine;
-            float woutTax = totalPrice * Inloggning.moms;
+
             float tax = Inloggning.moms * 100;
-            richTextBoxReceipt.Text += "Tax " + tax + "%:" + "\t" + "\t" + "\t" + woutTax +"%" + Environment.NewLine;
+            float totalTax = totalPrice * Inloggning.moms;
+            float subTotal = totalPrice - Inloggning.moms;
+
+            richTextBoxReceipt.Text += "Subtotal " + "\t" + "\t" + "\t" + subTotal + " SEK" + Environment.NewLine;
+            richTextBoxReceipt.Text += "Tax " + tax + "%:" + "\t" + "\t" + "\t" + totalTax + " SEK" + Environment.NewLine;
+            richTextBoxReceipt.Text += "Pay method" + "\t" + "\t" + "\t" + paymentMethod + Environment.NewLine;
+            richTextBoxReceipt.Text += "Change" + "\t" + "\t" + "\t" + change+" SEK" + Environment.NewLine;
+            richTextBoxReceipt.Text += "Coupon" + "\t" + "\t" + "\t" + couponAmount + " SEK" + Environment.NewLine;
+
             Random verfNr = new Random();
-            int nr1 = verfNr.Next(100000, 999999);
-            richTextBoxReceipt.Text += "Receiptnumber:" + "\t" + "\t" + (String.Format(format1, nr1)) + Environment.NewLine;
-            richTextBoxReceipt.Text += "Date:" + "\t" + "\t" + "\t" + "\t" + DateTime.Now + Environment.NewLine;
+            int nr1 = verfNr.Next(100000000, 999999999);
+            textboxReceiptNo.Text += "6025 - " + nr1;
+
 
             ReportItems();
 
