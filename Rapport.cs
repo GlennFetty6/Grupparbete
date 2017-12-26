@@ -57,12 +57,6 @@ namespace DigitCashier
                 return;
             }
 
-            //while (Directory.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\") == false)
-            //{
-            //    MessageBox.Show("There is no data saved for this month.");
-            //    return;
-            //}
-
             const string format = "{0,-10} {1,-11} {2,-13} {3,5}";
             textboxReport.Text += Environment.NewLine;
             textboxReportHead.Text = (String.Format(format, "Item Name", "Purchased", "Sales Amount", "Status"));
@@ -100,8 +94,8 @@ namespace DigitCashier
                 }
                 textboxReport.Text += (String.Format(format, fileName, quantityItems, cost, status)) + Environment.NewLine;
             }
-
-            textboxReportTotal.Text = (String.Format(format, "Total", tVaror.ToString(), tPris.ToString(), " "));
+            textboxReportTotal.Text += ("____________________________________________") + Environment.NewLine;
+            textboxReportTotal.Text += (String.Format(format, "Total", tVaror.ToString(), tPris.ToString(), " "));
             EmployeeDetails();
 
         }
@@ -144,7 +138,7 @@ namespace DigitCashier
             PrintReport();
         }
 
-        private void Mars_Click(object sender, EventArgs e)
+        private void March_Click(object sender, EventArgs e)
         {
             month = 3;
             PrintReport();
@@ -259,8 +253,8 @@ namespace DigitCashier
                 totalHoursWorked += hoursWorked;
                 textboxReportEmp.Text += (String.Format(format, employeeName, hoursWorked)) + Environment.NewLine;               
             }
+            textboxReportEmpTotal.Text += ("____________________________________________") + Environment.NewLine;
             textboxReportEmpTotal.Text += (String.Format(format, "Total", totalHoursWorked));
         }
-
     }
 }

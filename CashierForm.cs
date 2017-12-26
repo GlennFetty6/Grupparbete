@@ -21,7 +21,8 @@ namespace DigitCashier
         private int totalItems; // Totala köpta totalItems
         float change;
         string paymentMethod;
-        string input;
+        string input; // Input för EnterButton
+        int couponAmount = 0;
 
         public CashierForm()
         {
@@ -29,7 +30,9 @@ namespace DigitCashier
         }
 
         private void KassaForm_Load(object sender, EventArgs e)
-        {
+        {          
+            panelCoupon.Location = new Point(394, 249);
+            panelReciept.Location = new Point(237, 28);
             NewItem();
         }
 
@@ -167,9 +170,8 @@ namespace DigitCashier
 
                     active = false;
                     state = 1;
-                    NewItem();
-
                     ShowCartContent();
+                    NewItem();
                 }
             }
         }
@@ -211,6 +213,7 @@ namespace DigitCashier
             {
                 if (customerCart.Contains(valdVara)) // Om vald vara finns höjs värderna på den valda varan
                 {
+                    btnPay.Enabled = true;
                     valdVara.LagerStatus -= vikt;
                     valdVara.Antal += vikt;
                     kostnad = vikt * valdVara.Pris;
@@ -229,8 +232,9 @@ namespace DigitCashier
                     customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
                     active = false;
                     state = 1;
-                    NewItem();
                 }
+                ShowCartContent();
+                NewItem();
             }
         }
 
@@ -247,50 +251,17 @@ namespace DigitCashier
             return false;
         }
 
-        private void Kupong(string inp)
-        {
-            if (inp == "y")
-            {
-                richTextBox2.Text += "Amount to pay: " + totalAmount + Environment.NewLine;
-                txtboxCommand.Text = "Coupon amount " + Environment.NewLine;
-                state = 6;
-            }
+        private void KupongMatte(int inp)
+        {          
+            richTextBox2.Text += "Coupon amount payed: " + inp+ Environment.NewLine;
 
-            else if (inp == "n")
-            {
-                buttonCash.Enabled = true;
-                buttonCard.Enabled = true;
-                richTextBox2.Text += "Amount to pay: " + totalAmount + Environment.NewLine;
-                txtboxCommand.Text = "Cash or card ";
-                state = 7;
-            }
-
-            else
-            {
-                txtboxCommand.Text = "Coupon-Yes/No " + Environment.NewLine;
-                textBoxError.Text = "Invalid input. Press yes or no." + Environment.NewLine;
-            }
-        }
-
-        private void KupongMatte(string inp)
-        {
-            int total;
-
-            if (Int32.TryParse(inp, out total) == false || total <= 0)
-            {
-                textBox2.Text = null;
-                txtboxCommand.Text = "Coupon amount ";
-                active = false;
-            }
-            richTextBox2.Text += "Coupon amount payed: " + total + Environment.NewLine;
-
-            totalAmount -= total;
+            totalAmount -= inp;
 
             if (totalAmount <= 0)
             {
                 totalAmount = 0;
                 richTextBox2.Text += "The coupon covered the costs." + Environment.NewLine;
-                paymentMethod = "coupon";
+                paymentMethod = "Coupon";
 
             }
             else
@@ -307,14 +278,14 @@ namespace DigitCashier
         {
             paymentMethod = inp;
 
-            if (inp == "cash")
+            if (inp == "Cash")
             {
                 richTextBox2.Text += "Selected payment method: Cash " + Environment.NewLine;
                 txtboxCommand.Text = "Cash amount " + Environment.NewLine;
                 state = 8;
 
             }
-            else if (inp == "card") // Kund skickas direkt till kvitto då en betalar exakta summan med kort.
+            else if (inp == "Card") // Kund skickas direkt till kvitto då en betalar exakta summan med kort.
             {
                 richTextBox2.Text += "Selected payment method: Cash " + Environment.NewLine;
                 totalAmount = 0;
@@ -322,8 +293,6 @@ namespace DigitCashier
             }
             else
             {
-                buttonCash.Enabled = true;
-                buttonCard.Enabled = true;
                 txtboxCommand.Text = "Cash or card ";
             }
         }
@@ -334,8 +303,6 @@ namespace DigitCashier
 
             if (Int32.TryParse(inp, out betalt) == false || betalt <= 0 || betalt < totalAmount)
             {
-                buttonCash.Enabled = true;
-                buttonCard.Enabled = true;
                 totalAmount -= betalt;
                 textBoxError.Text = "The amount was not enough. " + Environment.NewLine;
                 richTextBox2.Text += "Amount left to pay: " + totalAmount + Environment.NewLine;
@@ -403,36 +370,38 @@ namespace DigitCashier
 
         void PrintReciept()
         {
-            recieptRichTextBox.Show();
+            //recieptRichTextBox.Show();
+            panelReciept.Show();
 
-            recieptRichTextBox.Text += "\t" + "\t" + "\t" + "  Shop Reciept" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "\t"   + "     SEWK's Supermarket" + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" +  "Address: Rasberrylane 46, 6025 Hillary " + Environment.NewLine;
-            recieptRichTextBox.Text += "\t" + "\t" + "   Org No: 556033 - 5696" + Environment.NewLine;
-            recieptRichTextBox.Text += "--------------------------------------------------" + Environment.NewLine;
+            richTextBoxReciept.Text += "\t" + "\t" + "\t" + "  Shop Reciept" + Environment.NewLine;
+            richTextBoxReciept.Text += "\t" + "\t"   + "     SEWK's Supermarket" + Environment.NewLine;
+            richTextBoxReciept.Text += "\t" +  "Address: Rasberrylane 46, 6025 Hillary " + Environment.NewLine;
+            richTextBoxReciept.Text += "\t" + "\t" + "   Org No: 556033 - 5696" + Environment.NewLine;
+            richTextBoxReciept.Text += "--------------------------------------------------" + Environment.NewLine;
             const string format1 = "{0, 0}";
             const string format2 = "{0,-10} {1,-10} {2,-10} {3, 6} {4, 8}";
-            recieptRichTextBox.Text += Environment.NewLine;
-            recieptRichTextBox.Text += (String.Format(format2, "Quantity", "Name", "Category", "Price", "Total")) + Environment.NewLine;
+            richTextBoxReciept.Text += Environment.NewLine;
+            richTextBoxReciept.Text += (String.Format(format2, "Quantity", "Name", "Category", "Price", "Total")) + Environment.NewLine;
             foreach (Vara nr in customerCart)
             {
                 int priceTotal = nr.Antal * nr.Pris;
-                recieptRichTextBox.Text += (String.Format(format2, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, priceTotal)) + Environment.NewLine;
+                richTextBoxReciept.Text += (String.Format(format2, nr.Antal, nr.Namn, KategoriTyp(nr.Kategori), nr.Pris, priceTotal)) + Environment.NewLine;
                 totalItems += nr.Antal;
             }
-            recieptRichTextBox.Text += Environment.NewLine;
-            recieptRichTextBox.Text += "--------------------------------------------------" + Environment.NewLine;
-            recieptRichTextBox.Text += "TOTAL:" + "\t" + "\t" + "\t" + totalPrice +"SEK"+Environment.NewLine;
-            recieptRichTextBox.Text += Environment.NewLine;
-            recieptRichTextBox.Text += "Pay method:" + "\t" + "\t" + "\t" + paymentMethod + Environment.NewLine;
-            recieptRichTextBox.Text += "Change:" + "\t" + "\t" + "\t" + change+"SEK" + Environment.NewLine;
+            richTextBoxReciept.Text += Environment.NewLine;
+            richTextBoxReciept.Text += "--------------------------------------------------" + Environment.NewLine;
+            richTextBoxReciept.Text += "TOTAL:" + "\t" + "\t" + "\t" + totalPrice +" SEK"+Environment.NewLine;
+            richTextBoxReciept.Text += Environment.NewLine;
+            richTextBoxReciept.Text += "Pay method:" + "\t" + "\t" + "\t" + paymentMethod + Environment.NewLine;
+            richTextBoxReciept.Text += "Change:" + "\t" + "\t" + "\t" + change+" SEK" + Environment.NewLine;
+            richTextBoxReciept.Text += "Coupon:" + "\t" + "\t" + "\t" + couponAmount + " SEK" + Environment.NewLine;
             float woutTax = totalPrice * Inloggning.moms;
             float tax = Inloggning.moms * 100;
-            recieptRichTextBox.Text += "Tax " + tax + "%:" + "\t" + "\t" + "\t" + woutTax +"%" + Environment.NewLine;
+            richTextBoxReciept.Text += "Tax " + tax + "%:" + "\t" + "\t" + "\t" + woutTax +"%" + Environment.NewLine;
             Random verfNr = new Random();
             int nr1 = verfNr.Next(100000, 999999);
-            recieptRichTextBox.Text += "Receiptnumber:" + "\t" + "\t" + (String.Format(format1, nr1)) + Environment.NewLine;
-            recieptRichTextBox.Text += "Date:" + "\t" + "\t" + "\t" + "\t" + DateTime.Now + Environment.NewLine;
+            richTextBoxReciept.Text += "Receiptnumber:" + "\t" + "\t" + (String.Format(format1, nr1)) + Environment.NewLine;
+            richTextBoxReciept.Text += "Date:" + "\t" + "\t" + "\t" + "\t" + DateTime.Now + Environment.NewLine;
 
             ReportItems();
 
@@ -445,12 +414,12 @@ namespace DigitCashier
             state = 9;
         }
 
-        private void recieptRichTextBox_MouseClick(object sender, MouseEventArgs e) // Nollställer och gömmer kvittot
+        private void richTextBoxReciept_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             richTextBox2.Clear();
-            recieptRichTextBox.Clear();
+            richTextBoxReciept.Clear();
             textBox3.Text = null;
-            recieptRichTextBox.Hide();
+            panelReciept.Hide();
         }
         #endregion
 
@@ -485,23 +454,6 @@ namespace DigitCashier
                 else if (state == 3) // Fråga itemQuantity
                 {
                     VaraAntal(input);
-                    input = null;
-                    textBox2.Text = null;
-                }
-
-                else if (state == 5) // Fråga om kupong
-                {
-                    buttonCard.Enabled = false;
-                    buttonCash.Enabled = false;
-                    btnPay.Enabled = false;
-                    Kupong(input);
-                    input = null;
-                    textBox2.Text = null;
-                }
-
-                else if (state == 6) // Drar av värde av kupong från totalPrice
-                {
-                    KupongMatte(input);
                     input = null;
                     textBox2.Text = null;
                 }
@@ -589,44 +541,73 @@ namespace DigitCashier
             buttonEnter.Focus();
             textBox2.Text += "0";
         }
+
         private void button00_Click(object sender, EventArgs e)
         {
             buttonEnter.Focus();
             textBox2.Text += "00";
         }
 
+        private void textboxCoupon_TextChanged(object sender, EventArgs e)
+        {
+            int total;
+            if (Int32.TryParse(textboxCoupon.Text, out total) == false)
+            {
+                buttonAdd.Enabled = false;
+            }
+            else
+            {
+                buttonAdd.Enabled = true;
+            }
+        }
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(textboxCoupon.Text, out couponAmount) == true)
+            {
+                KupongMatte(couponAmount);
+                active = false;
+            }
+            else
+            {
+                textboxCoupon.Text = null;
+            }
+            panelCoupon.Hide();
+            btnPay.Enabled = false;
+            state = 7;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            string inp = null;            
+            Betalning(inp);
+            panelCoupon.Hide();
+            btnPay.Enabled = false;
+            state = 7;          
+        }
 
         private void buttonCard_Click(object sender, EventArgs e)
         {
-            textBox2.Text = "card";
+            textBox2.Text = "Card";
             buttonEnter_Click(sender, e);
         }
 
         private void buttonCash_Click(object sender, EventArgs e)
         {
-            textBox2.Text = "cash";
+            textBox2.Text = "Cash";
             buttonEnter_Click(sender, e);
         }
-        private void buttonYes_Click(object sender, EventArgs e)
-        {
-            textBox2.Text = "y";
-            buttonEnter_Click(sender, e);
-        }
-        private void buttonNo_Click(object sender, EventArgs e)
-        {
-            textBox2.Text = "n";
-            buttonEnter_Click(sender, e);
-        }
+
         private void buttonClear_Click(object sender, EventArgs e) // Rensar input textboxen
         {
             textBox2.Clear();
         }
+
         private void btnPay_Click(object sender, EventArgs e) // Betalningsknapp
         {
-            txtboxCommand.Text = "Coupon-Yes/No" + Environment.NewLine;
+            panelCoupon.Show();
             state = 5;
         }
-
+     
         private void btnNewCustomer_Click(object sender, EventArgs e) // Ny kund-knapp
         {
             if (totalPrice == 0)
