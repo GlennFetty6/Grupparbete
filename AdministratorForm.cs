@@ -239,6 +239,33 @@ namespace DigitCashier
                 writer.WriteLine("170");
             }
         }
+
+        private void EmpShowHours_TextChanged(object sender, EventArgs e)
+        {
+            int nr;
+
+            if (Int32.TryParse(EmpShowHours.Text, out nr) == false)
+            {
+                if (EmpShowHours.Text.Length > 0)
+                {
+                    EmpShowHours.Text = EmpShowHours.Text.Remove(EmpShowHours.Text.Length - 1);
+                }
+            }
+        }
+
+        private void EmpShowWage_TextChanged(object sender, EventArgs e)
+        {
+            int nr;
+
+            if (Int32.TryParse(EmpShowWage.Text, out nr) == false)
+            {
+                if (EmpShowWage.Text.Length > 0)
+                {
+                    EmpShowWage.Text = EmpShowWage.Text.Remove(EmpShowWage.Text.Length - 1);
+                }
+            }
+        }
+
         #endregion
 
         #region MainMenu
@@ -389,6 +416,13 @@ namespace DigitCashier
         {
             int nr;
 
+            if(Int32.TryParse(ItemsShowId.Text, out nr) == false){
+                if(ItemsShowId.Text.Length > 0)
+                {
+                    ItemsShowId.Text = ItemsShowId.Text.Remove(ItemsShowId.Text.Length - 1);
+                }
+            }
+
             if (Int32.TryParse(ItemsShowId.Text, out nr) == true)
             {
                 if (ItemsIfInList(Int32.Parse(ItemsShowId.Text)) == true)
@@ -487,6 +521,32 @@ namespace DigitCashier
             Inloggning.varuLista.Add(new Vara("tomatoes", 23, 1, 66, 10, 0));
         }
 
+        private void ItemsShowPrice_TextChanged(object sender, EventArgs e)
+        {
+            int nr;
+
+            if (Int32.TryParse(ItemsShowPrice.Text, out nr) == false)
+            {
+                if (ItemsShowPrice.Text.Length > 0)
+                {
+                    ItemsShowPrice.Text = ItemsShowPrice.Text.Remove(ItemsShowPrice.Text.Length - 1);
+                }
+            }
+        }
+
+        private void ItemsShowStatus_TextChanged(object sender, EventArgs e)
+        {
+            int nr;
+
+            if (Int32.TryParse(ItemsShowStatus.Text, out nr) == false)
+            {
+                if (ItemsShowStatus.Text.Length > 0)
+                {
+                    ItemsShowStatus.Text = ItemsShowStatus.Text.Remove(ItemsShowStatus.Text.Length - 1);
+                }
+            }
+        }
+
         #endregion
 
         #region Tax
@@ -531,5 +591,6 @@ namespace DigitCashier
 
 
         #endregion
+
     }
 }
