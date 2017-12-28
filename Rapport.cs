@@ -45,7 +45,7 @@ namespace DigitCashier
 
         private void Rapport_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Hide();
+            Hide();           
             Inloggning.FormLogIn();
         }
 

@@ -25,17 +25,13 @@ namespace DigitCashier
         {
             Application.EnableVisualStyles(); // Ska tydligen få skiten att se snyggare ut. Kanske fungerar på din VS 2017
             Application.SetCompatibleTextRenderingDefault(false);
-            //Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
-            //anst.LaggTillExempelAnstallda();
 
             varuLista = new List<Vara>(); // Skapar en list av Vara och kallar den varuLista
-                                          //anst.Items();
 
             AdministratorForm Ad = new AdministratorForm();
             Ad.Items();
             Ad.LaggTillExempelAnstallda();
 
-            // Application.Run(new LogInForm());
             Application.Run(new SplashForm());
         }
 
@@ -59,8 +55,6 @@ namespace DigitCashier
                 case 5:
                     Rapport Report = new Rapport();
                     Report.Show();
-                    //Forsaljningsrapport Rapport = new Forsaljningsrapport();
-                    //Rapport.FormRapport();
                     break;
                 case 0:
                     break;

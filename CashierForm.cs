@@ -632,7 +632,7 @@ namespace DigitCashier
             if (totalPrice == 0)
             {
                 richTextBox2.Text += "You will now return to login.";
-                Hide();
+                Application.Exit();
                 Inloggning.FormLogIn();
             }
             else

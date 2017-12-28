@@ -25,7 +25,6 @@ namespace DigitCashier
         {
             this.Size = new Size(1080, 715);
             this.StartPosition = FormStartPosition.CenterScreen;
-            //this.FormBorderStyle = FormBorderStyle.None;
 
             ItemsPanel.Size = new Size(910, 464);
             EmployeePanel.Size = new Size(910, 464);
@@ -514,11 +513,11 @@ namespace DigitCashier
 
         public void Items() 
         {
-            Inloggning.varuLista.Add(new Vara("milk", 12, 0, 22, 10, 0));
-            Inloggning.varuLista.Add(new Vara("coffee", 40, 0, 33, 10, 0));
-            Inloggning.varuLista.Add(new Vara("butter", 28, 0, 44, 10, 0));
-            Inloggning.varuLista.Add(new Vara("eggs", 22, 0, 55, 10, 0));
-            Inloggning.varuLista.Add(new Vara("tomatoes", 23, 1, 66, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Milk", 12, 0, 22, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Coffee", 40, 0, 33, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Butter", 28, 0, 44, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Eggs", 22, 0, 55, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Tomatoes", 23, 1, 66, 10, 0));
         }
 
         private void ItemsShowPrice_TextChanged(object sender, EventArgs e)

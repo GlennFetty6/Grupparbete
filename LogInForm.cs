@@ -33,7 +33,7 @@ namespace DigitCashier
 
             //if (ds.Tables[0].Rows[0][0].ToString() == "1")
             //    if (10 < 100)
-            {
+                {
                 Hide();
                 Inloggning.kodID = userIDTxtbox.Text;
                 Inloggning.LoggaIn(userIDTxtbox.Text);
@@ -103,8 +103,8 @@ namespace DigitCashier
             if (e.KeyCode == Keys.Enter)
             {
                 buttonLogIn_Click((object)sender, (EventArgs)e);
+                Hide();
             }
-
         }
     }
 }
