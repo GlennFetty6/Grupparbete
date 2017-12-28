@@ -24,7 +24,7 @@ namespace DigitCashier
             sp.Show();
         }
 
-        private void LogIn_Click(object sender, EventArgs e)
+        private void buttonLogIn_Click(object sender, EventArgs e)
         {
             //DataSet ds = new DataSet();
             //SqlConnection connect = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DigitLogin;Integrated Security=True");
@@ -32,7 +32,7 @@ namespace DigitCashier
             //sda.Fill(ds);
 
             //if (ds.Tables[0].Rows[0][0].ToString() == "1")
-                if (10 < 100)
+            //    if (10 < 100)
             {
                 Hide();
                 Inloggning.kodID = userIDTxtbox.Text;
@@ -42,17 +42,8 @@ namespace DigitCashier
             errorMessage(); // Anropar felmeddelande
         }
 
-        private void logInBtn_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                logInBtn.PerformClick();
-            }
-        }
-
         private void errorMessage()
-        {
-           // labelError.ForeColor = Color.Red; // Går icke picke på label
+        {           
             labelError.Show();
             TimerTime();      // Anropar Timern för felmeddelandet       
         }
@@ -102,9 +93,18 @@ namespace DigitCashier
             userIDTxtbox.Clear();
         }
 
-        private void logOutBtn_Click(object sender, EventArgs e)
+        private void buttonLogOut_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void LogInForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonLogIn_Click((object)sender, (EventArgs)e);
+            }
+
         }
     }
 }
