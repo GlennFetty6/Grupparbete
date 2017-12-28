@@ -52,7 +52,7 @@ namespace DigitCashier
 
         private void errorMessage()
         {
-            labelError.ForeColor = Color.Red; // Går icke picke på label
+           // labelError.ForeColor = Color.Red; // Går icke picke på label
             labelError.Show();
             TimerTime();      // Anropar Timern för felmeddelandet       
         }

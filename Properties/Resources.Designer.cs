@@ -65,7 +65,17 @@ namespace DigitCashier.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Abstract_Background_with_Blue_Curves_Vector_Illustration {
             get {
-                object obj = ResourceManager.GetObject("Abstract-Background-with-Blue-Curves-Vector-Illustration", resourceCulture);
+                object obj = ResourceManager.GetObject("Abstract_Background_with_Blue_Curves_Vector_Illustration", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BarCode {
+            get {
+                object obj = ResourceManager.GetObject("BarCode", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +93,9 @@ namespace DigitCashier.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dark_blue_button_Emp {
+        internal static System.Drawing.Bitmap Emp_H {
             get {
-                object obj = ResourceManager.GetObject("Dark_blue_button Emp", resourceCulture);
+                object obj = ResourceManager.GetObject("Emp_H", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +103,9 @@ namespace DigitCashier.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dark_blue_button_Emp_H {
+        internal static System.Drawing.Bitmap Emp_std {
             get {
-                object obj = ResourceManager.GetObject("Dark_blue_button Emp H", resourceCulture);
+                object obj = ResourceManager.GetObject("Emp_std", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +113,9 @@ namespace DigitCashier.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dark_blue_button_It {
+        internal static System.Drawing.Bitmap Items_H {
             get {
-                object obj = ResourceManager.GetObject("Dark_blue_button It", resourceCulture);
+                object obj = ResourceManager.GetObject("Items_H", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +123,9 @@ namespace DigitCashier.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dark_blue_button_It_H {
+        internal static System.Drawing.Bitmap Items_Std {
             get {
-                object obj = ResourceManager.GetObject("Dark_blue_button It H", resourceCulture);
+                object obj = ResourceManager.GetObject("Items_Std", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +133,9 @@ namespace DigitCashier.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dark_blue_button_Log {
+        internal static System.Drawing.Bitmap Logout_H {
             get {
-                object obj = ResourceManager.GetObject("Dark_blue_button Log", resourceCulture);
+                object obj = ResourceManager.GetObject("Logout_H", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,29 +143,9 @@ namespace DigitCashier.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dark_blue_button_Log_H {
+        internal static System.Drawing.Bitmap Logout_Std {
             get {
-                object obj = ResourceManager.GetObject("Dark_blue_button Log H", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Dark_blue_button_Tax {
-            get {
-                object obj = ResourceManager.GetObject("Dark_blue_button Tax", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Dark_blue_button_Tax_N {
-            get {
-                object obj = ResourceManager.GetObject("Dark_blue_button Tax N", resourceCulture);
+                object obj = ResourceManager.GetObject("Logout_Std", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +156,26 @@ namespace DigitCashier.Properties {
         internal static System.Drawing.Bitmap Splash {
             get {
                 object obj = ResourceManager.GetObject("Splash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tax_H {
+            get {
+                object obj = ResourceManager.GetObject("Tax_H", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tax_Std {
+            get {
+                object obj = ResourceManager.GetObject("Tax_Std", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

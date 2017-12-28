@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             this.logInBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
             this.userIDTxtbox = new System.Windows.Forms.TextBox();
@@ -111,10 +112,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Verdana", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.ForeColor = System.Drawing.Color.Snow;
             this.label3.Location = new System.Drawing.Point(88, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(258, 97);
+            this.label3.Size = new System.Drawing.Size(207, 78);
             this.label3.TabIndex = 20;
             this.label3.Text = "Login";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,10 +146,10 @@
             this.labelError.BackColor = System.Drawing.Color.Transparent;
             this.labelError.Enabled = false;
             this.labelError.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelError.ForeColor = System.Drawing.Color.Transparent;
+            this.labelError.ForeColor = System.Drawing.Color.DarkRed;
             this.labelError.Location = new System.Drawing.Point(54, 446);
             this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(318, 44);
+            this.labelError.Size = new System.Drawing.Size(260, 34);
             this.labelError.TabIndex = 23;
             this.labelError.Text = "Invalid user ID or password.\r\nPlease try again!";
             this.labelError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,7 +161,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::DigitCashier.Properties.Resources.Abstract_Background_with_Blue_Curves_Vector_Illustration;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.logOutBtn;
             this.ClientSize = new System.Drawing.Size(374, 529);
@@ -173,6 +174,7 @@
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LogInForm";
