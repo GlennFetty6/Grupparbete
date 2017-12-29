@@ -70,6 +70,7 @@ namespace DigitCashier
 
         private void NewItem() //Körs vid ny vara. 
         {
+            btnPay.Enabled = true;
             state = 1;
             txtboxCommand.Text = "Id-number " + Environment.NewLine;
         }
@@ -262,6 +263,8 @@ namespace DigitCashier
                 totalAmount = 0;
                 richTextBox2.Text += "The coupon covered the costs." + Environment.NewLine;
                 paymentMethod = "Coupon";
+                totalAmount = 0;
+                PrintReceipt();
 
             }
             else
@@ -632,7 +635,8 @@ namespace DigitCashier
             if (totalPrice == 0)
             {
                 richTextBox2.Text += "You will now return to login.";
-                Application.Exit();
+                // ActiveForm.Close();
+                Hide();
                 Inloggning.FormLogIn();
             }
             else

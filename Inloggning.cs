@@ -37,7 +37,6 @@ namespace DigitCashier
 
         public static void LoggaIn(string userID)
         {
-
             int firstNr = Math.Abs(Int32.Parse(kodID));
             while (firstNr >= 10) //Delar med 10 så länge talet är större än 10. För att få fram första siffran i koden. 
                 firstNr /= 10;

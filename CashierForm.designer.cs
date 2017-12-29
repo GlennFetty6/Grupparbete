@@ -59,9 +59,9 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelReceipt = new System.Windows.Forms.Panel();
+            this.textboxReceiptNo = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.richTextBoxReceipt = new System.Windows.Forms.RichTextBox();
-            this.textboxReceiptNo = new System.Windows.Forms.TextBox();
             this.panelCoupon.SuspendLayout();
             this.panelReceipt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -467,7 +467,7 @@
             this.textBoxError.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxError.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxError.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxError.ForeColor = System.Drawing.Color.Transparent;
+            this.textBoxError.ForeColor = System.Drawing.Color.DarkRed;
             this.textBoxError.Location = new System.Drawing.Point(13, 685);
             this.textBoxError.Name = "textBoxError";
             this.textBoxError.ReadOnly = true;
@@ -498,8 +498,7 @@
             this.textboxCoupon.Multiline = true;
             this.textboxCoupon.Name = "textboxCoupon";
             this.textboxCoupon.Size = new System.Drawing.Size(157, 47);
-            this.textboxCoupon.TabIndex = 5;
-            this.textboxCoupon.TabStop = false;
+            this.textboxCoupon.TabIndex = 1;
             this.textboxCoupon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textboxCoupon.TextChanged += new System.EventHandler(this.textboxCoupon_TextChanged);
             // 
@@ -509,7 +508,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(49, 214);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(157, 47);
-            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -520,7 +519,7 @@
             this.buttonAdd.Location = new System.Drawing.Point(49, 161);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(157, 47);
-            this.buttonAdd.TabIndex = 1;
+            this.buttonAdd.TabIndex = 2;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -530,7 +529,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(60, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 48);
@@ -549,6 +548,21 @@
             this.panelReceipt.Size = new System.Drawing.Size(426, 602);
             this.panelReceipt.TabIndex = 31;
             this.panelReceipt.Visible = false;
+            // 
+            // textboxReceiptNo
+            // 
+            this.textboxReceiptNo.BackColor = System.Drawing.Color.White;
+            this.textboxReceiptNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textboxReceiptNo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textboxReceiptNo.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxReceiptNo.Location = new System.Drawing.Point(57, 566);
+            this.textboxReceiptNo.Multiline = true;
+            this.textboxReceiptNo.Name = "textboxReceiptNo";
+            this.textboxReceiptNo.ReadOnly = true;
+            this.textboxReceiptNo.Size = new System.Drawing.Size(310, 31);
+            this.textboxReceiptNo.TabIndex = 23;
+            this.textboxReceiptNo.TabStop = false;
+            this.textboxReceiptNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox1
             // 
@@ -576,21 +590,6 @@
             this.richTextBoxReceipt.TabStop = false;
             this.richTextBoxReceipt.Text = "\n\n";
             this.richTextBoxReceipt.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.richTextBoxReceipt_MouseDoubleClick);
-            // 
-            // textboxReceiptNo
-            // 
-            this.textboxReceiptNo.BackColor = System.Drawing.Color.White;
-            this.textboxReceiptNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textboxReceiptNo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textboxReceiptNo.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReceiptNo.Location = new System.Drawing.Point(57, 566);
-            this.textboxReceiptNo.Multiline = true;
-            this.textboxReceiptNo.Name = "textboxReceiptNo";
-            this.textboxReceiptNo.ReadOnly = true;
-            this.textboxReceiptNo.Size = new System.Drawing.Size(310, 31);
-            this.textboxReceiptNo.TabIndex = 23;
-            this.textboxReceiptNo.TabStop = false;
-            this.textboxReceiptNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CashierForm
             // 
