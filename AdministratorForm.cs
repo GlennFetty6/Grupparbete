@@ -47,6 +47,103 @@ namespace DigitCashier
                 return cp;
             }
         }
+        #region MainMenu
+
+        private void EmployeeButton_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Employee");
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
+            if (EmployeePanel.Visible == false)
+            {
+                EmployeePanel.Show();
+            }
+
+            else
+            {
+                EmployeePanel.Hide();
+            }
+
+            TaxPanel.Hide();
+            ItemsPanel.Hide();
+
+            EmployeePanel.ResumeLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+        }
+
+        private void ItemsButton_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Items");
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
+            if (ItemsPanel.Visible == false)
+            {
+                ItemsPanel.Show();
+            }
+
+            else
+            {
+                ItemsPanel.Hide();
+            }
+
+            EmployeePanel.Hide();
+            TaxPanel.Hide();
+
+            EmployeePanel.ResumeLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
+            //EmployeePanel.SuspendLayout();
+            //ItemsPanel.ResumeLayout();
+            //TaxPanel.SuspendLayout();
+        }
+
+        private void UpdateTaxButton_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Tax");
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
+            if (TaxPanel.Visible == false)
+            {
+                TaxPanel.Show();
+            }
+
+            else
+            {
+                TaxPanel.Hide();
+            }
+
+            EmployeePanel.Hide();
+            ItemsPanel.Hide();
+
+            EmployeePanel.ResumeLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
+            //EmployeePanel.SuspendLayout();
+            //ItemsPanel.SuspendLayout();
+            //TaxPanel.ResumeLayout();
+        }
+
+        private void LogoutButton_Click_1(object sender, EventArgs e)
+        {
+            Hide();
+            Inloggning.FormLogIn();
+        }
+        private void AdministratorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide();
+            Inloggning.FormLogIn();
+        }
+
+        #endregion
 
         #region Employee
 
@@ -263,93 +360,6 @@ namespace DigitCashier
                     EmpShowWage.Text = EmpShowWage.Text.Remove(EmpShowWage.Text.Length - 1);
                 }
             }
-        }
-
-        #endregion
-
-        #region MainMenu
-
-        private void EmployeeButton_Click(object sender, EventArgs e)
-        {
-            EmployeePanel.SuspendLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-
-            if (EmployeePanel.Visible == false)
-            {  
-                EmployeePanel.Show();
-            }
-
-            else
-            {
-                EmployeePanel.Hide();
-            }
-
-            TaxPanel.Hide();
-            ItemsPanel.Hide();
-
-            EmployeePanel.ResumeLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-        }
-
-        private void ItemsButton_Click_1(object sender, EventArgs e)
-        {
-            EmployeePanel.SuspendLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-
-            if (ItemsPanel.Visible == false)
-            {
-                ItemsPanel.Show();
-            }
-
-            else
-            {  
-                ItemsPanel.Hide();
-            }
-
-            EmployeePanel.Hide();
-            TaxPanel.Hide();
-
-            EmployeePanel.ResumeLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-        }
-
-        private void UpdateTaxButton_Click_1(object sender, EventArgs e)
-        {
-            EmployeePanel.SuspendLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-
-            if (TaxPanel.Visible == false)
-            {
-                TaxPanel.Show();
-            }
-
-            else
-            {
-                TaxPanel.Hide();
-            }
-
-            EmployeePanel.Hide();
-            ItemsPanel.Hide();
-
-            EmployeePanel.ResumeLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-        }
-
-        private void LogoutButton_Click_1(object sender, EventArgs e)
-        {
-            Hide();
-            Inloggning.FormLogIn();
-        }
-        private void AdministratorForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Hide();
-            Inloggning.FormLogIn();
         }
 
         #endregion
