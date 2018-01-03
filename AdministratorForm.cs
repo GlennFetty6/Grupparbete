@@ -94,13 +94,9 @@ namespace DigitCashier
             EmployeePanel.Hide();
             TaxPanel.Hide();
 
-            EmployeePanel.ResumeLayout();
+            EmployeePanel.ResumeLayout(); // Skall alla vara på EmployeePanel?
             ItemsPanel.SuspendLayout();
             TaxPanel.SuspendLayout();
-
-            //EmployeePanel.SuspendLayout();
-            //ItemsPanel.ResumeLayout();
-            //TaxPanel.SuspendLayout();
         }
 
         private void UpdateTaxButton_Click_1(object sender, EventArgs e)
@@ -123,13 +119,9 @@ namespace DigitCashier
             EmployeePanel.Hide();
             ItemsPanel.Hide();
 
-            EmployeePanel.ResumeLayout();
+            EmployeePanel.ResumeLayout(); // Skall alla vara på EmployeePanel?
             ItemsPanel.SuspendLayout();
             TaxPanel.SuspendLayout();
-
-            //EmployeePanel.SuspendLayout();
-            //ItemsPanel.SuspendLayout();
-            //TaxPanel.ResumeLayout();
         }
 
         private void LogoutButton_Click_1(object sender, EventArgs e)

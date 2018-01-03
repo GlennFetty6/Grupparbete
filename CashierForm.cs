@@ -98,7 +98,7 @@ namespace DigitCashier
             }
         }
 
-        private void VaraID() //Kontrollerar kategori för att sen fråga om vikt eller itemQuantity. 
+        private void VaraID() //Kontrollerar kategori för att sen fråga om weight eller itemQuantity. 
         {
             if (valdVara.Kategori == 1)
             {
@@ -117,36 +117,50 @@ namespace DigitCashier
 
         private void VaraAntal(string inp) //Kollar så att antalet totalItems finns i lager etc. 
         {
-            int itemQuantity = 0;
+            int itemQuantity;
             int itemPrice = 0;
+            bool myloop = true;
 
             {
-                if (Int32.TryParse(inp, out itemQuantity) == false || itemQuantity <= 0)
+                do
                 {
-                    txtboxCommand.Text = "Quantity " + Environment.NewLine;
-                    textBox2.Text = null;
-                    textBoxError.Text = "Number is not valid. Please try again!" + Environment.NewLine;
-                    active = false;
-                }
+                    if (Int32.TryParse(inp, out itemQuantity) == false)
+                    {
+                        if(itemQuantity <= 0)
+                        {
+                            itemQuantity = 1;
+                            inp = "1";
+                            myloop = true;
+                            break;
+                        }
+                        txtboxCommand.Text = "Quantity " + Environment.NewLine;
+                        textBox2.Text = null;
+                        textBoxError.Text = "Number is not valid. Please try again!" + Environment.NewLine;
+                        myloop = false;
+                        active = false;
+                    }
 
-                else if (valdVara.LagerStatus == 0)
-                {
-                    btnPay.Enabled = true;
-                    textBox2.Text = null;
-                    textBoxError.Text = "The item is sold out." + Environment.NewLine;
-                    active = false;
-                    state = 1;
-                }
-                else if (itemQuantity > valdVara.LagerStatus)
-                {
-                    btnPay.Enabled = true;
-                    txtboxCommand.Text = "Quantity " + Environment.NewLine;
-                    textBox2.Text = null;
-                    textBoxError.Text = "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
-                    active = false;
-                }
-                else
-                {
+                    else if (valdVara.LagerStatus == 0)
+                    {
+                        btnPay.Enabled = true;
+                        textBox2.Text = null;
+                        textBoxError.Text = "The item is sold out." + Environment.NewLine;
+                        active = false;
+                        myloop = false;
+                        state = 1;
+                       
+                    }
+                    else if (itemQuantity > valdVara.LagerStatus)
+                    {
+                        btnPay.Enabled = true;
+                        txtboxCommand.Text = "Quantity " + Environment.NewLine;
+                        textBox2.Text = null;
+                        textBoxError.Text = "Sorry, there are only " + valdVara.LagerStatus + " " + valdVara.Namn + " left." + Environment.NewLine;
+                        active = false;
+                        myloop = false;
+                    }
+                } while (myloop == false);
+               
                     btnPay.Enabled = true;
                     richTextBox2.Text += inp + " " + valdVara.Namn + " added to the cart." + Environment.NewLine;
 
@@ -173,70 +187,82 @@ namespace DigitCashier
                     state = 1;
                     ShowCartContent();
                     NewItem();
-                }
+                
             }
         }
 
         private void VaraVikt(string inp) //Kollar så att antalet totalItems finns i lager etc. 
         {
-            int vikt = 0;
+            int weight;
             int kostnad = 0;
+            bool myloop = true;
 
-
-            if (Int32.TryParse(inp, out vikt) == false || vikt <= 0)
+            do
             {
-                txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
-                textBox2.Text = null;
-                textBoxError.Text = "Number is not valid. Please try again." + Environment.NewLine;
-                active = false;
-            }
+                if (Int32.TryParse(inp, out weight) == false)
+                {
+                    if (weight <= 0)
+                    {
+                        weight = 1;
+                        inp = "1";
+                        myloop = true;
+                        break;
+                    }
+                    txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
+                    textBox2.Text = null;
+                    textBoxError.Text = "Number is not valid. Please try again." + Environment.NewLine;
+                    active = false;
+                    myloop = false;
+                }
 
-            else if (valdVara.LagerStatus == 0)
-            {
-                btnPay.Enabled = true;
-                textBox2.Text = null;
-                textBoxError.Text = "The "+ valdVara.Namn +" is/are sold out." + Environment.NewLine;
-                active = false;
-                state = 1;
-                NewItem();
-            }
+                else if (valdVara.LagerStatus == 0)
+                {
+                    btnPay.Enabled = true;
+                    textBox2.Text = null;
+                    textBoxError.Text = "The " + valdVara.Namn + " is/are sold out." + Environment.NewLine;
+                    active = false;
+                    myloop = false;
+                    state = 1;
+                    NewItem();
+                }
 
-            else if (vikt > valdVara.LagerStatus)
-            {
-                btnPay.Enabled = true;
-                txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
-                textBox2.Text = null;
-                textBoxError.Text = "Sorry, there are only " + valdVara.LagerStatus + " kg " + valdVara.Namn + " left." + Environment.NewLine;
-                active = false;
-            }
+                else if (weight > valdVara.LagerStatus)
+                {
+                    btnPay.Enabled = true;
+                    txtboxCommand.Text = "Weight in kg " + Environment.NewLine;
+                    textBox2.Text = null;
+                    textBoxError.Text = "Sorry, there are only " + valdVara.LagerStatus + " kg " + valdVara.Namn + " left." + Environment.NewLine;
+                    active = false;
+                    myloop = false;
+                }
+            } while (myloop == false);
 
-            else
-            {
+           
                 if (customerCart.Contains(valdVara)) // Om vald vara finns höjs värderna på den valda varan
                 {
                     btnPay.Enabled = true;
-                    valdVara.LagerStatus -= vikt;
-                    valdVara.Antal += vikt;
-                    kostnad = vikt * valdVara.Pris;
+                    valdVara.LagerStatus -= weight;
+                    valdVara.Antal += weight;
+                    kostnad = weight * valdVara.Pris;
+                    richTextBox2.Text += weight + "kg " + valdVara.Namn + " (" + kostnad + "SEK)" + " added to the cart." + Environment.NewLine;
                     totalPrice += kostnad;
                     totalAmount += kostnad;
                 }
                 else // Ny vara läggs till i korgen
                 {
                     btnPay.Enabled = true;
-                    valdVara.LagerStatus -= vikt;
-                    valdVara.Antal = vikt;
-                    kostnad = vikt * valdVara.Pris;
+                    valdVara.LagerStatus -= weight;
+                    valdVara.Antal = weight;
+                    kostnad = weight * valdVara.Pris;
                     totalPrice += kostnad;
                     totalAmount += kostnad;
-                    richTextBox2.Text += vikt + "kg " + valdVara.Namn + " (" + kostnad + "SEK)"+" added to the cart." + Environment.NewLine;
+                    richTextBox2.Text += weight + "kg " + valdVara.Namn + " (" + kostnad + "SEK)"+" added to the cart." + Environment.NewLine;
                     customerCart.Add(valdVara); // Lägger i vald vara i kundvagnen
                     active = false;
                     state = 1;
                 }
                 ShowCartContent();
-                NewItem();
-            }
+                NewItem();            
         }
 
         bool CheckList(int tal) // Tittar så ID-numret finns med i varuListan.
@@ -307,7 +333,7 @@ namespace DigitCashier
             if (Int32.TryParse(inp, out betalt) == false || betalt <= 0 || betalt < totalAmount)
             {
                 totalAmount -= betalt;
-                textBoxError.Text = "The amount was not enough. " + Environment.NewLine;
+                textBoxError.Text = "The amount was not enough. " + totalAmount + " SEK left to pay." + Environment.NewLine;
                 richTextBox2.Text += "Amount left to pay: " + totalAmount + Environment.NewLine;
                 txtboxCommand.Text = "Cash or card ";
                 state = 7;
@@ -453,7 +479,7 @@ namespace DigitCashier
                     textBox2.Text = null;
                 }
 
-                else if (state == 2) // Om grönsak - fråga vikt
+                else if (state == 2) // Om grönsak - fråga weight
                 {
                     VaraVikt(input);
                     input = null;
