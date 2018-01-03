@@ -56,6 +56,8 @@
             this.textboxReportHeadEmp = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.textBoxLine2 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -460,6 +462,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Lavender;
+            this.panel3.Controls.Add(this.textBox2);
             this.panel3.Controls.Add(this.textboxReportTotal);
             this.panel3.Controls.Add(this.textboxReport);
             this.panel3.Location = new System.Drawing.Point(101, 222);
@@ -475,17 +478,17 @@
             this.textboxReportTotal.Cursor = System.Windows.Forms.Cursors.Default;
             this.textboxReportTotal.Enabled = false;
             this.textboxReportTotal.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReportTotal.Location = new System.Drawing.Point(36, 234);
-            this.textboxReportTotal.Multiline = true;
+            this.textboxReportTotal.Location = new System.Drawing.Point(37, 246);
             this.textboxReportTotal.Name = "textboxReportTotal";
             this.textboxReportTotal.ReadOnly = true;
-            this.textboxReportTotal.Size = new System.Drawing.Size(454, 49);
+            this.textboxReportTotal.Size = new System.Drawing.Size(454, 23);
             this.textboxReportTotal.TabIndex = 103;
             this.textboxReportTotal.TabStop = false;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Lavender;
+            this.panel4.Controls.Add(this.textBoxLine2);
             this.panel4.Controls.Add(this.textboxReportEmpTotal);
             this.panel4.Controls.Add(this.textboxReportEmp);
             this.panel4.Location = new System.Drawing.Point(101, 549);
@@ -500,12 +503,11 @@
             this.textboxReportEmpTotal.Cursor = System.Windows.Forms.Cursors.Default;
             this.textboxReportEmpTotal.Enabled = false;
             this.textboxReportEmpTotal.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxReportEmpTotal.Location = new System.Drawing.Point(36, 161);
-            this.textboxReportEmpTotal.Multiline = true;
+            this.textboxReportEmpTotal.Location = new System.Drawing.Point(36, 178);
             this.textboxReportEmpTotal.Name = "textboxReportEmpTotal";
             this.textboxReportEmpTotal.ReadOnly = true;
             this.textboxReportEmpTotal.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textboxReportEmpTotal.Size = new System.Drawing.Size(454, 49);
+            this.textboxReportEmpTotal.Size = new System.Drawing.Size(454, 23);
             this.textboxReportEmpTotal.TabIndex = 0;
             this.textboxReportEmpTotal.TabStop = false;
             // 
@@ -520,7 +522,7 @@
             this.textboxReportEmp.Multiline = true;
             this.textboxReportEmp.Name = "textboxReportEmp";
             this.textboxReportEmp.ReadOnly = true;
-            this.textboxReportEmp.Size = new System.Drawing.Size(454, 152);
+            this.textboxReportEmp.Size = new System.Drawing.Size(454, 139);
             this.textboxReportEmp.TabIndex = 0;
             this.textboxReportEmp.TabStop = false;
             // 
@@ -556,6 +558,38 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(530, 498);
             this.panel6.TabIndex = 102;
+            // 
+            // textBoxLine2
+            // 
+            this.textBoxLine2.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxLine2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxLine2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBoxLine2.Enabled = false;
+            this.textBoxLine2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLine2.Location = new System.Drawing.Point(36, 159);
+            this.textBoxLine2.Name = "textBoxLine2";
+            this.textBoxLine2.ReadOnly = true;
+            this.textBoxLine2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxLine2.Size = new System.Drawing.Size(454, 23);
+            this.textBoxLine2.TabIndex = 1;
+            this.textBoxLine2.TabStop = false;
+            this.textBoxLine2.Text = "___________________________________________________________";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Lavender;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(36, 227);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox2.Size = new System.Drawing.Size(454, 23);
+            this.textBox2.TabIndex = 2;
+            this.textBox2.TabStop = false;
+            this.textBox2.Text = "___________________________________________________________";
             // 
             // Rapport
             // 
@@ -633,5 +667,7 @@
         private System.Windows.Forms.TextBox textboxReportTotal;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox textboxReportEmpTotal;
+        private System.Windows.Forms.TextBox textBoxLine2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

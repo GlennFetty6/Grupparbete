@@ -40,6 +40,7 @@ namespace DigitCashier
             textboxReportTotal.Clear();
             textboxReport.Clear();
             textboxReportEmpTotal.Clear();
+            textboxReportEmpTotal.Clear();
             SkrivUtRapport(Inloggning.varuLista, TotalPris(), TotalVaror());
         }
 
@@ -94,10 +95,8 @@ namespace DigitCashier
                 }
                 textboxReport.Text += (String.Format(format, fileName, quantityItems, cost, status)) + Environment.NewLine;
             }
-            textboxReportTotal.Text += ("____________________________________________") + Environment.NewLine;
-            textboxReportTotal.Text += (String.Format(format, "Total", tVaror.ToString(), tPris.ToString(), " "));
+            textboxReportTotal.Text = (String.Format(format, "Total", tVaror.ToString(), tPris.ToString(), " "));
             EmployeeDetails();
-
         }
 
 
@@ -239,6 +238,7 @@ namespace DigitCashier
 
         void EmployeeDetails()
         {
+            totalHoursWorked = 0;
             const string format = "{0,-18} {1,-12}";
             textboxReportHeadEmp.Text = (String.Format(format, "Employee Name", "Hours")) + Environment.NewLine;
             AdministratorForm af = new AdministratorForm();
@@ -250,11 +250,11 @@ namespace DigitCashier
                     employeeName = reader.ReadLine();
                     hoursWorked = Int32.Parse(reader.ReadLine());
                 }
+                
+                textboxReportEmp.Text += (String.Format(format, employeeName, hoursWorked)) + Environment.NewLine;
                 totalHoursWorked += hoursWorked;
-                textboxReportEmp.Text += (String.Format(format, employeeName, hoursWorked)) + Environment.NewLine;               
             }
-            textboxReportEmpTotal.Text += ("____________________________________________") + Environment.NewLine;
-            textboxReportEmpTotal.Text += (String.Format(format, "Total", totalHoursWorked));
+            textboxReportEmpTotal.Text = (String.Format(format, "Total", totalHoursWorked));
         }
     }
 }
