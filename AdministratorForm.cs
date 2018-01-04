@@ -25,7 +25,6 @@ namespace DigitCashier
         {
             this.Size = new Size(1080, 715);
             this.StartPosition = FormStartPosition.CenterScreen;
-            //this.FormBorderStyle = FormBorderStyle.None;
 
             ItemsPanel.Size = new Size(910, 464);
             EmployeePanel.Size = new Size(910, 464);
@@ -48,6 +47,95 @@ namespace DigitCashier
                 return cp;
             }
         }
+        #region MainMenu
+
+        private void EmployeeButton_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Employee");
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
+            if (EmployeePanel.Visible == false)
+            {
+                EmployeePanel.Show();
+            }
+
+            else
+            {
+                EmployeePanel.Hide();
+            }
+
+            TaxPanel.Hide();
+            ItemsPanel.Hide();
+
+            EmployeePanel.ResumeLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+        }
+
+        private void ItemsButton_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Items");
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
+            if (ItemsPanel.Visible == false)
+            {
+                ItemsPanel.Show();
+            }
+
+            else
+            {
+                ItemsPanel.Hide();
+            }
+
+            EmployeePanel.Hide();
+            TaxPanel.Hide();
+
+            EmployeePanel.ResumeLayout(); // Skall alla vara på EmployeePanel?
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+        }
+
+        private void UpdateTaxButton_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Tax");
+            EmployeePanel.SuspendLayout();
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+
+            if (TaxPanel.Visible == false)
+            {
+                TaxPanel.Show();
+            }
+
+            else
+            {
+                TaxPanel.Hide();
+            }
+
+            EmployeePanel.Hide();
+            ItemsPanel.Hide();
+
+            EmployeePanel.ResumeLayout(); // Skall alla vara på EmployeePanel?
+            ItemsPanel.SuspendLayout();
+            TaxPanel.SuspendLayout();
+        }
+
+        private void LogoutButton_Click_1(object sender, EventArgs e)
+        {
+            Hide();
+            Inloggning.FormLogIn();
+        }
+        private void AdministratorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide();
+            Inloggning.FormLogIn();
+        }
+
+        #endregion
 
         #region Employee
 
@@ -239,86 +327,31 @@ namespace DigitCashier
                 writer.WriteLine("170");
             }
         }
-        #endregion
 
-        #region MainMenu
-
-        private void EmployeeButton_Click(object sender, EventArgs e)
+        private void EmpShowHours_TextChanged(object sender, EventArgs e)
         {
-            EmployeePanel.SuspendLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
+            int nr;
 
-            if (EmployeePanel.Visible == false)
-            {  
-                EmployeePanel.Show();
-            }
-
-            else
+            if (Int32.TryParse(EmpShowHours.Text, out nr) == false)
             {
-                EmployeePanel.Hide();
+                if (EmpShowHours.Text.Length > 0)
+                {
+                    EmpShowHours.Text = EmpShowHours.Text.Remove(EmpShowHours.Text.Length - 1);
+                }
             }
-
-            TaxPanel.Hide();
-            ItemsPanel.Hide();
-
-            EmployeePanel.ResumeLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
         }
 
-        private void ItemsButton_Click_1(object sender, EventArgs e)
+        private void EmpShowWage_TextChanged(object sender, EventArgs e)
         {
-            EmployeePanel.SuspendLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
+            int nr;
 
-            if (ItemsPanel.Visible == false)
+            if (Int32.TryParse(EmpShowWage.Text, out nr) == false)
             {
-                ItemsPanel.Show();
+                if (EmpShowWage.Text.Length > 0)
+                {
+                    EmpShowWage.Text = EmpShowWage.Text.Remove(EmpShowWage.Text.Length - 1);
+                }
             }
-
-            else
-            {  
-                ItemsPanel.Hide();
-            }
-
-            EmployeePanel.Hide();
-            TaxPanel.Hide();
-
-            EmployeePanel.ResumeLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-        }
-
-        private void UpdateTaxButton_Click_1(object sender, EventArgs e)
-        {
-            EmployeePanel.SuspendLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-
-            if (TaxPanel.Visible == false)
-            {
-                TaxPanel.Show();
-            }
-
-            else
-            {
-                TaxPanel.Hide();
-            }
-
-            EmployeePanel.Hide();
-            ItemsPanel.Hide();
-
-            EmployeePanel.ResumeLayout();
-            ItemsPanel.SuspendLayout();
-            TaxPanel.SuspendLayout();
-        }
-
-        private void LogoutButton_Click_1(object sender, EventArgs e)
-        {
-            Hide();
-            Inloggning.FormLogIn();
         }
 
         #endregion
@@ -383,6 +416,13 @@ namespace DigitCashier
         private void ItemsShowId_TextChanged(object sender, EventArgs e)
         {
             int nr;
+
+            if(Int32.TryParse(ItemsShowId.Text, out nr) == false){
+                if(ItemsShowId.Text.Length > 0)
+                {
+                    ItemsShowId.Text = ItemsShowId.Text.Remove(ItemsShowId.Text.Length - 1);
+                }
+            }
 
             if (Int32.TryParse(ItemsShowId.Text, out nr) == true)
             {
@@ -473,13 +513,39 @@ namespace DigitCashier
             ItemsPanel.Hide();
         }
 
-        public void Items() //Fick ej heta samma som klass
+        public void Items() 
         {
-            Inloggning.varuLista.Add(new Vara("milk", 12, 0, 22, 10, 0));
-            Inloggning.varuLista.Add(new Vara("coffee", 40, 0, 33, 10, 0));
-            Inloggning.varuLista.Add(new Vara("butter", 28, 0, 44, 10, 0));
-            Inloggning.varuLista.Add(new Vara("eggs", 22, 0, 55, 10, 0));
-            Inloggning.varuLista.Add(new Vara("tomatoes", 23, 1, 66, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Milk", 12, 0, 22, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Coffee", 40, 0, 33, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Butter", 28, 0, 44, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Eggs", 22, 0, 55, 10, 0));
+            Inloggning.varuLista.Add(new Vara("Tomatoes", 23, 1, 66, 10, 0));
+        }
+
+        private void ItemsShowPrice_TextChanged(object sender, EventArgs e)
+        {
+            int nr;
+
+            if (Int32.TryParse(ItemsShowPrice.Text, out nr) == false)
+            {
+                if (ItemsShowPrice.Text.Length > 0)
+                {
+                    ItemsShowPrice.Text = ItemsShowPrice.Text.Remove(ItemsShowPrice.Text.Length - 1);
+                }
+            }
+        }
+
+        private void ItemsShowStatus_TextChanged(object sender, EventArgs e)
+        {
+            int nr;
+
+            if (Int32.TryParse(ItemsShowStatus.Text, out nr) == false)
+            {
+                if (ItemsShowStatus.Text.Length > 0)
+                {
+                    ItemsShowStatus.Text = ItemsShowStatus.Text.Remove(ItemsShowStatus.Text.Length - 1);
+                }
+            }
         }
 
         #endregion
@@ -526,5 +592,6 @@ namespace DigitCashier
 
 
         #endregion
+
     }
 }

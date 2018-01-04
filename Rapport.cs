@@ -14,75 +14,105 @@ namespace DigitCashier
 {
     public partial class Rapport : Form
     {
-        int priset;
-        int varor;
+        int totalPrice;
+        int totalItems;
         string rapport = AppDomain.CurrentDomain.BaseDirectory;
-        int antal;
+        int quantityItems;
         int cost;
+        int status = 10;
+        string employeeName;
+        int hoursWorked;
+        int totalHoursWorked;
 
         public Rapport()
         {
             InitializeComponent();
         }
 
-        public void SkrivUtRapport(List<Vara> varor, int tPris, int tVaror)
+        private void Rapport_Load(object sender, EventArgs e)
         {
-            const string format = "{0,-10} {1,-15} {2,0}";
-            textboxReport.ReadOnly = true;
-            textboxReport.Text += Environment.NewLine;
-            foreach(string s in SoldItems())
-            {
-                string fileName = Path.GetFileNameWithoutExtension(s);
-                if (fileName == "TotalaVaror" || fileName == "TotalPris")
-                {
-                    continue;
-                }             
-        
-                    //textboxReport.Text += fileName + Environment.NewLine;
-                    
-                    using (StreamReader reader = new StreamReader(s))
-                    {
-                        string line;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            int y = Convert.ToInt32(line);
-                            antal += y;
-                        }
-                    }
-                    //textboxReport.Text += antal + Environment.NewLine;
-
-                    foreach (Vara b in Inloggning.varuLista)
-                    {
-                        if (b.Namn == fileName)
-                        {
-                            cost = antal * b.Pris;
-                        }
-                    }
-
-                textboxReport.Text += (String.Format(format, "Name", "Quantity sold", "Total revenue")) + Environment.NewLine;
-                textboxReport.Text += (String.Format(format, fileName , antal , cost)) + Environment.NewLine;
-            }
-
-            textboxReport.Text += Environment.NewLine;
-            textboxReport.Text += "Total number of items sold: ";
-            textboxReport.Text += tVaror.ToString() + " items" + Environment.NewLine;
-            textboxReport.Text += "Total sales in SEK: ";
-            textboxReport.Text += tPris.ToString() + " SEK" + Environment.NewLine;
+            textBox1.Text = year.ToString();
         }
 
-
-        private void Rapport_FormClosing(object sender, FormClosingEventArgs e)
+        void PrintReport()
         {
-            Hide(); // Kommentera bort koden nedan då den inte skall finnas...
+            textboxReportEmp.Clear();
+            textboxReportTotal.Clear();
+            textboxReport.Clear();
+            textboxReportEmpTotal.Clear();
+            SkrivUtRapport(Inloggning.varuLista, TotalPris(), TotalVaror());
         }
 
         private void Rapport_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Hide();           
             Inloggning.FormLogIn();
         }
 
+        public void SkrivUtRapport(List<Vara> varor, int tPris, int tVaror)
+        {
+            if (Directory.Exists(rapport + "\\Rapport\\" + year + "\\" + month + "\\") == false)
+            {
+                MessageBox.Show("There is no data saved for this month.");
+                return;
+            }
+
+            const string format = "{0,-10} {1,-11} {2,-13} {3,5}";
+            textboxReport.Text += Environment.NewLine;
+            textboxReportHead.Text = (String.Format(format, "Item Name", "Purchased", "Sales Amount", "Status"));
+
+            foreach (string s in SoldItems())
+            {
+                string fileName = Path.GetFileNameWithoutExtension(s); // Tar in filnamn utan endelsen .txt
+                if (fileName == "TotalaVaror" || fileName == "TotalPris")
+                {
+                    continue;
+                }
+                
+                using (StreamReader reader = new StreamReader(s))
+                {
+                    string line;
+                    int y = 0;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        y += Convert.ToInt32(line);
+                        
+                    }
+                    quantityItems = y;
+                }
+
+                foreach (Vara b in Inloggning.varuLista)
+                {
+                    if (b.Namn == fileName)
+                    {
+                        cost = quantityItems * b.Pris;
+                    }
+                }
+                
+                foreach (Vara a in Inloggning.varuLista)
+                {                    
+                    status = a.LagerStatus;
+                }
+                textboxReport.Text += (String.Format(format, fileName, quantityItems, cost, status)) + Environment.NewLine;
+            }
+            textboxReportTotal.Text = (String.Format(format, "Total", tVaror.ToString(), tPris.ToString(), " "));
+            EmployeeDetails();
+        }
+
+
+        private string[] SoldItems()
+        {
+            string[] sold;
+            sold = Directory.GetFiles(rapport + "\\Rapport\\" + year + "\\\\" + month);
+            return sold;
+        }
+
+
+        #region Button Months
+
         int year = DateTime.Now.Year;
         int month;
+
         private void button1_Click(object sender, EventArgs e)
         {
             year--;
@@ -95,81 +125,84 @@ namespace DigitCashier
             textBox1.Text = year.ToString();
         }
 
-        private void January_CheckedChanged(object sender, EventArgs e)
-        {           
+        private void January_Click(object sender, EventArgs e)
+        {
             month = 1;
             PrintReport();
         }
 
-        private void February_CheckedChanged(object sender, EventArgs e)
+        private void February_Click(object sender, EventArgs e)
         {
             month = 2;
             PrintReport();
         }
 
-        private void Mars_CheckedChanged(object sender, EventArgs e)
+        private void March_Click(object sender, EventArgs e)
         {
             month = 3;
             PrintReport();
         }
 
-        private void April_CheckedChanged(object sender, EventArgs e)
+        private void April_Click(object sender, EventArgs e)
         {
             month = 4;
             PrintReport();
         }
 
-        private void May_CheckedChanged(object sender, EventArgs e)
+        private void May_Click(object sender, EventArgs e)
         {
             month = 5;
             PrintReport();
         }
 
-        private void June_CheckedChanged(object sender, EventArgs e)
+        private void June_Click(object sender, EventArgs e)
         {
             month = 6;
             PrintReport();
         }
 
-        private void July_CheckedChanged(object sender, EventArgs e)
+        private void July_Click(object sender, EventArgs e)
         {
             month = 7;
             PrintReport();
         }
 
-        private void August_CheckedChanged(object sender, EventArgs e)
+        private void August_Click(object sender, EventArgs e)
         {
             month = 8;
             PrintReport();
         }
 
-        private void September_CheckedChanged(object sender, EventArgs e)
+        private void September_Click(object sender, EventArgs e)
         {
             month = 9;
             PrintReport();
         }
 
-        private void October_CheckedChanged(object sender, EventArgs e)
+        private void October_Click(object sender, EventArgs e)
         {
             month = 10;
             PrintReport();
         }
 
-        private void November_CheckedChanged(object sender, EventArgs e)
+        private void November_Click(object sender, EventArgs e)
         {
             month = 11;
             PrintReport();
         }
 
-        private void December_CheckedChanged(object sender, EventArgs e)
+        private void December_Click(object sender, EventArgs e)
         {
             month = 12;
             PrintReport();
         }
 
+        #endregion
+
+
         int TotalPris()
         {
-            priset = 0;
+            totalPrice = 0;
             if ((File.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt")) == true)
             {
                 using (StreamReader reader = new StreamReader(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalPris.txt"))
@@ -178,16 +211,16 @@ namespace DigitCashier
                     while ((line = reader.ReadLine()) != null)
                     {
                         int y = Convert.ToInt32(line);
-                        priset += y;
+                        totalPrice += y;
                     }
                 }
             }
-            return priset;
+            return totalPrice;
         }
 
         int TotalVaror()
         {
-            varor = 0;
+            totalItems = 0;
             if ((File.Exists(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt")) == true)
             {
                 using (StreamReader reader = new StreamReader(rapport + "\\Rapport\\" + year + "\\\\" + month + "\\TotalaVaror.txt"))
@@ -196,40 +229,32 @@ namespace DigitCashier
                     while ((line = reader.ReadLine()) != null)
                     {
                         int y = Convert.ToInt32(line);
-                        varor += y;
+                        totalItems += y;
                     }
                 }
             }
-            return varor;
+            return totalItems;
         }
-        void AnstalldaInfo()
+
+        void EmployeeDetails()
         {
+            totalHoursWorked = 0;
+            const string format = "{0,-18} {1,-12}";
+            textboxReportHeadEmp.Text = (String.Format(format, "Employee Name", "Hours")) + Environment.NewLine;
             AdministratorForm af = new AdministratorForm();
-            //Anstallda ans = new Anstallda();
-            int i = 1;
 
             foreach (string file in af.ListaAnstallda())
             {
                 using (StreamReader reader = new StreamReader(file))
                 {
-                    string anstalldNamn = reader.ReadLine();
-                    int arbTimmar = Int32.Parse(reader.ReadLine());
-                    i++;
+                    employeeName = reader.ReadLine();
+                    hoursWorked = Int32.Parse(reader.ReadLine());
                 }
+                
+                textboxReportEmp.Text += (String.Format(format, employeeName, hoursWorked)) + Environment.NewLine;
+                totalHoursWorked += hoursWorked;
             }
-        }
-
-        void PrintReport()
-        {
-            textboxReport.Clear();
-            SkrivUtRapport(Inloggning.varuLista, TotalPris(), TotalVaror());
-        }
-
-        private string[] SoldItems()
-        {
-            string[] sold;
-            sold = Directory.GetFiles(rapport + "\\Rapport\\" + year + "\\\\" + month);
-            return sold;
+            textboxReportEmpTotal.Text = (String.Format(format, "Total", totalHoursWorked));
         }
     }
 }
