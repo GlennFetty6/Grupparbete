@@ -19,7 +19,7 @@ namespace DigitCashier
         string rapport = AppDomain.CurrentDomain.BaseDirectory;
         int quantityItems;
         int cost;
-        int status;
+        int status = 10;
         string employeeName;
         int hoursWorked;
         int totalHoursWorked;
@@ -39,7 +39,6 @@ namespace DigitCashier
             textboxReportEmp.Clear();
             textboxReportTotal.Clear();
             textboxReport.Clear();
-            textboxReportEmpTotal.Clear();
             textboxReportEmpTotal.Clear();
             SkrivUtRapport(Inloggning.varuLista, TotalPris(), TotalVaror());
         }
@@ -89,8 +88,9 @@ namespace DigitCashier
                         cost = quantityItems * b.Pris;
                     }
                 }
+                
                 foreach (Vara a in Inloggning.varuLista)
-                {
+                {                    
                     status = a.LagerStatus;
                 }
                 textboxReport.Text += (String.Format(format, fileName, quantityItems, cost, status)) + Environment.NewLine;

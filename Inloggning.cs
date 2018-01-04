@@ -57,8 +57,8 @@ namespace DigitCashier
                     break;
                 case 0:
                     break;
-                default: // Är denna menlös? Används ej.
-                    break;
+                default:
+                    throw new NotFiniteNumberException();
             }
         }
         public static void FormLogIn()

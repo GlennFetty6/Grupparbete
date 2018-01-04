@@ -485,7 +485,7 @@
             this.panelCoupon.Controls.Add(this.buttonCancel);
             this.panelCoupon.Controls.Add(this.buttonAdd);
             this.panelCoupon.Controls.Add(this.label1);
-            this.panelCoupon.Location = new System.Drawing.Point(769, 12);
+            this.panelCoupon.Location = new System.Drawing.Point(664, 10);
             this.panelCoupon.Name = "panelCoupon";
             this.panelCoupon.Size = new System.Drawing.Size(244, 308);
             this.panelCoupon.TabIndex = 30;
@@ -493,7 +493,9 @@
             // 
             // textboxCoupon
             // 
-            this.textboxCoupon.Font = new System.Drawing.Font("Verdana", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxCoupon.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textboxCoupon.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textboxCoupon.ForeColor = System.Drawing.Color.DimGray;
             this.textboxCoupon.Location = new System.Drawing.Point(49, 108);
             this.textboxCoupon.Multiline = true;
             this.textboxCoupon.Name = "textboxCoupon";
@@ -504,7 +506,10 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCancel.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonCancel.Location = new System.Drawing.Point(49, 214);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(157, 47);
@@ -515,7 +520,10 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAdd.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonAdd.Location = new System.Drawing.Point(49, 161);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(157, 47);
@@ -528,11 +536,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Verdana", 25.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(60, 51);
+            this.label1.Location = new System.Drawing.Point(52, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 48);
+            this.label1.Size = new System.Drawing.Size(186, 52);
             this.label1.TabIndex = 0;
             this.label1.Text = "Coupon";
             // 
@@ -633,8 +641,8 @@
             this.Name = "CashierForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cashier Machine";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KassaForm_FormClosed);
-            this.Load += new System.EventHandler(this.KassaForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CashierForm_FormClosed);
+            this.Load += new System.EventHandler(this.CashierForm_Load);
             this.panelCoupon.ResumeLayout(false);
             this.panelCoupon.PerformLayout();
             this.panelReceipt.ResumeLayout(false);
