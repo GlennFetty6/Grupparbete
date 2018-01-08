@@ -49,15 +49,15 @@
             this.textboxReportHead = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textboxReportTotal = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.textBoxLine2 = new System.Windows.Forms.TextBox();
             this.textboxReportEmpTotal = new System.Windows.Forms.TextBox();
             this.textboxReportEmp = new System.Windows.Forms.TextBox();
             this.textboxReportHeadEmp = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBoxLine2 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -471,6 +471,22 @@
             this.panel3.Size = new System.Drawing.Size(530, 269);
             this.panel3.TabIndex = 103;
             // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Lavender;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(36, 227);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox2.Size = new System.Drawing.Size(454, 23);
+            this.textBox2.TabIndex = 2;
+            this.textBox2.TabStop = false;
+            this.textBox2.Text = "___________________________________________________________";
+            // 
             // textboxReportTotal
             // 
             this.textboxReportTotal.BackColor = System.Drawing.Color.Lavender;
@@ -495,6 +511,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(529, 201);
             this.panel4.TabIndex = 104;
+            // 
+            // textBoxLine2
+            // 
+            this.textBoxLine2.BackColor = System.Drawing.Color.Lavender;
+            this.textBoxLine2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxLine2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBoxLine2.Enabled = false;
+            this.textBoxLine2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLine2.Location = new System.Drawing.Point(36, 159);
+            this.textBoxLine2.Name = "textBoxLine2";
+            this.textBoxLine2.ReadOnly = true;
+            this.textBoxLine2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxLine2.Size = new System.Drawing.Size(454, 23);
+            this.textBoxLine2.TabIndex = 1;
+            this.textBoxLine2.TabStop = false;
+            this.textBoxLine2.Text = "___________________________________________________________";
             // 
             // textboxReportEmpTotal
             // 
@@ -558,38 +590,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(530, 498);
             this.panel6.TabIndex = 102;
-            // 
-            // textBoxLine2
-            // 
-            this.textBoxLine2.BackColor = System.Drawing.Color.Lavender;
-            this.textBoxLine2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxLine2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBoxLine2.Enabled = false;
-            this.textBoxLine2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLine2.Location = new System.Drawing.Point(36, 159);
-            this.textBoxLine2.Name = "textBoxLine2";
-            this.textBoxLine2.ReadOnly = true;
-            this.textBoxLine2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxLine2.Size = new System.Drawing.Size(454, 23);
-            this.textBoxLine2.TabIndex = 1;
-            this.textBoxLine2.TabStop = false;
-            this.textBoxLine2.Text = "___________________________________________________________";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.Lavender;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(36, 227);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox2.Size = new System.Drawing.Size(454, 23);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.TabStop = false;
-            this.textBox2.Text = "___________________________________________________________";
             // 
             // Rapport
             // 

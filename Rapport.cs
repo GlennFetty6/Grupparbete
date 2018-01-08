@@ -14,12 +14,13 @@ namespace DigitCashier
 {
     public partial class Rapport : Form
     {
+
         int totalPrice;
         int totalItems;
         string rapport = AppDomain.CurrentDomain.BaseDirectory;
         int quantityItems;
         int cost;
-        int status = 10;
+        int status = 0;
         string employeeName;
         int hoursWorked;
         int totalHoursWorked;
@@ -90,9 +91,10 @@ namespace DigitCashier
                 }
                 
                 foreach (Vara a in Inloggning.varuLista)
-                {                    
+                {
                     status = a.LagerStatus;
                 }
+           
                 textboxReport.Text += (String.Format(format, fileName, quantityItems, cost, status)) + Environment.NewLine;
             }
             textboxReportTotal.Text = (String.Format(format, "Total", tVaror.ToString(), tPris.ToString(), " "));
