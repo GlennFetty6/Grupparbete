@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="DigitCashier.AdministratorForm">
     <Position X="10" Y="0.75" Width="1.5" />
     <Compartments>
@@ -24,7 +24,11 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DigitCashier.Inloggning">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="1.75" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAiAAAAAiAAAAABAAAAAABAAAAAA=</HashCode>
       <FileName>Inloggning.cs</FileName>
@@ -45,8 +49,8 @@
   <Class Name="DigitCashier.Rapport">
     <Position X="6" Y="0.75" Width="1.5" />
     <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>IaREEqgACDREAgAgAwTwlQHOgg4QGIAgGGQIA0BEAAA=</HashCode>
@@ -61,16 +65,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DigitCashier.Vara">
-    <Position X="3" Y="0.75" Width="1.5" />
+    <Position X="3.75" Y="0.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <InheritanceLine Type="System.Object" FixedToPoint="true">
       <Path>
-        <Point X="2.5" Y="4" />
-        <Point X="2.5" Y="0.75" />
-        <Point X="3" Y="0.75" />
+        <Point X="3.5" Y="3" />
+        <Point X="3.5" Y="0.75" />
+        <Point X="3.75" Y="0.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -79,7 +84,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="System.Object">
-    <Position X="1.75" Y="4" Width="1.5" />
+    <Position X="2.75" Y="3" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
