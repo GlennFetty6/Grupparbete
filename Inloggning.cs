@@ -52,7 +52,7 @@ namespace DigitCashier
                     Admin.Show();                   
                     break;
                 case 5:
-                    Rapport Report = new Rapport();
+                    ReportForm Report = new ReportForm();
                     Report.Show();
                     break;
                 case 0:
