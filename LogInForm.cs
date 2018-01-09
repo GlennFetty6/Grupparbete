@@ -95,8 +95,7 @@ namespace DigitCashier
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            //ActiveForm.Close();
-            Application.Exit();
+            ActiveForm.Close();
         }
 
         private void LogInForm_KeyDown(object sender, KeyEventArgs e)
