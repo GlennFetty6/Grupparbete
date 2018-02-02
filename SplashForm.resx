@@ -117,41 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BIZjH2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BIZjH2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BarCode" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BarCode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Emp_H" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Emp H.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Emp_std" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Emp std.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Items_H" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Items H.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Items_Std" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Items Std.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logout_H" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logout H.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logout_Std" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logout Std.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tax_H" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Tax H.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tax_Std" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Tax Std.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Abstract_Background_with_Blue_Curves_Vector_Illustration" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Abstract_Background_with_Blue_Curves_Vector_Illustration.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

@@ -1,0 +1,142 @@
+C:\Users\Ella\Desktop\C#\DigitCashier\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\C#\DigitCashier\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\C#\DigitCashier\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\C#\DigitCashier\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\C#\DigitCashier\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\C#\DigitCashier\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Grupparbete\DigitCashier\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\Grupparbete\DigitCashier\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Grupparbete\DigitCashier\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.Rapport.resources
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.AdminForm.resources
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.AdminForm.resources
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.KassaForm.resources
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.Rapport.resources
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\DigitCashierUI - kopia\DigitCashier\obj\Debug\DigitCashier.NewEmployee.resources
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.KassaForm.resources
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.NewEmployee.resources
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\DigitCashierUI\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\Fungerar\DigitCashierUI - kopia (2)\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\Fungerar\DigitCashierUI - kopia (2)\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Fungerar\DigitCashierUI - kopia (2)\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Fungerar gammal\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\Fungerar gammal\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Fungerar gammal\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\obj\Debug\DigitCashier.CashierForm.resources
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\obj\Debug\DigitCashier.Rapport.resources
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\bin\Debug\ImageButton.dll
+C:\Users\Ella\Desktop\Fungerar ej\DigitCashier\bin\Debug\ImageButton.pdb
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\bin\Debug\ImageButton.dll
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\bin\Debug\ImageButton.pdb
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\obj\Debug\DigitCashier.CashierForm.resources
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\obj\Debug\DigitCashier.Rapport.resources
+C:\Users\Ella\Desktop\Kör denna\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\Test\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\Test\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Test\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Test\DigitCashier\bin\Debug\ImageButton.dll
+C:\Users\Ella\Desktop\Test\DigitCashier\bin\Debug\ImageButton.pdb
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.CashierForm.resources
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.Rapport.resources
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.AdministratorForm.resources
+C:\Users\Ella\Desktop\Test\DigitCashier\obj\Debug\DigitCashier.SplashForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\bin\Debug\ImageButton.dll
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\bin\Debug\ImageButton.pdb
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.AdministratorForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.CashierForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.SplashForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.AdministratorForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.CashierForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.SplashForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.Rapport.resources
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\bin\Debug\ImageButton.dll
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\bin\Debug\ImageButton.pdb
+C:\Users\Ella\Desktop\TheDigitCashier - kopia\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\TheDigitCashier\DigitCashier\obj\Debug\DigitCashier.ReportForm.resources
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\bin\Debug\ImageButton.dll
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\bin\Debug\ImageButton.pdb
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.AdministratorForm.resources
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.CashierForm.resources
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.SplashForm.resources
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.ReportForm.resources
+C:\Users\Ella\Desktop\Stefan&Elenore\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\bin\Debug\DigitCashier.exe.config
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\bin\Debug\DigitCashier.exe
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\bin\Debug\DigitCashier.pdb
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\bin\Debug\ImageButton.dll
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\bin\Debug\ImageButton.pdb
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.csprojResolveAssemblyReference.cache
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.AdministratorForm.resources
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.CashierForm.resources
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.LogInForm.resources
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.SplashForm.resources
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.Properties.Resources.resources
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.ReportForm.resources
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.csproj.GenerateResource.Cache
+C:\Users\Ella\Desktop\C#\DigitCashier\DCmedGUI\DigitCashier Source\DigitCashier\obj\Debug\DigitCashier.csproj.CoreCompileInputs.cache

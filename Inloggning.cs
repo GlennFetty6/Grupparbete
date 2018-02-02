@@ -25,22 +25,18 @@ namespace DigitCashier
         {
             Application.EnableVisualStyles(); // Ska tydligen få skiten att se snyggare ut. Kanske fungerar på din VS 2017
             Application.SetCompatibleTextRenderingDefault(false);
-            //Anstallda anst = new Anstallda(); //Skapar en instans av klassen Anställda
-            //anst.LaggTillExempelAnstallda();
 
             varuLista = new List<Vara>(); // Skapar en list av Vara och kallar den varuLista
-                                          //anst.Items();
 
             AdministratorForm Ad = new AdministratorForm();
             Ad.Items();
             Ad.LaggTillExempelAnstallda();
 
-            Application.Run(new LogInForm());
+            Application.Run(new SplashForm());
         }
 
         public static void LoggaIn(string userID)
         {
-
             int firstNr = Math.Abs(Int32.Parse(kodID));
             while (firstNr >= 10) //Delar med 10 så länge talet är större än 10. För att få fram första siffran i koden. 
                 firstNr /= 10;
@@ -56,15 +52,13 @@ namespace DigitCashier
                     Admin.Show();                   
                     break;
                 case 5:
-                    Rapport Report = new Rapport();
+                    ReportForm Report = new ReportForm();
                     Report.Show();
-                    //Forsaljningsrapport Rapport = new Forsaljningsrapport();
-                    //Rapport.FormRapport();
                     break;
                 case 0:
                     break;
-                default: // Är denna menlös? Används ej.
-                    break;
+                default:
+                    throw new NotFiniteNumberException();
             }
         }
         public static void FormLogIn()
